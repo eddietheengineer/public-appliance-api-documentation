@@ -10300,7 +10300,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x121e",
     "pair_role": "status",
     "confidence": "medium",
@@ -11785,7 +11785,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x129e",
     "pair_role": "status",
     "confidence": "medium",
@@ -23183,7 +23183,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "device_class": "enum",
     "paired_erd": "0x208d",
     "pair_role": "status",
@@ -27023,7 +27023,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x20ca",
     "pair_role": "status",
     "confidence": "medium",
@@ -29166,7 +29166,7 @@
       "offset": 1,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0x20d5",
     "pair_role": "status",
     "confidence": "low",
@@ -29403,7 +29403,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x20de",
     "pair_role": "status",
     "confidence": "low",
@@ -39839,7 +39839,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0x212d",
     "pair_role": "status",
     "confidence": "low",
@@ -40003,7 +40003,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x210b",
     "pair_role": "status",
     "confidence": "low",
@@ -40241,7 +40241,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x210e",
     "pair_role": "status",
     "confidence": "low",
@@ -40578,7 +40578,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x2111",
     "pair_role": "status",
     "confidence": "low",
@@ -40780,7 +40780,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x2114",
     "pair_role": "status",
     "confidence": "low",
@@ -41175,7 +41175,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x211d",
     "pair_role": "status",
     "confidence": "low",
@@ -41304,7 +41304,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x2120",
     "pair_role": "status",
     "confidence": "medium",
@@ -49868,7 +49868,7 @@
       "offset": 47,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0x2164",
     "pair_role": "status",
     "confidence": "low",
@@ -50166,7 +50166,7 @@
       "offset": 35,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x2166",
     "pair_role": "status",
     "confidence": "low",
@@ -50384,7 +50384,7 @@
       "offset": 27,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x2168",
     "pair_role": "status",
     "confidence": "low",
@@ -52418,7 +52418,7 @@
       "offset": 1,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0x222d",
     "pair_role": "status",
     "confidence": "low",
@@ -52492,7 +52492,7 @@
       "offset": 1,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0x222f",
     "pair_role": "status",
     "confidence": "low",
@@ -55318,7 +55318,7 @@
       "offset": 31,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x223c",
     "pair_role": "status",
     "confidence": "low",
@@ -56302,7 +56302,7 @@
       "offset": 15,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x224a",
     "pair_role": "status",
     "confidence": "low",
@@ -56530,7 +56530,7 @@
       "offset": 19,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x224c",
     "pair_role": "status",
     "confidence": "low",
@@ -57119,7 +57119,7 @@
       "offset": 9,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x2252",
     "pair_role": "status",
     "confidence": "low",
@@ -57529,7 +57529,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "device_class": "enum",
     "paired_erd": "0x2258",
     "pair_role": "status",
@@ -57758,7 +57758,7 @@
       "offset": 29,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x2316",
     "pair_role": "status",
     "confidence": "low",
@@ -58371,7 +58371,7 @@
       "offset": 0,
       "size": 7
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0x2f07",
     "pair_role": "status",
     "confidence": "low",
@@ -62213,7 +62213,7 @@
       "offset": 3,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0x3202",
     "pair_role": "status",
     "confidence": "low",
@@ -65944,7 +65944,7 @@
       "offset": 11,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0x322e",
     "pair_role": "status",
     "confidence": "low",
@@ -72871,7 +72871,7 @@
       "offset": 8,
       "size": 4
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x5023",
     "pair_role": "status",
     "confidence": "low",
@@ -76371,7 +76371,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x511c",
     "pair_role": "status",
     "confidence": "medium",
@@ -76639,7 +76639,7 @@
       "offset": 47,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "device_class": "duration",
     "unit_of_measurement": "s",
     "paired_erd": "0x5121",
@@ -82037,7 +82037,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x521c",
     "pair_role": "status",
     "confidence": "medium",
@@ -82305,7 +82305,7 @@
       "offset": 47,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "device_class": "duration",
     "unit_of_measurement": "s",
     "paired_erd": "0x5221",
@@ -87121,7 +87121,7 @@
       "offset": 15,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0x5402",
     "pair_role": "status",
     "confidence": "low",
@@ -87773,7 +87773,7 @@
       "offset": 23,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x5410",
     "pair_role": "status",
     "confidence": "low",
@@ -88442,7 +88442,7 @@
       "offset": 35,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0x5416",
     "pair_role": "status",
     "confidence": "low",
@@ -88515,7 +88515,7 @@
       "offset": 23,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x5420",
     "pair_role": "status",
     "confidence": "low",
@@ -111675,7 +111675,7 @@
       "offset": 7,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0x5c3d",
     "pair_role": "status",
     "confidence": "low",
@@ -111739,7 +111739,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x5c40",
     "pair_role": "status",
     "confidence": "low",
@@ -119249,7 +119249,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x7051",
     "pair_role": "status",
     "confidence": "low",
@@ -122175,7 +122175,7 @@
       "offset": 1,
       "size": 4
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "device_class": "enum",
     "paired_erd": "0x746d",
     "pair_role": "status",
@@ -127211,7 +127211,7 @@
       "offset": 2,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0x7982",
     "pair_role": "status",
     "confidence": "low",
@@ -128879,7 +128879,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°C",
     "paired_erd": "0x7a24",
@@ -128969,7 +128969,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "device_class": "enum",
     "paired_erd": "0x7a27",
     "pair_role": "status",
@@ -129026,7 +129026,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "device_class": "enum",
     "paired_erd": "0x7a40",
     "pair_role": "status",
@@ -129091,7 +129091,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x7a43",
     "pair_role": "status",
     "confidence": "medium",
@@ -132912,7 +132912,7 @@
       "offset": 2,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x905e",
     "pair_role": "status",
     "confidence": "low",
@@ -133771,7 +133771,7 @@
       "offset": 3,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "paired_erd": "0x913f",
     "pair_role": "status",
     "confidence": "low",
@@ -141761,7 +141761,7 @@
       "offset": 16,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "paired_erd": "0x9401",
@@ -144968,7 +144968,7 @@
       "offset": 4,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "select",
     "paired_erd": "0xd023",
     "pair_role": "status",
     "confidence": "low",
