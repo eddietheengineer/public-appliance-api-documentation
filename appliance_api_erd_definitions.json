@@ -306,7 +306,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "button",
     "device_class": "restart",
     "confidence": "medium",
     "comment": "Reset Board: Reset/restart button."
@@ -5086,7 +5086,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "button",
     "device_class": "restart",
     "confidence": "medium",
     "comment": "Water Filter Reset Request: Reset/restart button."
@@ -6594,7 +6594,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "restart",
     "confidence": "medium",
     "comment": "Food Mode Preset (Desired/Requested): Reset/restart button."
   }, {
@@ -8916,7 +8915,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "binary_sensor",
+    "ha_domain": "button",
     "device_class": "restart",
     "confidence": "medium",
     "comment": "Water Filter Reset Request: Reset/restart button."
@@ -50857,7 +50856,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "binary_sensor",
+    "ha_domain": "button",
     "device_class": "restart",
     "confidence": "medium",
     "comment": "Reset Current Coin Box Count Request: Reset/restart button."
@@ -73101,7 +73100,6 @@
       "size": 1
     }],
     "ha_domain": "binary_sensor",
-    "device_class": "enum",
     "confidence": "medium",
     "comment": "Enhanced Sabbath State: Sabbath mode toggle."
   }, {
@@ -73184,7 +73182,6 @@
       "size": 1
     }],
     "ha_domain": "binary_sensor",
-    "device_class": "enum",
     "paired_erd": "0x5031",
     "pair_role": "status",
     "confidence": "medium",
@@ -85649,7 +85646,6 @@
       "size": 1
     }],
     "ha_domain": "binary_sensor",
-    "device_class": "enum",
     "confidence": "medium",
     "comment": "Manual Enhanced Sabbath Schedule Selected: Sabbath mode toggle."
   }, {
@@ -90476,7 +90472,6 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "binary_sensor",
     "device_class": "duration",
     "confidence": "medium",
     "comment": "Start Closed-Loop Cooking Cook Timer: Timer/duration value."
@@ -130699,7 +130694,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "button",
     "device_class": "restart",
     "confidence": "medium",
     "comment": "Espresso Maker Reset Brew Parameters: Reset/restart button."
@@ -133403,7 +133398,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "binary_sensor",
+    "ha_domain": "button",
     "device_class": "restart",
     "confidence": "medium",
     "comment": "Ice Maker Filter Status Reset: Reset/restart button."
@@ -138077,7 +138072,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "button",
     "device_class": "restart",
     "confidence": "medium",
     "comment": "Toaster Oven Reset Cooking Parameters for the Selected Cooking Mode: Reset/restart button."
@@ -143401,7 +143396,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "button",
     "device_class": "restart",
     "confidence": "medium",
     "comment": "Reset Cooking Parameters: Reset/restart button."
