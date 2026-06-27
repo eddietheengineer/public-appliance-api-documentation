@@ -2742,7 +2742,7 @@
   }, {
     "name": "Number of Sound Level Settings",
     "id": "0x0904",
-    "operations": ["read", "write", "publish", "subscribe"],
+    "operations": ["read", "publish", "subscribe"],
     "description": "Maximum sound level setting",
     "updateClass": {
       "type": "static"
@@ -3862,7 +3862,10 @@
         "23": "F&P RF680 Platform",
         "24": "F&P RB60 Platform",
         "25": "Double Under Counter Convertible Drawer",
-        "26": "F&P 905 Platform"
+        "26": "F&P 905 Platform",
+        "27": "Single Cabinet Fresh Food With Deli Pan Under Counter",
+        "28": "Haier HRF590 Platform",
+        "29": "Haier HRF650 SBS Platform"
       },
       "offset": 0,
       "size": 1
@@ -9120,11 +9123,24 @@
       "offset": 0,
       "size": 1
     }, {
+      "name": "CapTouch",
+      "type": "enum",
+      "bits": {
+        "offset": 3,
+        "size": 1
+      },
+      "values": {
+        "0": "Clear",
+        "1": "Set"
+      },
+      "offset": 0,
+      "size": 1
+    }, {
       "name": "Reserved",
       "type": "u8",
       "bits": {
-        "offset": 3,
-        "size": 5
+        "offset": 4,
+        "size": 4
       },
       "offset": 0,
       "size": 1
@@ -9665,7 +9681,7 @@
       "offset": 0,
       "size": 16
     }, {
-      "name": "Supported Notifications.Reserved 2",
+      "name": "Supported Notifications.Water Filter 1 Expiration Alert",
       "type": "bool",
       "bits": {
         "offset": 114,
@@ -9674,7 +9690,7 @@
       "offset": 0,
       "size": 16
     }, {
-      "name": "Supported Notifications.Reserved 3",
+      "name": "Supported Notifications.Water Filter 2 Expiration Alert",
       "type": "bool",
       "bits": {
         "offset": 115,
@@ -9683,7 +9699,7 @@
       "offset": 0,
       "size": 16
     }, {
-      "name": "Supported Notifications.Reserved 4",
+      "name": "Supported Notifications.Leak Detected Alert",
       "type": "bool",
       "bits": {
         "offset": 116,
@@ -9692,7 +9708,7 @@
       "offset": 0,
       "size": 16
     }, {
-      "name": "Supported Notifications.Reserved 5",
+      "name": "Supported Notifications.CapTouch Alert",
       "type": "bool",
       "bits": {
         "offset": 117,
@@ -9935,7 +9951,7 @@
       "offset": 16,
       "size": 16
     }, {
-      "name": "Notifications.Reserved 2",
+      "name": "Notifications.Water Filter 1 Expiration Alert",
       "type": "bool",
       "bits": {
         "offset": 114,
@@ -9944,7 +9960,7 @@
       "offset": 16,
       "size": 16
     }, {
-      "name": "Notifications.Reserved 3",
+      "name": "Notifications.Water Filter 2 Expiration Alert",
       "type": "bool",
       "bits": {
         "offset": 115,
@@ -9953,7 +9969,7 @@
       "offset": 16,
       "size": 16
     }, {
-      "name": "Notifications.Reserved 4",
+      "name": "Notifications.Leak Detected Alert",
       "type": "bool",
       "bits": {
         "offset": 116,
@@ -9962,7 +9978,7 @@
       "offset": 16,
       "size": 16
     }, {
-      "name": "Notifications.Reserved 5",
+      "name": "Notifications.CapTouch Alert",
       "type": "bool",
       "bits": {
         "offset": 117,
@@ -10118,6 +10134,199 @@
     "ha_domain": "sensor",
     "confidence": "low",
     "comment": "Home Water Filter Notification: Multi-field sensor, may need custom handling to extract individual values."
+  }, {
+    "name": "Water Filter 1 Status Details",
+    "id": "0x1176",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Details on water filter 1 used to determine expiration.",
+    "updateClass": {
+      "type": "legacy"
+    },
+    "data": [{
+      "name": "Percentage Remaining",
+      "type": "u32",
+      "offset": 0,
+      "size": 4
+    }, {
+      "name": "Gallons to Expiration",
+      "type": "i32",
+      "offset": 4,
+      "size": 4
+    }, {
+      "name": "Days to Expiration",
+      "type": "i32",
+      "offset": 8,
+      "size": 4
+    }]
+  }, {
+    "name": "Water Filter 2 Status Details",
+    "id": "0x1177",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Details on water filter 2 used to determine expiration.",
+    "updateClass": {
+      "type": "legacy"
+    },
+    "data": [{
+      "name": "Percentage Remaining",
+      "type": "u32",
+      "offset": 0,
+      "size": 4
+    }, {
+      "name": "Gallons to Expiration",
+      "type": "i32",
+      "offset": 4,
+      "size": 4
+    }, {
+      "name": "Days to Expiration",
+      "type": "i32",
+      "offset": 8,
+      "size": 4
+    }]
+  }, {
+    "name": "Home Water Filter Platform",
+    "id": "0x1178",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "The platform type for the home water filter.",
+    "updateClass": {
+      "type": "static"
+    },
+    "data": [{
+      "name": "Home Water Filter Platform",
+      "type": "enum",
+      "values": {
+        "0": "POE",
+        "1": "POU",
+        "2": "RO"
+      },
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Home Water Filter 0 Type Information",
+    "id": "0x1179",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Used to publish home water filter 0 type and mounting location.",
+    "updateClass": {
+      "type": "static"
+    },
+    "data": [{
+      "name": "Type",
+      "type": "enum",
+      "values": {
+        "0": "POE 13 in",
+        "1": "POE 20 in",
+        "2": "POE 10 in",
+        "3": "RO Carbon Filter",
+        "4": "Reverse Osmosis",
+        "5": "RO Remineralization",
+        "6": "RO Pre Filter",
+        "7": "RO Post Filter",
+        "8": "POU Bluetooth",
+        "9": "POU Single Stage",
+        "10": "POU Dual Stage",
+        "11": "POU High Flow",
+        "12": "In Line Filter",
+        "13": "Five Year Filter",
+        "14": "Shower Filter",
+        "15": "Antiscale"
+      },
+      "offset": 0,
+      "size": 1
+    }, {
+      "name": "Location",
+      "type": "enum",
+      "values": {
+        "0": "Bottom",
+        "1": "Middle",
+        "2": "Upper"
+      },
+      "offset": 1,
+      "size": 1
+    }]
+  }, {
+    "name": "Home Water Filter 1 Type Information",
+    "id": "0x117a",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Used to publish home water filter 1 type and mounting location.",
+    "updateClass": {
+      "type": "static"
+    },
+    "data": [{
+      "name": "Type",
+      "type": "enum",
+      "values": {
+        "0": "POE 13 in",
+        "1": "POE 20 in",
+        "2": "POE 10 in",
+        "3": "RO Carbon Filter",
+        "4": "Reverse Osmosis",
+        "5": "RO Remineralization",
+        "6": "RO Pre Filter",
+        "7": "RO Post Filter",
+        "8": "POU Bluetooth",
+        "9": "POU Single Stage",
+        "10": "POU Dual Stage",
+        "11": "POU High Flow",
+        "12": "In Line Filter",
+        "13": "Five Year Filter",
+        "14": "Shower Filter",
+        "15": "Antiscale"
+      },
+      "offset": 0,
+      "size": 1
+    }, {
+      "name": "Location",
+      "type": "enum",
+      "values": {
+        "0": "Bottom",
+        "1": "Middle",
+        "2": "Upper"
+      },
+      "offset": 1,
+      "size": 1
+    }]
+  }, {
+    "name": "Home Water Filter 2 Type Information",
+    "id": "0x117b",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Used to publish home water filter 2 type and mounting location.",
+    "updateClass": {
+      "type": "static"
+    },
+    "data": [{
+      "name": "Type",
+      "type": "enum",
+      "values": {
+        "0": "POE 13 in",
+        "1": "POE 20 in",
+        "2": "POE 10 in",
+        "3": "RO Carbon Filter",
+        "4": "Reverse Osmosis",
+        "5": "RO Remineralization",
+        "6": "RO Pre Filter",
+        "7": "RO Post Filter",
+        "8": "POU Bluetooth",
+        "9": "POU Single Stage",
+        "10": "POU Dual Stage",
+        "11": "POU High Flow",
+        "12": "In Line Filter",
+        "13": "Five Year Filter",
+        "14": "Shower Filter",
+        "15": "Antiscale"
+      },
+      "offset": 0,
+      "size": 1
+    }, {
+      "name": "Location",
+      "type": "enum",
+      "values": {
+        "0": "Bottom",
+        "1": "Middle",
+        "2": "Upper"
+      },
+      "offset": 1,
+      "size": 1
+    }]
   }, {
     "name": "Turbo Cool Request",
     "id": "0x120c",
@@ -10349,11 +10558,29 @@
       "offset": 0,
       "size": 1
     }, {
+      "name": "Primary Feature Pan Light",
+      "type": "bool",
+      "bits": {
+        "offset": 4,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 1
+    }, {
+      "name": "Secondary Feature Pan Light",
+      "type": "bool",
+      "bits": {
+        "offset": 5,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 1
+    }, {
       "name": "reserved",
       "type": "u8",
       "bits": {
-        "offset": 4,
-        "size": 4
+        "offset": 6,
+        "size": 2
       },
       "offset": 0,
       "size": 1
@@ -19617,6 +19844,65 @@
     "confidence": "medium",
     "comment": "System Startup Time in Minutes After Last Power Outage: Single numeric read-only sensor."
   }, {
+    "name": "Barcode Scan History",
+    "id": "0x141f",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "The data for the last scanned barcode.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Barcode Scan History.Barcode",
+      "type": "string",
+      "offset": 0,
+      "size": 16
+    }, {
+      "name": "Barcode Scan History.Type",
+      "type": "enum",
+      "values": {
+        "0": "CodeId1Mappings_Code128",
+        "1": "CodeId1Mappings_Ean8",
+        "2": "CodeId1Mappings_Ean13",
+        "3": "CodeId1Mappings_Issn",
+        "4": "CodeId1Mappings_Issb",
+        "5": "CodeId1Mappings_Upce",
+        "6": "CodeId1Mappings_Upca",
+        "7": "CodeId1Mappings_Interleaved2of5",
+        "8": "CodeId1Mappings_Itf6",
+        "9": "CodeId1Mappings_Itf14",
+        "10": "CodeId1Mappings_Matrix2of5",
+        "11": "CodeId1Mappings_Industrial2of5",
+        "12": "CodeId1Mappings_Code39",
+        "13": "CodeId1Mappings_Codabar",
+        "14": "CodeId1Mappings_Code93",
+        "15": "CodeId1Mappings_Code11",
+        "16": "CodeId1Mappings_Msi_Plessey",
+        "17": "CodeId1Mappings_Rss14",
+        "18": "CodeId1Mappings_Rss14Limited",
+        "19": "CodeId1Mappings_Rss14Expanded",
+        "20": "CodeId1Mappings_Rss14Stacked",
+        "21": "CodeId1Mappings_Pdf417",
+        "22": "CodeId1Mappings_DataMatrix",
+        "23": "CodeId1Mappings_QRCode",
+        "24": "CodeId1Mappings_AztecCode",
+        "25": "CodeId1Mappings_Maxicode",
+        "26": "CodeId1Mappings_MicroPdf417",
+        "27": "CodeId1Mappings_MicroQR"
+      },
+      "offset": 16,
+      "size": 1
+    }, {
+      "name": "Barcode Scan History.Maximum Visible Characters",
+      "type": "u8",
+      "offset": 17,
+      "size": 1
+    }, {
+      "name": "Barcode Scan History.Sequence Number",
+      "type": "u16",
+      "offset": 18,
+      "size": 2
+    }]
+  }, {
     "name": "SBC Request To Power Off Barcode Scanner",
     "id": "0x142c",
     "operations": ["read", "write", "publish", "subscribe"],
@@ -19633,6 +19919,248 @@
     "ha_domain": "binary_sensor",
     "confidence": "medium",
     "comment": "SBC Request To Power Off Barcode Scanner: Boolean writable switch."
+  }, {
+    "name": "Variable Cube Size Setting Data 0",
+    "id": "0x14bd",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Used to publish the number of cube size settings and the default cube size.",
+    "updateClass": {
+      "type": "static"
+    },
+    "data": [{
+      "name": "Number of Cube Size Settings",
+      "type": "u8",
+      "offset": 0,
+      "size": 1
+    }, {
+      "name": "Cube Size Default Setting",
+      "type": "u8",
+      "offset": 1,
+      "size": 1
+    }]
+  }, {
+    "name": "Variable Cube Size Request 0",
+    "id": "0x14be",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "Used to request the desired ice cube size. Maximum cube size is defined in ERD 14BD",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Variable Cube Size Request",
+      "type": "u8",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Variable Cube Size Status 0",
+    "id": "0x14bf",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Used to read the cube size setting status after ERD 14BE is written.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Variable Cube Size Status",
+      "type": "u8",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Variable Cube Size Setting Data 2",
+    "id": "0x14c0",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Used to publish the number of cube size settings and the default cube size.",
+    "updateClass": {
+      "type": "static"
+    },
+    "data": [{
+      "name": "Number of Cube Size Settings",
+      "type": "u8",
+      "offset": 0,
+      "size": 1
+    }, {
+      "name": "Cube Size Default Setting",
+      "type": "u8",
+      "offset": 1,
+      "size": 1
+    }]
+  }, {
+    "name": "Variable Cube Size Request 2",
+    "id": "0x14c1",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "Used to request the desired ice cube size. Maximum cube size is defined in ERD 14C0",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Variable Cube Size Request",
+      "type": "u8",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Variable Cube Size Status 2",
+    "id": "0x14c2",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Used to read the cube size setting status after ERD 14C1 is written.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Variable Cube Size Status",
+      "type": "u8",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Dimmable Lighting 0 Warmth Percentage Request",
+    "id": "0x14c3",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "Request to set the warmth percentage for lights to a value between 0 and 100 percent.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Dimmable Light 0 Warmth Percentage Requested (0 - 100)",
+      "type": "u8",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Dimmable Lighting 0 Warmth Percentage Setting",
+    "id": "0x14c4",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "The response to a warmth percentage request for lights with the actual percentage setting.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Dimmable Light 0 Warmth Percentage Requested (0 - 100)",
+      "type": "u8",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Secondary Feature Pan Filtered Temperature Resolved",
+    "id": "0x14c5",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Used to report the resolved filtered average temperature from the secondary feature pan",
+    "updateClass": {
+      "type": "periodic",
+      "periodInMsec": 1000
+    },
+    "data": [{
+      "name": "Secondary Feature Pan Filtered Temperature Resolved (fahrenheit x 100)",
+      "type": "i16",
+      "offset": 0,
+      "size": 2
+    }]
+  }, {
+    "name": "System Power Off Request",
+    "id": "0x14c6",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "Used to request system power state for specific loads",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "System Power Off Request",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "System Power Off Status",
+    "id": "0x14c7",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Used to report power state of specific system loads",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "System Power Off Status",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Scanned Barcode Result",
+    "id": "0x14c8",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "The result after a barcode is scanned.\nThis ERD is written to the unit after the barcode scan history ERD 0x141F event is processed by the cloud.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Scanned Barcode Result.Barcode",
+      "type": "string",
+      "offset": 0,
+      "size": 16
+    }, {
+      "name": "Scanned Barcode Result.Type",
+      "type": "enum",
+      "values": {
+        "0": "CodeId1Mappings_Code128",
+        "1": "CodeId1Mappings_Ean8",
+        "2": "CodeId1Mappings_Ean13",
+        "3": "CodeId1Mappings_Issn",
+        "4": "CodeId1Mappings_Issb",
+        "5": "CodeId1Mappings_Upce",
+        "6": "CodeId1Mappings_Upca",
+        "7": "CodeId1Mappings_Interleaved2of5",
+        "8": "CodeId1Mappings_Itf6",
+        "9": "CodeId1Mappings_Itf14",
+        "10": "CodeId1Mappings_Matrix2of5",
+        "11": "CodeId1Mappings_Industrial2of5",
+        "12": "CodeId1Mappings_Code39",
+        "13": "CodeId1Mappings_Codabar",
+        "14": "CodeId1Mappings_Code93",
+        "15": "CodeId1Mappings_Code11",
+        "16": "CodeId1Mappings_Msi_Plessey",
+        "17": "CodeId1Mappings_Rss14",
+        "18": "CodeId1Mappings_Rss14Limited",
+        "19": "CodeId1Mappings_Rss14Expanded",
+        "20": "CodeId1Mappings_Rss14Stacked",
+        "21": "CodeId1Mappings_Pdf417",
+        "22": "CodeId1Mappings_DataMatrix",
+        "23": "CodeId1Mappings_QRCode",
+        "24": "CodeId1Mappings_AztecCode",
+        "25": "CodeId1Mappings_Maxicode",
+        "26": "CodeId1Mappings_MicroPdf417",
+        "27": "CodeId1Mappings_MicroQR"
+      },
+      "offset": 16,
+      "size": 1
+    }, {
+      "name": "Scanned Barcode Result.Maximum Visible Characters",
+      "type": "u8",
+      "offset": 17,
+      "size": 1
+    }, {
+      "name": "Scanned Barcode Result.Sequence Number",
+      "type": "u16",
+      "offset": 18,
+      "size": 2
+    }, {
+      "name": "Scanned Barcode Result.Result",
+      "type": "enum",
+      "values": {
+        "0": "Unknown",
+        "1": "Added to shopping list",
+        "2": "Valid",
+        "3": "Rejected",
+        "4": "Connection Error",
+        "5": "Timeout Error"
+      },
+      "offset": 20,
+      "size": 1
+    }, {
+      "name": "Scanned Barcode Result.Product Title",
+      "type": "string",
+      "offset": 21,
+      "size": 65
+    }]
   }, {
     "name": "Machine State",
     "id": "0x2000",
@@ -19982,6 +20510,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -22112,6 +22642,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -23895,6 +24427,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -24026,11 +24560,38 @@
       "offset": 29,
       "size": 1
     }, {
-      "name": "Commercial Laundry Request.Attributes.Reserved 1",
+      "name": "Commercial Laundry Request.Attributes.WashCycleOutOfBalance",
       "type": "bool",
       "bits": {
         "offset": 1,
-        "size": 7
+        "size": 1
+      },
+      "offset": 29,
+      "size": 1
+    }, {
+      "name": "Commercial Laundry Request.Attributes.FreeMode_NoAppInteraction",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 29,
+      "size": 1
+    }, {
+      "name": "Commercial Laundry Request.Attributes.FreeMode_App",
+      "type": "bool",
+      "bits": {
+        "offset": 3,
+        "size": 1
+      },
+      "offset": 29,
+      "size": 1
+    }, {
+      "name": "Commercial Laundry Request.Attributes.Reserved 1",
+      "type": "bool",
+      "bits": {
+        "offset": 4,
+        "size": 4
       },
       "offset": 29,
       "size": 1
@@ -24215,6 +24776,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -24355,11 +24918,29 @@
       "offset": 29,
       "size": 1
     }, {
-      "name": "Commercial Laundry Status.Attributes.Reserved 1",
+      "name": "Commercial Laundry Status.Attributes.Free Mode No App Interaction",
       "type": "bool",
       "bits": {
         "offset": 2,
-        "size": 6
+        "size": 1
+      },
+      "offset": 29,
+      "size": 1
+    }, {
+      "name": "Commercial Laundry Status.Attributes.Free Mode App",
+      "type": "bool",
+      "bits": {
+        "offset": 3,
+        "size": 1
+      },
+      "offset": 29,
+      "size": 1
+    }, {
+      "name": "Commercial Laundry Status.Attributes.Reserved 1",
+      "type": "bool",
+      "bits": {
+        "offset": 4,
+        "size": 4
       },
       "offset": 29,
       "size": 1
@@ -24613,6 +25194,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -27509,6 +28092,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -28934,6 +29519,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -29730,6 +30317,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -30078,6 +30667,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -30420,6 +31011,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -30762,6 +31355,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -31104,6 +31699,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -31446,6 +32043,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -31788,6 +32387,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -32130,6 +32731,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -32472,6 +33075,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -32814,6 +33419,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -33156,6 +33763,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -33498,6 +34107,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -33840,6 +34451,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -34182,6 +34795,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -34524,6 +35139,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -34866,6 +35483,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -35377,6 +35996,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -35458,82 +36079,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -35676,6 +36297,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -35757,82 +36380,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -35975,6 +36598,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -36056,82 +36681,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -36274,6 +36899,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -36355,82 +36982,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -36573,6 +37200,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -36654,82 +37283,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -36872,6 +37501,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -36953,82 +37584,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -37171,6 +37802,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -37252,82 +37885,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -37470,6 +38103,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -37551,82 +38186,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -37769,6 +38404,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -37850,82 +38487,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -38068,6 +38705,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -38149,82 +38788,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -38367,6 +39006,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -38448,82 +39089,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -38666,6 +39307,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -38747,82 +39390,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -38965,6 +39608,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -39046,82 +39691,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -39264,6 +39909,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -39345,82 +39992,82 @@
       "offset": 15,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 16,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 17,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 18,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 19,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 31,
       "size": 1
@@ -39579,6 +40226,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -39660,82 +40309,82 @@
       "offset": 20,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[0]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.My mode option",
       "type": "u8",
       "offset": 21,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[1]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[0]",
       "type": "u8",
       "offset": 22,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[2]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[1]",
       "type": "u8",
       "offset": 23,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[3]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[2]",
       "type": "u8",
       "offset": 24,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[4]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[3]",
       "type": "u8",
       "offset": 25,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[5]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[4]",
       "type": "u8",
       "offset": 26,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[6]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[5]",
       "type": "u8",
       "offset": 27,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[7]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[6]",
       "type": "u8",
       "offset": 28,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[8]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[7]",
       "type": "u8",
       "offset": 29,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[9]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[8]",
       "type": "u8",
       "offset": 30,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[10]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[9]",
       "type": "u8",
       "offset": 31,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[11]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[10]",
       "type": "u8",
       "offset": 32,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[12]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[11]",
       "type": "u8",
       "offset": 33,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[13]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[12]",
       "type": "u8",
       "offset": 34,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[14]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[13]",
       "type": "u8",
       "offset": 35,
       "size": 1
     }, {
-      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[15]",
+      "name": "Remote My Cycle Request.Remote My Cycle Storage.Reserved[14]",
       "type": "u8",
       "offset": 36,
       "size": 1
@@ -41263,7 +41912,25 @@
       "type": "bool",
       "bits": {
         "offset": 0,
-        "size": 6
+        "size": 4
+      },
+      "offset": 0,
+      "size": 2
+    }, {
+      "name": "FreeMode_NoAppInteraction",
+      "type": "bool",
+      "bits": {
+        "offset": 4,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 2
+    }, {
+      "name": "FreeMode_App",
+      "type": "bool",
+      "bits": {
+        "offset": 5,
+        "size": 1
       },
       "offset": 0,
       "size": 2
@@ -45675,6 +46342,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -45807,6 +46476,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -45939,6 +46610,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -46071,6 +46744,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -46203,6 +46878,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -46335,6 +47012,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -46467,6 +47146,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -46599,6 +47280,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -46731,6 +47414,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -46863,6 +47548,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -46995,6 +47682,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -47127,6 +47816,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -47259,6 +47950,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -47391,6 +48084,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -47523,6 +48218,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -47655,6 +48352,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -47881,6 +48580,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -48013,6 +48714,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -48145,6 +48848,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -48277,6 +48982,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -48409,6 +49116,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -48541,6 +49250,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -48673,6 +49384,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -48805,6 +49518,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -48937,6 +49652,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -49069,6 +49786,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -49201,6 +49920,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -49333,6 +50054,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -49465,6 +50188,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -49597,6 +50322,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -49729,6 +50456,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -49861,6 +50590,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -51690,6 +52421,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -51938,6 +52671,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -52118,11 +52853,20 @@
       "offset": 0,
       "size": 4
     }, {
+      "name": "Dispenser Open Notification",
+      "type": "bool",
+      "bits": {
+        "offset": 10,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 4
+    }, {
       "name": "Reserved",
       "type": "u8",
       "bits": {
-        "offset": 10,
-        "size": 6
+        "offset": 11,
+        "size": 5
       },
       "offset": 0,
       "size": 4
@@ -52298,11 +53042,20 @@
       "offset": 4,
       "size": 4
     }, {
+      "name": "Dispenser Open Notification Supported",
+      "type": "bool",
+      "bits": {
+        "offset": 10,
+        "size": 1
+      },
+      "offset": 4,
+      "size": 4
+    }, {
       "name": "Reserved",
       "type": "u8",
       "bits": {
-        "offset": 10,
-        "size": 6
+        "offset": 11,
+        "size": 5
       },
       "offset": 4,
       "size": 4
@@ -52780,6 +53533,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -52912,6 +53667,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -53044,6 +53801,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -53176,6 +53935,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -53308,6 +54069,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -53440,6 +54203,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -53572,6 +54337,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -53704,6 +54471,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -53836,6 +54605,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -53968,6 +54739,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -54100,6 +54873,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -54232,6 +55007,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -54364,6 +55141,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -54496,6 +55275,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -54628,6 +55409,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -54760,6 +55543,8 @@
         "187": "Kids Wear",
         "188": "Sweat Stains",
         "189": "Drain, Spin and Dry",
+        "190": "UV Gentle Sanitize",
+        "191": "UV Fast Sanitize",
         "254": "RemoteSelection",
         "255": "Reset"
       },
@@ -57762,6 +58547,44 @@
     "pair_role": "status",
     "confidence": "low",
     "comment": "Commercial Remote Max Drying Times Status: Multi-field sensor, may need custom handling to extract individual values."
+  }, {
+    "name": "Commercial Remote Free Mode Request",
+    "id": "0x2338",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "This erd requests a change to the unit commercial operating mode.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Free Mode",
+      "type": "enum",
+      "values": {
+        "0": "PaidMode",
+        "1": "FreeModeWithNoApp",
+        "2": "FreeModeWithApp"
+      },
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Commercial Remote Free Mode Status",
+    "id": "0x2339",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "This erd states the unit's current commercial operating mode.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Free Mode",
+      "type": "enum",
+      "values": {
+        "0": "PaidMode",
+        "1": "FreeModeWithNoApp",
+        "2": "FreeModeWithApp"
+      },
+      "offset": 0,
+      "size": 1
+    }]
   }, {
     "name": "Mabe - Water Level Selection",
     "id": "0x2f00",
@@ -61277,6 +62100,31 @@
     "confidence": "medium",
     "comment": "Remote Start Enable: Boolean read-only binary sensor."
   }, {
+    "name": "Analog Door Latch AD Counts",
+    "id": "0x3088",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Reports average ADC for each door state",
+    "updateClass": {
+      "type": "periodic",
+      "periodInMsec": 5184000000
+    },
+    "data": [{
+      "name": "Door Open Average ADC",
+      "type": "u16",
+      "offset": 0,
+      "size": 2
+    }, {
+      "name": "Door Closed Average ADC",
+      "type": "u16",
+      "offset": 2,
+      "size": 2
+    }, {
+      "name": "Door Invalid Average ADC",
+      "type": "u16",
+      "offset": 4,
+      "size": 2
+    }]
+  }, {
     "name": "Turbidity Calibration Value",
     "id": "0x3100",
     "operations": ["read", "publish", "subscribe"],
@@ -62127,11 +62975,20 @@
       "offset": 13,
       "size": 1
     }, {
+      "name": "Features Enabled 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 13,
+      "size": 1
+    }, {
       "name": "Features Enabled 2.reserved",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 13,
       "size": 1
@@ -62821,7 +63678,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -62961,11 +63821,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -63030,7 +63899,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -63170,11 +64042,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -63239,7 +64120,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -63379,11 +64263,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -63448,7 +64341,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -63588,11 +64484,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -63657,7 +64562,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -63797,11 +64705,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -63866,7 +64783,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -64006,11 +64926,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -64075,7 +65004,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -64215,11 +65147,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -64284,7 +65225,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -64424,11 +65368,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -64493,7 +65446,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -64633,11 +65589,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -64702,7 +65667,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -64842,11 +65810,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -66676,11 +67653,20 @@
       "offset": 0,
       "size": 2
     }, {
+      "name": "Fast",
+      "type": "bool",
+      "bits": {
+        "offset": 14,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 2
+    }, {
       "name": "Reserved 1",
       "type": "u8",
       "bits": {
-        "offset": 14,
-        "size": 2
+        "offset": 15,
+        "size": 1
       },
       "offset": 0,
       "size": 2
@@ -66760,11 +67746,20 @@
       "offset": 0,
       "size": 2
     }, {
+      "name": "Fast",
+      "type": "bool",
+      "bits": {
+        "offset": 14,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 2
+    }, {
       "name": "Reserved 1",
       "type": "u8",
       "bits": {
-        "offset": 14,
-        "size": 2
+        "offset": 15,
+        "size": 1
       },
       "offset": 0,
       "size": 2
@@ -66844,11 +67839,20 @@
       "offset": 0,
       "size": 2
     }, {
+      "name": "Fast",
+      "type": "bool",
+      "bits": {
+        "offset": 14,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 2
+    }, {
       "name": "Reserved 1",
       "type": "u8",
       "bits": {
-        "offset": 14,
-        "size": 2
+        "offset": 15,
+        "size": 1
       },
       "offset": 0,
       "size": 2
@@ -66928,11 +67932,20 @@
       "offset": 0,
       "size": 2
     }, {
+      "name": "Fast",
+      "type": "bool",
+      "bits": {
+        "offset": 14,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 2
+    }, {
       "name": "Reserved 1",
       "type": "u8",
       "bits": {
-        "offset": 14,
-        "size": 2
+        "offset": 15,
+        "size": 1
       },
       "offset": 0,
       "size": 2
@@ -67506,11 +68519,20 @@
       "offset": 13,
       "size": 1
     }, {
+      "name": "Features Enabled 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 13,
+      "size": 1
+    }, {
       "name": "Features Enabled 2.reserved",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 13,
       "size": 1
@@ -67603,7 +68625,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -67743,11 +68768,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -67812,7 +68846,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -67952,11 +68989,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -68021,7 +69067,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -68161,11 +69210,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -68230,7 +69288,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -68370,11 +69431,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -68439,7 +69509,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -68579,11 +69652,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -68648,7 +69730,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -68788,11 +69873,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -68857,7 +69951,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -68997,11 +70094,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -69066,7 +70172,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -69206,11 +70315,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -69275,7 +70393,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -69415,11 +70536,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -69484,7 +70614,10 @@
         "42": "CycleNames_Dishwasher_Cleaning",
         "43": "CycleNames_Quiet2",
         "44": "CycleNames_Hygiene",
-        "45": "CycleNames_Plus"
+        "45": "CycleNames_Plus",
+        "46": "CycleNames_Heavy_Duty_Dry",
+        "47": "CycleNames_Everyday_Dry_On",
+        "48": "CycleNames_Everyday_Dry_Off"
       },
       "offset": 0,
       "size": 1
@@ -69624,11 +70757,20 @@
       "offset": 3,
       "size": 1
     }, {
+      "name": "Options Allowed 2.fast",
+      "type": "bool",
+      "bits": {
+        "offset": 2,
+        "size": 1
+      },
+      "offset": 3,
+      "size": 1
+    }, {
       "name": "Options Allowed 2.reserved1",
       "type": "u8",
       "bits": {
-        "offset": 2,
-        "size": 6
+        "offset": 3,
+        "size": 5
       },
       "offset": 3,
       "size": 1
@@ -69930,7 +71072,7 @@
       "type": "legacy"
     },
     "data": [{
-      "name": "Temperature",
+      "name": "Hours Remaining",
       "type": "u16",
       "offset": 0,
       "size": 2
@@ -70095,12 +71237,12 @@
     "name": "Tank size",
     "id": "0x4041",
     "operations": ["read", "publish", "subscribe"],
-    "description": "Indication of tank size in gallons",
+    "description": "Indication of tank size in gallons, reports 0 for tankless models",
     "updateClass": {
       "type": "legacy"
     },
     "data": [{
-      "name": "Mode",
+      "name": "Tank Size in Gallons",
       "type": "u8",
       "offset": 0,
       "size": 1
@@ -70196,7 +71338,7 @@
     "name": "Anode depleted mass",
     "id": "0x404c",
     "operations": ["read", "publish", "subscribe"],
-    "description": "Anode depleted mass",
+    "description": "Anode depleted mass in micrograms",
     "updateClass": {
       "type": "legacy"
     },
@@ -73241,6 +74383,48 @@
     "pair_role": "status",
     "confidence": "medium",
     "comment": "Cook Cam AI Assistant Enabled Status: Boolean read-only binary sensor."
+  }, {
+    "name": "Cook Cam Image Capture Signal",
+    "id": "0x5052",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "Signal incremented by the MC to indicate that the UI should capture an image and evaluate.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Advance User Stage Signal",
+      "type": "u8",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Cook Cam Image Upload Enabled Setting Request",
+    "id": "0x5053",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "User setting to enable or disable cook cam image uploads to the cloud. User consent is required. Client should request settings updates via this ERD.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Cook Cam Image Upload Setting Enabled Request",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Cook Cam Image Upload Enabled Setting Status",
+    "id": "0x5054",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "User setting to enable or disable cook cam image uploads to the cloud. User consent is required. Use this for checking status.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Cook Cam Image Upload Setting Enabled",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }]
   }, {
     "name": "AI Bake Oven Status",
     "id": "0x5060",
@@ -76470,63 +77654,28 @@
       "offset": 16,
       "size": 1
     }, {
-      "name": "Cook Delay Time.Delay Time.Padding[0]",
-      "type": "u8",
-      "offset": 17,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Padding[1]",
-      "type": "u8",
-      "offset": 18,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Padding[2]",
-      "type": "u8",
-      "offset": 19,
-      "size": 1
-    }, {
       "name": "Cook Delay Time.Delay Time.Expiration Time.Clock Type",
       "type": "enum",
       "values": {
         "0": "ClockType_12Hour",
         "1": "ClockType_24Hour"
       },
-      "offset": 20,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Padding[0]",
-      "type": "u8",
-      "offset": 21,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Padding[1]",
-      "type": "u8",
-      "offset": 22,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Padding[2]",
-      "type": "u8",
-      "offset": 23,
+      "offset": 17,
       "size": 1
     }, {
       "name": "Cook Delay Time.Delay Time.Expiration Time.Time.Hours",
       "type": "u8",
-      "offset": 24,
+      "offset": 18,
       "size": 1
     }, {
       "name": "Cook Delay Time.Delay Time.Expiration Time.Time.Minutes",
       "type": "u8",
-      "offset": 25,
+      "offset": 19,
       "size": 1
     }, {
       "name": "Cook Delay Time.Delay Time.Expiration Time.Time.Seconds",
       "type": "u8",
-      "offset": 26,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Time.Padding",
-      "type": "u8",
-      "offset": 27,
+      "offset": 20,
       "size": 1
     }, {
       "name": "Cook Delay Time.Delay Time.Expiration Time.Day Part",
@@ -76536,70 +77685,44 @@
         "1": "DayPart_PM",
         "2": "DayPart_None"
       },
-      "offset": 28,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Padding[0]",
-      "type": "u8",
-      "offset": 29,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Padding[1]",
-      "type": "u8",
-      "offset": 30,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Padding[2]",
-      "type": "u8",
-      "offset": 31,
+      "offset": 21,
       "size": 1
     }, {
       "name": "Cook Delay Time.Update",
       "type": "bool",
-      "offset": 32,
+      "offset": 22,
       "size": 1
     }, {
-      "name": "Cook Delay Time.Padding[0]",
+      "name": "Padding",
       "type": "u8",
-      "offset": 33,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Padding[1]",
-      "type": "u8",
-      "offset": 34,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Padding[2]",
-      "type": "u8",
-      "offset": 35,
+      "offset": 23,
       "size": 1
     }, {
       "name": "Probe Settings.Probe Temperature",
       "type": "i16",
-      "offset": 36,
+      "offset": 24,
       "size": 2
     }, {
       "name": "Probe Settings.Probe Enabled",
       "type": "bool",
-      "offset": 38,
+      "offset": 26,
       "size": 1
     }, {
       "name": "Probe Settings.Padding",
       "type": "u8",
-      "offset": 39,
+      "offset": 27,
       "size": 1
     }, {
       "name": "Recipe Request Cycle Status",
       "type": "enum",
       "values": {
-        "0": "Waiting",
-        "1": "Stop",
-        "2": "Start",
-        "3": "Update",
-        "4": "Pause",
-        "5": "Resume"
+        "0": "Stop",
+        "1": "Start",
+        "2": "Update",
+        "3": "Pause",
+        "4": "Resume"
       },
-      "offset": 40,
+      "offset": 28,
       "size": 1
     }, {
       "name": "Recipe Origin",
@@ -76608,32 +77731,32 @@
         "0": "Local",
         "1": "Remote"
       },
-      "offset": 41,
+      "offset": 29,
       "size": 1
     }, {
       "name": "Recipe UUID",
       "type": "u16",
-      "offset": 42,
+      "offset": 30,
       "size": 2
     }, {
       "name": "Request ID",
       "type": "u8",
-      "offset": 44,
+      "offset": 32,
       "size": 1
     }, {
       "name": "Padding[0]",
       "type": "u8",
-      "offset": 45,
+      "offset": 33,
       "size": 1
     }, {
       "name": "Padding[1]",
       "type": "u8",
-      "offset": 46,
+      "offset": 34,
       "size": 1
     }, {
       "name": "Padding[2]",
       "type": "u8",
-      "offset": 47,
+      "offset": 35,
       "size": 1
     }],
     "ha_domain": "sensor",
@@ -79405,6 +80528,429 @@
     "confidence": "low",
     "comment": "Upper Cavity Cook Recipe Stage 5: Multi-field sensor, may need custom handling to extract individual values."
   }, {
+    "name": "Local Available Cook Modes Cavity 1",
+    "id": "0x512c",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "A bitmask representing the raw cook modes that are actually available\n   in the cooking engine on the appliance.\n   See also 0x5113.lua/0x5213.lua, which is remote available cook modes, representing the\n   cook modes that are available to the app with additional bits for cook timer and probe\n   availability. ",
+    "updateClass": {
+      "type": "static"
+    },
+    "data": [{
+      "name": "Bake",
+      "type": "u8",
+      "bits": {
+        "offset": 56,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Broil",
+      "type": "u8",
+      "bits": {
+        "offset": 57,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Self Clean",
+      "type": "u8",
+      "bits": {
+        "offset": 58,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Steam Clean",
+      "type": "u8",
+      "bits": {
+        "offset": 59,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Convection Bake",
+      "type": "u8",
+      "bits": {
+        "offset": 60,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Convection Bake Multi",
+      "type": "u8",
+      "bits": {
+        "offset": 61,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Convection Roast",
+      "type": "u8",
+      "bits": {
+        "offset": 62,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Convection Broil",
+      "type": "u8",
+      "bits": {
+        "offset": 63,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Warm",
+      "type": "u8",
+      "bits": {
+        "offset": 48,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Proof",
+      "type": "u8",
+      "bits": {
+        "offset": 49,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Sabbath Bake",
+      "type": "u8",
+      "bits": {
+        "offset": 50,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Frozen Snacks",
+      "type": "u8",
+      "bits": {
+        "offset": 51,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Frozen Pizza",
+      "type": "u8",
+      "bits": {
+        "offset": 52,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Frozen Snacks Multi",
+      "type": "u8",
+      "bits": {
+        "offset": 53,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Frozen Pizza Multi",
+      "type": "u8",
+      "bits": {
+        "offset": 54,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Baked Goods",
+      "type": "u8",
+      "bits": {
+        "offset": 55,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 6",
+      "type": "u8",
+      "bits": {
+        "offset": 40,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 7",
+      "type": "u8",
+      "bits": {
+        "offset": 41,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 8",
+      "type": "u8",
+      "bits": {
+        "offset": 42,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 9",
+      "type": "u8",
+      "bits": {
+        "offset": 43,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 10",
+      "type": "u8",
+      "bits": {
+        "offset": 44,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 11",
+      "type": "u8",
+      "bits": {
+        "offset": 45,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 12",
+      "type": "u8",
+      "bits": {
+        "offset": 46,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 13",
+      "type": "u8",
+      "bits": {
+        "offset": 47,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 14",
+      "type": "u8",
+      "bits": {
+        "offset": 32,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 15",
+      "type": "u8",
+      "bits": {
+        "offset": 33,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 16",
+      "type": "u8",
+      "bits": {
+        "offset": 34,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 17",
+      "type": "u8",
+      "bits": {
+        "offset": 35,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 18",
+      "type": "u8",
+      "bits": {
+        "offset": 36,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 19",
+      "type": "u8",
+      "bits": {
+        "offset": 37,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 20",
+      "type": "u8",
+      "bits": {
+        "offset": 38,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 21",
+      "type": "u8",
+      "bits": {
+        "offset": 39,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 22",
+      "type": "u8",
+      "bits": {
+        "offset": 24,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 23",
+      "type": "u8",
+      "bits": {
+        "offset": 25,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Special 24",
+      "type": "u8",
+      "bits": {
+        "offset": 26,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Enhanced Sabbath Warm",
+      "type": "u8",
+      "bits": {
+        "offset": 27,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Holiday Bake",
+      "type": "u8",
+      "bits": {
+        "offset": 28,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Holiday Warm",
+      "type": "u8",
+      "bits": {
+        "offset": 29,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Steam Bake",
+      "type": "u8",
+      "bits": {
+        "offset": 30,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Air Fry",
+      "type": "u8",
+      "bits": {
+        "offset": 31,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Dehydrate",
+      "type": "u8",
+      "bits": {
+        "offset": 16,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Crisp",
+      "type": "u8",
+      "bits": {
+        "offset": 17,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Reheat",
+      "type": "u8",
+      "bits": {
+        "offset": 18,
+        "size": 1
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Reserved 1",
+      "type": "u8",
+      "bits": {
+        "offset": 19,
+        "size": 5
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Reserved 2",
+      "type": "u8",
+      "bits": {
+        "offset": 8,
+        "size": 8
+      },
+      "offset": 0,
+      "size": 8
+    }, {
+      "name": "Reserved 3",
+      "type": "u8",
+      "bits": {
+        "offset": 0,
+        "size": 8
+      },
+      "offset": 0,
+      "size": 8
+    }]
+  }, {
     "name": "Upper Cavity Current Cycle Stage",
     "id": "0x5150",
     "operations": ["read", "publish", "subscribe"],
@@ -82136,63 +83682,28 @@
       "offset": 16,
       "size": 1
     }, {
-      "name": "Cook Delay Time.Delay Time.Padding[0]",
-      "type": "u8",
-      "offset": 17,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Padding[1]",
-      "type": "u8",
-      "offset": 18,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Padding[2]",
-      "type": "u8",
-      "offset": 19,
-      "size": 1
-    }, {
       "name": "Cook Delay Time.Delay Time.Expiration Time.Clock Type",
       "type": "enum",
       "values": {
         "0": "ClockType_12Hour",
         "1": "ClockType_24Hour"
       },
-      "offset": 20,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Padding[0]",
-      "type": "u8",
-      "offset": 21,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Padding[1]",
-      "type": "u8",
-      "offset": 22,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Padding[2]",
-      "type": "u8",
-      "offset": 23,
+      "offset": 17,
       "size": 1
     }, {
       "name": "Cook Delay Time.Delay Time.Expiration Time.Time.Hours",
       "type": "u8",
-      "offset": 24,
+      "offset": 18,
       "size": 1
     }, {
       "name": "Cook Delay Time.Delay Time.Expiration Time.Time.Minutes",
       "type": "u8",
-      "offset": 25,
+      "offset": 19,
       "size": 1
     }, {
       "name": "Cook Delay Time.Delay Time.Expiration Time.Time.Seconds",
       "type": "u8",
-      "offset": 26,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Time.Padding",
-      "type": "u8",
-      "offset": 27,
+      "offset": 20,
       "size": 1
     }, {
       "name": "Cook Delay Time.Delay Time.Expiration Time.Day Part",
@@ -82202,70 +83713,44 @@
         "1": "DayPart_PM",
         "2": "DayPart_None"
       },
-      "offset": 28,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Padding[0]",
-      "type": "u8",
-      "offset": 29,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Padding[1]",
-      "type": "u8",
-      "offset": 30,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Delay Time.Expiration Time.Padding[2]",
-      "type": "u8",
-      "offset": 31,
+      "offset": 21,
       "size": 1
     }, {
       "name": "Cook Delay Time.Update",
       "type": "bool",
-      "offset": 32,
+      "offset": 22,
       "size": 1
     }, {
-      "name": "Cook Delay Time.Padding[0]",
+      "name": "Padding",
       "type": "u8",
-      "offset": 33,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Padding[1]",
-      "type": "u8",
-      "offset": 34,
-      "size": 1
-    }, {
-      "name": "Cook Delay Time.Padding[2]",
-      "type": "u8",
-      "offset": 35,
+      "offset": 23,
       "size": 1
     }, {
       "name": "Probe Settings.Probe Temperature",
       "type": "i16",
-      "offset": 36,
+      "offset": 24,
       "size": 2
     }, {
       "name": "Probe Settings.Probe Enabled",
       "type": "bool",
-      "offset": 38,
+      "offset": 26,
       "size": 1
     }, {
       "name": "Probe Settings.Padding",
       "type": "u8",
-      "offset": 39,
+      "offset": 27,
       "size": 1
     }, {
       "name": "Recipe Request Cycle Status",
       "type": "enum",
       "values": {
-        "0": "Waiting",
-        "1": "Stop",
-        "2": "Start",
-        "3": "Update",
-        "4": "Pause",
-        "5": "Resume"
+        "0": "Stop",
+        "1": "Start",
+        "2": "Update",
+        "3": "Pause",
+        "4": "Resume"
       },
-      "offset": 40,
+      "offset": 28,
       "size": 1
     }, {
       "name": "Recipe Origin",
@@ -82274,32 +83759,32 @@
         "0": "Local",
         "1": "Remote"
       },
-      "offset": 41,
+      "offset": 29,
       "size": 1
     }, {
       "name": "Recipe UUID",
       "type": "u16",
-      "offset": 42,
+      "offset": 30,
       "size": 2
     }, {
       "name": "Request ID",
       "type": "u8",
-      "offset": 44,
+      "offset": 32,
       "size": 1
     }, {
       "name": "Padding[0]",
       "type": "u8",
-      "offset": 45,
+      "offset": 33,
       "size": 1
     }, {
       "name": "Padding[1]",
       "type": "u8",
-      "offset": 46,
+      "offset": 34,
       "size": 1
     }, {
       "name": "Padding[2]",
       "type": "u8",
-      "offset": 47,
+      "offset": 35,
       "size": 1
     }],
     "ha_domain": "sensor",
@@ -111740,6 +113225,30 @@
     "confidence": "low",
     "comment": "Customer Feedback Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
+    "name": "Wireless Connection State",
+    "id": "0x6003",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "Specifies whether wireless module is connected or not.",
+    "updateClass": {
+      "type": "legacy"
+    },
+    "data": [{
+      "name": "Connection State",
+      "type": "enum",
+      "values": {
+        "0": "Off",
+        "1": "Commissioning Mode",
+        "2": "Connecting",
+        "3": "Connected",
+        "4": "Connected but Off",
+        "5": "Scanning (deprecated)",
+        "6": "Reconnecting",
+        "255": "Invalid"
+      },
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
     "name": "Downgrade Count",
     "id": "0x603c",
     "operations": ["read", "write", "publish", "subscribe"],
@@ -118647,6 +120156,174 @@
     "confidence": "low",
     "comment": "Sensor Removal All Result: Multi-field sensor, may need custom handling to extract individual values."
   }, {
+    "name": "Voice Diagnostics - Wake Word and Command Counts",
+    "id": "0x630b",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "This ERD contains a running count of the total times the wake word was activated as well as the total times a successful command was initiated. These values roll over once they hit their max value and are not cleared otherwise.",
+    "updateClass": {
+      "type": "periodic",
+      "periodInMsec": 43200000
+    },
+    "data": [{
+      "name": "Wake Word Initiated Counts",
+      "type": "u32",
+      "offset": 0,
+      "size": 4
+    }, {
+      "name": "Succesful Command Counts",
+      "type": "u32",
+      "offset": 4,
+      "size": 4
+    }]
+  }, {
+    "name": "Voice Diagnostics - Total Android Platform Voice Command Activations",
+    "id": "0x630c",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "This ERD contains a running count of the total times a successful command was initiated. These values roll over once they hit their max value and are not cleared otherwise.",
+    "updateClass": {
+      "type": "periodic",
+      "periodInMsec": 43200000
+    },
+    "data": [{
+      "name": "Shopping List Add Command Counts",
+      "type": "u16",
+      "offset": 0,
+      "size": 2
+    }, {
+      "name": "Shopping List Remove Command Counts",
+      "type": "u16",
+      "offset": 2,
+      "size": 2
+    }, {
+      "name": "Timer Start Command Counts",
+      "type": "u16",
+      "offset": 4,
+      "size": 2
+    }, {
+      "name": "Timer Stop Command Counts",
+      "type": "u16",
+      "offset": 6,
+      "size": 2
+    }, {
+      "name": "Timer Pause Command Counts",
+      "type": "u16",
+      "offset": 8,
+      "size": 2
+    }, {
+      "name": "Timer Resume Command Counts",
+      "type": "u16",
+      "offset": 10,
+      "size": 2
+    }, {
+      "name": "Timer Add Command Counts",
+      "type": "u16",
+      "offset": 12,
+      "size": 2
+    }, {
+      "name": "Timer Subtract Command Counts",
+      "type": "u16",
+      "offset": 14,
+      "size": 2
+    }, {
+      "name": "Timer Change Command Counts",
+      "type": "u16",
+      "offset": 16,
+      "size": 2
+    }, {
+      "name": "Undefined",
+      "type": "u16",
+      "offset": 18,
+      "size": 2
+    }]
+  }, {
+    "name": "Voice Diagnostics - Total Appliance Specific Voice Command Activations",
+    "id": "0x630d",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "This ERD contains a running count of the total times a successful command was initiated. These values roll over once they hit their max value and are not cleared otherwise.",
+    "updateClass": {
+      "type": "periodic",
+      "periodInMsec": 43200000
+    },
+    "data": [{
+      "name": "Appliance Specific Command Counts[0]",
+      "type": "u16",
+      "offset": 0,
+      "size": 2
+    }, {
+      "name": "Appliance Specific Command Counts[1]",
+      "type": "u16",
+      "offset": 2,
+      "size": 2
+    }, {
+      "name": "Appliance Specific Command Counts[2]",
+      "type": "u16",
+      "offset": 4,
+      "size": 2
+    }, {
+      "name": "Appliance Specific Command Counts[3]",
+      "type": "u16",
+      "offset": 6,
+      "size": 2
+    }, {
+      "name": "Appliance Specific Command Counts[4]",
+      "type": "u16",
+      "offset": 8,
+      "size": 2
+    }, {
+      "name": "Appliance Specific Command Counts[5]",
+      "type": "u16",
+      "offset": 10,
+      "size": 2
+    }, {
+      "name": "Appliance Specific Command Counts[6]",
+      "type": "u16",
+      "offset": 12,
+      "size": 2
+    }, {
+      "name": "Appliance Specific Command Counts[7]",
+      "type": "u16",
+      "offset": 14,
+      "size": 2
+    }, {
+      "name": "Appliance Specific Command Counts[8]",
+      "type": "u16",
+      "offset": 16,
+      "size": 2
+    }, {
+      "name": "Appliance Specific Command Counts[9]",
+      "type": "u16",
+      "offset": 18,
+      "size": 2
+    }]
+  }, {
+    "name": "Voice Feature Enable Request",
+    "id": "0x630e",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "This is used to enable the local voice control feature on appliances",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Voice Feature Enable",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Voice Features Enable Status",
+    "id": "0x630f",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "This is used to enable the local voice control feature on appliances",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Voice Feature Enable",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
     "name": "System Mode",
     "id": "0x7000",
     "operations": ["read", "write", "publish", "subscribe"],
@@ -121110,7 +122787,8 @@
       "type": "enum",
       "values": {
         "0": "Disabled",
-        "1": "Enabled"
+        "1": "Enabled",
+        "2": "Low"
       },
       "offset": 0,
       "size": 1
@@ -121133,11 +122811,20 @@
       "offset": 1,
       "size": 4
     }, {
+      "name": "Allowed Selections.Low Supported",
+      "type": "bool",
+      "bits": {
+        "offset": 26,
+        "size": 1
+      },
+      "offset": 1,
+      "size": 4
+    }, {
       "name": "Allowed Selections.Reserved",
       "type": "u8",
       "bits": {
-        "offset": 26,
-        "size": 6
+        "offset": 27,
+        "size": 5
       },
       "offset": 1,
       "size": 4
@@ -121188,6 +122875,7 @@
       "values": {
         "0": "Off",
         "1": "On",
+        "2": "Low",
         "255": "Request Consumed"
       },
       "offset": 0,
@@ -122200,6 +123888,188 @@
     "pair_role": "request",
     "comment": "High confidence: CDC Configuration request; write 0=Central Desk Control, 1=Occupancy. Paired with status ERD 0x746c.",
     "confidence": "high"
+  }, {
+    "name": "Heat Pump Lockout Temperature Status",
+    "id": "0x746e",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "The device will publish the current Heat Pump Lockout Temperature and the limits for this value",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Heat Pump Lockout Temperature Status.Heat Pump Lockout Temperature in Fahrenheit x 10",
+      "type": "i16",
+      "offset": 0,
+      "size": 2
+    }, {
+      "name": "Heat Pump Lockout Temperature Status.Minimum Allowed Temperature in Fahrenheit x 10",
+      "type": "i16",
+      "offset": 2,
+      "size": 2
+    }, {
+      "name": "Heat Pump Lockout Temperature Status.Maximum Allowed Temperature in Fahrenheit x 10",
+      "type": "i16",
+      "offset": 4,
+      "size": 2
+    }]
+  }, {
+    "name": "Heat Pump Lockout Temperature Request",
+    "id": "0x746f",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "The device will publish the current Heat Pump Lockout Temperature and the limits for this value",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Heat Pump Lockout Temperature in Fahrenheit x 10",
+      "type": "i16",
+      "offset": 0,
+      "size": 2
+    }]
+  }, {
+    "name": "Input Current Limiting Status",
+    "id": "0x7470",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "The device will publish the Input Current Limiting feature status.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "User Set Input Current Limiting Status",
+      "type": "u8",
+      "offset": 0,
+      "size": 1
+    }, {
+      "name": "Resolved Input Current Limiting Status",
+      "type": "u8",
+      "offset": 1,
+      "size": 1
+    }, {
+      "name": "Input Current Limiting Allowed Values.Min Input Current Limit",
+      "type": "u16",
+      "offset": 2,
+      "size": 2
+    }, {
+      "name": "Input Current Limiting Allowed Values.Max Input Current Limit",
+      "type": "u16",
+      "offset": 4,
+      "size": 2
+    }, {
+      "name": "Input Current Limiting Allowed Values.Step Size",
+      "type": "u8",
+      "offset": 6,
+      "size": 1
+    }, {
+      "name": "Input Current Limiting Allowed Values.Reserved",
+      "type": "u8",
+      "offset": 7,
+      "size": 1
+    }]
+  }, {
+    "name": "Input Current Limiting Request",
+    "id": "0x7471",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "The client will request a change to the Input Current Limiting status.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Input Current Limiting Request",
+      "type": "u8",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Heat Source Optimization Status",
+    "id": "0x7472",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "The device will publish the Heat Source Optimization feature status.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Heat Source Optimization Status",
+      "type": "enum",
+      "values": {
+        "0": "Disabled",
+        "1": "Enabled"
+      },
+      "offset": 0,
+      "size": 1
+    }, {
+      "name": "Allowed Selections.Disabled Supported",
+      "type": "bool",
+      "bits": {
+        "offset": 24,
+        "size": 1
+      },
+      "offset": 1,
+      "size": 4
+    }, {
+      "name": "Allowed Selections.Enabled Supported",
+      "type": "bool",
+      "bits": {
+        "offset": 25,
+        "size": 1
+      },
+      "offset": 1,
+      "size": 4
+    }, {
+      "name": "Allowed Selections.Reserved",
+      "type": "u8",
+      "bits": {
+        "offset": 26,
+        "size": 6
+      },
+      "offset": 1,
+      "size": 4
+    }, {
+      "name": "Allowed Selections.Reserved",
+      "type": "u8",
+      "bits": {
+        "offset": 16,
+        "size": 8
+      },
+      "offset": 1,
+      "size": 4
+    }, {
+      "name": "Allowed Selections.Reserved",
+      "type": "u8",
+      "bits": {
+        "offset": 8,
+        "size": 8
+      },
+      "offset": 1,
+      "size": 4
+    }, {
+      "name": "Allowed Selections.Reserved",
+      "type": "u8",
+      "bits": {
+        "offset": 0,
+        "size": 8
+      },
+      "offset": 1,
+      "size": 4
+    }]
+  }, {
+    "name": "Heat Source Optimization Request",
+    "id": "0x7473",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "The client will request a change to the Heat Source Optimization status.",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Heat Source Optimization Request",
+      "type": "enum",
+      "values": {
+        "0": "Off",
+        "1": "On",
+        "255": "Request Consumed"
+      },
+      "offset": 0,
+      "size": 1
+    }]
   }, {
     "name": "External Thermostat fault state",
     "id": "0x7507",
@@ -133450,7 +135320,7 @@
     "name": "Ice Maker Model",
     "id": "0x9134",
     "operations": ["read", "publish", "subscribe"],
-    "description": "The value represents the model configuration for the ice maker. Some of the key differences that impact software are as follows:\n- New Power Boards have a lower baud rate (19200) compared to the Legacy Power Boards (230400).\n- The difference between Opal 2.0 and Opal 2.5 is the addition of Sanitize Indication on the Opal 2.5.\n- Opal 2.1 & 2.6 have new power boards and are updated versions of Opal 2.0 and 2.5 respectively the key difference being the addition of a Filter Button and Water Level Sensor at the bottom reservoir.\n- The Opal Mini is smaller in dimension. The Water reservoir is on the top, Accessories like the water tank, filter, etc are not compatible with previous models.\n- The Opal Clear is designed to make clear ice.",
+    "description": "The value represents the model configuration for the ice maker. Some of the key differences that impact software are as follows:\n- New Power Boards have a lower baud rate (19200) compared to the Legacy Power Boards (230400).\n- The difference between Opal 2.0 and Opal 2.5 is the addition of Sanitize Indication on the Opal 2.5.\n- Opal 2.1 & 2.6 have new power boards and are updated versions of Opal 2.0 and 2.5 respectively the key difference being the addition of a Filter Button and Water Level Sensor at the bottom reservoir.\n- The Opal Mini is smaller in dimension. The Water reservoir is on the top, Accessories like the water tank, filter, etc are not compatible with previous models.\n- The Opal Clear is designed to make clear ice.\n- The Opal 1.0 is the connected version of the original one-button Opal.",
     "updateClass": {
       "type": "static"
     },
@@ -133467,7 +135337,8 @@
         "6": "Opal 2.1",
         "7": "Opal 2.6",
         "8": "Opal Mini",
-        "9": "Opal Clear"
+        "9": "Opal Clear",
+        "10": "Opal 1.0"
       },
       "offset": 0,
       "size": 1
@@ -133805,6 +135676,34 @@
     "pair_role": "request",
     "confidence": "low",
     "comment": "Light Color Request: Multi-field sensor, may need custom handling to extract individual values."
+  }, {
+    "name": "Water Level Tone Setting Current State",
+    "id": "0x9140",
+    "operations": ["read", "publish", "subscribe"],
+    "description": "The current state of the water level tone setting. 0 = off, 1 = on",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Water Level Tone On",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }]
+  }, {
+    "name": "Water Level Tone Setting Requested State",
+    "id": "0x9141",
+    "operations": ["read", "write", "publish", "subscribe"],
+    "description": "The requested state of the water level tone setting. 0 = off, 1 = on",
+    "updateClass": {
+      "type": "event"
+    },
+    "data": [{
+      "name": "Water Level Tone On",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }]
   }, {
     "name": "Toaster Oven Supported Cook Modes",
     "id": "0x9200",

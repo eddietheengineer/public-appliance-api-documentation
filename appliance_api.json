@@ -1132,6 +1132,16 @@
                 { "erd": "0x2258", "name": "Remote Payment Method Request", "length": 1 },
                 { "erd": "0x2259", "name": "Remote Payment Method Status", "length": 1 }
               ]
+            },
+            {
+              "mask": "0x02000000",
+              "name": "Commercial Free Mode",
+              "description": "This feature allows commercial laundry machines to be used without payment.",
+              "dependencies": ["Commercial Laundry Status", "Commercial Laundry Payment V1 Attributes"],
+              "required": [
+                { "erd": "0x2338", "name": "Commercial Remote Free Mode Request", "length": 1 },
+                { "erd": "0x2339", "name": "Commercial Remote Free Mode Status", "length": 1 }
+              ]
             }
           ]
         }
@@ -2007,6 +2017,27 @@
                 { "erd": "0x2F1A", "name": "Short Cycle Option", "length": 1 },
                 { "erd": "0x2F1B", "name": "Short Cycle Option Request", "length": 1 }
               ]
+            },
+            {
+              "mask": "0x00000020",
+              "name": "Commercial Free Mode",
+              "description": "This feature allows commercial laundry machines to be used without payment.",
+              "dependencies": ["Commercial Laundry Status", "Commercial Laundry Payment V1 Attributes"],
+              "required": [
+                { "erd": "0x2338", "name": "Commercial Remote Free Mode Request", "length": 1 },
+                { "erd": "0x2339", "name": "Commercial Remote Free Mode Status", "length": 1 }
+              ]
+            },
+            {
+              "mask": "0x00000200",
+              "name": "Remote Pet Hair Removal Option",
+              "description": " This is a GEA feature that follows the [Multi-Level Client Writeable Options](https://github.com/geappliances/documentation.erd-specification/blob/master/docs/clothes_washer/v1/multi_level_client_writeable_options.md) documentation with the following considerations:\n- 0x2230 Pet Hair Removal Option is the `Option ERD`.\n- 0x2231 Pet Hair Removal Option Request is the `Option Request ERD`.\n- 0x2232 Pet Hair Removal Option is Client Writeable is the `Option is Client Writeable ERD`.",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x2230", "name": "Pet Hair Removal Option", "length": 1 },
+                { "erd": "0x2231", "name": "Pet Hair Removal Option Request", "length": 1 },
+                { "erd": "0x2232", "name": "Pet Hair Removal Option Is In Client Writable State", "length": 1 }
+              ]
             }
           ]
         }
@@ -2626,7 +2657,67 @@
 
           ],
           "features": [
-
+            {
+              "mask": "0x00000400",
+              "name": "Variable Cube Size Data 0",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x14BD", "name": "Variable Cube Size Setting Data 0", "length": 2 },
+                { "erd": "0x14BE", "name": "Variable Cube Size Request 0", "length": 1 },
+                { "erd": "0x14BF", "name": "Variable Cube Size Status 0", "length": 1 }
+              ]
+            },
+            {
+              "mask": "0x00000800",
+              "name": "Variable Cube Size Data 2",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x14C0", "name": "Variable Cube Size Setting Data 2", "length": 2 },
+                { "erd": "0x14C1", "name": "Variable Cube Size Request 2", "length": 1 },
+                { "erd": "0x14C2", "name": "Variable Cube Size Status 2", "length": 1 }
+              ]
+            },
+            {
+              "mask": "0x00001000",
+              "name": "Scanned Barcode Result",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x141F", "name": "Barcode Scan History", "length": 20 },
+                { "erd": "0x14C8", "name": "Scanned Barcode Result", "length": 86 }
+              ]
+            },
+            {
+              "mask": "0x00002000",
+              "name": "Dimmable Light 0 Warmth Percentage",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x14C3", "name": "Dimmable Lighting 0 Warmth Percentage Request", "length": 1 },
+                { "erd": "0x14C4", "name": "Dimmable Lighting 0 Warmth Percentage Setting", "length": 1 }
+              ]
+            },
+            {
+              "mask": "0x00004000",
+              "name": "Secondary Feature Pan Filtered Temperature",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x14C5", "name": "Secondary Feature Pan Filtered Temperature Resolved", "length": 2 }
+              ]
+            },
+            {
+              "mask": "0x00008000",
+              "name": "System Power Setting",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x14C6", "name": "System Power Off Request", "length": 1 },
+                { "erd": "0x14C7", "name": "System Power Off Status", "length": 1 }
+              ]
+            }
           ]
         }
       }
@@ -3356,6 +3447,15 @@
               "required": [
                 { "erd": "0x301C", "name": "Cycle Names", "length": 20 }
               ]
+            },
+            {
+              "mask": "0x00000200",
+              "name": "Analog Door Latch AD Counts",
+              "description": "This ERD provides the average ADC readings for each of the door states.",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x3088", "name": "Analog Door Latch AD Counts", "length": 6 }
+              ]
             }
           ]
         }
@@ -3827,7 +3927,7 @@
               "description": "",
               "dependencies": [],
               "required": [
-                { "erd": "0x5120", "name": "Upper Cavity Cook Recipe Status", "length": 48 },
+                { "erd": "0x5120", "name": "Upper Cavity Cook Recipe Status", "length": 36 },
                 { "erd": "0x5121", "name": "Upper Cavity Cook Recipe Request", "length": 80 },
                 { "erd": "0x5122", "name": "Upper Cavity Index", "length": 2 },
                 { "erd": "0x5124", "name": "Upper Cavity Cook Recipe Stage 1", "length": 150 },
@@ -3843,7 +3943,7 @@
               "description": "",
               "dependencies": [],
               "required": [
-                { "erd": "0x5220", "name": "Lower Cavity Cook Recipe Status", "length": 48 },
+                { "erd": "0x5220", "name": "Lower Cavity Cook Recipe Status", "length": 36 },
                 { "erd": "0x5221", "name": "Lower Cavity Cook Recipe Request", "length": 80 },
                 { "erd": "0x5222", "name": "Lower Cavity Index ", "length": 2 },
                 { "erd": "0x5224", "name": "Lower Cavity Cook Recipe Stage 1", "length": 150 },
@@ -4103,7 +4203,10 @@
               "dependencies": [],
               "required": [
                 { "erd": "0x504E", "name": "Cook Cam AI Assistant Enabled Request", "length": 1 },
-                { "erd": "0x504F", "name": "Cook Cam AI Assistant Enabled Status", "length": 1 }
+                { "erd": "0x504F", "name": "Cook Cam AI Assistant Enabled Status", "length": 1 },
+                { "erd": "0x5052", "name": "Cook Cam Image Capture Signal", "length": 1 },
+                { "erd": "0x5053", "name": "Cook Cam Image Upload Enabled Setting Request", "length": 1 },
+                { "erd": "0x5054", "name": "Cook Cam Image Upload Enabled Setting Status", "length": 1 }
               ]
             },
             {
@@ -4188,7 +4291,7 @@
               "description": "",
               "dependencies": [],
               "required": [
-                { "erd": "0x521C", "name": "Lower Oven Cook Time Add Or Subtract Request", "length": 4 }
+                { "erd": "0x512C", "name": "Local Available Cook Modes Cavity 1", "length": 8 }
               ]
             },
             {
@@ -4717,7 +4820,8 @@
               "dependencies": [],
               "required": [
                 { "erd": "0x1161", "name": "Water Usage", "length": 4 },
-                { "erd": "0x116D", "name": "Daily Water Usage", "length": 2 }
+                { "erd": "0x116D", "name": "Daily Water Usage", "length": 2 },
+                { "erd": "0x1162", "name": "Daily Water Usage Update Alert", "length": 1 }
               ]
             },
             {
@@ -4726,7 +4830,8 @@
               "description": "",
               "dependencies": [],
               "required": [
-                { "erd": "0x1164", "name": "Water Filter Status Details", "length": 12 }
+                { "erd": "0x1164", "name": "Water Filter Status Details", "length": 12 },
+                { "erd": "0x1179", "name": "Home Water Filter 0 Type Information", "length": 2 }
               ]
             },
             {
@@ -4754,7 +4859,6 @@
               "description": "",
               "dependencies": [],
               "required": [
-                { "erd": "0x1162", "name": "Daily Water Usage Update Alert", "length": 1 },
                 { "erd": "0x1163", "name": "Water Filter Expiration Alert", "length": 1 },
                 { "erd": "0x1169", "name": "Continuous Flow Alert", "length": 1 },
                 { "erd": "0x116B", "name": "Low Temperature Alert", "length": 1 },
@@ -4768,6 +4872,35 @@
               "dependencies": [],
               "required": [
                 { "erd": "0x1175", "name": "Home Water Filter Notification", "length": 32 }
+              ]
+            },
+            {
+              "mask": "0x00002000",
+              "name": "Filter 1 Status",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x1176", "name": "Water Filter 1 Status Details", "length": 12 },
+                { "erd": "0x117A", "name": "Home Water Filter 1 Type Information", "length": 2 }
+              ]
+            },
+            {
+              "mask": "0x00004000",
+              "name": "Filter 2 Status",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x1177", "name": "Water Filter 2 Status Details", "length": 12 },
+                { "erd": "0x117B", "name": "Home Water Filter 2 Type Information", "length": 2 }
+              ]
+            },
+            {
+              "mask": "0x00008000",
+              "name": "Home Water Filter Platform",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x1178", "name": "Home Water Filter Platform", "length": 1 }
               ]
             }
           ]
@@ -5043,6 +5176,16 @@
                 { "erd": "0x745D", "name": "Fan Boost Request", "length": 1 },
                 { "erd": "0x746C", "name": "Auxiliary 24V Input Status", "length": 5 },
                 { "erd": "0x746D", "name": "Auxiliary 24V Configuration Request", "length": 1 }
+              ]
+            },
+            {
+              "mask": "0x00008000",
+              "name": "Stratos Heat Source Optimization",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x7472", "name": "Heat Source Optimization Status", "length": 5 },
+                { "erd": "0x7473", "name": "Heat Source Optimization Request", "length": 1 }
               ]
             }
           ]
@@ -6188,6 +6331,16 @@
                 { "erd": "0x913E", "name": "Light Color Status", "length": 4 },
                 { "erd": "0x913F", "name": "Light Color Request", "length": 4 }
               ]
+            },
+            {
+              "mask": "0x00000800",
+              "name": "Water Level Tone Setting Supported",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x9140", "name": "Water Level Tone Setting Current State", "length": 1 },
+                { "erd": "0x9141", "name": "Water Level Tone Setting Requested State", "length": 1 }
+              ]
             }
           ]
         },
@@ -6318,6 +6471,16 @@
               "required": [
                 { "erd": "0x913E", "name": "Light Color Status", "length": 4 },
                 { "erd": "0x913F", "name": "Light Color Request", "length": 4 }
+              ]
+            },
+            {
+              "mask": "0x00002000",
+              "name": "Water Level Tone Setting Supported",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x9140", "name": "Water Level Tone Setting Current State", "length": 1 },
+                { "erd": "0x9141", "name": "Water Level Tone Setting Requested State", "length": 1 }
               ]
             }
           ]
@@ -9414,7 +9577,7 @@
             {
               "mask": "0x08000000",
               "name": "Default to Eco Cycle Setting",
-              "description": "This setting controls whether the product will default to running Eco cycle (for EU \nenergy compliance), or the last selected cycle.  Must default to enabled for EU \nproducts. ERD 0x3231 provides the current setting, and ERD 0x3232 allows setting\nthis preference from the app.",
+              "description": "This setting controls whether the product will default to running Eco cycle (for EU\nenergy compliance), or the last selected cycle.  Must default to enabled for EU\nproducts. ERD 0x3231 provides the current setting, and ERD 0x3232 allows setting\nthis preference from the app.",
               "dependencies": [],
               "required": [
                 { "erd": "0x3231", "name": "Default to Eco Cycle Setting", "length": 1 },
@@ -9424,7 +9587,7 @@
             {
               "mask": "0x10000000",
               "name": "Custom Cycle",
-              "description": "These ERDs allow selection of which cycle is associated with te Custom cycle\noption on the product. ERD 0x322C requests the cycle index to be used for Custom \ncycle, and ERD 0x322D reflects the current status of the setting.  This setting \napplies to both tubs of a double-tub product.",
+              "description": "These ERDs allow selection of which cycle is associated with te Custom cycle\noption on the product. ERD 0x322C requests the cycle index to be used for Custom\ncycle, and ERD 0x322D reflects the current status of the setting.  This setting\napplies to both tubs of a double-tub product.",
               "dependencies": [],
               "required": [
                 { "erd": "0x322C", "name": "Custom Cycle Index Request", "length": 1 },
@@ -10049,6 +10212,36 @@
               "required": [
                 { "erd": "0x0105", "name": "Hosted Firmware Status", "length": 1 }
               ]
+            },
+            {
+              "mask": "0x00000010",
+              "name": "Voice Diagnostics",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x630B", "name": "Voice Diagnostics - Wake Word and Command Counts", "length": 8 },
+                { "erd": "0x630C", "name": "Voice Diagnostics - Total Android Platform Voice Command Activations", "length": 20 },
+                { "erd": "0x630D", "name": "Voice Diagnostics - Total Appliance Specific Voice Command Activations", "length": 20 }
+              ]
+            },
+            {
+              "mask": "0x00000020",
+              "name": "Remote Voice Enablement",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x630E", "name": "Voice Feature Enable Request", "length": 1 },
+                { "erd": "0x630F", "name": "Voice Features Enable Status", "length": 1 }
+              ]
+            },
+            {
+              "mask": "0x00000040",
+              "name": "Network State Indication",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x6003", "name": "Wireless Connection State", "length": 1 }
+              ]
             }
           ]
         }
@@ -10177,6 +10370,26 @@
               "required": [
                 { "erd": "0x7052", "name": "Energy Conservation Request", "length": 1 },
                 { "erd": "0x7054", "name": "Energy Conservation Status", "length": 1 }
+              ]
+            },
+            {
+              "mask": "0x00000400",
+              "name": "Heat Pump Temperature Lockout",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x746E", "name": "Heat Pump Lockout Temperature Status", "length": 6 },
+                { "erd": "0x746F", "name": "Heat Pump Lockout Temperature Request", "length": 2 }
+              ]
+            },
+            {
+              "mask": "0x00000800",
+              "name": "Input Current Limiting",
+              "description": "",
+              "dependencies": [],
+              "required": [
+                { "erd": "0x7470", "name": "Input Current Limiting Status", "length": 8 },
+                { "erd": "0x7471", "name": "Input Current Limiting Request", "length": 1 }
               ]
             }
           ]
