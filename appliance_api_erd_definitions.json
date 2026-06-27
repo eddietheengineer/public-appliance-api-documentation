@@ -53,7 +53,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Control User Interface Locked: Binary enum writable switch."
+    "comment": "Control User Interface Locked: Binary enum writable switch.",
+    "device_class": "enum"
   }, {
     "name": "Clock Time",
     "id": "0x0005",
@@ -125,7 +126,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Temperature Display Units: Temperature display preference setting (select)."
+    "comment": "Temperature Display Units: Temperature display preference setting (select).",
+    "device_class": "enum"
   }, {
     "name": "Appliance Type",
     "id": "0x0008",
@@ -291,7 +293,8 @@
     }],
     "ha_domain": "sensor",
     "comment": "High confidence: Ready To Enter Bootloader state. YAML uses payload_on='3', payload_off='2'.",
-    "confidence": "high"
+    "confidence": "high",
+    "device_class": "enum"
   }, {
     "name": "Reset Board",
     "id": "0x0032",
@@ -367,7 +370,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Service Mode State Request: Enum writable select."
+    "comment": "Service Mode State Request: Enum writable select.",
+    "device_class": "enum"
   }, {
     "name": "Service Mode State",
     "id": "0x0037",
@@ -1012,7 +1016,8 @@
     "paired_erd": "0x0413",
     "pair_role": "request",
     "confidence": "medium",
-    "comment": "Matter Device Temperature Display Mode Request: Temperature display preference setting (select)."
+    "comment": "Matter Device Temperature Display Mode Request: Temperature display preference setting (select).",
+    "device_class": "enum"
   }, {
     "name": "Matter Device Temperature Display Mode Actual",
     "id": "0x0413",
@@ -5975,7 +5980,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Autofill pitcher feature state: Binary enum read-only binary sensor."
+    "comment": "Autofill pitcher feature state: Binary enum read-only binary sensor.",
+    "device_class": "enum"
   }, {
     "name": "Autofill pitcher presence",
     "id": "0x1055",
@@ -16142,7 +16148,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Water Intake Configuration: Enum writable select."
+    "comment": "Water Intake Configuration: Enum writable select.",
+    "device_class": "enum"
   }, {
     "name": "Paused Mode Request",
     "id": "0x1315",
@@ -20760,7 +20767,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Remote Status: Binary enum read-only binary sensor."
+    "comment": "Remote Status: Binary enum read-only binary sensor.",
+    "device_class": "enum"
   }, {
     "name": "Smart Dispense Usage Profile Record Less",
     "id": "0x203a",
@@ -51781,7 +51789,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Additional Cavity Remote Status: Binary enum read-only binary sensor."
+    "comment": "Additional Cavity Remote Status: Binary enum read-only binary sensor.",
+    "device_class": "enum"
   }, {
     "name": "Additional Cavity Remote Stop Cycle Request",
     "id": "0x2208",
@@ -73101,7 +73110,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Enhanced Sabbath State: Sabbath mode toggle."
+    "comment": "Enhanced Sabbath State: Sabbath mode toggle.",
+    "device_class": "enum"
   }, {
     "name": "Enhanced Sabbath Cooking Accepted Request",
     "id": "0x502f",
@@ -73185,7 +73195,8 @@
     "paired_erd": "0x5031",
     "pair_role": "status",
     "confidence": "medium",
-    "comment": "Enhanced Sabbath Warmness Setting Status: Sabbath mode toggle."
+    "comment": "Enhanced Sabbath Warmness Setting Status: Sabbath mode toggle.",
+    "device_class": "enum"
   }, {
     "name": "Enhanced Shabbos Keeper Is Connected Status",
     "id": "0x5033",
@@ -75062,7 +75073,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Upper Oven Light Level: Enum writable select."
+    "comment": "Upper Oven Light Level: Enum writable select.",
+    "device_class": "enum"
   }, {
     "name": "Upper Oven Light Level Availability",
     "id": "0x5112",
@@ -80756,7 +80768,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Lower Oven Light Level: Enum writable select."
+    "comment": "Lower Oven Light Level: Enum writable select.",
+    "device_class": "enum"
   }, {
     "name": "Lower Oven Light Level Availability",
     "id": "0x5212",
@@ -85647,7 +85660,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Manual Enhanced Sabbath Schedule Selected: Sabbath mode toggle."
+    "comment": "Manual Enhanced Sabbath Schedule Selected: Sabbath mode toggle.",
+    "device_class": "enum"
   }, {
     "name": "Time Of Day Synced With UI",
     "id": "0x5303",
@@ -104341,7 +104355,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Hood Actual Delay Off Mode: Binary enum read-only binary sensor."
+    "comment": "Hood Actual Delay Off Mode: Binary enum read-only binary sensor.",
+    "device_class": "enum"
   }, {
     "name": "Hood Delay Off Request",
     "id": "0x5b1b",
@@ -104615,7 +104630,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Hood to Hob Request Auto Control: Enum writable select."
+    "comment": "Hood to Hob Request Auto Control: Enum writable select.",
+    "device_class": "enum"
   }, {
     "name": "Hood Requested Auto Fan Speed",
     "id": "0x5b26",
@@ -105862,7 +105878,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Requested Color Scheme: Enum writable select."
+    "comment": "Requested Color Scheme: Enum writable select.",
+    "device_class": "enum"
   }, {
     "name": "PM 2.5 Index Update Period in Minutes",
     "id": "0x5b4f",
@@ -122303,7 +122320,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "EEV2 Desired Position: Single numeric writable value."
+    "comment": "EEV2 Desired Position: Single numeric writable value.",
+    "unit_of_measurement": "steps"
   }, {
     "name": "EEV1 Actual Position",
     "id": "0x7514",
@@ -122338,7 +122356,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "EEV2 Actual Position: Single numeric writable value."
+    "comment": "EEV2 Actual Position: Single numeric writable value.",
+    "unit_of_measurement": "steps"
   }, {
     "name": "Target Superheat Temperature",
     "id": "0x7516",
@@ -125352,7 +125371,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "4 way valve position: Enum writable select."
+    "comment": "4 way valve position: Enum writable select.",
+    "device_class": "enum"
   }, {
     "name": "Inverter Volts and Amps",
     "id": "0x7903",
@@ -140393,7 +140413,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Scale Mode Requested Units: Enum writable select."
+    "comment": "Scale Mode Requested Units: Enum writable select.",
+    "device_class": "enum"
   }, {
     "name": "Scale Current Target Weight",
     "id": "0x930d",
