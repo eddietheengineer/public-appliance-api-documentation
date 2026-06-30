@@ -89,6 +89,9 @@ VALID_DEVICE_CLASSES = {
         "problem", "running", "safety", "smoke", "sound",
         "tamper", "update", "vibration", "window",
     },
+    "button": {
+        "identify", "restart", "update",
+    },
 }
 
 
@@ -124,6 +127,18 @@ def detect_device_class_from_name(name: str) -> str:
                 if any(excl in name_lower for excl in exclusions):
                     continue
                 return device_class
+    return ""
+
+
+def detect_button_device_class(name: str) -> str:
+    """Detect device_class for button domain from ERD name."""
+    name_lower = name.lower()
+    if any(kw in name_lower for kw in ["reset", "restart", "reboot"]):
+        return "restart"
+    if "identify" in name_lower:
+        return "identify"
+    if "update" in name_lower:
+        return "update"
     return ""
 
 

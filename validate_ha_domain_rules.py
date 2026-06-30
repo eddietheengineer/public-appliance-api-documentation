@@ -433,11 +433,13 @@ def validate_button(erd: dict, erd_id: str, name: str, defs_file: str) -> int:
         )
 
     if device_class:
-        error_count += 1
-        emit_error(
-            f"ERD {erd_id} ({name}): button cannot have device_class='{device_class}'",
-            file=defs_file
-        )
+        VALID_BUTTON_DEVICE_CLASSES = {'identify', 'restart', 'update'}
+        if device_class not in VALID_BUTTON_DEVICE_CLASSES:
+            error_count += 1
+            emit_error(
+                f"ERD {erd_id} ({name}): button has invalid device_class='{device_class}'. Valid values: {sorted(VALID_BUTTON_DEVICE_CLASSES)}",
+                file=defs_file
+            )
 
     return error_count
 

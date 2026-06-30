@@ -24,7 +24,7 @@ def emit_error(message: str, file: str = "", line: int = 0) -> None:
         print(f"  ERROR: {message}")
 
 VALID_DEVICE_CLASSES = {
-    'button': {'restart'},
+    'button': {'identify', 'restart', 'update'},
     'switch': {'outlet', 'switch'},
     'binary_sensor': {
         'battery', 'battery_charging', 'carbon_monoxide', 'cold',

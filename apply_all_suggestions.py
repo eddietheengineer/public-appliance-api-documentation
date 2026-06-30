@@ -138,6 +138,21 @@ def collect_ha_suggestions(erds: list[dict]) -> dict:
     return suggestions
 
 
+def collect_button_device_class_suggestions(erds: list[dict]) -> dict:
+    """Add device_class to button ERDs that are missing it."""
+    from auto_assign_ha_metadata import detect_button_device_class, VALID_DEVICE_CLASSES
+    suggestions = {}
+    for erd in erds:
+        if erd.get("ha_domain") != "button":
+            continue
+        if erd.get("device_class"):
+            continue
+        dc = detect_button_device_class(erd["name"])
+        if dc and dc in VALID_DEVICE_CLASSES.get("button", set()):
+            suggestions[erd["id"]] = {"device_class": dc}
+    return suggestions
+
+
 def collect_pairing_suggestions(erds: list[dict]) -> dict:
     """Collect pairing suggestions."""
     paired_ids = {e["id"] for e in erds if "pair_role" in e}
@@ -199,6 +214,7 @@ def apply_suggestions(
     ha_suggestions: dict,
     pairing_suggestions: dict,
     scaling_suggestions: dict,
+    button_dc_suggestions: dict,
 ) -> dict:
     """Apply all suggestions to ERD data."""
     erds = data["erds"]
@@ -228,6 +244,12 @@ def apply_suggestions(
         # Apply scaling
         if erd_id in scaling_suggestions:
             erd["scaling_factor"] = scaling_suggestions[erd_id]
+        
+        # Apply button device classes
+        if erd_id in button_dc_suggestions:
+            dc_suggestion = button_dc_suggestions[erd_id]
+            if "device_class" in dc_suggestion:
+                erd["device_class"] = dc_suggestion["device_class"]
     
     return data
 
@@ -290,11 +312,13 @@ def main() -> None:
     ha_suggestions = collect_ha_suggestions(erds)
     pairing_suggestions = collect_pairing_suggestions(erds)
     scaling_suggestions = collect_scaling_suggestions(erds)
+    button_dc_suggestions = collect_button_device_class_suggestions(erds)
     
     print(f"\nSuggestions collected:")
     print(f"  HA metadata: {len(ha_suggestions)}")
     print(f"  Pairings: {len(pairing_suggestions) // 2} pairs")
     print(f"  Scaling factors: {len(scaling_suggestions)}")
+    print(f"  Button device classes: {len(button_dc_suggestions)}")
     
     if args.dry_run:
         print("\n[DRY RUN] No changes applied")
@@ -302,7 +326,7 @@ def main() -> None:
     
     # Step 4: Apply suggestions
     print("\nApplying suggestions...")
-    data = apply_suggestions(data, ha_suggestions, pairing_suggestions, scaling_suggestions)
+    data = apply_suggestions(data, ha_suggestions, pairing_suggestions, scaling_suggestions, button_dc_suggestions)
     
     # Step 5: Save
     save_erd_definitions(data)
@@ -326,7 +350,8 @@ def main() -> None:
     print(f"HA metadata applied: {len(ha_suggestions)}")
     print(f"Pairings applied: {len(pairing_suggestions) // 2} pairs")
     print(f"Scaling factors applied: {len(scaling_suggestions)}")
-    print(f"Total changes: {len(ha_suggestions) + len(pairing_suggestions) + len(scaling_suggestions)}")
+    print(f"Button device classes applied: {len(button_dc_suggestions)}")
+    print(f"Total changes: {len(ha_suggestions) + len(pairing_suggestions) + len(scaling_suggestions) + len(button_dc_suggestions)}")
     print("=" * 60)
 
 

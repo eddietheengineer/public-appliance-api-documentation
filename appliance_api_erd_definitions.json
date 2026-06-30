@@ -311,7 +311,8 @@
     }],
     "ha_domain": "button",
     "confidence": "medium",
-    "comment": "Reset Board: Reset/restart button."
+    "comment": "Reset Board: Reset/restart button.",
+    "device_class": "restart"
   }, {
     "name": "System Current",
     "id": "0x0034",
@@ -5091,7 +5092,8 @@
     }],
     "ha_domain": "button",
     "confidence": "medium",
-    "comment": "Water Filter Reset Request: Reset/restart button."
+    "comment": "Water Filter Reset Request: Reset/restart button.",
+    "device_class": "restart"
   }, {
     "name": "Food Mode Upper Compartment (Desired)",
     "id": "0x1042",
@@ -8789,7 +8791,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "POE Water Flow Rate: Single numeric read-only sensor."
+    "comment": "POE Water Flow Rate: Single numeric read-only sensor.",
+    "scaling_factor": 100
   }, {
     "name": "Water Usage",
     "id": "0x1161",
@@ -8920,7 +8923,8 @@
     }],
     "ha_domain": "button",
     "confidence": "medium",
-    "comment": "Water Filter Reset Request: Reset/restart button."
+    "comment": "Water Filter Reset Request: Reset/restart button.",
+    "device_class": "restart"
   }, {
     "name": "Requested Water Valve Position",
     "id": "0x1167",
@@ -10156,7 +10160,10 @@
       "type": "i32",
       "offset": 8,
       "size": 4
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Water Filter 1 Status Details"
   }, {
     "name": "Water Filter 2 Status Details",
     "id": "0x1177",
@@ -10180,7 +10187,10 @@
       "type": "i32",
       "offset": 8,
       "size": 4
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Water Filter 2 Status Details"
   }, {
     "name": "Home Water Filter Platform",
     "id": "0x1178",
@@ -10199,7 +10209,10 @@
       },
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Home Water Filter Platform"
   }, {
     "name": "Home Water Filter 0 Type Information",
     "id": "0x1179",
@@ -10241,7 +10254,10 @@
       },
       "offset": 1,
       "size": 1
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Home Water Filter 0 Type Information"
   }, {
     "name": "Home Water Filter 1 Type Information",
     "id": "0x117a",
@@ -10283,7 +10299,10 @@
       },
       "offset": 1,
       "size": 1
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Home Water Filter 1 Type Information"
   }, {
     "name": "Home Water Filter 2 Type Information",
     "id": "0x117b",
@@ -10325,7 +10344,10 @@
       },
       "offset": 1,
       "size": 1
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Home Water Filter 2 Type Information"
   }, {
     "name": "Turbo Cool Request",
     "id": "0x120c",
@@ -12647,7 +12669,8 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Mixing Spraying Data Request: Multi-field sensor, may need custom handling to extract individual values."
+    "comment": "Mixing Spraying Data Request: Multi-field sensor, may need custom handling to extract individual values.",
+    "scaling_factor": 10
   }, {
     "name": "Growing Data Integrity Request",
     "id": "0x130f",
@@ -19901,7 +19924,10 @@
       "type": "u16",
       "offset": 18,
       "size": 2
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Barcode Scan History"
   }, {
     "name": "SBC Request To Power Off Barcode Scanner",
     "id": "0x142c",
@@ -19937,7 +19963,10 @@
       "type": "u8",
       "offset": 1,
       "size": 1
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Variable Cube Size Setting Data 0"
   }, {
     "name": "Variable Cube Size Request 0",
     "id": "0x14be",
@@ -19951,7 +19980,10 @@
       "type": "u8",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "number",
+    "confidence": "medium",
+    "comment": "Auto-suggested: Variable Cube Size Request 0"
   }, {
     "name": "Variable Cube Size Status 0",
     "id": "0x14bf",
@@ -19965,7 +19997,10 @@
       "type": "u8",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Variable Cube Size Status 0"
   }, {
     "name": "Variable Cube Size Setting Data 2",
     "id": "0x14c0",
@@ -19984,7 +20019,10 @@
       "type": "u8",
       "offset": 1,
       "size": 1
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Variable Cube Size Setting Data 2"
   }, {
     "name": "Variable Cube Size Request 2",
     "id": "0x14c1",
@@ -19998,7 +20036,10 @@
       "type": "u8",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "number",
+    "confidence": "medium",
+    "comment": "Auto-suggested: Variable Cube Size Request 2"
   }, {
     "name": "Variable Cube Size Status 2",
     "id": "0x14c2",
@@ -20012,7 +20053,10 @@
       "type": "u8",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Variable Cube Size Status 2"
   }, {
     "name": "Dimmable Lighting 0 Warmth Percentage Request",
     "id": "0x14c3",
@@ -20026,7 +20070,12 @@
       "type": "u8",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "number",
+    "confidence": "medium",
+    "comment": "Auto-suggested: Dimmable Lighting 0 Warmth Percentage Request",
+    "pair_role": "request",
+    "paired_erd": "0x14c4"
   }, {
     "name": "Dimmable Lighting 0 Warmth Percentage Setting",
     "id": "0x14c4",
@@ -20040,7 +20089,12 @@
       "type": "u8",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Dimmable Lighting 0 Warmth Percentage Setting",
+    "pair_role": "status",
+    "paired_erd": "0x14c3"
   }, {
     "name": "Secondary Feature Pan Filtered Temperature Resolved",
     "id": "0x14c5",
@@ -20055,7 +20109,14 @@
       "type": "i16",
       "offset": 0,
       "size": 2
-    }]
+    }],
+    "ha_domain": "sensor",
+    "device_class": "temperature",
+    "unit_of_measurement": "°F",
+    "state_class": "measurement",
+    "confidence": "high",
+    "comment": "Auto-suggested: Secondary Feature Pan Filtered Temperature Resolved (device_class inferred from name keyword, unit inferred from field name pattern, state_class inferred from device_class)",
+    "scaling_factor": 100
   }, {
     "name": "System Power Off Request",
     "id": "0x14c6",
@@ -20069,7 +20130,12 @@
       "type": "bool",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "switch",
+    "confidence": "medium",
+    "comment": "Auto-suggested: System Power Off Request",
+    "pair_role": "request",
+    "paired_erd": "0x14c7"
   }, {
     "name": "System Power Off Status",
     "id": "0x14c7",
@@ -20083,7 +20149,12 @@
       "type": "bool",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "binary_sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: System Power Off Status",
+    "pair_role": "status",
+    "paired_erd": "0x14c6"
   }, {
     "name": "Scanned Barcode Result",
     "id": "0x14c8",
@@ -20160,7 +20231,10 @@
       "type": "string",
       "offset": 21,
       "size": 65
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Scanned Barcode Result"
   }, {
     "name": "Machine State",
     "id": "0x2000",
@@ -51589,7 +51663,8 @@
     }],
     "ha_domain": "button",
     "confidence": "medium",
-    "comment": "Reset Current Coin Box Count Request: Reset/restart button."
+    "comment": "Reset Current Coin Box Count Request: Reset/restart button.",
+    "device_class": "restart"
   }, {
     "name": "Smart Wash And Rinse Option Request",
     "id": "0x2172",
@@ -58562,7 +58637,12 @@
       },
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "select",
+    "confidence": "medium",
+    "comment": "Auto-suggested: Commercial Remote Free Mode Request",
+    "pair_role": "request",
+    "paired_erd": "0x2339"
   }, {
     "name": "Commercial Remote Free Mode Status",
     "id": "0x2339",
@@ -58581,7 +58661,12 @@
       },
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Commercial Remote Free Mode Status",
+    "pair_role": "status",
+    "paired_erd": "0x2338"
   }, {
     "name": "Mabe - Water Level Selection",
     "id": "0x2f00",
@@ -62120,7 +62205,10 @@
       "type": "u16",
       "offset": 4,
       "size": 2
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Analog Door Latch AD Counts"
   }, {
     "name": "Turbidity Calibration Value",
     "id": "0x3100",
@@ -74394,7 +74482,10 @@
       "type": "u8",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Cook Cam Image Capture Signal"
   }, {
     "name": "Cook Cam Image Upload Enabled Setting Request",
     "id": "0x5053",
@@ -74408,7 +74499,12 @@
       "type": "bool",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "switch",
+    "confidence": "medium",
+    "comment": "Auto-suggested: Cook Cam Image Upload Enabled Setting Request",
+    "pair_role": "request",
+    "paired_erd": "0x5054"
   }, {
     "name": "Cook Cam Image Upload Enabled Setting Status",
     "id": "0x5054",
@@ -74422,7 +74518,12 @@
       "type": "bool",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "binary_sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Cook Cam Image Upload Enabled Setting Status",
+    "pair_role": "status",
+    "paired_erd": "0x5053"
   }, {
     "name": "AI Bake Oven Status",
     "id": "0x5060",
@@ -80944,7 +81045,10 @@
       },
       "offset": 0,
       "size": 8
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Local Available Cook Modes Cavity 1"
   }, {
     "name": "Upper Cavity Current Cycle Stage",
     "id": "0x5150",
@@ -91952,7 +92056,8 @@
     }],
     "device_class": "duration",
     "confidence": "medium",
-    "comment": "Start Closed-Loop Cooking Cook Timer: Timer/duration value."
+    "comment": "Auto-suggested: Start Closed-Loop Cooking Cook Timer",
+    "ha_domain": "switch"
   }, {
     "name": "Elapsed Closed-Loop Cooking Time",
     "id": "0x5676",
@@ -113243,7 +113348,10 @@
       },
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "select",
+    "confidence": "medium",
+    "comment": "Auto-suggested: Wireless Connection State"
   }, {
     "name": "Downgrade Count",
     "id": "0x603c",
@@ -120170,7 +120278,10 @@
       "type": "u32",
       "offset": 4,
       "size": 4
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Voice Diagnostics - Wake Word and Command Counts"
   }, {
     "name": "Voice Diagnostics - Total Android Platform Voice Command Activations",
     "id": "0x630c",
@@ -120230,7 +120341,10 @@
       "type": "u16",
       "offset": 18,
       "size": 2
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Voice Diagnostics - Total Android Platform Voice Command Activations"
   }, {
     "name": "Voice Diagnostics - Total Appliance Specific Voice Command Activations",
     "id": "0x630d",
@@ -120290,7 +120404,10 @@
       "type": "u16",
       "offset": 18,
       "size": 2
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Voice Diagnostics - Total Appliance Specific Voice Command Activations"
   }, {
     "name": "Voice Feature Enable Request",
     "id": "0x630e",
@@ -120304,7 +120421,10 @@
       "type": "bool",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "switch",
+    "confidence": "medium",
+    "comment": "Auto-suggested: Voice Feature Enable Request"
   }, {
     "name": "Voice Features Enable Status",
     "id": "0x630f",
@@ -120318,7 +120438,10 @@
       "type": "bool",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "binary_sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Voice Features Enable Status"
   }, {
     "name": "System Mode",
     "id": "0x7000",
@@ -121250,7 +121373,8 @@
     "unit_of_measurement": "°F",
     "device_class": "temperature",
     "comment": "Medium confidence: Read-only estimated external thermostat target setpoint; assumed degF without explicit scaling.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "scaling_factor": 10
   }, {
     "name": "Target Dew Point temperature",
     "id": "0x7117",
@@ -121270,7 +121394,8 @@
     "unit_of_measurement": "°F",
     "device_class": "temperature",
     "comment": "Medium confidence: Read-only target dew point temperature; assumed degF without explicit scaling.",
-    "confidence": "medium"
+    "confidence": "medium",
+    "scaling_factor": 10
   }, {
     "name": "Measured Dew Point temperature",
     "id": "0x7118",
@@ -123906,7 +124031,16 @@
       "type": "i16",
       "offset": 4,
       "size": 2
-    }]
+    }],
+    "ha_domain": "sensor",
+    "device_class": "temperature",
+    "unit_of_measurement": "°F",
+    "state_class": "measurement",
+    "confidence": "high",
+    "comment": "Auto-suggested: Heat Pump Lockout Temperature Status (device_class inferred from name keyword, unit inferred from field name pattern, state_class inferred from device_class)",
+    "pair_role": "status",
+    "paired_erd": "0x746f",
+    "scaling_factor": 10
   }, {
     "name": "Heat Pump Lockout Temperature Request",
     "id": "0x746f",
@@ -123920,7 +124054,14 @@
       "type": "i16",
       "offset": 0,
       "size": 2
-    }]
+    }],
+    "ha_domain": "number",
+    "unit_of_measurement": "°F",
+    "confidence": "medium",
+    "comment": "Auto-suggested: Heat Pump Lockout Temperature Request (unit inferred from field name pattern)",
+    "pair_role": "request",
+    "paired_erd": "0x746e",
+    "scaling_factor": 10
   }, {
     "name": "Input Current Limiting Status",
     "id": "0x7470",
@@ -123959,7 +124100,12 @@
       "type": "u8",
       "offset": 7,
       "size": 1
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Input Current Limiting Status",
+    "pair_role": "status",
+    "paired_erd": "0x7471"
   }, {
     "name": "Input Current Limiting Request",
     "id": "0x7471",
@@ -123973,7 +124119,12 @@
       "type": "u8",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "number",
+    "confidence": "medium",
+    "comment": "Auto-suggested: Input Current Limiting Request",
+    "pair_role": "request",
+    "paired_erd": "0x7470"
   }, {
     "name": "Heat Source Optimization Status",
     "id": "0x7472",
@@ -124045,7 +124196,12 @@
       },
       "offset": 1,
       "size": 4
-    }]
+    }],
+    "ha_domain": "sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Heat Source Optimization Status",
+    "pair_role": "status",
+    "paired_erd": "0x7473"
   }, {
     "name": "Heat Source Optimization Request",
     "id": "0x7473",
@@ -124064,7 +124220,12 @@
       },
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "select",
+    "confidence": "medium",
+    "comment": "Auto-suggested: Heat Source Optimization Request",
+    "pair_role": "request",
+    "paired_erd": "0x7472"
   }, {
     "name": "External Thermostat fault state",
     "id": "0x7507",
@@ -132571,7 +132732,8 @@
     }],
     "ha_domain": "button",
     "confidence": "medium",
-    "comment": "Espresso Maker Reset Brew Parameters: Reset/restart button."
+    "comment": "Espresso Maker Reset Brew Parameters: Reset/restart button.",
+    "device_class": "restart"
   }, {
     "name": "Espresso Maker Current Standby Timeout",
     "id": "0x9024",
@@ -135274,7 +135436,8 @@
     }],
     "ha_domain": "button",
     "confidence": "medium",
-    "comment": "Ice Maker Filter Status Reset: Reset/restart button."
+    "comment": "Ice Maker Filter Status Reset: Reset/restart button.",
+    "device_class": "restart"
   }, {
     "name": "Tank Drain Frequency Setting",
     "id": "0x9132",
@@ -135692,7 +135855,10 @@
       "type": "bool",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "binary_sensor",
+    "confidence": "high",
+    "comment": "Auto-suggested: Water Level Tone Setting Current State"
   }, {
     "name": "Water Level Tone Setting Requested State",
     "id": "0x9141",
@@ -135706,7 +135872,10 @@
       "type": "bool",
       "offset": 0,
       "size": 1
-    }]
+    }],
+    "ha_domain": "switch",
+    "confidence": "medium",
+    "comment": "Auto-suggested: Water Level Tone Setting Requested State"
   }, {
     "name": "Toaster Oven Supported Cook Modes",
     "id": "0x9200",
@@ -139976,7 +140145,8 @@
     }],
     "ha_domain": "button",
     "confidence": "medium",
-    "comment": "Toaster Oven Reset Cooking Parameters for the Selected Cooking Mode: Reset/restart button."
+    "comment": "Toaster Oven Reset Cooking Parameters for the Selected Cooking Mode: Reset/restart button.",
+    "device_class": "restart"
   }, {
     "name": "Toaster Oven Current Crisp Finish Mode Cooking Parameters",
     "id": "0x9226",
@@ -145298,7 +145468,8 @@
     }],
     "ha_domain": "button",
     "confidence": "medium",
-    "comment": "Reset Cooking Parameters: Reset/restart button."
+    "comment": "Reset Cooking Parameters: Reset/restart button.",
+    "device_class": "restart"
   }, {
     "name": "Restore Factory Defaults",
     "id": "0x9435",
