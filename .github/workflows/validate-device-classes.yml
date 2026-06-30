@@ -19,3 +19,6 @@ jobs:
 
       - name: Validate ha_domain/device_class combinations
         run: python3 validate_device_classes.py
+
+      - name: Validate ERD pairing symmetry
+        run: python3 validate_pairings.py
