@@ -93957,8 +93957,7 @@
         "7": "Rejected (Other Cavity Cleaning)"
       },
       "offset": 20,
-      "size": 1,
-      "device_class": "enum"
+      "size": 1
     }, {
       "name": "Padding[0]",
       "type": "u8",
@@ -94749,8 +94748,7 @@
         "7": "Rejected (Other Cavity Cleaning)"
       },
       "offset": 20,
-      "size": 1,
-      "device_class": "enum"
+      "size": 1
     }, {
       "name": "Padding[0]",
       "type": "u8",
