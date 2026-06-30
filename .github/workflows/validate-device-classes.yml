@@ -2,7 +2,7 @@ name: Validate Device Classes
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/add-validation-scripts]
   pull_request:
     branches: [main]
 
@@ -18,20 +18,20 @@ jobs:
           python-version: '3.11'
 
       - name: Validate ha_domain/device_class combinations
-        run: python3 validate_device_classes.py
+        run: python3 scripts/validate_device_classes.py
 
       - name: Validate ERD pairing symmetry
-        run: python3 validate_pairings.py
+        run: python3 scripts/validate_pairings.py
 
       - name: Validate HA metadata completeness
-        run: python3 validate_ha_completeness.py
+        run: python3 scripts/validate_ha_completeness.py
 
       - name: Validate scaling factor consistency
-        run: python3 validate_scaling_consistency.py
+        run: python3 scripts/validate_scaling_consistency.py
 
       - name: Validate HA domain-specific rules
-        run: python3 validate_ha_domain_rules.py
+        run: python3 scripts/validate_ha_domain_rules.py
 
       - name: Generate coverage report
         if: always()
-        run: python3 generate_coverage_report.py
+        run: python3 scripts/generate_coverage_report.py
