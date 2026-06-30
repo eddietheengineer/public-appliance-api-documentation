@@ -22,3 +22,20 @@ jobs:
 
       - name: Validate ERD pairing symmetry
         run: python3 validate_pairings.py
+
+      - name: Validate HA metadata completeness
+        run: python3 validate_ha_completeness.py
+
+      - name: Validate scaling factor consistency
+        run: python3 validate_scaling_consistency.py
+
+      - name: Generate coverage report
+        if: always()
+        run: python3 generate_coverage_report.py
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage_report.md
