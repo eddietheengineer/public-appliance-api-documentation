@@ -4,7 +4,7 @@ This document outlines proposed scripts and enhancements that have not yet been 
 
 ## Auto-generation Scripts (High Priority)
 
-### `auto_assign_ha_metadata.py`
+### `auto_assign_ha_metadata.py` ✅ Implemented
 Suggest Home Assistant metadata for unmapped ERDs based on data types and field names.
 
 **Features:**
