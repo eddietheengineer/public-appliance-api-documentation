@@ -26,7 +26,7 @@ Suggest Home Assistant metadata for unmapped ERDs based on data types and field 
   - `(degC)`, `(celsius)` → "°C"
 - Output a report of suggestions that can be reviewed and applied
 
-### `auto_detect_pairings.py`
+### `auto_detect_pairings.py` ✅ Implemented
 Find missing request/status pairs and suggest pairing metadata.
 
 **Features:**
@@ -35,7 +35,7 @@ Find missing request/status pairs and suggest pairing metadata.
 - Suggest `paired_erd` and `pair_role` values
 - Output report for review
 
-### `auto_detect_scaling.py`
+### `auto_detect_scaling.py` ✅ Implemented
 Infer scaling factors from field names.
 
 **Features:**
@@ -45,7 +45,7 @@ Infer scaling factors from field names.
 
 ## Upstream Sync Script (Medium Priority)
 
-### `sync_upstream.py`
+### `sync_upstream.py` ✅ Implemented
 Merge changes from the upstream GE Appliances repository.
 
 **Features:**
