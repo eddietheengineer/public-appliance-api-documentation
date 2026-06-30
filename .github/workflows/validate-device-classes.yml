@@ -17,6 +17,9 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Validate JSON format
+        run: python3 scripts/validate_json_format.py
+
       - name: Validate ha_domain/device_class combinations
         run: python3 scripts/validate_device_classes.py
 
