@@ -10348,7 +10348,7 @@
       "size": 1
     }],
     "ha_domain": "switch",
-    "paired_erd": "0x120d",
+    "paired_erd": "0x100f",
     "pair_role": "request",
     "confidence": "medium",
     "comment": "Turbo Cool Request: Boolean writable switch."
@@ -10422,7 +10422,7 @@
       "size": 1
     }],
     "ha_domain": "switch",
-    "paired_erd": "0x121b",
+    "paired_erd": "0x100e",
     "pair_role": "request",
     "confidence": "medium",
     "comment": "Turbo Freeze Request: Boolean writable switch."
@@ -134827,7 +134827,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "paired_erd": "0x905d",
+    "paired_erd": "0x217f",
     "pair_role": "request",
     "confidence": "low",
     "comment": "Delay Start Request: Multi-field sensor, may need custom handling to extract individual values."
