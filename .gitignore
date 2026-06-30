@@ -1,2 +1,7 @@
 __pycache__/
 *.pyc
+doc/pairing_suggestions.md
+doc/ha_metadata_suggestions.md
+doc/scaling_suggestions.md
+doc/sync_report.md
+doc/coverage_report.md
