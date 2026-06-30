@@ -19,7 +19,7 @@ import sys
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
-ERD_FILE = SCRIPT_DIR / "appliance_api_erd_definitions.json"
+ERD_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
 METADATA_KEYS = {"ha_domain", "device_class", "unit_of_measurement", "state_class", "scaling_factor"}
 
 

@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
-ERD_FILE = SCRIPT_DIR / "appliance_api_erd_definitions.json"
+ERD_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
 
 
 def remove_empty_device_class(data: dict) -> int:

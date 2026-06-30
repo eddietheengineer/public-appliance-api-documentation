@@ -73,7 +73,7 @@ VALID_DEVICE_CLASSES = {
 
 
 def main():
-    defs_path = Path(__file__).parent / 'appliance_api_erd_definitions.json'
+    defs_path = Path(__file__).parent.parent / 'appliance_api_erd_definitions.json'
     with open(defs_path) as f:
         data = json.load(f)
 

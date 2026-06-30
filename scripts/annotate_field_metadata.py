@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
-ERD_DEFINITIONS_FILE = SCRIPT_DIR / "appliance_api_erd_definitions.json"
+ERD_DEFINITIONS_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
 
 NUMERIC_TYPES = {"u8", "u16", "u32", "i8", "i16", "i32"}
 
