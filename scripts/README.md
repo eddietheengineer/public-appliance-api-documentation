@@ -113,3 +113,7 @@ Validates that all `paired_erd` references are symmetric (if A points to B, B mu
 ### `validate_scaling_consistency.py`
 
 Validates that `scaling_factor` values match field name patterns (e.g. field named `Temperature (°F x 10)` must have `scaling_factor: 10`).
+
+### `validate_json_format.py`
+
+Validates that `appliance_api_erd_definitions.json` follows the non-standard compact JSON format (valid JSON, no escaped non-ASCII, 2-space indentation, correct top-level structure).

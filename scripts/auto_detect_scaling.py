@@ -16,8 +16,12 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+
+from ha_constants import ERD_DEFINITIONS_FILE
+
 SCRIPT_DIR = Path(__file__).parent
-ERD_DEFINITIONS_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
 OUTPUT_FILE = SCRIPT_DIR.parent / "doc" / "scaling_suggestions.md"
 
 

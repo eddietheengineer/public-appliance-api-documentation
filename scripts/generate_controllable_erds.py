@@ -18,9 +18,11 @@ import re
 import sys
 from pathlib import Path
 
-SCRIPT_DIR = Path(__file__).parent
-ERD_DEFINITIONS_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
-OUTPUT_FILE = SCRIPT_DIR.parent / "doc" / "controllable_erds.md"
+sys.path.insert(0, str(Path(__file__).parent))
+
+from ha_constants import ERD_DEFINITIONS_FILE
+
+OUTPUT_FILE = ERD_DEFINITIONS_FILE.parent / "doc" / "controllable_erds.md"
 
 CONTROLLABLE_DOMAINS = ("switch", "select", "number", "button", "binary_sensor")
 
@@ -50,10 +52,16 @@ def find_controllable_erds(erds: list) -> list[dict]:
     - It has 'write' in operations
     If it has pair_role='request' with a valid paired_erd, the status ERD is listed.
     """
-    erd_by_id = {e["id"]: e for e in erds}
+    erd_by_id = {}
+    for e in erds:
+        if isinstance(e, dict) and "id" in e:
+            erd_by_id[e["id"]] = e
+
     rows = []
 
     for e in erds:
+        if not isinstance(e, dict):
+            continue
         if e.get("ha_domain") not in CONTROLLABLE_DOMAINS:
             continue
         if "write" not in e.get("operations", []):
@@ -118,8 +126,12 @@ def main() -> None:
         print(f"ERROR: {ERD_DEFINITIONS_FILE} not found", file=sys.stderr)
         sys.exit(1)
 
-    with ERD_DEFINITIONS_FILE.open(encoding="utf-8") as f:
-        data = json.load(f)
+    try:
+        with ERD_DEFINITIONS_FILE.open(encoding="utf-8") as f:
+            data = json.load(f)
+    except json.JSONDecodeError as exc:
+        print(f"ERROR: Failed to parse {ERD_DEFINITIONS_FILE}: {exc}", file=sys.stderr)
+        sys.exit(1)
 
     erds = data["erds"]
     rows = find_controllable_erds(erds)

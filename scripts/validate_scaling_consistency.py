@@ -10,26 +10,15 @@ Errors (exit 1):
 """
 
 import json
-import os
 import re
 import sys
-from pathlib import Path
 
-IN_GITHUB_ACTIONS = os.environ.get('GITHUB_ACTIONS') == 'true'
+from validator_utils import emit_error
+from ha_constants import ERD_DEFINITIONS_FILE
 
-
-def emit_error(message: str, file: str = "", line: int = 0) -> None:
-    """Emit an error message, using GitHub Actions annotation format if in CI."""
-    if IN_GITHUB_ACTIONS:
-        if file and line:
-            print(f"::error file={file},line={line}::{message}")
-        else:
-            print(f"::error::{message}")
-    else:
-        print(f"  ERROR: {message}")
-
-SCALING_PATTERN = re.compile(r'(?<!\dx)(?<!0x)\bx\s*(\d+)\b', re.IGNORECASE)
-HEX_REF_PATTERN = re.compile(r'0x[0-9a-fA-F]{3,}')
+# Match x followed by a number, but not preceded by a digit or '0x' hex prefix
+SCALING_PATTERN = re.compile(r'(?<!\d)(?<!0x)\bx\s*(\d+)\b', re.IGNORECASE)
+HEX_REF_PATTERN = re.compile(r'0x[0-9a-fA-F]{2,}')
 PLAUSIBLE_SCALING_FACTORS = {10, 100, 1000}
 
 
@@ -45,14 +34,23 @@ def find_scaling_in_field_name(name: str):
 
 
 def main():
-    defs_path = Path(__file__).parent.parent / 'appliance_api_erd_definitions.json'
-    with open(defs_path) as f:
-        data = json.load(f)
+    if not ERD_DEFINITIONS_FILE.exists():
+        print(f"ERROR: {ERD_DEFINITIONS_FILE} not found", file=sys.stderr)
+        sys.exit(1)
+
+    try:
+        with ERD_DEFINITIONS_FILE.open(encoding="utf-8") as f:
+            data = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"ERROR: Invalid JSON in {ERD_DEFINITIONS_FILE}: {e}", file=sys.stderr)
+        sys.exit(1)
 
     error_count = 0
-    defs_file = str(defs_path)
+    defs_file = str(ERD_DEFINITIONS_FILE)
 
     for erd in data.get('erds', []):
+        if not isinstance(erd, dict):
+            continue
         erd_id = erd.get('id', '<unknown>')
         name = erd.get('name', '<unknown>')
         ha_domain = erd.get('ha_domain')
@@ -63,6 +61,8 @@ def main():
 
         field_scalings = []
         for d in erd.get('data', []):
+            if not isinstance(d, dict):
+                continue
             fname = d.get('name', '')
             sf = find_scaling_in_field_name(fname)
             if sf is not None:

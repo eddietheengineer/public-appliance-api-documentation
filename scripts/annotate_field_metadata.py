@@ -14,64 +14,22 @@ import re
 import sys
 from pathlib import Path
 
-SCRIPT_DIR = Path(__file__).parent
-ERD_DEFINITIONS_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
+sys.path.insert(0, str(Path(__file__).parent))
 
-NUMERIC_TYPES = {"u8", "u16", "u32", "i8", "i16", "i32"}
-
-DEVICE_CLASS_KEYWORDS = {
-    "temperature": ["temperature", "temp"],
-    "voltage": ["voltage", "volts"],
-    "current": ["current"],
-    "power": ["power"],
-    "humidity": ["humidity"],
-    "pressure": ["pressure"],
-    "energy": ["energy", "watt seconds", "watt-hours", "wh"],
-    "duration": ["duration", "time", "timer", "timeout"],
-    "frequency": ["frequency", "hertz"],
-    "speed": ["speed", "rpm"],
-    "weight": ["weight", "mass"],
-    "volume": ["volume", "gallons", "liters"],
-    "distance": ["distance"],
-    "battery": ["battery"],
-    "signal_strength": ["rssi"],
-    "illuminance": ["illuminance", "lux"],
-}
-
-DEVICE_CLASS_EXCLUSIONS = {
-    "power": ["power off", "power on"],
-    "current": ["current limit"],
-}
-
-UNIT_KEYWORD_MAP = {
-    "volts": "V",
-    "amps": "A",
-    "watts": "W",
-    "fahrenheit": "°F",
-    "degf": "°F",
-    "celsius": "°C",
-    "degc": "°C",
-    "percent": "%",
-    "hertz": "Hz",
-    "minutes": "min",
-    "seconds": "s",
-    "gallons": "gal",
-    "liters": "L",
-    "hours": "h",
-}
-
-BINARY_SENSOR_KEYWORDS = {"on", "off", "true", "false", "enabled", "disabled"}
-
-TOTAL_STATE_CLASSES = {"energy", "gas", "water", "volume"}
-MEASUREMENT_DEVICE_CLASSES = {
-    "temperature", "voltage", "current", "power", "humidity", "pressure",
-    "frequency", "speed", "weight", "distance", "battery", "signal_strength",
-    "illuminance", "moisture", "duration",
-}
+from ha_constants import (
+    DEVICE_CLASS_KEYWORDS,
+    DEVICE_CLASS_EXCLUSIONS,
+    UNIT_KEYWORD_MAP,
+    BINARY_SENSOR_KEYWORDS,
+    TOTAL_STATE_CLASSES,
+    MEASUREMENT_DEVICE_CLASSES,
+    ERD_DEFINITIONS_FILE,
+)
+from format_json import format_erd_json, save_erd_definitions
 
 
 def is_reserved_field(name: str) -> bool:
-    return "reserved" in name.lower()
+    return name.lower().startswith("reserved")
 
 
 def extract_unit_hint(field_name: str) -> str:
@@ -140,17 +98,18 @@ def detect_field_ha_domain(field: dict, parent_domain: str) -> str | None:
         return "binary_sensor"
 
     # Enum with exactly 2 values containing on/off/true/false/enabled/disabled
+    # Use issubset to require BOTH values to be recognized binary keywords
     if field_type == "enum" and parent_domain == "sensor":
         values = field.get("values", {})
         if isinstance(values, dict):
             if len(values) == 2:
                 val_set = set(v.lower() for v in values.values())
-                if val_set & BINARY_SENSOR_KEYWORDS:
+                if val_set.issubset(BINARY_SENSOR_KEYWORDS):
                     return "binary_sensor"
         elif isinstance(values, list):
             if len(values) == 2:
                 val_set = set(str(v).lower() for v in values)
-                if val_set & BINARY_SENSOR_KEYWORDS:
+                if val_set.issubset(BINARY_SENSOR_KEYWORDS):
                     return "binary_sensor"
 
     return None
@@ -178,17 +137,17 @@ def detect_field_scaling_factor(field_name: str, parent_scaling: int | None) -> 
     """Detect if a field needs a different scaling_factor than the parent."""
     name_lower = field_name.lower()
 
-    if "x 1000" in name_lower or "x1000" in name_lower:
-        factor = 1000
-    elif "x 100" in name_lower or "x100" in name_lower:
-        factor = 100
-    elif "x 10" in name_lower or "x10" in name_lower:
-        factor = 10
-    else:
-        return None
-
-    if factor != parent_scaling:
-        return factor
+    # Use word-boundary-aware checks to avoid false positives
+    import re as _re
+    for factor_str, factor in [("x 1000", 1000), ("x 100", 100), ("x 10", 10)]:
+        if _re.search(r'(?<!\w)' + re.escape(factor_str) + r'(?!\w)', name_lower):
+            if factor != parent_scaling:
+                return factor
+    # Also check compact forms like x1000, x100, x10
+    for factor_str, factor in [("x1000", 1000), ("x100", 100), ("x10", 10)]:
+        if _re.search(r'(?<!\w)' + re.escape(factor_str) + r'(?!\w)', name_lower):
+            if factor != parent_scaling:
+                return factor
     return None
 
 
@@ -199,7 +158,8 @@ def annotate_erd(erd: dict) -> int:
         return 0
 
     data = erd.get("data", [])
-    non_reserved = [f for f in data if not is_reserved_field(f.get("name", ""))]
+    non_reserved = [f for f in data
+                    if isinstance(f, dict) and not is_reserved_field(f.get("name", ""))]
 
     # Only process ERDs with multiple non-reserved fields
     if len(non_reserved) < 2:
@@ -264,82 +224,6 @@ def annotate_erd(erd: dict) -> int:
     return annotated
 
 
-def format_erd_json(data: dict) -> str:
-    """Format JSON following AGENTS.md compact format rules."""
-    lines = ["{"]
-
-    # Format erds array
-    erds = data.get("erds", [])
-
-    for i, erd in enumerate(erds):
-        # First ERD: "erds": [{  ; subsequent: }, {
-        if i == 0:
-            lines.append('  "erds": [{')
-        else:
-            lines.append("  }, {")
-
-        # Get all keys in order
-        keys = list(erd.keys())
-
-        for j, key in enumerate(keys):
-            value = erd[key]
-            is_last = (j == len(keys) - 1)
-            comma = "" if is_last else ","
-
-            # Format value based on type
-            if isinstance(value, list):
-                if all(isinstance(item, (str, int, float, bool)) or item is None for item in value):
-                    # Primitive array: single line
-                    formatted_items = [json.dumps(item, ensure_ascii=False) for item in value]
-                    lines.append(f'    "{key}": [{", ".join(formatted_items)}]{comma}')
-                else:
-                    # Object array: special formatting
-                    lines.append(f'    "{key}": [{{')
-                    for k, item in enumerate(value):
-                        if k > 0:
-                            lines.append("    }, {")
-
-                        item_keys = list(item.keys())
-                        for m, item_key in enumerate(item_keys):
-                            item_value = item[item_key]
-                            item_is_last = (m == len(item_keys) - 1)
-                            item_comma = "" if item_is_last else ","
-
-                            if isinstance(item_value, dict):
-                                lines.append(f'      "{item_key}": {{')
-                                dict_keys = list(item_value.keys())
-                                for n, dict_key in enumerate(dict_keys):
-                                    dict_value = item_value[dict_key]
-                                    dict_is_last = (n == len(dict_keys) - 1)
-                                    dict_comma = "" if dict_is_last else ","
-                                    lines.append(f'        "{dict_key}": {json.dumps(dict_value, ensure_ascii=False)}{dict_comma}')
-                                lines.append(f'      }}{item_comma}')
-                            else:
-                                lines.append(f'      "{item_key}": {json.dumps(item_value, ensure_ascii=False)}{item_comma}')
-
-                    lines.append(f'    }}]{comma}')
-            elif isinstance(value, dict):
-                lines.append(f'    "{key}": {{')
-                dict_keys = list(value.keys())
-                for k, dict_key in enumerate(dict_keys):
-                    dict_value = value[dict_key]
-                    dict_is_last = (k == len(dict_keys) - 1)
-                    dict_comma = "" if dict_is_last else ","
-                    lines.append(f'      "{dict_key}": {json.dumps(dict_value, ensure_ascii=False)}{dict_comma}')
-                lines.append(f'    }}{comma}')
-            else:
-                lines.append(f'    "{key}": {json.dumps(value, ensure_ascii=False)}{comma}')
-
-    # Close last ERD and array
-    if erds:
-        lines.append("  }]")
-    else:
-        lines.append('  "erds": []')
-    lines.append("}")
-
-    return "\n".join(lines) + "\n"
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Annotate per-field HA metadata in ERD definitions"
@@ -351,14 +235,27 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    with ERD_DEFINITIONS_FILE.open(encoding="utf-8") as f:
-        data = json.load(f)
+    if not ERD_DEFINITIONS_FILE.exists() or False:
+        pass  # checked below
+
+    if not ERD_DEFINITIONS_FILE.exists():
+        print(f"ERROR: {ERD_DEFINITIONS_FILE} not found", file=sys.stderr)
+        sys.exit(1)
+
+    try:
+        with ERD_DEFINITIONS_FILE.open(encoding="utf-8") as f:
+            data = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"ERROR: Invalid JSON in {ERD_DEFINITIONS_FILE}: {e}", file=sys.stderr)
+        sys.exit(1)
 
     total_annotated = 0
     erds_processed = 0
     changes = []
 
     for erd in data.get("erds", []):
+        if not isinstance(erd, dict):
+            continue
         erd_id = erd.get("id", "<unknown>")
         erd_name = erd.get("name", "<unknown>")
         count = annotate_erd(erd)
@@ -366,6 +263,8 @@ def main() -> None:
             total_annotated += count
             erds_processed += 1
             for field in erd.get("data", []):
+                if not isinstance(field, dict):
+                    continue
                 field_name = field.get("name", "")
                 if any(k in field for k in ["ha_domain", "device_class", "unit_of_measurement", "state_class", "scaling_factor"]):
                     added = {k: v for k, v in field.items()
@@ -378,14 +277,7 @@ def main() -> None:
             print(c)
         return
 
-    formatted = format_erd_json(data)
-
-    with ERD_DEFINITIONS_FILE.open("w", encoding="utf-8") as f:
-        f.write(formatted)
-
-    # Verify the output is valid JSON
-    with ERD_DEFINITIONS_FILE.open(encoding="utf-8") as f:
-        json.load(f)
+    save_erd_definitions(data)
 
     print(f"Annotated {total_annotated} field(s) across {erds_processed} ERD(s).")
     for c in changes:

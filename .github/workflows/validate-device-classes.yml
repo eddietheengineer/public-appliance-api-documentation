@@ -2,7 +2,7 @@ name: Validate Device Classes
 
 on:
   push:
-    branches: [main, feat/add-validation-scripts]
+    branches: [main]
   pull_request:
     branches: [main]
 

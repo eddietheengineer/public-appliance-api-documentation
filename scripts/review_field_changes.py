@@ -12,36 +12,47 @@ Usage:
     python3 review_field_changes.py --ids        # list all changed ERD IDs
 """
 
-import argparse
-import json
-import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent))
+
+import argparse
+import json
+import subprocess
+from ha_constants import ERD_DEFINITIONS_FILE
+
 SCRIPT_DIR = Path(__file__).parent
-ERD_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
 METADATA_KEYS = {"ha_domain", "device_class", "unit_of_measurement", "state_class", "scaling_factor"}
 
 
 def load_json(path: Path) -> dict:
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError) as exc:
+        print(f"ERROR: Failed to load {path}: {exc}", file=sys.stderr)
+        sys.exit(1)
 
 
 def load_base_json() -> dict:
     """Load the base version from git (feat/add-validation-scripts branch)."""
     result = subprocess.run(
         ["git", "show", "feat/add-validation-scripts:appliance_api_erd_definitions.json"],
-        capture_output=True, text=True, cwd=str(SCRIPT_DIR),
+        capture_output=True, text=True, cwd=str(SCRIPT_DIR.parent),
     )
     if result.returncode != 0:
         print(f"ERROR: Could not load base JSON from git:\n{result.stderr}", file=sys.stderr)
         sys.exit(1)
-    return json.loads(result.stdout)
+    try:
+        return json.loads(result.stdout)
+    except json.JSONDecodeError as exc:
+        print(f"ERROR: Failed to parse base JSON from git: {exc}", file=sys.stderr)
+        sys.exit(1)
 
 
 def erds_by_id(data: dict) -> dict:
-    return {e["id"]: e for e in data.get("erds", [])}
+    return {e["id"]: e for e in data.get("erds", []) if isinstance(e, dict)}
 
 
 def diff_field(old: dict, new: dict) -> list:
@@ -57,8 +68,8 @@ def diff_field(old: dict, new: dict) -> list:
 
 def diff_erd(old_erd: dict, new_erd: dict) -> list:
     """Compare two ERDs field-by-field. Returns list of (field_name, changes)."""
-    old_fields = {f["name"]: f for f in old_erd.get("data", [])}
-    new_fields = {f["name"]: f for f in new_erd.get("data", [])}
+    old_fields = {f["name"]: f for f in old_erd.get("data", []) if isinstance(f, dict)}
+    new_fields = {f["name"]: f for f in new_erd.get("data", []) if isinstance(f, dict)}
 
     results = []
     all_names = sorted(set(list(old_fields.keys()) + list(new_fields.keys())))
@@ -248,7 +259,7 @@ def main():
     print(f"  Base: {len(base_data.get('erds', []))} ERDs", file=sys.stderr)
 
     print("Loading current JSON...", file=sys.stderr)
-    new_data = load_json(ERD_FILE)
+    new_data = load_json(ERD_DEFINITIONS_FILE)
     print(f"  Current: {len(new_data.get('erds', []))} ERDs", file=sys.stderr)
 
     if args.id:

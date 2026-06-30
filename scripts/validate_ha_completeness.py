@@ -13,62 +13,21 @@ Warnings (print but exit 0):
 """
 
 import json
-import os
 import re
 import sys
 from pathlib import Path
 
-IN_GITHUB_ACTIONS = os.environ.get('GITHUB_ACTIONS') == 'true'
-
-
-def emit_error(message: str, file: str = "", line: int = 0) -> None:
-    """Emit an error message, using GitHub Actions annotation format if in CI."""
-    if IN_GITHUB_ACTIONS:
-        if file and line:
-            print(f"::error file={file},line={line}::{message}")
-        else:
-            print(f"::error::{message}")
-    else:
-        print(f"  ERROR: {message}")
-
-
-def emit_warning(message: str, file: str = "", line: int = 0) -> None:
-    """Emit a warning message, using GitHub Actions annotation format if in CI."""
-    if IN_GITHUB_ACTIONS:
-        if file and line:
-            print(f"::warning file={file},line={line}::{message}")
-        else:
-            print(f"::warning::{message}")
-    else:
-        print(f"  WARNING: {message}")
-
-UNIT_IMPLYING_DEVICE_CLASSES = {
-    'temperature', 'voltage', 'current', 'power', 'energy', 'humidity',
-    'pressure', 'atmospheric_pressure', 'speed', 'frequency', 'battery',
-    'illuminance', 'signal_strength', 'weight', 'volume', 'volume_storage',
-    'volume_flow_rate', 'water', 'gas', 'distance', 'duration',
-    'precipitation', 'wind_speed',
-}
-
-VALID_STATE_CLASSES = {'measurement', 'total', 'total_increasing'}
-
-UNIT_KEYWORD_MAP = {
-    'volts': 'V',
-    'amps': 'A',
-    'watts': 'W',
-    'fahrenheit': '°F',
-    'degf': '°F',
-    'celsius': '°C',
-    'degc': '°C',
-    'percent': '%',
-    'hertz': 'Hz',
-    'minutes': 'min',
-    'seconds': 's',
-}
+from validator_utils import emit_error, emit_warning
+from ha_constants import (
+    UNIT_IMPLYING_DEVICE_CLASSES,
+    VALID_STATE_CLASSES,
+    UNIT_KEYWORD_MAP,
+    ERD_DEFINITIONS_FILE,
+)
 
 
 def is_reserved_field(name: str) -> bool:
-    return 'reserved' in name.lower()
+    return name.lower().startswith("reserved")
 
 
 def extract_unit_hint(field_name: str) -> str:
@@ -88,15 +47,24 @@ def get_field_unit(hint: str) -> str:
 
 
 def main():
-    defs_path = Path(__file__).parent.parent / 'appliance_api_erd_definitions.json'
-    with open(defs_path) as f:
-        data = json.load(f)
+    if not ERD_DEFINITIONS_FILE.exists():
+        print(f"ERROR: {ERD_DEFINITIONS_FILE} not found", file=sys.stderr)
+        sys.exit(1)
+
+    try:
+        with ERD_DEFINITIONS_FILE.open(encoding="utf-8") as f:
+            data = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"ERROR: Invalid JSON in {ERD_DEFINITIONS_FILE}: {e}", file=sys.stderr)
+        sys.exit(1)
 
     error_count = 0
     warning_count = 0
-    defs_file = str(defs_path)
+    defs_file = str(ERD_DEFINITIONS_FILE)
 
     for erd in data.get('erds', []):
+        if not isinstance(erd, dict):
+            continue
         erd_id = erd.get('id', '<unknown>')
         name = erd.get('name', '<unknown>')
         ha_domain = erd.get('ha_domain')
@@ -111,7 +79,7 @@ def main():
         comment = erd.get('comment')
         fields = erd.get('data', [])
 
-        if device_class in UNIT_IMPLYING_DEVICE_CLASSES and not unit_of_measurement:
+        if ha_domain in ('sensor', 'number') and device_class in UNIT_IMPLYING_DEVICE_CLASSES and not unit_of_measurement:
             error_count += 1
             emit_error(
                 f"ERD {erd_id} ({name}): device_class='{device_class}' implies a "
@@ -127,7 +95,8 @@ def main():
                 file=defs_file
             )
 
-        non_reserved = [d for d in fields if not is_reserved_field(d.get('name', ''))]
+        non_reserved = [d for d in fields
+                        if isinstance(d, dict) and not is_reserved_field(d.get('name', ''))]
         if unit_of_measurement and len(non_reserved) == 1:
             fname = non_reserved[0].get('name', '')
             hint = extract_unit_hint(fname)

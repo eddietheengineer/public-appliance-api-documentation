@@ -9,21 +9,26 @@ Usage:
     python3 sync_upstream.py [--upstream OWNER/REPO] [--apply-suggestions]
 """
 
+import re
+import ssl
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+
 import argparse
 import json
 import os
-import sys
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
-from pathlib import Path
 
-SCRIPT_DIR = Path(__file__).parent
-ERD_DEFINITIONS_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
-OUTPUT_FILE = SCRIPT_DIR.parent / "doc" / "sync_report.md"
+from ha_constants import ERD_DEFINITIONS_FILE
+OUTPUT_FILE = Path(__file__).parent.parent / "doc" / "sync_report.md"
 
 DEFAULT_UPSTREAM = "geappliances/public-appliance-api-documentation"
 UPSTREAM_FILE = "appliance_api_erd_definitions.json"
+UPSTREAM_REPO_PATTERN = re.compile(r"^[a-zA-Z0-9_-]+/[a-zA-Z0-9._-]+$")
 
 HA_METADATA_FIELDS = {
     "ha_domain",
@@ -38,26 +43,61 @@ HA_METADATA_FIELDS = {
 }
 
 
+def validate_upstream_repo(upstream_repo: str) -> None:
+    if not UPSTREAM_REPO_PATTERN.match(upstream_repo):
+        print(
+            f"ERROR: Invalid upstream repo format '{upstream_repo}'. "
+            "Expected OWNER/REPO (alphanumeric, hyphens, underscores, dots).",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+
 def fetch_upstream(upstream_repo: str) -> dict:
+    validate_upstream_repo(upstream_repo)
     url = f"https://raw.githubusercontent.com/{upstream_repo}/main/{UPSTREAM_FILE}"
     print(f"Fetching upstream from {url}")
     try:
         with urllib.request.urlopen(url, timeout=30) as resp:
-            return json.loads(resp.read().decode("utf-8"))
+            raw = resp.read().decode("utf-8")
+            try:
+                return json.loads(raw)
+            except json.JSONDecodeError as e:
+                print(
+                    f"ERROR: Failed to parse upstream JSON ({e})",
+                    file=sys.stderr,
+                )
+                sys.exit(1)
     except urllib.error.HTTPError as e:
         print(f"ERROR: Failed to fetch upstream ({e.code}: {e.reason})", file=sys.stderr)
         sys.exit(1)
     except urllib.error.URLError as e:
-        print(f"ERROR: Failed to connect to upstream ({e.reason})", file=sys.stderr)
+        reason = e.reason
+        if isinstance(reason, ssl.SSLError):
+            print(
+                f"ERROR: SSL error connecting to upstream ({reason})",
+                file=sys.stderr,
+            )
+        else:
+            print(f"ERROR: Failed to connect to upstream ({reason})", file=sys.stderr)
         sys.exit(1)
 
 
 def load_local() -> dict:
     with ERD_DEFINITIONS_FILE.open(encoding="utf-8") as f:
-        return json.load(f)
+        try:
+            return json.load(f)
+        except json.JSONDecodeError as e:
+            print(
+                f"ERROR: Failed to parse local file {ERD_DEFINITIONS_FILE} ({e})",
+                file=sys.stderr,
+            )
+            sys.exit(1)
 
 
 def strip_ha_metadata(erd: dict) -> dict:
+    if not isinstance(erd, dict):
+        return {}
     return {k: v for k, v in erd.items() if k not in HA_METADATA_FIELDS}
 
 
@@ -141,6 +181,8 @@ def generate_report(
             "|--------|------|------------|",
         ]
         for erd in new_erds:
+            if not isinstance(erd, dict):
+                continue
             ops = ", ".join(erd.get("operations", []))
             name = erd.get("name", "<unknown>").replace("|", "\\|")
             lines.append(f"| {erd['id']} | {name} | {ops} |")
@@ -186,6 +228,8 @@ def generate_report(
             "|--------|------|",
         ]
         for erd in removed_erds:
+            if not isinstance(erd, dict):
+                continue
             name = erd.get("name", "<unknown>").replace("|", "\\|")
             lines.append(f"| {erd['id']} | {name} |")
         lines.append("")
@@ -242,6 +286,8 @@ def main() -> None:
             from auto_assign_ha_metadata import generate_suggestion
             suggestions = []
             for erd in new_erds:
+                if not isinstance(erd, dict):
+                    continue
                 suggestion = generate_suggestion(erd)
                 if suggestion:
                     suggestions.append(suggestion)

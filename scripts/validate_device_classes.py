@@ -6,81 +6,30 @@ invalid combinations are found.
 """
 
 import json
-import os
 import sys
 from pathlib import Path
 
-IN_GITHUB_ACTIONS = os.environ.get('GITHUB_ACTIONS') == 'true'
+sys.path.insert(0, str(Path(__file__).parent))
 
-
-def emit_error(message: str, file: str = "", line: int = 0) -> None:
-    """Emit an error message, using GitHub Actions annotation format if in CI."""
-    if IN_GITHUB_ACTIONS:
-        if file and line:
-            print(f"::error file={file},line={line}::{message}")
-        else:
-            print(f"::error::{message}")
-    else:
-        print(f"  ERROR: {message}")
-
-VALID_DEVICE_CLASSES = {
-    'button': {'identify', 'restart', 'update'},
-    'switch': {'outlet', 'switch'},
-    'binary_sensor': {
-        'battery', 'battery_charging', 'carbon_monoxide', 'cold',
-        'connectivity', 'door', 'garage_door', 'gas', 'heat',
-        'light', 'lock', 'moisture', 'motion', 'moving',
-        'occupancy', 'opening', 'plug', 'power', 'presence',
-        'problem', 'running', 'safety', 'smoke', 'sound',
-        'tamper', 'update', 'vibration', 'window',
-    },
-    'sensor': {
-        'date', 'enum', 'timestamp', 'uptime',
-        'absolute_humidity', 'apparent_power', 'aqi', 'area',
-        'atmospheric_pressure', 'battery', 'blood_glucose_concentration',
-        'carbon_monoxide', 'carbon_dioxide', 'conductivity', 'current',
-        'data_rate', 'data_size', 'distance', 'duration', 'energy',
-        'energy_distance', 'energy_storage', 'frequency', 'gas',
-        'humidity', 'illuminance', 'irradiance', 'moisture', 'monetary',
-        'nitrogen_dioxide', 'nitrogen_monoxide', 'nitrous_oxide', 'ozone',
-        'ph', 'pm1', 'pm10', 'pm25', 'pm4', 'power_factor', 'power',
-        'precipitation', 'precipitation_intensity', 'pressure',
-        'reactive_energy', 'reactive_power', 'signal_strength',
-        'sound_pressure', 'speed', 'sulphur_dioxide', 'temperature',
-        'temperature_delta', 'volatile_organic_compounds',
-        'volatile_organic_compounds_parts', 'voltage', 'volume',
-        'volume_storage', 'volume_flow_rate', 'water', 'weight',
-        'wind_direction', 'wind_speed',
-    },
-    'number': {
-        'absolute_humidity', 'apparent_power', 'aqi', 'area',
-        'atmospheric_pressure', 'battery', 'blood_glucose_concentration',
-        'carbon_monoxide', 'carbon_dioxide', 'conductivity', 'current',
-        'data_rate', 'data_size', 'distance', 'duration', 'energy',
-        'energy_distance', 'energy_storage', 'frequency', 'gas',
-        'humidity', 'illuminance', 'irradiance', 'moisture',
-        'nitrogen_dioxide', 'nitrogen_monoxide', 'nitrous_oxide', 'ozone',
-        'ph', 'pm1', 'pm10', 'pm25', 'pm4', 'power_factor', 'power',
-        'precipitation', 'precipitation_intensity', 'pressure',
-        'reactive_energy', 'reactive_power', 'signal_strength',
-        'sound_pressure', 'speed', 'sulphur_dioxide', 'temperature',
-        'temperature_delta', 'volatile_organic_compounds',
-        'volatile_organic_compounds_parts', 'voltage', 'volume',
-        'volume_storage', 'volume_flow_rate', 'water', 'weight',
-        'wind_direction', 'wind_speed',
-    },
-}
+from validator_utils import emit_error
+from ha_constants import VALID_DEVICE_CLASSES, SENSOR_NON_NUMERIC_DEVICE_CLASSES, ERD_DEFINITIONS_FILE
 
 
 def main():
-    defs_path = Path(__file__).parent.parent / 'appliance_api_erd_definitions.json'
-    with open(defs_path) as f:
-        data = json.load(f)
+    try:
+        with open(ERD_DEFINITIONS_FILE) as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, FileNotFoundError) as e:
+        emit_error(f"Failed to load {ERD_DEFINITIONS_FILE}: {e}")
+        sys.exit(1)
 
     error_count = 0
-    defs_file = str(defs_path)
+    defs_file = str(ERD_DEFINITIONS_FILE)
 
     for erd in data.get('erds', []):
+        if not isinstance(erd, dict):
+            continue
+
         erd_id = erd.get('id', '<unknown>')
         name = erd.get('name', '<unknown>')
         ha_domain = erd.get('ha_domain')

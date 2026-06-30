@@ -16,87 +16,24 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-SCRIPT_DIR = Path(__file__).parent
-ERD_DEFINITIONS_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
-OUTPUT_FILE = SCRIPT_DIR.parent / "doc" / "ha_metadata_suggestions.md"
+sys.path.insert(0, str(Path(__file__).parent))
 
-NUMERIC_TYPES = {"u8", "u16", "u32", "i8", "i16", "i32"}
+from ha_constants import (
+    ERD_DEFINITIONS_FILE,
+    NUMERIC_TYPES,
+    DEVICE_CLASS_KEYWORDS,
+    DEVICE_CLASS_EXCLUSIONS,
+    UNIT_KEYWORD_MAP,
+    BINARY_SENSOR_KEYWORDS,
+    VALID_DEVICE_CLASSES,
+    SENSOR_NON_NUMERIC_DEVICE_CLASSES,
+)
 
-DEVICE_CLASS_KEYWORDS = {
-    "temperature": ["temperature", "temp"],
-    "voltage": ["voltage", "volts"],
-    "current": ["current"],
-    "power": ["power"],
-    "humidity": ["humidity"],
-    "pressure": ["pressure"],
-    "energy": ["energy", "watt seconds", "watt-hours", "wh"],
-    "duration": ["duration", "time", "timer", "timeout"],
-    "frequency": ["frequency", "hertz"],
-    "speed": ["speed", "rpm"],
-    "weight": ["weight", "mass"],
-    "volume": ["volume", "gallons", "liters"],
-    "distance": ["distance"],
-    "battery": ["battery"],
-    "signal_strength": ["rssi"],
-    "illuminance": ["illuminance", "lux"],
-}
-
-DEVICE_CLASS_EXCLUSIONS = {
-    "power": ["power off", "power on"],
-    "current": ["current limit"],
-}
-
-UNIT_KEYWORD_MAP = {
-    "volts": "V",
-    "amps": "A",
-    "watts": "W",
-    "fahrenheit": "°F",
-    "degf": "°F",
-    "celsius": "°C",
-    "degc": "°C",
-    "percent": "%",
-    "hertz": "Hz",
-    "minutes": "min",
-    "seconds": "s",
-    "gallons": "gal",
-    "liters": "L",
-}
-
-VALID_DEVICE_CLASSES = {
-    "sensor": {
-        "date", "enum", "timestamp", "uptime",
-        "absolute_humidity", "apparent_power", "aqi", "area",
-        "atmospheric_pressure", "battery", "blood_glucose_concentration",
-        "carbon_monoxide", "carbon_dioxide", "conductivity", "current",
-        "data_rate", "data_size", "distance", "duration", "energy",
-        "energy_distance", "energy_storage", "frequency", "gas",
-        "humidity", "illuminance", "irradiance", "moisture", "monetary",
-        "nitrogen_dioxide", "nitrogen_monoxide", "nitrous_oxide", "ozone",
-        "ph", "pm1", "pm10", "pm25", "pm4", "power_factor", "power",
-        "precipitation", "precipitation_intensity", "pressure",
-        "reactive_energy", "reactive_power", "signal_strength",
-        "sound_pressure", "speed", "sulphur_dioxide", "temperature",
-        "temperature_delta", "volatile_organic_compounds",
-        "volatile_organic_compounds_parts", "voltage", "volume",
-        "volume_storage", "volume_flow_rate", "water", "weight",
-        "wind_direction", "wind_speed",
-    },
-    "binary_sensor": {
-        "battery", "battery_charging", "carbon_monoxide", "cold",
-        "connectivity", "door", "garage_door", "gas", "heat",
-        "light", "lock", "moisture", "motion", "moving",
-        "occupancy", "opening", "plug", "power", "presence",
-        "problem", "running", "safety", "smoke", "sound",
-        "tamper", "update", "vibration", "window",
-    },
-    "button": {
-        "identify", "restart", "update",
-    },
-}
+OUTPUT_FILE = Path(__file__).parent.parent / "doc" / "ha_metadata_suggestions.md"
 
 
 def is_reserved_field(name: str) -> bool:
-    return "reserved" in name.lower()
+    return name.lower().startswith("reserved")
 
 
 def extract_unit_hint(field_name: str) -> str:
@@ -149,7 +86,8 @@ def infer_ha_domain(erd: dict) -> tuple[str, str]:
     """
     operations = erd.get("operations", [])
     is_writable = "write" in operations
-    fields = [f for f in erd.get("data", []) if not is_reserved_field(f.get("name", ""))]
+    fields = [f for f in erd.get("data", [])
+               if isinstance(f, dict) and not is_reserved_field(f.get("name", ""))]
 
     if not fields:
         return "", "none"
@@ -165,9 +103,10 @@ def infer_ha_domain(erd: dict) -> tuple[str, str]:
     if field_type == "enum":
         if is_writable:
             values = primary_field.get("values", {})
-            if len(values) == 2:
+            if isinstance(values, dict) and len(values) == 2:
                 val_set = set(v.lower() for v in values.values())
-                if any(v in val_set for v in ["on", "off", "true", "false", "enabled", "disabled"]):
+                # Use issubset to require BOTH values to be recognized binary keywords
+                if val_set.issubset(BINARY_SENSOR_KEYWORDS):
                     return "switch", "medium"
             return "select", "medium"
         return "sensor", "high"
@@ -187,7 +126,8 @@ def generate_suggestion(erd: dict) -> dict:
     """Generate HA metadata suggestion for an ERD."""
     erd_id = erd.get("id", "<unknown>")
     name = erd.get("name", "<unknown>")
-    fields = [f for f in erd.get("data", []) if not is_reserved_field(f.get("name", ""))]
+    fields = [f for f in erd.get("data", [])
+               if isinstance(f, dict) and not is_reserved_field(f.get("name", ""))]
 
     ha_domain, domain_confidence = infer_ha_domain(erd)
     if not ha_domain:
@@ -219,7 +159,7 @@ def generate_suggestion(erd: dict) -> dict:
         if ha_domain == "sensor" and device_class in ("energy", "gas", "water", "volume"):
             suggestion["state_class"] = "total"
             suggestion["reasons"].append(f"state_class inferred from device_class")
-        elif ha_domain == "sensor" and device_class and device_class not in ("date", "enum", "timestamp", "uptime"):
+        elif ha_domain == "sensor" and device_class and device_class not in SENSOR_NON_NUMERIC_DEVICE_CLASSES:
             suggestion["state_class"] = "measurement"
             suggestion["reasons"].append(f"state_class inferred from device_class")
 
@@ -300,11 +240,15 @@ def main() -> None:
         print(f"ERROR: {ERD_DEFINITIONS_FILE} not found", file=sys.stderr)
         sys.exit(1)
 
-    with ERD_DEFINITIONS_FILE.open(encoding="utf-8") as f:
-        data = json.load(f)
+    try:
+        with ERD_DEFINITIONS_FILE.open(encoding="utf-8") as f:
+            data = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"ERROR: Invalid JSON in {ERD_DEFINITIONS_FILE}: {e}", file=sys.stderr)
+        sys.exit(1)
 
-    erds = data["erds"]
-    unmapped = [e for e in erds if not e.get("ha_domain")]
+    erds = data.get("erds", [])
+    unmapped = [e for e in erds if isinstance(e, dict) and not e.get("ha_domain")]
 
     print(f"Found {len(unmapped)} ERDs without ha_domain")
 

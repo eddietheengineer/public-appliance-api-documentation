@@ -6,36 +6,37 @@ and prints errors if any asymmetric pairings are found.
 """
 
 import json
-import os
 import sys
 from pathlib import Path
 
-IN_GITHUB_ACTIONS = os.environ.get('GITHUB_ACTIONS') == 'true'
+sys.path.insert(0, str(Path(__file__).parent))
 
-
-def emit_error(message: str, file: str = "", line: int = 0) -> None:
-    """Emit an error message, using GitHub Actions annotation format if in CI."""
-    if IN_GITHUB_ACTIONS:
-        if file and line:
-            print(f"::error file={file},line={line}::{message}")
-        else:
-            print(f"::error::{message}")
-    else:
-        print(f"  ERROR: {message}")
+from validator_utils import emit_error
+from ha_constants import ERD_DEFINITIONS_FILE
 
 
 def main():
-    defs_path = Path(__file__).parent.parent / 'appliance_api_erd_definitions.json'
-    with open(defs_path) as f:
-        data = json.load(f)
+    try:
+        with open(ERD_DEFINITIONS_FILE) as f:
+            data = json.load(f)
+    except json.JSONDecodeError as e:
+        emit_error(f"Failed to parse {ERD_DEFINITIONS_FILE}: {e}")
+        sys.exit(1)
+
+    if not isinstance(data, dict):
+        emit_error(f"Expected a JSON object in {ERD_DEFINITIONS_FILE}")
+        sys.exit(1)
 
     erds = {item['id']: item for item in data.get('erds', []) if 'pair_role' in item}
 
     error_count = 0
     seen = set()
-    defs_file = str(defs_path)
+    defs_file = str(ERD_DEFINITIONS_FILE)
 
     for erd_id, item in erds.items():
+        if not isinstance(item, dict):
+            continue
+
         partner_id = item.get('paired_erd')
         name = item.get('name', '<unknown>')
         role = item.get('pair_role', '<unknown>')
@@ -53,6 +54,9 @@ def main():
             continue
 
         partner = erds[partner_id]
+        if not isinstance(partner, dict):
+            continue
+
         partner_name = partner.get('name', '<unknown>')
         partner_role = partner.get('pair_role', '<unknown>')
 

@@ -8,10 +8,8 @@ compact JSON format defined in AGENTS.md.
 Checks:
   1. Valid JSON
   2. No escaped non-ASCII (\\uXXXX) — must be literal UTF-8
-  3. ERD objects use merged bracket format in the "erds" array
-  4. Data arrays use merged bracket format
-  5. Primitive arrays on a single line
-  6. 2-space indentation per level
+  3. 2-space indentation per level
+  4. Top-level structure is an object with "erds" array
 
 Usage:
     python3 scripts/validate_json_format.py
@@ -22,14 +20,15 @@ import re
 import sys
 from pathlib import Path
 
-SCRIPT_DIR = Path(__file__).parent
-ERD_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
+sys.path.insert(0, str(Path(__file__).parent))
+
+from ha_constants import ERD_DEFINITIONS_FILE
 
 
 def validate_format() -> list[str]:
     """Validate the JSON file format and return a list of errors."""
     errors: list[str] = []
-    raw = ERD_FILE.read_text(encoding="utf-8")
+    raw = ERD_DEFINITIONS_FILE.read_text(encoding="utf-8")
 
     # 1. Valid JSON
     try:
