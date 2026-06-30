@@ -22,6 +22,10 @@ OUTPUT_FILE = SCRIPT_DIR / "pairing_suggestions.md"
 
 SUFFIX_TO_ROLE = {
     "Request": "request",
+    "Requested": "request",
+    "Desired": "request",
+    "Target": "request",
+    "Configured": "request",
     "Status": "status",
     "Actual": "status",
     "Current": "status",
@@ -29,15 +33,23 @@ SUFFIX_TO_ROLE = {
 }
 
 ROLE_SUFFIXES = {
-    "request": ["Request"],
+    "request": ["Request", "Requested", "Desired", "Target", "Configured"],
     "status": ["Status", "Actual", "Current", "Setting"],
 }
 
 
 def extract_base_name(name: str) -> tuple[str, str] | None:
+    # First try slash-separated suffixes: "Base - Status/Actual", "Base - Requested/Desired"
+    m = re.search(r"^(.+?)\s+-\s+([A-Za-z]+)/([A-Za-z]+)$", name)
+    if m:
+        base = m.group(1).strip()
+        suffix = m.group(2)  # use first part of slash pair
+        if suffix in SUFFIX_TO_ROLE:
+            return base, suffix
+
     for suffix in SUFFIX_TO_ROLE:
         if name.endswith(suffix):
-            base = name[: -len(suffix)].strip()
+            base = name[:-len(suffix)].strip()
             return base, suffix
     return None
 

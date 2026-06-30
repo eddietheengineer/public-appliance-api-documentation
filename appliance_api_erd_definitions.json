@@ -70822,7 +70822,9 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dishwasher Cycle Modifier Actual: Multi-field sensor, may need custom handling to extract individual values."
+    "comment": "Dishwasher Cycle Modifier Actual: Multi-field sensor, may need custom handling to extract individual values.",
+    "pair_role": "status",
+    "paired_erd": "0x3251"
   }, {
     "name": "Dishwasher Cycle Modifier Requested",
     "id": "0x3251",
@@ -70922,7 +70924,9 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dishwasher Cycle Modifier Requested: Multi-field sensor, may need custom handling to extract individual values."
+    "comment": "Dishwasher Cycle Modifier Requested: Multi-field sensor, may need custom handling to extract individual values.",
+    "pair_role": "request",
+    "paired_erd": "0x3250"
   }, {
     "name": "Dishwasher Cycle Modifier Actual Tub 1",
     "id": "0x3252",
@@ -76298,7 +76302,9 @@
     }],
     "ha_domain": "binary_sensor",
     "confidence": "medium",
-    "comment": "Water Heater Boost Mode State - Status/Actual: Boolean read-only binary sensor."
+    "comment": "Water Heater Boost Mode State - Status/Actual: Boolean read-only binary sensor.",
+    "pair_role": "status",
+    "paired_erd": "0x4221"
   }, {
     "name": "Water Heater Boost Mode State - Requested/Desired",
     "id": "0x4221",
@@ -76315,7 +76321,9 @@
     }],
     "ha_domain": "binary_sensor",
     "confidence": "medium",
-    "comment": "Water Heater Boost Mode State - Requested/Desired: Boolean writable switch."
+    "comment": "Water Heater Boost Mode State - Requested/Desired: Boolean writable switch.",
+    "pair_role": "request",
+    "paired_erd": "0x4220"
   }, {
     "name": "Shutoff Water Valve Position/State",
     "id": "0x4222",
@@ -76377,7 +76385,9 @@
     }],
     "ha_domain": "binary_sensor",
     "confidence": "medium",
-    "comment": "Water Heater Active State - Status/Actual: Boolean read-only binary sensor."
+    "comment": "Water Heater Active State - Status/Actual: Boolean read-only binary sensor.",
+    "pair_role": "status",
+    "paired_erd": "0x4226"
   }, {
     "name": "Water Heater Active State - Requested/Desired",
     "id": "0x4226",
@@ -76394,7 +76404,9 @@
     }],
     "ha_domain": "binary_sensor",
     "confidence": "medium",
-    "comment": "Water Heater Active State - Requested/Desired: Boolean writable switch."
+    "comment": "Water Heater Active State - Requested/Desired: Boolean writable switch.",
+    "pair_role": "request",
+    "paired_erd": "0x4225"
   }, {
     "name": "Twelve Hour Shutoff",
     "id": "0x5000",
@@ -150919,7 +150931,9 @@
     "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
-    "comment": "Mixer Control v2 Current: Multi-field sensor, may need custom handling to extract individual values."
+    "comment": "Mixer Control v2 Current: Multi-field sensor, may need custom handling to extract individual values.",
+    "pair_role": "status",
+    "paired_erd": "0x9315"
   }, {
     "name": "Mixer Control v2 Requested",
     "id": "0x9315",
@@ -151225,7 +151239,9 @@
     "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
-    "comment": "Mixer Control v2 Requested: Multi-field sensor, may need custom handling to extract individual values."
+    "comment": "Mixer Control v2 Requested: Multi-field sensor, may need custom handling to extract individual values.",
+    "pair_role": "request",
+    "paired_erd": "0x9314"
   }, {
     "name": "Mixer Control v2 Limits",
     "id": "0x9316",
