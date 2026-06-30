@@ -18,7 +18,7 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 ERD_DEFINITIONS_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
-OUTPUT_FILE = SCRIPT_DIR / "pairing_suggestions.md"
+OUTPUT_FILE = SCRIPT_DIR.parent / "doc" / "pairing_suggestions.md"
 
 SUFFIX_TO_ROLE = {
     "Request": "request",

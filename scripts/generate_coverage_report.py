@@ -104,7 +104,7 @@ def generate_report():
 def main():
     report_content, total, ha_total = generate_report()
 
-    output_path = Path(__file__).parent / 'coverage_report.md'
+    output_path = Path(__file__).parent.parent / 'doc' / 'coverage_report.md'
     output_path.write_text(report_content, encoding='utf-8')
     print(f'Written coverage report to {output_path}')
     print(f'  Total ERDs: {total}')

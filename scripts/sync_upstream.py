@@ -20,7 +20,7 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 ERD_DEFINITIONS_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
-OUTPUT_FILE = SCRIPT_DIR / "sync_report.md"
+OUTPUT_FILE = SCRIPT_DIR.parent / "doc" / "sync_report.md"
 
 DEFAULT_UPSTREAM = "geappliances/public-appliance-api-documentation"
 UPSTREAM_FILE = "appliance_api_erd_definitions.json"

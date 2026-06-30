@@ -17,7 +17,7 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 ERD_DEFINITIONS_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
-OUTPUT_FILE = SCRIPT_DIR / "controllable_erds.md"
+OUTPUT_FILE = SCRIPT_DIR.parent / "doc" / "controllable_erds.md"
 
 CONTROLLABLE_DOMAINS = ("switch", "select", "number", "button")
 
