@@ -317,8 +317,7 @@ def main() -> None:
     print(f"Generated {len(suggestions)} suggestions")
 
     report = generate_report(suggestions)
-    OUTPUT_FILE.write_text(report, encoding="utf-8")
-    print(f"Written suggestions to {OUTPUT_FILE}")
+    print(report)
 
     github_step_summary = os.environ.get("GITHUB_STEP_SUMMARY")
     if github_step_summary:

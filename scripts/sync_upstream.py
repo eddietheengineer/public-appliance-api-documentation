@@ -252,8 +252,7 @@ def main() -> None:
     report = generate_report(
         new_erds, modified_erds, removed_erds, suggestions, args.upstream
     )
-    OUTPUT_FILE.write_text(report, encoding="utf-8")
-    print(f"Written report to {OUTPUT_FILE}")
+    print(report)
 
     github_step_summary = os.environ.get("GITHUB_STEP_SUMMARY")
     if github_step_summary:
