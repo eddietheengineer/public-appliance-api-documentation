@@ -16644,9 +16644,9 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
+    "device_class": "enum",
     "confidence": "medium",
-    "comment": "Reset Water Filter Timer Request: Timer/duration value."
+    "comment": "Reset Water Filter Timer Request: Enum/reset command."
   }, {
     "name": "Reset Air Filter Timer Request",
     "id": "0x1320",
@@ -16676,9 +16676,9 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
+    "device_class": "enum",
     "confidence": "medium",
-    "comment": "Reset Air Filter Timer Request: Timer/duration value."
+    "comment": "Reset Air Filter Timer Request: Enum/reset command."
   }, {
     "name": "Reset Nutrient Cartridge Request",
     "id": "0x1321",
@@ -20287,7 +20287,7 @@
     }],
     "ha_domain": "sensor",
     "device_class": "duration",
-    "unit_of_measurement": "min",
+    "unit_of_measurement": "s",
     "confidence": "medium",
     "comment": "Remaining Cycle Time: Timer/duration value."
   }, {
@@ -72348,9 +72348,9 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "battery",
+    "device_class": "enum",
     "confidence": "medium",
-    "comment": "Accessory low battery alarm active: Battery-related sensor."
+    "comment": "Accessory low battery alarm active: Enum status."
   }, {
     "name": "Accessory leak detected alarm active",
     "id": "0x4083",
@@ -73206,9 +73206,8 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "confidence": "medium",
-    "comment": "Timer ERD Availability: Timer/duration value."
+    "comment": "Timer ERD Availability: Availability flags for timers."
   }, {
     "name": "Knob Mode Setting",
     "id": "0x5012",
@@ -77490,11 +77489,10 @@
       "size": 1
     }],
     "ha_domain": "number",
-    "device_class": "duration",
     "paired_erd": "0x511b",
     "pair_role": "request",
     "confidence": "medium",
-    "comment": "Upper Oven Do Not Stop Cook Mode On Timer Expiration Request: Timer/duration value."
+    "comment": "Upper Oven Do Not Stop Cook Mode On Timer Expiration Request: Boolean flag."
   }, {
     "name": "Upper Oven Do Not Stop Cook Mode On Timer Expiration Status",
     "id": "0x511b",
@@ -77510,11 +77508,10 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "paired_erd": "0x511a",
     "pair_role": "status",
     "confidence": "medium",
-    "comment": "Upper Oven Do Not Stop Cook Mode On Timer Expiration Status: Timer/duration value."
+    "comment": "Upper Oven Do Not Stop Cook Mode On Timer Expiration Status: Boolean flag."
   }, {
     "name": "Upper Oven Cook Time Add Or Subtract Request",
     "id": "0x511c",
@@ -83519,11 +83516,10 @@
       "size": 1
     }],
     "ha_domain": "number",
-    "device_class": "duration",
     "paired_erd": "0x521b",
     "pair_role": "request",
     "confidence": "medium",
-    "comment": "Lower Oven Do Not Stop Cook Mode On Timer Expiration Request: Timer/duration value."
+    "comment": "Lower Oven Do Not Stop Cook Mode On Timer Expiration Request: Boolean flag."
   }, {
     "name": "Lower Oven Do Not Stop Cook Mode On Timer Expiration Status",
     "id": "0x521b",
@@ -83539,11 +83535,10 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "paired_erd": "0x521a",
     "pair_role": "status",
     "confidence": "medium",
-    "comment": "Lower Oven Do Not Stop Cook Mode On Timer Expiration Status: Timer/duration value."
+    "comment": "Lower Oven Do Not Stop Cook Mode On Timer Expiration Status: Boolean flag."
   }, {
     "name": "Lower Oven Cook Time Add Or Subtract Request",
     "id": "0x521c",
@@ -92025,9 +92020,9 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "battery",
+    "device_class": "enum",
     "confidence": "medium",
-    "comment": "Closed-Loop Cooking Device Battery State: Battery-related sensor."
+    "comment": "Closed-Loop Cooking Device Battery State: Enum status."
   }, {
     "name": "Closed Loop Cooking Supported Devices",
     "id": "0x576f",
@@ -118814,9 +118809,9 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "battery",
+    "device_class": "enum",
     "confidence": "medium",
-    "comment": "Bluetooth Low Energy Battery State - Device 0: Battery-related sensor."
+    "comment": "Bluetooth Low Energy Battery State - Device 0: Enum status."
   }, {
     "name": "Bluetooth Low Energy Battery State - Device 1",
     "id": "0x6229",
@@ -118838,9 +118833,9 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "battery",
+    "device_class": "enum",
     "confidence": "medium",
-    "comment": "Bluetooth Low Energy Battery State - Device 1: Battery-related sensor."
+    "comment": "Bluetooth Low Energy Battery State - Device 1: Enum status."
   }, {
     "name": "Bluetooth Low Energy Battery State - Device 2",
     "id": "0x622a",
@@ -118862,9 +118857,9 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "battery",
+    "device_class": "enum",
     "confidence": "medium",
-    "comment": "Bluetooth Low Energy Battery State - Device 2: Battery-related sensor."
+    "comment": "Bluetooth Low Energy Battery State - Device 2: Enum status."
   }, {
     "name": "Bluetooth Low Energy Battery State - Device 3",
     "id": "0x622b",
@@ -118886,9 +118881,9 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "battery",
+    "device_class": "enum",
     "confidence": "medium",
-    "comment": "Bluetooth Low Energy Battery State - Device 3: Battery-related sensor."
+    "comment": "Bluetooth Low Energy Battery State - Device 3: Enum status."
   }, {
     "name": "Bluetooth Low Energy Battery State - Device 4",
     "id": "0x622c",
@@ -118910,9 +118905,9 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "battery",
+    "device_class": "enum",
     "confidence": "medium",
-    "comment": "Bluetooth Low Energy Battery State - Device 4: Battery-related sensor."
+    "comment": "Bluetooth Low Energy Battery State - Device 4: Enum status."
   }, {
     "name": "Bluetooth Hestan Pan Status - Device 0",
     "id": "0x623c",
@@ -128826,9 +128821,9 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
+    "device_class": "enum",
     "confidence": "medium",
-    "comment": "Self Clean Reminder Timer Duration Selection: Timer/duration value."
+    "comment": "Self Clean Reminder Timer Duration Selection: Enum selection."
   }, {
     "name": "Self Clean Alert Countdown",
     "id": "0x797a",
@@ -129736,6 +129731,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
+    "scaling_factor": 10,
     "confidence": "low",
     "comment": "Compressor Minimum Runtime allowable range: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -129763,6 +129759,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
+    "scaling_factor": 10,
     "confidence": "low",
     "comment": "Compressor Minimum Idletime allowable range: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -129790,6 +129787,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
+    "scaling_factor": 10,
     "confidence": "low",
     "comment": "Compressor Maximum Stage1 Runtime allowable range: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -129819,6 +129817,7 @@
     "ha_domain": "sensor",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
+    "scaling_factor": 10,
     "confidence": "high",
     "comment": "Compressor Minimum Stage2 Temperature Delta allowable range: Temperature in Fahrenheit."
   }, {
@@ -129846,6 +129845,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
+    "scaling_factor": 10,
     "confidence": "low",
     "comment": "Indoor Fan Minimum Delay allowable range: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -129924,6 +129924,7 @@
     "ha_domain": "sensor",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
+    "scaling_factor": 10,
     "confidence": "high",
     "comment": "Auto Mode Temperature Deadband allowable range: Temperature in Fahrenheit."
   }, {
@@ -129951,6 +129952,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
+    "scaling_factor": 10,
     "confidence": "low",
     "comment": "Minimum Heating Time allowable range: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -129980,6 +129982,7 @@
     "ha_domain": "sensor",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
+    "scaling_factor": 10,
     "confidence": "high",
     "comment": "Auxiliary Heat Minimum Temperature Delta allowable range: Temperature in Fahrenheit."
   }, {
@@ -130009,6 +130012,7 @@
     "ha_domain": "sensor",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
+    "scaling_factor": 10,
     "confidence": "high",
     "comment": "Indoor Ambient Temperature Sensor Calibration allowable range: Temperature in Fahrenheit."
   }, {
