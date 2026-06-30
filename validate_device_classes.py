@@ -6,8 +6,22 @@ invalid combinations are found.
 """
 
 import json
+import os
 import sys
 from pathlib import Path
+
+IN_GITHUB_ACTIONS = os.environ.get('GITHUB_ACTIONS') == 'true'
+
+
+def emit_error(message: str, file: str = "", line: int = 0) -> None:
+    """Emit an error message, using GitHub Actions annotation format if in CI."""
+    if IN_GITHUB_ACTIONS:
+        if file and line:
+            print(f"::error file={file},line={line}::{message}")
+        else:
+            print(f"::error::{message}")
+    else:
+        print(f"  ERROR: {message}")
 
 VALID_DEVICE_CLASSES = {
     'button': {'restart'},
@@ -46,7 +60,9 @@ def main():
     with open(defs_path) as f:
         data = json.load(f)
 
-    errors = []
+    error_count = 0
+    defs_file = str(defs_path)
+
     for erd in data.get('erds', []):
         erd_id = erd.get('id', '<unknown>')
         name = erd.get('name', '<unknown>')
@@ -61,20 +77,19 @@ def main():
 
         valid = VALID_DEVICE_CLASSES.get(ha_domain)
         if valid is None:
-            # No restrictions for this domain
             continue
 
         if device_class not in valid:
-            errors.append(
+            error_count += 1
+            emit_error(
                 f"ERD {erd_id} ({name}): ha_domain='{ha_domain}' with "
                 f"device_class='{device_class}' is invalid. "
-                f"Valid values for '{ha_domain}': {sorted(valid)}"
+                f"Valid values for '{ha_domain}': {sorted(valid)}",
+                file=defs_file
             )
 
-    if errors:
-        print(f"Found {len(errors)} invalid device_class combinations:")
-        for err in errors:
-            print(f"  ERROR: {err}")
+    if error_count > 0:
+        print(f"Found {error_count} invalid device_class combination(s).")
         sys.exit(1)
     else:
         print("All ha_domain/device_class combinations are valid.")

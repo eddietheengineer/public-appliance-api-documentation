@@ -10,9 +10,23 @@ Errors (exit 1):
 """
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
+
+IN_GITHUB_ACTIONS = os.environ.get('GITHUB_ACTIONS') == 'true'
+
+
+def emit_error(message: str, file: str = "", line: int = 0) -> None:
+    """Emit an error message, using GitHub Actions annotation format if in CI."""
+    if IN_GITHUB_ACTIONS:
+        if file and line:
+            print(f"::error file={file},line={line}::{message}")
+        else:
+            print(f"::error::{message}")
+    else:
+        print(f"  ERROR: {message}")
 
 SCALING_PATTERN = re.compile(r'(?<!\dx)(?<!0x)\bx\s*(\d+)\b', re.IGNORECASE)
 HEX_REF_PATTERN = re.compile(r'0x[0-9a-fA-F]{3,}')
@@ -35,7 +49,8 @@ def main():
     with open(defs_path) as f:
         data = json.load(f)
 
-    errors = []
+    error_count = 0
+    defs_file = str(defs_path)
 
     for erd in data.get('erds', []):
         erd_id = erd.get('id', '<unknown>')
@@ -58,23 +73,25 @@ def main():
 
         if scaling_factor is None:
             for fname, sf in field_scalings:
-                errors.append(
+                error_count += 1
+                emit_error(
                     f"ERD {erd_id} ({name}): field '{fname}' contains scaling "
-                    f"pattern 'x {sf}' but scaling_factor is not set"
+                    f"pattern 'x {sf}' but scaling_factor is not set",
+                    file=defs_file
                 )
         else:
             for fname, sf in field_scalings:
                 if sf != scaling_factor:
-                    errors.append(
+                    error_count += 1
+                    emit_error(
                         f"ERD {erd_id} ({name}): scaling_factor={scaling_factor} "
                         f"contradicts field name pattern 'x {sf}' "
-                        f"(field: '{fname}')"
+                        f"(field: '{fname}')",
+                        file=defs_file
                     )
 
-    if errors:
-        print(f"Found {len(errors)} scaling consistency error(s):")
-        for err in errors:
-            print(f"  ERROR: {err}")
+    if error_count > 0:
+        print(f"Found {error_count} scaling consistency error(s).")
         sys.exit(1)
     else:
         print("All scaling factor consistency checks passed.")

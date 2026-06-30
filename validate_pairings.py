@@ -6,8 +6,22 @@ and prints errors if any asymmetric pairings are found.
 """
 
 import json
+import os
 import sys
 from pathlib import Path
+
+IN_GITHUB_ACTIONS = os.environ.get('GITHUB_ACTIONS') == 'true'
+
+
+def emit_error(message: str, file: str = "", line: int = 0) -> None:
+    """Emit an error message, using GitHub Actions annotation format if in CI."""
+    if IN_GITHUB_ACTIONS:
+        if file and line:
+            print(f"::error file={file},line={line}::{message}")
+        else:
+            print(f"::error::{message}")
+    else:
+        print(f"  ERROR: {message}")
 
 
 def main():
@@ -15,11 +29,11 @@ def main():
     with open(defs_path) as f:
         data = json.load(f)
 
-    # Build a lookup of ERDs that have pair_role
     erds = {item['id']: item for item in data.get('erds', []) if 'pair_role' in item}
 
-    errors = []
+    error_count = 0
     seen = set()
+    defs_file = str(defs_path)
 
     for erd_id, item in erds.items():
         partner_id = item.get('paired_erd')
@@ -29,11 +43,12 @@ def main():
         if not partner_id:
             continue
 
-        # Check that the partner ERD exists
         if partner_id not in erds:
-            errors.append(
+            error_count += 1
+            emit_error(
                 f"ERD {erd_id} ({name}, {role}): paired_erd='{partner_id}' "
-                f"does not exist in the ERD definitions"
+                f"does not exist in the ERD definitions",
+                file=defs_file
             )
             continue
 
@@ -41,23 +56,21 @@ def main():
         partner_name = partner.get('name', '<unknown>')
         partner_role = partner.get('pair_role', '<unknown>')
 
-        # Use a sorted pair key to avoid reporting the same asymmetry twice
         pair_key = tuple(sorted([erd_id, partner_id]))
         if pair_key in seen:
             continue
         seen.add(pair_key)
 
-        # Check that the partner points back
         if partner.get('paired_erd') != erd_id:
-            errors.append(
+            error_count += 1
+            emit_error(
                 f"ERD {erd_id} ({name}, {role}) -> {partner_id} ({partner_name}, {partner_role}), "
-                f"but {partner_id} -> {partner.get('paired_erd', '<none>')}"
+                f"but {partner_id} -> {partner.get('paired_erd', '<none>')}",
+                file=defs_file
             )
 
-    if errors:
-        print(f"Found {len(errors)} asymmetric ERD pairing(s):")
-        for err in errors:
-            print(f"  ERROR: {err}")
+    if error_count > 0:
+        print(f"Found {error_count} asymmetric ERD pairing(s).")
         sys.exit(1)
     else:
         print("All ERD pairings are symmetric.")

@@ -13,9 +13,34 @@ Warnings (print but exit 0):
 """
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
+
+IN_GITHUB_ACTIONS = os.environ.get('GITHUB_ACTIONS') == 'true'
+
+
+def emit_error(message: str, file: str = "", line: int = 0) -> None:
+    """Emit an error message, using GitHub Actions annotation format if in CI."""
+    if IN_GITHUB_ACTIONS:
+        if file and line:
+            print(f"::error file={file},line={line}::{message}")
+        else:
+            print(f"::error::{message}")
+    else:
+        print(f"  ERROR: {message}")
+
+
+def emit_warning(message: str, file: str = "", line: int = 0) -> None:
+    """Emit a warning message, using GitHub Actions annotation format if in CI."""
+    if IN_GITHUB_ACTIONS:
+        if file and line:
+            print(f"::warning file={file},line={line}::{message}")
+        else:
+            print(f"::warning::{message}")
+    else:
+        print(f"  WARNING: {message}")
 
 UNIT_IMPLYING_DEVICE_CLASSES = {
     'temperature', 'voltage', 'current', 'power', 'energy', 'humidity',
@@ -67,8 +92,9 @@ def main():
     with open(defs_path) as f:
         data = json.load(f)
 
-    errors = []
-    warnings = []
+    error_count = 0
+    warning_count = 0
+    defs_file = str(defs_path)
 
     for erd in data.get('erds', []):
         erd_id = erd.get('id', '<unknown>')
@@ -86,15 +112,19 @@ def main():
         fields = erd.get('data', [])
 
         if device_class in UNIT_IMPLYING_DEVICE_CLASSES and not unit_of_measurement:
-            errors.append(
+            error_count += 1
+            emit_error(
                 f"ERD {erd_id} ({name}): device_class='{device_class}' implies a "
-                f"unit but unit_of_measurement is missing"
+                f"unit but unit_of_measurement is missing",
+                file=defs_file
             )
 
         if state_class and state_class not in VALID_STATE_CLASSES:
-            errors.append(
+            error_count += 1
+            emit_error(
                 f"ERD {erd_id} ({name}): state_class='{state_class}' is invalid. "
-                f"Valid values: {sorted(VALID_STATE_CLASSES)}"
+                f"Valid values: {sorted(VALID_STATE_CLASSES)}",
+                file=defs_file
             )
 
         non_reserved = [d for d in fields if not is_reserved_field(d.get('name', ''))]
@@ -104,30 +134,26 @@ def main():
             if hint:
                 field_unit = get_field_unit(hint)
                 if field_unit and field_unit != unit_of_measurement:
-                    errors.append(
+                    error_count += 1
+                    emit_error(
                         f"ERD {erd_id} ({name}): unit_of_measurement='{unit_of_measurement}' "
                         f"contradicts field name unit '{field_unit}' "
-                        f"(field: '{fname}')"
+                        f"(field: '{fname}')",
+                        file=defs_file
                     )
 
         if not confidence:
-            warnings.append(f"ERD {erd_id} ({name}): missing 'confidence' field")
+            warning_count += 1
+            emit_warning(f"ERD {erd_id} ({name}): missing 'confidence' field", file=defs_file)
         if not comment:
-            warnings.append(f"ERD {erd_id} ({name}): missing 'comment' field")
+            warning_count += 1
+            emit_warning(f"ERD {erd_id} ({name}): missing 'comment' field", file=defs_file)
 
-    if warnings:
-        print(f"Warnings ({len(warnings)}):")
-        for w in warnings:
-            print(f"  WARNING: {w}")
-        print()
-
-    if errors:
-        print(f"Found {len(errors)} error(s):")
-        for err in errors:
-            print(f"  ERROR: {err}")
+    if error_count > 0:
+        print(f"Found {error_count} error(s) and {warning_count} warning(s).")
         sys.exit(1)
     else:
-        print("All HA metadata completeness checks passed.")
+        print(f"All HA metadata completeness checks passed. ({warning_count} warnings)")
         sys.exit(0)
 
 
