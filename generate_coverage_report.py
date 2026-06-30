@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
 Generate a coverage report summarizing HA metadata completeness across all ERDs.
-Writes coverage_report.md to the repo root.
+Writes coverage_report.md to the repo root and to GitHub Step Summary if running in CI.
 """
 
 import json
+import os
 import sys
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -17,9 +18,8 @@ def pct(n, total):
     return f'{n / total * 100:.1f}'
 
 
-def main():
+def generate_report():
     defs_path = Path(__file__).parent / 'appliance_api_erd_definitions.json'
-    output_path = Path(__file__).parent / 'coverage_report.md'
 
     with open(defs_path) as f:
         data = json.load(f)
@@ -98,10 +98,23 @@ def main():
 
     lines.append('')
 
-    output_path.write_text('\n'.join(lines), encoding='utf-8')
+    return '\n'.join(lines), total, ha_total
+
+
+def main():
+    report_content, total, ha_total = generate_report()
+
+    output_path = Path(__file__).parent / 'coverage_report.md'
+    output_path.write_text(report_content, encoding='utf-8')
     print(f'Written coverage report to {output_path}')
     print(f'  Total ERDs: {total}')
     print(f'  ERDs with ha_domain: {ha_total}')
+
+    github_step_summary = os.environ.get('GITHUB_STEP_SUMMARY')
+    if github_step_summary:
+        with open(github_step_summary, 'a', encoding='utf-8') as f:
+            f.write(report_content)
+        print(f'Written coverage report to GitHub Step Summary')
 
 
 if __name__ == '__main__':
