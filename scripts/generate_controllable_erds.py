@@ -3,8 +3,11 @@
 generate_controllable_erds.py
 
 Reads appliance_api_erd_definitions.json, identifies ERDs that can be
-controlled (i.e. Request ERDs that have a paired Status ERD), and writes
-controllable_erds.md with a formatted markdown table.
+controlled (i.e. have pair_role='request' with a valid paired_erd), and
+writes controllable_erds.md with a formatted markdown table.
+
+Includes all controllable domains: switch, select, number, button,
+and binary_sensor with write operations.
 
 Usage:
     python3 generate_controllable_erds.py
@@ -19,65 +22,65 @@ SCRIPT_DIR = Path(__file__).parent
 ERD_DEFINITIONS_FILE = SCRIPT_DIR.parent / "appliance_api_erd_definitions.json"
 OUTPUT_FILE = SCRIPT_DIR.parent / "doc" / "controllable_erds.md"
 
-CONTROLLABLE_DOMAINS = ("switch", "select", "number", "button")
+CONTROLLABLE_DOMAINS = ("switch", "select", "number", "button", "binary_sensor")
 
 
-def base_name(name: str) -> str:
-    """Strip trailing 'Status' or 'Request' suffix and normalize."""
+def clean_name(name: str) -> str:
+    """Strip pair-role suffixes from display name."""
     n = name.strip()
-    n = re.sub(r"\s+Status$", "", n, flags=re.IGNORECASE)
-    n = re.sub(r"\s+Request$", "", n, flags=re.IGNORECASE)
-    return n.lower().strip()
+    # Handle slash-separated suffixes: "Status/Actual", "Requested/Desired"
+    n = re.sub(r"\s+-\s+(?:Status|Request|Requested|Desired|Actual|Setting|Current)/\w+$", "", n, flags=re.IGNORECASE)
+    # Handle simple suffixes
+    n = re.sub(r"\s+(?:Status|Request|Requested|Desired|Actual|Setting|Current)$", "", n, flags=re.IGNORECASE)
+    return n.strip().rstrip("- ").strip()
 
 
 def clean_description(desc: str) -> str:
     """Collapse newlines/whitespace and escape pipe characters for markdown tables."""
-    # Replace newlines and extra whitespace with a single space
     cleaned = re.sub(r"\s*\n\s*", " ", desc.strip())
-    # Escape pipe characters so they don't break the table
     cleaned = cleaned.replace("|", "\\|")
     return cleaned
 
 
-def find_paired_request_ids(erds: list) -> dict:
+def find_controllable_erds(erds: list) -> list[dict]:
     """
-    Return a mapping of request ERD id -> list of paired status ERD ids.
-    A pair is defined as ERDs whose names share the same base and end with
-    'Request' and 'Status' respectively.
+    Return list of controllable ERD info dicts.
+    An ERD is controllable if:
+    - Its ha_domain is in CONTROLLABLE_DOMAINS
+    - It has 'write' in operations
+    If it has pair_role='request' with a valid paired_erd, the status ERD is listed.
     """
-    by_base: dict[str, list] = {}
-    for e in erds:
-        b = base_name(e["name"])
-        by_base.setdefault(b, []).append(e)
-
-    paired: dict[str, list[str]] = {}
-    for group in by_base.values():
-        request_erds = [e for e in group if e["name"].lower().endswith("request")]
-        status_erds = [e for e in group if e["name"].lower().endswith("status")]
-        if request_erds and status_erds:
-            for req in request_erds:
-                paired[req["id"]] = [s["id"] for s in status_erds]
-
-    return paired
-
-
-def build_rows(erds: list, paired: dict) -> list[dict]:
-    """Build table row data for all controllable (paired Request) ERDs."""
+    erd_by_id = {e["id"]: e for e in erds}
     rows = []
+
     for e in erds:
-        if e.get("ha_domain") in CONTROLLABLE_DOMAINS and e["id"] in paired:
-            status_ids = ", ".join(paired[e["id"]])
-            name = re.sub(r"\s+Request$", "", e["name"], flags=re.IGNORECASE)
-            rows.append(
-                {
-                    "name": name,
-                    "request_id": e["id"],
-                    "status_ids": status_ids,
-                    "ha_domain": e.get("ha_domain", ""),
-                    "writable": "Yes" if "write" in e.get("operations", []) else "No",
-                    "description": clean_description(e.get("description", "")),
-                }
-            )
+        if e.get("ha_domain") not in CONTROLLABLE_DOMAINS:
+            continue
+        if "write" not in e.get("operations", []):
+            continue
+
+        name = clean_name(e["name"])
+        status_ids = ""
+
+        # If paired, show the status ERD
+        if e.get("pair_role") == "request":
+            paired_id = e.get("paired_erd")
+            if paired_id and paired_id in erd_by_id:
+                status_ids = paired_id
+        elif e.get("pair_role") == "status":
+            # Status ERD that is also writable — show its paired request
+            paired_id = e.get("paired_erd")
+            if paired_id and paired_id in erd_by_id:
+                status_ids = f"{paired_id} (paired request)"
+
+        rows.append({
+            "name": name,
+            "request_id": e["id"],
+            "status_ids": status_ids if status_ids else "—",
+            "ha_domain": e.get("ha_domain", ""),
+            "writable": "Yes",
+            "description": clean_description(e.get("description", "")),
+        })
 
     rows.sort(key=lambda r: int(r["request_id"], 16))
     return rows
@@ -119,8 +122,7 @@ def main() -> None:
         data = json.load(f)
 
     erds = data["erds"]
-    paired = find_paired_request_ids(erds)
-    rows = build_rows(erds, paired)
+    rows = find_controllable_erds(erds)
     write_markdown(rows, OUTPUT_FILE)
 
 
