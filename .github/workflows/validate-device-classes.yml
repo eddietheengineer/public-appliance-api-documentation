@@ -29,6 +29,9 @@ jobs:
       - name: Validate scaling factor consistency
         run: python3 validate_scaling_consistency.py
 
+      - name: Validate HA domain-specific rules
+        run: python3 validate_ha_domain_rules.py
+
       - name: Generate coverage report
         if: always()
         run: python3 generate_coverage_report.py
