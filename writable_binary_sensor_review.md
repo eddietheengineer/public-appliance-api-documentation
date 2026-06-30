@@ -1,12 +1,274 @@
 # Writable Binary Sensor Review
 
-110 ERDs currently classified as `binary_sensor` but have `write` in operations.
+104 ERDs currently classified as `binary_sensor` but have `write` in operations.
+
+---
+
+## REVIEW: Event ERDs without "Request" in name (8 ERDs)
+
+Event update class but no "Request" in name. These need manual review to determine if they should be `switch`, `button`, or remain `binary_sensor`.
+
+### 0x1053 Autofill pitcher feature request
+
+```json
+{
+  "name": "Autofill pitcher feature request",
+  "id": "0x1053",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Request to enable or disable autofill pitcher feature",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Autofill pitcher feature request",
+      "type": "enum",
+      "values": {
+        "0": "Disable",
+        "1": "Enable"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Autofill pitcher feature request: Binary enum writable switch."
+}
+```
+
+### 0x209d Remote Care Start Command
+
+```json
+{
+  "name": "Remote Care Start Command",
+  "id": "0x209d",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Writing to this byte will start the current cycle.",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Remote Start Command",
+      "type": "enum",
+      "values": {
+        "0": "Start command",
+        "255": "Normal State"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Remote Care Start Command: Enum writable select."
+}
+```
+
+### 0x2133 Remote Sensored Dry Only Cycle Start Command
+
+```json
+{
+  "name": "Remote Sensored Dry Only Cycle Start Command",
+  "id": "0x2133",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Write zero to this ERD to start the Sensor Dry only cycle.\n\nDepends on\n- ERD 0x2000 must be End Of Cycle\n- ERD 0x2039 must be Enabled.",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Remote Sensored Dry Only Cycle Start",
+      "type": "enum",
+      "values": {
+        "0": "Start sensored dry only cycle command",
+        "255": "Request Processed"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Remote Sensored Dry Only Cycle Start Command: Enum writable select."
+}
+```
+
+### 0x2149 Remote Start Selected Cycle
+
+```json
+{
+  "name": "Remote Start Selected Cycle",
+  "id": "0x2149",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Client only can write into this ERD once the Remote Start Allowable Status (0x214A) is enabled.",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Remote Start Selected Cycle",
+      "type": "enum",
+      "values": {
+        "0": "Start Remote Cycle command",
+        "255": "Request Processed"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Remote Start Selected Cycle: Enum writable select."
+}
+```
+
+### 0x322b Silverware Wash Option State
+
+```json
+{
+  "name": "Silverware Wash Option State",
+  "id": "0x322b",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "The current state of the Silverware Wash Option State",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Silverware Wash Option State",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Silverware Wash Option State: Boolean writable switch."
+}
+```
+
+### 0x502c Automatic Door Opener Local Public Enable
+
+```json
+{
+  "name": "Automatic Door Opener Local Public Enable",
+  "id": "0x502c",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Enables the automatic door opener (voice to open). There is an agreement in place with UL that this enable must set on the unit, so this ERD needs to remain local-only. This ERD is intended as a unit wide request in coordination with cavity statuses in 5118 and 5218.",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Automatic Door Opener Enable",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Automatic Door Opener Local Public Enable: Boolean writable switch."
+}
+```
+
+### 0x9102 Ice Maker Cloud Schedule Enabled
+
+```json
+{
+  "name": "Ice Maker Cloud Schedule Enabled",
+  "id": "0x9102",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Whether the cloud schedule is enabled or disabled.",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Schedule enabled",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Ice Maker Cloud Schedule Enabled: Boolean writable switch."
+}
+```
+
+### 0x930f Scale Mode Enable
+
+```json
+{
+  "name": "Scale Mode Enable",
+  "id": "0x930f",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Used to enable scale feedback by displaying weight measured at the unit UI. Write a 1 (true) to enable the scale.  Mixer will enter scale mode.",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Enable Scale Mode",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Scale Mode Enable: Boolean writable switch."
+}
+```
 
 ---
 
 ## Legacy Read-Only (21 ERDs) — keep as binary_sensor
 
-Legacy update class with "Status" or "State" in name. These are write-to-request but report actual state. Keep as binary_sensor with command_topic for paired writes.
+Legacy update class with "Status" or "State" in name. Keep as `binary_sensor`.
 
 ### 0x004f Enhanced Sabbath Mode Status
 
@@ -671,43 +933,9 @@ Legacy update class with "Status" or "State" in name. These are write-to-request
 
 ---
 
-## Event Switch (32 ERDs)
+## Event Switch (30 ERDs)
 
-Event update class, self-contained toggles. Convert to `switch`.
-
-### 0x1053 Autofill pitcher feature request
-
-```json
-{
-  "name": "Autofill pitcher feature request",
-  "id": "0x1053",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Request to enable or disable autofill pitcher feature",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Autofill pitcher feature request",
-      "type": "enum",
-      "values": {
-        "0": "Disable",
-        "1": "Enable"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Autofill pitcher feature request: Binary enum writable switch."
-}
-```
+Event update class with "Request" in name. Convert to `switch`.
 
 ### 0x142c SBC Request To Power Off Barcode Scanner
 
@@ -1245,36 +1473,6 @@ Event update class, self-contained toggles. Convert to `switch`.
 }
 ```
 
-### 0x322b Silverware Wash Option State
-
-```json
-{
-  "name": "Silverware Wash Option State",
-  "id": "0x322b",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "The current state of the Silverware Wash Option State",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Silverware Wash Option State",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Silverware Wash Option State: Boolean writable switch."
-}
-```
-
 ### 0x3260 Rinse and Hold Request
 
 ```json
@@ -1366,36 +1564,6 @@ Event update class, self-contained toggles. Convert to `switch`.
   "ha_domain": "binary_sensor",
   "confidence": "medium",
   "comment": "Requested Water Valve Position: Binary enum writable switch."
-}
-```
-
-### 0x502c Automatic Door Opener Local Public Enable
-
-```json
-{
-  "name": "Automatic Door Opener Local Public Enable",
-  "id": "0x502c",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Enables the automatic door opener (voice to open). There is an agreement in place with UL that this enable must set on the unit, so this ERD needs to remain local-only. This ERD is intended as a unit wide request in coordination with cavity statuses in 5118 and 5218.",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Automatic Door Opener Enable",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Automatic Door Opener Local Public Enable: Boolean writable switch."
 }
 ```
 
@@ -1527,36 +1695,6 @@ Event update class, self-contained toggles. Convert to `switch`.
 }
 ```
 
-### 0x9102 Ice Maker Cloud Schedule Enabled
-
-```json
-{
-  "name": "Ice Maker Cloud Schedule Enabled",
-  "id": "0x9102",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Whether the cloud schedule is enabled or disabled.",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Schedule enabled",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Ice Maker Cloud Schedule Enabled: Boolean writable switch."
-}
-```
-
 ### 0x9202 Toaster Oven Cavity Light Requested State
 
 ```json
@@ -1647,36 +1785,6 @@ Event update class, self-contained toggles. Convert to `switch`.
 }
 ```
 
-### 0x930f Scale Mode Enable
-
-```json
-{
-  "name": "Scale Mode Enable",
-  "id": "0x930f",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Used to enable scale feedback by displaying weight measured at the unit UI. Write a 1 (true) to enable the scale.  Mixer will enter scale mode.",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Enable Scale Mode",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Scale Mode Enable: Boolean writable switch."
-}
-```
-
 ### 0x9422 Auto Warm Enable Requested Setting
 
 ```json
@@ -1707,143 +1815,11 @@ Event update class, self-contained toggles. Convert to `switch`.
 }
 ```
 
-### 0x9435 Restore Factory Defaults
-
-```json
-{
-  "name": "Restore Factory Defaults",
-  "id": "0x9435",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Used to reset all user settings on the unit to factory defaults. Write a true to restore factory defaults.",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Restore Defaults",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Restore Factory Defaults: Boolean writable switch."
-}
-```
-
 ---
 
-## Event Button (11 ERDs)
+## Event Button (5 ERDs)
 
-Event update class, one-shot actions (stop, cancel, silence, clear, pause, tare, start). Convert to `button`.
-
-### 0x209d Remote Care Start Command
-
-```json
-{
-  "name": "Remote Care Start Command",
-  "id": "0x209d",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Writing to this byte will start the current cycle.",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Remote Start Command",
-      "type": "enum",
-      "values": {
-        "0": "Start command",
-        "255": "Normal State"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Remote Care Start Command: Enum writable select."
-}
-```
-
-### 0x2133 Remote Sensored Dry Only Cycle Start Command
-
-```json
-{
-  "name": "Remote Sensored Dry Only Cycle Start Command",
-  "id": "0x2133",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Write zero to this ERD to start the Sensor Dry only cycle.\n\nDepends on\n- ERD 0x2000 must be End Of Cycle\n- ERD 0x2039 must be Enabled.",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Remote Sensored Dry Only Cycle Start",
-      "type": "enum",
-      "values": {
-        "0": "Start sensored dry only cycle command",
-        "255": "Request Processed"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Remote Sensored Dry Only Cycle Start Command: Enum writable select."
-}
-```
-
-### 0x2149 Remote Start Selected Cycle
-
-```json
-{
-  "name": "Remote Start Selected Cycle",
-  "id": "0x2149",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Client only can write into this ERD once the Remote Start Allowable Status (0x214A) is enabled.",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Remote Start Selected Cycle",
-      "type": "enum",
-      "values": {
-        "0": "Start Remote Cycle command",
-        "255": "Request Processed"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Remote Start Selected Cycle: Enum writable select."
-}
-```
+Event update class, one-shot actions (stop, cancel, silence, clear, pause, tare, restore). Convert to `button`.
 
 ### 0x2208 Additional Cavity Remote Stop Cycle Request
 
@@ -2060,9 +2036,39 @@ Event update class, one-shot actions (stop, cancel, silence, clear, pause, tare,
 }
 ```
 
+### 0x9435 Restore Factory Defaults
+
+```json
+{
+  "name": "Restore Factory Defaults",
+  "id": "0x9435",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Used to reset all user settings on the unit to factory defaults. Write a true to restore factory defaults.",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Restore Defaults",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Restore Factory Defaults: Boolean writable switch."
+}
+```
+
 ---
 
-## Legacy Switch (35 ERDs)
+## Legacy Switch (38 ERDs)
 
 Legacy update class, non-status toggles. Convert to `switch`.
 
@@ -2153,6 +2159,40 @@ Legacy update class, non-status toggles. Convert to `switch`.
   "ha_domain": "binary_sensor",
   "confidence": "medium",
   "comment": "Legacy - Dryer Extended Tumble Selection: Boolean writable switch."
+}
+```
+
+### 0x2041 Remote Start Extended Tumble
+
+```json
+{
+  "name": "Remote Start Extended Tumble",
+  "id": "0x2041",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Write zero to this ERD to start the Extended Tumble part of the current selected cycle.\n\nDepends on\n- ERD 0x2000 must be Idle, Standby, or End Of Cycle\n- ERD 0x2039 must be Enabled.\n\nAPI V2 Remote Start and Stop V2 takes precedence.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Remote Extended Tumble Start Command",
+      "type": "enum",
+      "values": {
+        "0": "Start Extended Tumble command",
+        "255": "Request Processed"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Remote Start Extended Tumble: Enum writable select."
 }
 ```
 
@@ -3272,7 +3312,7 @@ Legacy update class, non-status toggles. Convert to `switch`.
 
 ---
 
-## Legacy Button (1 ERDs)
+## Legacy Button (2 ERDs)
 
 Legacy update class, one-shot actions. Convert to `button`.
 
@@ -3309,40 +3349,3 @@ Legacy update class, one-shot actions. Convert to `button`.
   "comment": "Remote Stop Cycle Request: Enum writable select."
 }
 ```
-
-### 0x2041 Remote Start Extended Tumble
-
-```json
-{
-  "name": "Remote Start Extended Tumble",
-  "id": "0x2041",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Write zero to this ERD to start the Extended Tumble part of the current selected cycle.\n\nDepends on\n- ERD 0x2000 must be Idle, Standby, or End Of Cycle\n- ERD 0x2039 must be Enabled.\n\nAPI V2 Remote Start and Stop V2 takes precedence.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Remote Extended Tumble Start Command",
-      "type": "enum",
-      "values": {
-        "0": "Start Extended Tumble command",
-        "255": "Request Processed"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Remote Start Extended Tumble: Enum writable select."
-}
-```
-
----
-
