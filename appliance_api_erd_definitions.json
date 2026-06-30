@@ -96881,7 +96881,6 @@
       "offset": 0,
       "size": 1
     }],
-    "device_class": "duration",
     "confidence": "medium",
     "comment": "Auto-suggested: Start Closed-Loop Cooking Cook Timer",
     "ha_domain": "switch"
