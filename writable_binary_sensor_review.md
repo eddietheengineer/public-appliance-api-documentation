@@ -1,13 +1,12 @@
 # Writable Binary Sensor Review
 
 110 ERDs currently classified as `binary_sensor` but have `write` in operations.
-They need to be reclassified as `switch` or `button`.
 
 ---
 
-## Switch (76 ERDs)
+## Legacy Read-Only (21 ERDs) — keep as binary_sensor
 
-Self-contained toggles, option states, mode controls. Each ERD is both read and write.
+Legacy update class with "Status" or "State" in name. These are write-to-request but report actual state. Keep as binary_sensor with command_topic for paired writes.
 
 ### 0x004f Enhanced Sabbath Mode Status
 
@@ -100,36 +99,6 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
   "ha_domain": "binary_sensor",
   "confidence": "medium",
   "comment": "Lock out feature state: Boolean writable switch."
-}
-```
-
-### 0x102d Display always on feature
-
-```json
-{
-  "name": "Display always on feature",
-  "id": "0x102d",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Used to force the display to be on all the time",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Display always on feature state",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Display always on feature: Boolean writable switch."
 }
 ```
 
@@ -241,40 +210,6 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
 }
 ```
 
-### 0x1053 Autofill pitcher feature request
-
-```json
-{
-  "name": "Autofill pitcher feature request",
-  "id": "0x1053",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Request to enable or disable autofill pitcher feature",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Autofill pitcher feature request",
-      "type": "enum",
-      "values": {
-        "0": "Disable",
-        "1": "Enable"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Autofill pitcher feature request: Binary enum writable switch."
-}
-```
-
 ### 0x1168 Valve Manual Override Status
 
 ```json
@@ -309,25 +244,25 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
 }
 ```
 
-### 0x116f Unlock Request
+### 0x3101 Rinse Aid Option State
 
 ```json
 {
-  "name": "Unlock Request",
-  "id": "0x116f",
+  "name": "Rinse Aid Option State",
+  "id": "0x3101",
   "operations": [
     "read",
     "write",
     "publish",
     "subscribe"
   ],
-  "description": "Triggers Unlock of Go Box. (resets to 0 after request serviced).",
+  "description": "The current state of the Rinse Aid Option State",
   "updateClass": {
     "type": "legacy"
   },
   "data": [
     {
-      "name": "Go Box Unlock Request",
+      "name": "Rinse Aid Option Enabled",
       "type": "bool",
       "offset": 0,
       "size": 1
@@ -335,7 +270,442 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
   ],
   "ha_domain": "binary_sensor",
   "confidence": "medium",
-  "comment": "Unlock Request: Boolean writable switch."
+  "comment": "Rinse Aid Option State: Boolean writable switch."
+}
+```
+
+### 0x3108 Door Pocket Light State
+
+```json
+{
+  "name": "Door Pocket Light State",
+  "id": "0x3108",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "The current state of the door pocket light state",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Door Pocket Light State",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "device_class": "door",
+  "confidence": "high",
+  "comment": "Door Pocket Light State: Door open/closed binary sensor."
+}
+```
+
+### 0x3109 Demo Mode State
+
+```json
+{
+  "name": "Demo Mode State",
+  "id": "0x3109",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "The current state of the Demo Mode state",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Demo Mode State",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Demo Mode State: Boolean writable switch."
+}
+```
+
+### 0x321f Steam Option State
+
+```json
+{
+  "name": "Steam Option State",
+  "id": "0x321f",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "The current state of the Steam Option State",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Steam Option State",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Steam Option State: Boolean writable switch."
+}
+```
+
+### 0x3220 Bottle Blast Option State
+
+```json
+{
+  "name": "Bottle Blast Option State",
+  "id": "0x3220",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "The current state of the Bottle Blast Option State",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Bottle Blast Option State",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Bottle Blast Option State: Boolean writable switch."
+}
+```
+
+### 0x3221 UltraFresh Option State
+
+```json
+{
+  "name": "UltraFresh Option State",
+  "id": "0x3221",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "The current state of the UltraFresh Option State",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "UltraFresh Option State",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "UltraFresh Option State: Boolean writable switch."
+}
+```
+
+### 0x4008 Mixing valve home state request
+
+```json
+{
+  "name": "Mixing valve home state request",
+  "id": "0x4008",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Request mixing valve to cycle to full cold",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Mixing valve home request byte",
+      "type": "enum",
+      "values": {
+        "0": "Write to return to normal operation",
+        "1": "Write to cycle to full cold"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Mixing valve home state request: Enum writable select."
+}
+```
+
+### 0x7406 Constant Fan State
+
+```json
+{
+  "name": "Constant Fan State",
+  "id": "0x7406",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "AUX setting to control constant fan mode",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Constant fan mode",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Constant Fan State: Boolean writable switch."
+}
+```
+
+### 0x7830 Dehumidifier Pump On/Off State Request
+
+```json
+{
+  "name": "Dehumidifier Pump On/Off State Request",
+  "id": "0x7830",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Request to power on/off state for dehumidifier pump.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Power On/Off state",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Dehumidifier Pump On/Off State Request: Boolean writable switch."
+}
+```
+
+### 0x7911 ODU Pan Heater status and control
+
+```json
+{
+  "name": "ODU Pan Heater status and control",
+  "id": "0x7911",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "ODU Pan Heater Status and control.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "ODU Pan Heater",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "ODU Pan Heater status and control: Boolean writable switch."
+}
+```
+
+### 0x7912 Compressor Crankcase Heater status and control
+
+```json
+{
+  "name": "Compressor Crankcase Heater status and control",
+  "id": "0x7912",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Compressor Crankcase Heater Status and control.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Compressor Crankcase Heater",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Compressor Crankcase Heater status and control: Boolean writable switch."
+}
+```
+
+### 0x7914 Defrost status and control
+
+```json
+{
+  "name": "Defrost status and control",
+  "id": "0x7914",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Defrost Status and control.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Defrost State",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Defrost status and control: Boolean writable switch."
+}
+```
+
+### 0x796e Self Clean Mode Status and Control
+
+```json
+{
+  "name": "Self Clean Mode Status and Control",
+  "id": "0x796e",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Self Clean Mode ON/OFF Status and Control. Status must be reset to 0 when Self Clean Mode Terminates",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Self Clean Status",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Self Clean Mode Status and Control: Boolean writable switch."
+}
+```
+
+### 0x7a0f WAC Power On/Off State
+
+```json
+{
+  "name": "WAC Power On/Off State",
+  "id": "0x7a0f",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "The power on/off state for WAC products",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Power On/Off state",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "WAC Power On/Off State: Boolean writable switch."
+}
+```
+
+---
+
+## Event Switch (32 ERDs)
+
+Event update class, self-contained toggles. Convert to `switch`.
+
+### 0x1053 Autofill pitcher feature request
+
+```json
+{
+  "name": "Autofill pitcher feature request",
+  "id": "0x1053",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Request to enable or disable autofill pitcher feature",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Autofill pitcher feature request",
+      "type": "enum",
+      "values": {
+        "0": "Disable",
+        "1": "Enable"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Autofill pitcher feature request: Binary enum writable switch."
 }
 ```
 
@@ -400,74 +770,6 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
   "ha_domain": "binary_sensor",
   "confidence": "medium",
   "comment": "Time Saver Option Request: Binary enum writable switch."
-}
-```
-
-### 0x2057 Steam Option Request
-
-```json
-{
-  "name": "Steam Option Request",
-  "id": "0x2057",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "This ERD is used to request a change of the steam option.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Steam Option",
-      "type": "enum",
-      "values": {
-        "0": "Disabled",
-        "1": "Enabled"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Steam Option Request: Binary enum writable switch."
-}
-```
-
-### 0x2060 Tumble Care Option Request
-
-```json
-{
-  "name": "Tumble Care Option Request",
-  "id": "0x2060",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "This ERD is used to request a change of the tumble care option.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Tumble Care Option",
-      "type": "enum",
-      "values": {
-        "0": "Disabled",
-        "1": "Enabled"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Tumble Care Option Request: Binary enum writable switch."
 }
 ```
 
@@ -539,40 +841,6 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
 }
 ```
 
-### 0x208a Air Fluff Cycle Option Request
-
-```json
-{
-  "name": "Air Fluff Cycle Option Request",
-  "id": "0x208a",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Use this ERD to request a change of ERD 0x2089 Air Fluff option selection. When a request has been processed, the unit will update this value to 0xFF.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Air Fluff Cycle Option",
-      "type": "enum",
-      "values": {
-        "0": "Disabled",
-        "1": "Enabled"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Air Fluff Cycle Option Request: Binary enum writable switch."
-}
-```
-
 ### 0x2093 Smart Vent Cycle Option Request
 
 ```json
@@ -638,40 +906,6 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
   "ha_domain": "binary_sensor",
   "confidence": "medium",
   "comment": "Color Keeper Option Request: Binary enum writable switch."
-}
-```
-
-### 0x20a3 No Tangle Wash Option Request
-
-```json
-{
-  "name": "No Tangle Wash Option Request",
-  "id": "0x20a3",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Request a change of no tangle wash option.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "No Tangle Wash Option",
-      "type": "enum",
-      "values": {
-        "0": "Disable",
-        "1": "Enable"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "No Tangle Wash Option Request: Binary enum writable switch."
 }
 ```
 
@@ -1011,187 +1245,6 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
 }
 ```
 
-### 0x3101 Rinse Aid Option State
-
-```json
-{
-  "name": "Rinse Aid Option State",
-  "id": "0x3101",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "The current state of the Rinse Aid Option State",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Rinse Aid Option Enabled",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Rinse Aid Option State: Boolean writable switch."
-}
-```
-
-### 0x3108 Door Pocket Light State
-
-```json
-{
-  "name": "Door Pocket Light State",
-  "id": "0x3108",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "The current state of the door pocket light state",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Door Pocket Light State",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "device_class": "door",
-  "confidence": "high",
-  "comment": "Door Pocket Light State: Door open/closed binary sensor."
-}
-```
-
-### 0x3109 Demo Mode State
-
-```json
-{
-  "name": "Demo Mode State",
-  "id": "0x3109",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "The current state of the Demo Mode state",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Demo Mode State",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Demo Mode State: Boolean writable switch."
-}
-```
-
-### 0x321f Steam Option State
-
-```json
-{
-  "name": "Steam Option State",
-  "id": "0x321f",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "The current state of the Steam Option State",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Steam Option State",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Steam Option State: Boolean writable switch."
-}
-```
-
-### 0x3220 Bottle Blast Option State
-
-```json
-{
-  "name": "Bottle Blast Option State",
-  "id": "0x3220",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "The current state of the Bottle Blast Option State",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Bottle Blast Option State",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Bottle Blast Option State: Boolean writable switch."
-}
-```
-
-### 0x3221 UltraFresh Option State
-
-```json
-{
-  "name": "UltraFresh Option State",
-  "id": "0x3221",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "The current state of the UltraFresh Option State",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "UltraFresh Option State",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "UltraFresh Option State: Boolean writable switch."
-}
-```
-
 ### 0x322b Silverware Wash Option State
 
 ```json
@@ -1282,40 +1335,6 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
 }
 ```
 
-### 0x4008 Mixing valve home state request
-
-```json
-{
-  "name": "Mixing valve home state request",
-  "id": "0x4008",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Request mixing valve to cycle to full cold",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Mixing valve home request byte",
-      "type": "enum",
-      "values": {
-        "0": "Write to return to normal operation",
-        "1": "Write to cycle to full cold"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Mixing valve home state request: Enum writable select."
-}
-```
-
 ### 0x4223 Requested Water Valve Position
 
 ```json
@@ -1377,108 +1396,6 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
   "ha_domain": "binary_sensor",
   "confidence": "medium",
   "comment": "Automatic Door Opener Local Public Enable: Boolean writable switch."
-}
-```
-
-### 0x510f Request Upper Door Open
-
-```json
-{
-  "name": "Request Upper Door Open",
-  "id": "0x510f",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Writing true to this will attempt to open the upper cavity door. After door open is attempted, control will clear this to false.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Open Door",
-      "type": "enum",
-      "values": {
-        "0": "Default",
-        "1": "Open Door Request"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Request Upper Door Open: Enum writable select."
-}
-```
-
-### 0x520f Request Lower Door Open
-
-```json
-{
-  "name": "Request Lower Door Open",
-  "id": "0x520f",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Writing true to this will attempt to open the lower cavity door. After door open is attempted, control will clear this to false.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Open Door",
-      "type": "enum",
-      "values": {
-        "0": "Default",
-        "1": "Open Door Request"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Request Lower Door Open: Enum writable select."
-}
-```
-
-### 0x5901 Lock Gas Valve Request
-
-```json
-{
-  "name": "Lock Gas Valve Request",
-  "id": "0x5901",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Request Gas Valve to be locked.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Gas Valve Lock Request",
-      "type": "enum",
-      "values": {
-        "0": "Do Nothing",
-        "1": "Request Gas Valve to be Locked"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Lock Gas Valve Request: Enum writable select."
 }
 ```
 
@@ -1550,524 +1467,6 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
 }
 ```
 
-### 0x5c14 Microwave Remote Enable
-
-```json
-{
-  "name": "Microwave Remote Enable",
-  "id": "0x5c14",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Microwave Remote Enable.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Microwave Remote Enable",
-      "type": "enum",
-      "values": {
-        "0": "Disabled",
-        "1": "Enabled"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Microwave Remote Enable: Binary enum writable switch."
-}
-```
-
-### 0x5c31 Turntable Setting
-
-```json
-{
-  "name": "Turntable Setting",
-  "id": "0x5c31",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "The current setting of the turntable.  If MWO supports turntable on/off is defined in 0x5C01.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Turntable",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Turntable Setting: Boolean writable switch."
-}
-```
-
-### 0x7001 Zoneline On/Off Control
-
-```json
-{
-  "name": "Zoneline On/Off Control",
-  "id": "0x7001",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Control the Zoneline unit's state.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Control",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Zoneline On/Off Control: Boolean writable switch."
-}
-```
-
-### 0x73ff UVC Kit Enable
-
-```json
-{
-  "name": "UVC Kit Enable",
-  "id": "0x73ff",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "AUX setting to enable UVC Kit support",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "UVC Kit support",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "UVC Kit Enable: Boolean writable switch."
-}
-```
-
-### 0x7406 Constant Fan State
-
-```json
-{
-  "name": "Constant Fan State",
-  "id": "0x7406",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "AUX setting to control constant fan mode",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Constant fan mode",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Constant Fan State: Boolean writable switch."
-}
-```
-
-### 0x740a Duct Mode
-
-```json
-{
-  "name": "Duct Mode",
-  "id": "0x740a",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "AUX setting to configure duct mode",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Duct mode",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Duct Mode: Boolean writable switch."
-}
-```
-
-### 0x740b Electric Heat Only mode
-
-```json
-{
-  "name": "Electric Heat Only mode",
-  "id": "0x740b",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "AUX setting to control Electric Heat Only mode",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Electric heat only",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Electric Heat Only mode: Boolean writable switch."
-}
-```
-
-### 0x740c Boost Heat Mode
-
-```json
-{
-  "name": "Boost Heat Mode",
-  "id": "0x740c",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "AUX setting to control Boost Heat mode",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Boost heat mode",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Boost Heat Mode: Boolean writable switch."
-}
-```
-
-### 0x740e MUAM Occupancy Enabled
-
-```json
-{
-  "name": "MUAM Occupancy Enabled",
-  "id": "0x740e",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "AUX setting to configure MUAM Occupancy Enabled control",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Occupancy Enabled",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "MUAM Occupancy Enabled: Boolean writable switch."
-}
-```
-
-### 0x7830 Dehumidifier Pump On/Off State Request
-
-```json
-{
-  "name": "Dehumidifier Pump On/Off State Request",
-  "id": "0x7830",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Request to power on/off state for dehumidifier pump.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Power On/Off state",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Dehumidifier Pump On/Off State Request: Boolean writable switch."
-}
-```
-
-### 0x7911 ODU Pan Heater status and control
-
-```json
-{
-  "name": "ODU Pan Heater status and control",
-  "id": "0x7911",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "ODU Pan Heater Status and control.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "ODU Pan Heater",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "ODU Pan Heater status and control: Boolean writable switch."
-}
-```
-
-### 0x7912 Compressor Crankcase Heater status and control
-
-```json
-{
-  "name": "Compressor Crankcase Heater status and control",
-  "id": "0x7912",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Compressor Crankcase Heater Status and control.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Compressor Crankcase Heater",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Compressor Crankcase Heater status and control: Boolean writable switch."
-}
-```
-
-### 0x7914 Defrost status and control
-
-```json
-{
-  "name": "Defrost status and control",
-  "id": "0x7914",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Defrost Status and control.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Defrost State",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Defrost status and control: Boolean writable switch."
-}
-```
-
-### 0x796e Self Clean Mode Status and Control
-
-```json
-{
-  "name": "Self Clean Mode Status and Control",
-  "id": "0x796e",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Self Clean Mode ON/OFF Status and Control. Status must be reset to 0 when Self Clean Mode Terminates",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Self Clean Status",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Self Clean Mode Status and Control: Boolean writable switch."
-}
-```
-
-### 0x7976 Vacation Mode (10C Heating Mode) Control
-
-```json
-{
-  "name": "Vacation Mode (10C Heating Mode) Control",
-  "id": "0x7976",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "A Request to put the Appliance into Vacation Mode. Writing to this ERD can change the mode of the Appliance.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Vacation Mode Status Request",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Vacation Mode (10C Heating Mode) Control: Boolean writable switch."
-}
-```
-
-### 0x7977 Service Mode Electric Room Heater Request
-
-```json
-{
-  "name": "Service Mode Electric Room Heater Request",
-  "id": "0x7977",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Electric Room Heater ON/OFF Request. This ERD only controls the heater during service mode.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Electric Room Heater Requested Status",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Service Mode Electric Room Heater Request: Boolean writable switch."
-}
-```
-
-### 0x7978 Self Clean Request
-
-```json
-{
-  "name": "Self Clean Request",
-  "id": "0x7978",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Client can request self clean actions to occur using this ERD. After client writes the ERD, the value will be immediately written back to `No Request.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Self Clean Request",
-      "type": "enum",
-      "values": {
-        "0": "No Request",
-        "1": "Request Self Clean Cycle To Occur"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Self Clean Request: Enum writable select."
-}
-```
-
 ### 0x79a2 Local Schedule Enable Request
 
 ```json
@@ -2095,134 +1494,6 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
   "ha_domain": "binary_sensor",
   "confidence": "medium",
   "comment": "Local Schedule Enable Request: Boolean writable switch."
-}
-```
-
-### 0x7a0f WAC Power On/Off State
-
-```json
-{
-  "name": "WAC Power On/Off State",
-  "id": "0x7a0f",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "The power on/off state for WAC products",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Power On/Off state",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "WAC Power On/Off State: Boolean writable switch."
-}
-```
-
-### 0x7b05 Sleep Mode
-
-```json
-{
-  "name": "Sleep Mode",
-  "id": "0x7b05",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Sleep mode for split AC",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Sleep Mode",
-      "type": "enum",
-      "values": {
-        "0": "Sleep Mode Off",
-        "1": "Sleep Mode On"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Sleep Mode: Binary enum writable switch."
-}
-```
-
-### 0x7b0c Eco Mode
-
-```json
-{
-  "name": "Eco Mode",
-  "id": "0x7b0c",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Eco mode for Split AC",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Eco Mode",
-      "type": "enum",
-      "values": {
-        "0": "Eco Mode Off",
-        "1": "Eco Mode On"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Eco Mode: Binary enum writable switch."
-}
-```
-
-### 0x7b0e Sleep Mode Request
-
-```json
-{
-  "name": "Sleep Mode Request",
-  "id": "0x7b0e",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Request to turn on/off sleep mode.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Sleep Mode Active",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Sleep Mode Request: Boolean writable switch."
 }
 ```
 
@@ -2283,36 +1554,6 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
   "ha_domain": "binary_sensor",
   "confidence": "medium",
   "comment": "Ice Maker Cloud Schedule Enabled: Boolean writable switch."
-}
-```
-
-### 0x9107 Ice Maker Power
-
-```json
-{
-  "name": "Ice Maker Power",
-  "id": "0x9107",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Power status and control.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Power on",
-      "type": "bool",
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Ice Maker Power: Boolean writable switch."
 }
 ```
 
@@ -2466,34 +1707,98 @@ Self-contained toggles, option states, mode controls. Each ERD is both read and 
 }
 ```
 
----
-
-## Button (8 ERDs)
-
-One-shot actions (stop, cancel, silence, pause, clear, tare).
-
-### 0x2040 Remote Stop Cycle Request
+### 0x9435 Restore Factory Defaults
 
 ```json
 {
-  "name": "Remote Stop Cycle Request",
-  "id": "0x2040",
+  "name": "Restore Factory Defaults",
+  "id": "0x9435",
   "operations": [
     "read",
     "write",
     "publish",
     "subscribe"
   ],
-  "description": "Write zero to this ERD to stop the currently running, paused, delay run or delay paused cycle.\n\nDepends on:\n- ERD 0x2000 must be Run, Pause, Delay Run or Delay Pause\n- ERD 0x2039 must be Enabled\n\nERD 0x2040 is a member of\n- API V1 Remote Start and Stop and\n- API V2 Remote Start and Stop V2.\n\nAPI V2 Remote Start and Stop V2 takes precedence.",
+  "description": "Used to reset all user settings on the unit to factory defaults. Write a true to restore factory defaults.",
   "updateClass": {
-    "type": "legacy"
+    "type": "event"
   },
   "data": [
     {
-      "name": "Remote Cycle Stop Request",
+      "name": "Restore Defaults",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Restore Factory Defaults: Boolean writable switch."
+}
+```
+
+---
+
+## Event Button (11 ERDs)
+
+Event update class, one-shot actions (stop, cancel, silence, clear, pause, tare, start). Convert to `button`.
+
+### 0x209d Remote Care Start Command
+
+```json
+{
+  "name": "Remote Care Start Command",
+  "id": "0x209d",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Writing to this byte will start the current cycle.",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Remote Start Command",
       "type": "enum",
       "values": {
-        "0": "Stop command",
+        "0": "Start command",
+        "255": "Normal State"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Remote Care Start Command: Enum writable select."
+}
+```
+
+### 0x2133 Remote Sensored Dry Only Cycle Start Command
+
+```json
+{
+  "name": "Remote Sensored Dry Only Cycle Start Command",
+  "id": "0x2133",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Write zero to this ERD to start the Sensor Dry only cycle.\n\nDepends on\n- ERD 0x2000 must be End Of Cycle\n- ERD 0x2039 must be Enabled.",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Remote Sensored Dry Only Cycle Start",
+      "type": "enum",
+      "values": {
+        "0": "Start sensored dry only cycle command",
         "255": "Request Processed"
       },
       "offset": 0,
@@ -2502,7 +1807,41 @@ One-shot actions (stop, cancel, silence, pause, clear, tare).
   ],
   "ha_domain": "binary_sensor",
   "confidence": "medium",
-  "comment": "Remote Stop Cycle Request: Enum writable select."
+  "comment": "Remote Sensored Dry Only Cycle Start Command: Enum writable select."
+}
+```
+
+### 0x2149 Remote Start Selected Cycle
+
+```json
+{
+  "name": "Remote Start Selected Cycle",
+  "id": "0x2149",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Client only can write into this ERD once the Remote Start Allowable Status (0x214A) is enabled.",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Remote Start Selected Cycle",
+      "type": "enum",
+      "values": {
+        "0": "Start Remote Cycle command",
+        "255": "Request Processed"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Remote Start Selected Cycle: Enum writable select."
 }
 ```
 
@@ -2723,9 +2062,69 @@ One-shot actions (stop, cancel, silence, pause, clear, tare).
 
 ---
 
-## Review: Likely Switch (12 ERDs)
+## Legacy Switch (35 ERDs)
 
-These appear to be toggles but need confirmation.
+Legacy update class, non-status toggles. Convert to `switch`.
+
+### 0x102d Display always on feature
+
+```json
+{
+  "name": "Display always on feature",
+  "id": "0x102d",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Used to force the display to be on all the time",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Display always on feature state",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Display always on feature: Boolean writable switch."
+}
+```
+
+### 0x116f Unlock Request
+
+```json
+{
+  "name": "Unlock Request",
+  "id": "0x116f",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Triggers Unlock of Go Box. (resets to 0 after request serviced).",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Go Box Unlock Request",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Unlock Request: Boolean writable switch."
+}
+```
 
 ### 0x201b Legacy - Dryer Extended Tumble Selection
 
@@ -2754,6 +2153,142 @@ These appear to be toggles but need confirmation.
   "ha_domain": "binary_sensor",
   "confidence": "medium",
   "comment": "Legacy - Dryer Extended Tumble Selection: Boolean writable switch."
+}
+```
+
+### 0x2057 Steam Option Request
+
+```json
+{
+  "name": "Steam Option Request",
+  "id": "0x2057",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "This ERD is used to request a change of the steam option.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Steam Option",
+      "type": "enum",
+      "values": {
+        "0": "Disabled",
+        "1": "Enabled"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Steam Option Request: Binary enum writable switch."
+}
+```
+
+### 0x2060 Tumble Care Option Request
+
+```json
+{
+  "name": "Tumble Care Option Request",
+  "id": "0x2060",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "This ERD is used to request a change of the tumble care option.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Tumble Care Option",
+      "type": "enum",
+      "values": {
+        "0": "Disabled",
+        "1": "Enabled"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Tumble Care Option Request: Binary enum writable switch."
+}
+```
+
+### 0x208a Air Fluff Cycle Option Request
+
+```json
+{
+  "name": "Air Fluff Cycle Option Request",
+  "id": "0x208a",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Use this ERD to request a change of ERD 0x2089 Air Fluff option selection. When a request has been processed, the unit will update this value to 0xFF.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Air Fluff Cycle Option",
+      "type": "enum",
+      "values": {
+        "0": "Disabled",
+        "1": "Enabled"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Air Fluff Cycle Option Request: Binary enum writable switch."
+}
+```
+
+### 0x20a3 No Tangle Wash Option Request
+
+```json
+{
+  "name": "No Tangle Wash Option Request",
+  "id": "0x20a3",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Request a change of no tangle wash option.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "No Tangle Wash Option",
+      "type": "enum",
+      "values": {
+        "0": "Disable",
+        "1": "Enable"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "No Tangle Wash Option Request: Binary enum writable switch."
 }
 ```
 
@@ -2851,6 +2386,108 @@ These appear to be toggles but need confirmation.
 }
 ```
 
+### 0x510f Request Upper Door Open
+
+```json
+{
+  "name": "Request Upper Door Open",
+  "id": "0x510f",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Writing true to this will attempt to open the upper cavity door. After door open is attempted, control will clear this to false.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Open Door",
+      "type": "enum",
+      "values": {
+        "0": "Default",
+        "1": "Open Door Request"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Request Upper Door Open: Enum writable select."
+}
+```
+
+### 0x520f Request Lower Door Open
+
+```json
+{
+  "name": "Request Lower Door Open",
+  "id": "0x520f",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Writing true to this will attempt to open the lower cavity door. After door open is attempted, control will clear this to false.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Open Door",
+      "type": "enum",
+      "values": {
+        "0": "Default",
+        "1": "Open Door Request"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Request Lower Door Open: Enum writable select."
+}
+```
+
+### 0x5901 Lock Gas Valve Request
+
+```json
+{
+  "name": "Lock Gas Valve Request",
+  "id": "0x5901",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Request Gas Valve to be locked.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Gas Valve Lock Request",
+      "type": "enum",
+      "values": {
+        "0": "Do Nothing",
+        "1": "Request Gas Valve to be Locked"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Lock Gas Valve Request: Enum writable select."
+}
+```
+
 ### 0x5b04 Hood Delay Off
 
 ```json
@@ -2882,6 +2519,164 @@ These appear to be toggles but need confirmation.
   "ha_domain": "binary_sensor",
   "confidence": "medium",
   "comment": "Hood Delay Off: Enum writable select."
+}
+```
+
+### 0x5b08 Hood Camera Light Assist Level
+
+```json
+{
+  "name": "Hood Camera Light Assist Level",
+  "id": "0x5b08",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "The current camera light assist setting. When writing, level must be listed as available in available light levels ERD 0x5B09. If 0x5B09 has \"Infinite\" set, then the Light Level is % with max 100.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Light Level",
+      "type": "enum",
+      "values": {
+        "1": "Dim",
+        "2": "High"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Hood Camera Light Assist Level: Enum writable select."
+}
+```
+
+### 0x5c14 Microwave Remote Enable
+
+```json
+{
+  "name": "Microwave Remote Enable",
+  "id": "0x5c14",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Microwave Remote Enable.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Microwave Remote Enable",
+      "type": "enum",
+      "values": {
+        "0": "Disabled",
+        "1": "Enabled"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Microwave Remote Enable: Binary enum writable switch."
+}
+```
+
+### 0x5c31 Turntable Setting
+
+```json
+{
+  "name": "Turntable Setting",
+  "id": "0x5c31",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "The current setting of the turntable.  If MWO supports turntable on/off is defined in 0x5C01.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Turntable",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Turntable Setting: Boolean writable switch."
+}
+```
+
+### 0x7001 Zoneline On/Off Control
+
+```json
+{
+  "name": "Zoneline On/Off Control",
+  "id": "0x7001",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Control the Zoneline unit's state.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Control",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Zoneline On/Off Control: Boolean writable switch."
+}
+```
+
+### 0x73ff UVC Kit Enable
+
+```json
+{
+  "name": "UVC Kit Enable",
+  "id": "0x73ff",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "AUX setting to enable UVC Kit support",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "UVC Kit support",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "UVC Kit Enable: Boolean writable switch."
 }
 ```
 
@@ -3005,6 +2800,220 @@ These appear to be toggles but need confirmation.
 }
 ```
 
+### 0x740a Duct Mode
+
+```json
+{
+  "name": "Duct Mode",
+  "id": "0x740a",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "AUX setting to configure duct mode",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Duct mode",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Duct Mode: Boolean writable switch."
+}
+```
+
+### 0x740b Electric Heat Only mode
+
+```json
+{
+  "name": "Electric Heat Only mode",
+  "id": "0x740b",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "AUX setting to control Electric Heat Only mode",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Electric heat only",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Electric Heat Only mode: Boolean writable switch."
+}
+```
+
+### 0x740c Boost Heat Mode
+
+```json
+{
+  "name": "Boost Heat Mode",
+  "id": "0x740c",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "AUX setting to control Boost Heat mode",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Boost heat mode",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Boost Heat Mode: Boolean writable switch."
+}
+```
+
+### 0x740e MUAM Occupancy Enabled
+
+```json
+{
+  "name": "MUAM Occupancy Enabled",
+  "id": "0x740e",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "AUX setting to configure MUAM Occupancy Enabled control",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Occupancy Enabled",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "MUAM Occupancy Enabled: Boolean writable switch."
+}
+```
+
+### 0x7976 Vacation Mode (10C Heating Mode) Control
+
+```json
+{
+  "name": "Vacation Mode (10C Heating Mode) Control",
+  "id": "0x7976",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "A Request to put the Appliance into Vacation Mode. Writing to this ERD can change the mode of the Appliance.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Vacation Mode Status Request",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Vacation Mode (10C Heating Mode) Control: Boolean writable switch."
+}
+```
+
+### 0x7977 Service Mode Electric Room Heater Request
+
+```json
+{
+  "name": "Service Mode Electric Room Heater Request",
+  "id": "0x7977",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Electric Room Heater ON/OFF Request. This ERD only controls the heater during service mode.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Electric Room Heater Requested Status",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Service Mode Electric Room Heater Request: Boolean writable switch."
+}
+```
+
+### 0x7978 Self Clean Request
+
+```json
+{
+  "name": "Self Clean Request",
+  "id": "0x7978",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Client can request self clean actions to occur using this ERD. After client writes the ERD, the value will be immediately written back to `No Request.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Self Clean Request",
+      "type": "enum",
+      "values": {
+        "0": "No Request",
+        "1": "Request Self Clean Cycle To Occur"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Self Clean Request: Enum writable select."
+}
+```
+
 ### 0x7a04 WAC Filter Notification
 
 ```json
@@ -3036,6 +3045,40 @@ These appear to be toggles but need confirmation.
   "ha_domain": "binary_sensor",
   "confidence": "medium",
   "comment": "WAC Filter Notification: Binary enum writable switch."
+}
+```
+
+### 0x7b05 Sleep Mode
+
+```json
+{
+  "name": "Sleep Mode",
+  "id": "0x7b05",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Sleep mode for split AC",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Sleep Mode",
+      "type": "enum",
+      "values": {
+        "0": "Sleep Mode Off",
+        "1": "Sleep Mode On"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Sleep Mode: Binary enum writable switch."
 }
 ```
 
@@ -3099,35 +3142,29 @@ These appear to be toggles but need confirmation.
 }
 ```
 
----
-
-## Review: Likely Button (5 ERDs)
-
-These appear to be one-shot start commands.
-
-### 0x2041 Remote Start Extended Tumble
+### 0x7b0c Eco Mode
 
 ```json
 {
-  "name": "Remote Start Extended Tumble",
-  "id": "0x2041",
+  "name": "Eco Mode",
+  "id": "0x7b0c",
   "operations": [
     "read",
     "write",
     "publish",
     "subscribe"
   ],
-  "description": "Write zero to this ERD to start the Extended Tumble part of the current selected cycle.\n\nDepends on\n- ERD 0x2000 must be Idle, Standby, or End Of Cycle\n- ERD 0x2039 must be Enabled.\n\nAPI V2 Remote Start and Stop V2 takes precedence.",
+  "description": "Eco mode for Split AC",
   "updateClass": {
     "type": "legacy"
   },
   "data": [
     {
-      "name": "Remote Extended Tumble Start Command",
+      "name": "Eco Mode",
       "type": "enum",
       "values": {
-        "0": "Start Extended Tumble command",
-        "255": "Request Processed"
+        "0": "Eco Mode Off",
+        "1": "Eco Mode On"
       },
       "offset": 0,
       "size": 1
@@ -3135,131 +3172,29 @@ These appear to be one-shot start commands.
   ],
   "ha_domain": "binary_sensor",
   "confidence": "medium",
-  "comment": "Remote Start Extended Tumble: Enum writable select."
+  "comment": "Eco Mode: Binary enum writable switch."
 }
 ```
 
-### 0x209d Remote Care Start Command
+### 0x7b0e Sleep Mode Request
 
 ```json
 {
-  "name": "Remote Care Start Command",
-  "id": "0x209d",
+  "name": "Sleep Mode Request",
+  "id": "0x7b0e",
   "operations": [
     "read",
     "write",
     "publish",
     "subscribe"
   ],
-  "description": "Writing to this byte will start the current cycle.",
+  "description": "Request to turn on/off sleep mode.",
   "updateClass": {
-    "type": "event"
+    "type": "legacy"
   },
   "data": [
     {
-      "name": "Remote Start Command",
-      "type": "enum",
-      "values": {
-        "0": "Start command",
-        "255": "Normal State"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Remote Care Start Command: Enum writable select."
-}
-```
-
-### 0x2133 Remote Sensored Dry Only Cycle Start Command
-
-```json
-{
-  "name": "Remote Sensored Dry Only Cycle Start Command",
-  "id": "0x2133",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Write zero to this ERD to start the Sensor Dry only cycle.\n\nDepends on\n- ERD 0x2000 must be End Of Cycle\n- ERD 0x2039 must be Enabled.",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Remote Sensored Dry Only Cycle Start",
-      "type": "enum",
-      "values": {
-        "0": "Start sensored dry only cycle command",
-        "255": "Request Processed"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Remote Sensored Dry Only Cycle Start Command: Enum writable select."
-}
-```
-
-### 0x2149 Remote Start Selected Cycle
-
-```json
-{
-  "name": "Remote Start Selected Cycle",
-  "id": "0x2149",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Client only can write into this ERD once the Remote Start Allowable Status (0x214A) is enabled.",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Remote Start Selected Cycle",
-      "type": "enum",
-      "values": {
-        "0": "Start Remote Cycle command",
-        "255": "Request Processed"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Remote Start Selected Cycle: Enum writable select."
-}
-```
-
-### 0x9435 Restore Factory Defaults
-
-```json
-{
-  "name": "Restore Factory Defaults",
-  "id": "0x9435",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Used to reset all user settings on the unit to factory defaults. Write a true to restore factory defaults.",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Restore Defaults",
+      "name": "Sleep Mode Active",
       "type": "bool",
       "offset": 0,
       "size": 1
@@ -3267,47 +3202,7 @@ These appear to be one-shot start commands.
   ],
   "ha_domain": "binary_sensor",
   "confidence": "medium",
-  "comment": "Restore Factory Defaults: Boolean writable switch."
-}
-```
-
----
-
-## Review: Unclear (2 ERDs)
-
-These may not be toggles at all.
-
-### 0x5b08 Hood Camera Light Assist Level
-
-```json
-{
-  "name": "Hood Camera Light Assist Level",
-  "id": "0x5b08",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "The current camera light assist setting. When writing, level must be listed as available in available light levels ERD 0x5B09. If 0x5B09 has \"Infinite\" set, then the Light Level is % with max 100.",
-  "updateClass": {
-    "type": "legacy"
-  },
-  "data": [
-    {
-      "name": "Light Level",
-      "type": "enum",
-      "values": {
-        "1": "Dim",
-        "2": "High"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Hood Camera Light Assist Level: Enum writable select."
+  "comment": "Sleep Mode Request: Boolean writable switch."
 }
 ```
 
@@ -3344,3 +3239,110 @@ These may not be toggles at all.
   "comment": "Water Softener Shutoff Valve Installed: Enum writable select."
 }
 ```
+
+### 0x9107 Ice Maker Power
+
+```json
+{
+  "name": "Ice Maker Power",
+  "id": "0x9107",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Power status and control.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Power on",
+      "type": "bool",
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Ice Maker Power: Boolean writable switch."
+}
+```
+
+---
+
+## Legacy Button (1 ERDs)
+
+Legacy update class, one-shot actions. Convert to `button`.
+
+### 0x2040 Remote Stop Cycle Request
+
+```json
+{
+  "name": "Remote Stop Cycle Request",
+  "id": "0x2040",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Write zero to this ERD to stop the currently running, paused, delay run or delay paused cycle.\n\nDepends on:\n- ERD 0x2000 must be Run, Pause, Delay Run or Delay Pause\n- ERD 0x2039 must be Enabled\n\nERD 0x2040 is a member of\n- API V1 Remote Start and Stop and\n- API V2 Remote Start and Stop V2.\n\nAPI V2 Remote Start and Stop V2 takes precedence.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Remote Cycle Stop Request",
+      "type": "enum",
+      "values": {
+        "0": "Stop command",
+        "255": "Request Processed"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Remote Stop Cycle Request: Enum writable select."
+}
+```
+
+### 0x2041 Remote Start Extended Tumble
+
+```json
+{
+  "name": "Remote Start Extended Tumble",
+  "id": "0x2041",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Write zero to this ERD to start the Extended Tumble part of the current selected cycle.\n\nDepends on\n- ERD 0x2000 must be Idle, Standby, or End Of Cycle\n- ERD 0x2039 must be Enabled.\n\nAPI V2 Remote Start and Stop V2 takes precedence.",
+  "updateClass": {
+    "type": "legacy"
+  },
+  "data": [
+    {
+      "name": "Remote Extended Tumble Start Command",
+      "type": "enum",
+      "values": {
+        "0": "Start Extended Tumble command",
+        "255": "Request Processed"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Remote Start Extended Tumble: Enum writable select."
+}
+```
+
+---
+
