@@ -24663,7 +24663,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "binary_sensor",
+    "ha_domain": "switch",
     "paired_erd": "0x208f",
     "pair_role": "request",
     "confidence": "medium",
@@ -43127,7 +43127,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "binary_sensor",
+    "ha_domain": "switch",
     "paired_erd": "0x2115",
     "pair_role": "request",
     "confidence": "medium",
@@ -66286,7 +66286,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "binary_sensor",
+    "ha_domain": "switch",
     "paired_erd": "0x320c",
     "pair_role": "request",
     "confidence": "medium",
@@ -70490,7 +70490,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "binary_sensor",
+    "ha_domain": "switch",
     "paired_erd": "0x3231",
     "pair_role": "request",
     "confidence": "medium",
@@ -76319,7 +76319,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "binary_sensor",
+    "ha_domain": "switch",
     "confidence": "medium",
     "comment": "Water Heater Boost Mode State - Requested/Desired: Boolean writable switch.",
     "pair_role": "request",
@@ -76402,7 +76402,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "binary_sensor",
+    "ha_domain": "switch",
     "confidence": "medium",
     "comment": "Water Heater Active State - Requested/Desired: Boolean writable switch.",
     "pair_role": "request",
