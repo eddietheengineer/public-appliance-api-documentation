@@ -3229,8 +3229,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "paired_erd": "0x121a",
-    "pair_role": "status",
     "confidence": "medium",
     "comment": "Turbo Freeze Status: Binary enum writable switch."
   }, {
@@ -3253,8 +3251,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "paired_erd": "0x120c",
-    "pair_role": "status",
     "confidence": "medium",
     "comment": "Turbo Cool Status: Binary enum writable switch."
   }, {
@@ -52123,8 +52119,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "paired_erd": "0x905e",
-    "pair_role": "status",
     "confidence": "low",
     "comment": "Delay Start Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
