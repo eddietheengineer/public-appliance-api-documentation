@@ -4,43 +4,9 @@
 
 ---
 
-## REVIEW: Event ERDs without "Request" in name (8 ERDs)
+## REVIEW: Event ERDs without "request" in name (7 ERDs)
 
-Event update class but no "Request" in name. These need manual review to determine if they should be `switch`, `button`, or remain `binary_sensor`.
-
-### 0x1053 Autofill pitcher feature request
-
-```json
-{
-  "name": "Autofill pitcher feature request",
-  "id": "0x1053",
-  "operations": [
-    "read",
-    "write",
-    "publish",
-    "subscribe"
-  ],
-  "description": "Request to enable or disable autofill pitcher feature",
-  "updateClass": {
-    "type": "event"
-  },
-  "data": [
-    {
-      "name": "Autofill pitcher feature request",
-      "type": "enum",
-      "values": {
-        "0": "Disable",
-        "1": "Enable"
-      },
-      "offset": 0,
-      "size": 1
-    }
-  ],
-  "ha_domain": "binary_sensor",
-  "confidence": "medium",
-  "comment": "Autofill pitcher feature request: Binary enum writable switch."
-}
-```
+Event update class but no "request" in name (case-insensitive). These need manual review to determine if they should be `switch`, `button`, or remain `binary_sensor`.
 
 ### 0x209d Remote Care Start Command
 
@@ -933,9 +899,43 @@ Legacy update class with "Status" or "State" in name. Keep as `binary_sensor`.
 
 ---
 
-## Event Switch (30 ERDs)
+## Event Switch (28 ERDs)
 
-Event update class with "Request" in name. Convert to `switch`.
+Event update class with "request" in name (case-insensitive). Convert to `switch`.
+
+### 0x1053 Autofill pitcher feature request
+
+```json
+{
+  "name": "Autofill pitcher feature request",
+  "id": "0x1053",
+  "operations": [
+    "read",
+    "write",
+    "publish",
+    "subscribe"
+  ],
+  "description": "Request to enable or disable autofill pitcher feature",
+  "updateClass": {
+    "type": "event"
+  },
+  "data": [
+    {
+      "name": "Autofill pitcher feature request",
+      "type": "enum",
+      "values": {
+        "0": "Disable",
+        "1": "Enable"
+      },
+      "offset": 0,
+      "size": 1
+    }
+  ],
+  "ha_domain": "binary_sensor",
+  "confidence": "medium",
+  "comment": "Autofill pitcher feature request: Binary enum writable switch."
+}
+```
 
 ### 0x142c SBC Request To Power Off Barcode Scanner
 
@@ -1817,7 +1817,7 @@ Event update class with "Request" in name. Convert to `switch`.
 
 ---
 
-## Event Button (5 ERDs)
+## Event Button (8 ERDs)
 
 Event update class, one-shot actions (stop, cancel, silence, clear, pause, tare, restore). Convert to `button`.
 
@@ -2068,7 +2068,7 @@ Event update class, one-shot actions (stop, cancel, silence, clear, pause, tare,
 
 ---
 
-## Legacy Switch (38 ERDs)
+## Legacy Switch (39 ERDs)
 
 Legacy update class, non-status toggles. Convert to `switch`.
 
@@ -3312,7 +3312,7 @@ Legacy update class, non-status toggles. Convert to `switch`.
 
 ---
 
-## Legacy Button (2 ERDs)
+## Legacy Button (1 ERDs)
 
 Legacy update class, one-shot actions. Convert to `button`.
 
