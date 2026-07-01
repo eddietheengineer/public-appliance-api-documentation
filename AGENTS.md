@@ -318,11 +318,30 @@ Skip entities whose names match these patterns (internal noise, not user-facing)
 
 - `enum` device_class: for any sensor whose data type is `enum` or whose values are labeled text (not numeric).
 - `temperature`: fields with "temperature" in the name and a numeric type.
-- `duration`: fields with "time", "minutes", "seconds" in the name and a numeric type.
+- `duration`: **ONLY for timestamp values** — i.e., sensors that report a point in time such as `sensor.last_triggered`, `sensor.last_seen`, `sensor.last_updated`. These are NOT user-input numeric values. **Do NOT use `device_class: "duration"` for timer settings, timeout values, delay minutes, cook times, runtime requests, or any other numeric input that represents a duration the user sets.** These should have `device_class: null` (or no device_class) with `unit_of_measurement` set appropriately (e.g., `"min"`, `"s"`).
 - `restart`: for button-type reset commands.
 - `door`, `moisture`, `battery`, `battery_charging`, `plug`, `power`: infer from field names matching known appliance states.
 - `voltage`, `current`, `power`, `energy`: infer from electrical measurements with appropriate units.
 - `timestamp`: for version strings (though `enum` or no device_class may be more appropriate).
+
+### 13a. Number domain device_class rules
+
+The `number` domain represents **user-input numeric values** (writable setpoints, timers, levels). These are fundamentally different from `sensor` domain values which represent **read-only measurements**.
+
+- **`number` domain entities should almost NEVER have a `device_class`**. The `device_class` attribute is meaningful for `sensor` domain entities to tell Home Assistant how to interpret the measurement. For `number` domain, the `unit_of_measurement` and `min`/`max`/`step` fields are what matter.
+- **Exceptions**: `device_class: "temperature"` is valid on `number` domain when the user is setting a temperature (e.g., "Desired Temperature", "User Heating Setpoint Request"). This tells Home Assistant to use temperature-appropriate UI controls.
+- **Never use `device_class: "duration"` on `number` domain**. A `number` entity with `unit_of_measurement: "min"` that represents a timer setting (e.g., "Timer", "Delay Start Minutes", "Cook Time Adjustment") should have no `device_class`. The `unit_of_measurement: "min"` already conveys the meaning. Using `device_class: "duration"` would incorrectly signal to Home Assistant that this is a timestamp sensor, not a user-input number.
+- **Examples of correct `number` domain metadata**:
+  - `0x0050` (Timer): `ha_domain: "number"`, `device_class: null`, `unit_of_measurement: "min"` — NOT `device_class: "duration"`
+  - `0x1005` (Desired Temperature): `ha_domain: "number"`, `device_class: "temperature"`, `unit_of_measurement: "°F"` — temperature is a valid exception
+  - `0x5404` (Advantium Cook Time Adjustment): `ha_domain: "number"`, `device_class: null`, `unit_of_measurement: "s"` — NOT `device_class: "duration"`
+  - `0x79a0` (Filter Replacement Interval Reminder Request): `ha_domain: "number"`, `device_class: null`, `unit_of_measurement: null` — no device_class needed
+
+### 13b. Sensor domain device_class rules
+
+- **`device_class: "duration"` is valid on `sensor` domain ONLY when the sensor reports a timestamp** (e.g., `sensor.last_triggered`). It is NOT valid for sensors that report a duration value like "time remaining" or "cycle duration" — those should use `device_class: null` with `unit_of_measurement: "min"` or `"s"`.
+- Fields with "time", "minutes", "seconds" in the name and a numeric type should get `device_class: null` (not `duration`) unless they are actually timestamp sensors.
+
 
 ### 14. Unit of measurement
 
