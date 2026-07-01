@@ -371,18 +371,25 @@ Some sensor types don't map to any Home Assistant `device_class`. These are vali
   - `0x540d` (Precision Cook Mode UID Cavity 1 Request): `ha_domain: "sensor"`, `device_class: null`
   - `0x58b5` (Right Front Closed Loop Cooking Device Index): `ha_domain: "sensor"`, `device_class: null`
 
-### 13e. Multi-field status ERDs
+### 13e. Multi-field ERDs
 
-Some ERDs contain multiple sub-fields that represent different aspects of a single status (e.g., cook zone status with temperature, power, and timer). These are NOT individual sensors — they are a single status entity.
+ERDs with multiple sub-fields should have **no `device_class` at the ERD level**. Metadata (`device_class`, `unit_of_measurement`, `state_class`) belongs on individual sub-fields, not the parent ERD.
 
-- **If the ERD has a dominant measurement type** (e.g., temperature), assign `device_class` based on that dominant field.
-  - `0x5933` (Device Position 0x7D Cooktop - Zone 5 Status): `ha_domain: "sensor"`, `device_class: "temperature"` — dominant field is temperature
-  - `0x5936` (Device Position 0x7E Cooktop - Zone 2 Status): `ha_domain: "sensor"`, `device_class: "temperature"`
-  - `0x5948` (Device Position 0x81 Cooktop - Zone 2 Status): `ha_domain: "sensor"`, `device_class: "temperature"`
-- **If the ERD is a mixed status with no dominant type**, use `device_class: null`.
-  - `0x3000` (Cycle Status): `ha_domain: "sensor"`, `device_class: null` — multi-field cycle state
-  - `0x3009` (Cycle Counts): `ha_domain: "sensor"`, `device_class: null`, `state_class: "total"` — counter fields
-  - `0x3406` (Tub 1 Door Count): `ha_domain: "sensor"`, `device_class: null`, `state_class: "total"` — counter field
+- **Each sub-field gets its own metadata** based on what it represents:
+  - `0x5933` (Device Position 0x7D Cooktop - Zone 5 Status): ERD-level `device_class: null`. Sub-fields:
+    - `Element Actual Temperature`: `device_class: "temperature"`
+    - `Probe Actual Temperature`: `device_class: "temperature"`
+    - `Timer Time Remaining`: `device_class: null`, `unit_of_measurement: "s"`
+    - `Actual Power Level`: `device_class: null` (u8 scale, not actual watts)
+    - `Padding`: `device_class: null` (skip)
+- **Counter sub-fields** should have `state_class: "total"`:
+  - `0x3009` (Cycle Counts): ERD-level `device_class: null`. Sub-fields:
+    - `Started Cycles Counter`: `state_class: "total"`
+    - `Completed Cycles Counter`: `state_class: "total"`
+    - `Power On Reset Counter`: `state_class: "total"`
+  - `0x3406` (Tub 1 Door Count): `device_class: null`, `state_class: "total"`
+
+The ERD-level `device_class` should almost always be omitted for multi-field ERDs. The sub-field metadata is what matters for Home Assistant entity generation.
 
 
 ### 14. Unit of measurement
