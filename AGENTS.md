@@ -479,3 +479,26 @@ This produces the same result as single-field string ERDs like Model Number (`0x
 
 **Limitation**: Only the first non-reserved, non-bitfield field in a `mixed` classification ERD gets the primary value template. String sub-fields in `mixed` ERDs are not automatically handled — they require `byte_offset` classification.
 
+### 24. `last_reviewed` field
+
+Each data field in an ERD may have a `last_reviewed` timestamp field (ISO 8601 UTC format, e.g. `"2026-07-01T20:22:20Z"`). This records when a human or subagent last reviewed the field's metadata (ha_domain, device_class, unit_of_measurement, etc.) against AGENTS.md specifications.
+
+- **Purpose**: Track review progress across the ~2,200 ERDs. Fields without `last_reviewed` are unreviewed.
+- **Placement**: `last_reviewed` is a data-field-level field (inside each object in the `data` array), not an ERD-level field.
+- **Update rule**: Every time you review an ERD's fields (even if no changes are needed), update `last_reviewed` on each reviewed field to the current time.
+- **Format**: ISO 8601 UTC timestamp with `Z` suffix. No milliseconds needed.
+
+**Example**:
+```json
+{
+  "name": "Desired Temperature",
+  "type": "u16",
+  "offset": 0,
+  "size": 2,
+  "device_class": "temperature",
+  "unit_of_measurement": "°F",
+  "last_reviewed": "2026-07-01T20:22:20Z"
+}
+```
+
+**Workflow**: When reviewing ERDs in batches, update `last_reviewed` on all reviewed fields at the end of the batch. This lets you quickly identify which ERDs still need review by checking for missing `last_reviewed` values.
