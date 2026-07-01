@@ -6904,9 +6904,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Wine Chiller Upper Zone Low Temperature Alert",
       "type": "bool",
@@ -6916,9 +6914,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Wine Chiller Lower Zone High Temperature Alert",
       "type": "bool",
@@ -6928,9 +6924,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Wine Chiller Lower Zone Low Temperature Alert",
       "type": "bool",
@@ -6940,9 +6934,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Beverage Center High Temperature Alert",
       "type": "bool",
@@ -6952,9 +6944,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Beverage Center Low Temperature Alert",
       "type": "bool",
@@ -6964,9 +6954,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Single Door Open Alert",
       "type": "bool",
@@ -7035,9 +7023,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Autofill Pitcher Low Water Flow",
       "type": "bool",
@@ -7123,9 +7109,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Wine Chiller Upper Zone Low Temperature Alert",
       "type": "bool",
@@ -7135,9 +7119,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Wine Chiller Lower Zone High Temperature Alert",
       "type": "bool",
@@ -7147,9 +7129,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Wine Chiller Lower Zone Low Temperature Alert",
       "type": "bool",
@@ -7159,9 +7139,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Beverage Center High Temperature Alert",
       "type": "bool",
@@ -7171,9 +7149,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Beverage Center Low Temperature Alert",
       "type": "bool",
@@ -7183,9 +7159,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Single Door Open Alert",
       "type": "bool",
@@ -7254,9 +7228,7 @@
       },
       "offset": 0,
       "size": 8,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Autofill Pitcher Low Water Flow",
       "type": "bool",
@@ -8914,24 +8886,19 @@
       "name": "Temperature Board Application Non-critical Major Version",
       "type": "u8",
       "offset": 0,
-      "size": 1,
-      "state_class": "measurement"
+      "size": 1
     }, {
       "name": "Temperature Board Application Non-critical Minor Version",
       "type": "u8",
       "offset": 1,
-      "size": 1,
-      "state_class": "measurement"
+      "size": 1
     }, {
       "name": "Temperature Board ERD Update Version",
       "type": "u8",
       "offset": 2,
-      "size": 1,
-      "state_class": "measurement"
+      "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
     "confidence": "high",
     "comment": "Temperature Board Application Version: Temperature sensor, unit not explicitly specified."
   }, {
@@ -9407,8 +9374,7 @@
     }],
     "ha_domain": "button",
     "confidence": "medium",
-    "comment": "Water Filter Reset Request: Reset/restart button.",
-    "device_class": "restart"
+    "comment": "Water Filter Reset Request: Reset/restart button."
   }, {
     "name": "Requested Water Valve Position",
     "id": "0x1167",
@@ -9557,8 +9523,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
-    "device_class": "enum",
+    "ha_domain": "binary_sensor",
     "confidence": "medium",
     "comment": "Low Temperature Alert: Temperature sensor, unit not explicitly specified."
   }, {
@@ -10167,9 +10132,7 @@
       },
       "offset": 0,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Supported Notifications.Flow Meter Alert",
       "type": "bool",
@@ -10453,9 +10416,7 @@
       },
       "offset": 16,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Notifications.Flow Meter Alert",
       "type": "bool",
@@ -11299,7 +11260,6 @@
       "size": 1
     }],
     "ha_domain": "binary_sensor",
-    "device_class": "door",
     "paired_erd": "0x1227",
     "pair_role": "status",
     "confidence": "high",
@@ -11399,9 +11359,7 @@
       },
       "offset": 0,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Supported Notifications.Freezer High Temperature Alert",
       "type": "bool",
@@ -11411,9 +11369,7 @@
       },
       "offset": 0,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Supported Notifications.Ice Maker 1 Ice Maker Full Alert",
       "type": "bool",
@@ -11473,9 +11429,7 @@
       },
       "offset": 0,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Supported Notifications.Freezer Door Opened Alert",
       "type": "bool",
@@ -11525,9 +11479,7 @@
       },
       "offset": 0,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Supported Notifications.Secondary Convertible Compartment Door Opened Alert",
       "type": "bool",
@@ -11567,9 +11519,7 @@
       },
       "offset": 0,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Supported Notifications.Secondary Feature Pan High Temperature Alert",
       "type": "bool",
@@ -11579,9 +11529,7 @@
       },
       "offset": 0,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Supported Notifications.Reserved 3",
       "type": "u8",
@@ -11757,9 +11705,7 @@
       },
       "offset": 16,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Notifications.Freezer High Temperature Alert",
       "type": "bool",
@@ -11769,9 +11715,7 @@
       },
       "offset": 16,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Notifications.Ice Maker 1 Ice Maker Full Alert",
       "type": "bool",
@@ -11831,9 +11775,7 @@
       },
       "offset": 16,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Notifications.Freezer Door Opened Alert",
       "type": "bool",
@@ -11883,9 +11825,7 @@
       },
       "offset": 16,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Notifications.Secondary Convertible Compartment Door Opened Alert",
       "type": "bool",
@@ -11925,9 +11865,7 @@
       },
       "offset": 16,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Notifications.Secondary Feature Pan High Temperature Alert",
       "type": "bool",
@@ -11937,9 +11875,7 @@
       },
       "offset": 16,
       "size": 16,
-      "ha_domain": "binary_sensor",
-      "device_class": "temperature",
-      "state_class": "measurement"
+      "ha_domain": "binary_sensor"
     }, {
       "name": "Notifications.Reserved 3",
       "type": "u8",
@@ -21748,9 +21684,7 @@
       "name": "Timed Dry Dryer Sheets Per Cycle",
       "type": "u8",
       "offset": 4,
-      "size": 1,
-      "device_class": "duration",
-      "state_class": "measurement"
+      "size": 1
     }],
     "ha_domain": "sensor",
     "confidence": "low",
@@ -22628,8 +22562,7 @@
         "size": 1
       },
       "offset": 1,
-      "size": 1,
-      "state_class": "measurement"
+      "size": 1
     }, {
       "name": "DryerTemperatureOptionAllowables.No Heat Allowed",
       "type": "u8",
@@ -22638,8 +22571,7 @@
         "size": 1
       },
       "offset": 1,
-      "size": 1,
-      "state_class": "measurement"
+      "size": 1
     }, {
       "name": "DryerTemperatureOptionAllowables.Extra Low Allowed",
       "type": "u8",
@@ -22648,8 +22580,7 @@
         "size": 1
       },
       "offset": 1,
-      "size": 1,
-      "state_class": "measurement"
+      "size": 1
     }, {
       "name": "DryerTemperatureOptionAllowables.Low Allowed",
       "type": "u8",
@@ -22658,8 +22589,7 @@
         "size": 1
       },
       "offset": 1,
-      "size": 1,
-      "state_class": "measurement"
+      "size": 1
     }, {
       "name": "DryerTemperatureOptionAllowables.Medium Allowed",
       "type": "u8",
@@ -22668,8 +22598,7 @@
         "size": 1
       },
       "offset": 1,
-      "size": 1,
-      "state_class": "measurement"
+      "size": 1
     }, {
       "name": "DryerTemperatureOptionAllowables.High Allowed",
       "type": "u8",
@@ -22678,8 +22607,7 @@
         "size": 1
       },
       "offset": 1,
-      "size": 1,
-      "state_class": "measurement"
+      "size": 1
     }, {
       "name": "DryerTemperatureOptionAllowables.Reserved 2",
       "type": "u8",
@@ -22691,8 +22619,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Dryer Temperature Option Allowables: Temperature sensor, unit not explicitly specified."
   }, {
