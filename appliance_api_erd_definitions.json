@@ -81,7 +81,6 @@
       "unit_of_measurement": "s"
     }],
     "ha_domain": "sensor",
-    "device_class": "timestamp",
     "confidence": "low",
     "comment": "Clock Time: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -926,8 +925,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Alexa Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Alexa Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Matter Device Identify Type",
     "id": "0x0400",
@@ -1898,7 +1896,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "comment": "High confidence: Reset Reason enum (u8). Values: 0=Software, 1=Watchdog, 2=Power On, 3=Unknown. See data[].values.",
     "confidence": "high"
   }, {
@@ -3000,7 +2997,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Display Temperature: Temperature sensor, unit not explicitly specified."
@@ -3026,7 +3022,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "number",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Desired Temperature: Temperature sensor, unit not explicitly specified."
@@ -3227,8 +3222,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Water Filter Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Water Filter Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Ice Maker Control",
     "id": "0x100a",
@@ -3262,8 +3256,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Ice Maker Control: Multi-field enum, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Ice Maker Control: Multi-field enum, may need custom handling."
   }, {
     "name": "Temperature Limits",
     "id": "0x100b",
@@ -3298,7 +3291,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Temperature Limits: Temperature sensor, unit not explicitly specified."
@@ -3460,7 +3452,6 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Hot Water Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -3548,7 +3539,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "number",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "high",
     "comment": "Deli Pan Desired Temperature: Temperature in Fahrenheit."
@@ -3607,8 +3597,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Door Status: Door status sensor with multiple fields.",
-    "device_class": "enum"
+    "comment": "Door Status: Door status sensor with multiple fields."
   }, {
     "name": "Altitude Status",
     "id": "0x1017",
@@ -3748,7 +3737,6 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "medium",
     "comment": "Temperature Pan Current Setting: Temperature sensor, unit not explicitly specified."
   }, {
@@ -3977,7 +3965,6 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "medium",
     "comment": "Temperature Pan Control Settings: Temperature sensor, unit not explicitly specified."
   }, {
@@ -4083,8 +4070,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "high",
-    "comment": "Refrigerator Model: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Refrigerator Model: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Nighttime Snack Mode Status",
     "id": "0x101e",
@@ -4326,7 +4312,6 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "medium",
     "comment": "Convertible Drawer Modes Temperature: Temperature sensor, unit not explicitly specified."
   }, {
@@ -4361,8 +4346,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Desired Adjustable Convertible Drawer Setting: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Desired Adjustable Convertible Drawer Setting: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Adjustable Convertible Drawer Temperature Limits",
     "id": "0x1023",
@@ -4513,7 +4497,6 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "medium",
     "comment": "Adjustable Convertible Drawer Temperature Limits: Temperature sensor, unit not explicitly specified."
   }, {
@@ -4944,8 +4927,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Key Status: Multi-field enum, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Key Status: Multi-field enum, may need custom handling."
   }, {
     "name": "Door Mute Status Upper Compartment",
     "id": "0x1032",
@@ -5841,8 +5823,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Food Mode Configuration Upper Compartment: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Food Mode Configuration Upper Compartment: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Food Mode Configuration Lower Compartment",
     "id": "0x1051",
@@ -6049,8 +6030,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Food Mode Configuration Lower Compartment: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Food Mode Configuration Lower Compartment: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Food Mode Configuration Middle Compartment",
     "id": "0x1052",
@@ -6257,8 +6237,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Food Mode Configuration Middle Compartment: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Food Mode Configuration Middle Compartment: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Autofill pitcher feature request",
     "id": "0x1053",
@@ -6918,8 +6897,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Food Mode Presets Configuration: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Food Mode Presets Configuration: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Food Mode Preset (Actual/Status)",
     "id": "0x1058",
@@ -7597,8 +7575,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Light Mode Control Configuration Upper Compartment: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Light Mode Control Configuration Upper Compartment: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Light Mode Control Actual Lower Compartment",
     "id": "0x1064",
@@ -7774,8 +7751,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Light Mode Control Configuration Lower Compartment: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Light Mode Control Configuration Lower Compartment: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Light Mode Control Actual Middle Compartment",
     "id": "0x1067",
@@ -7951,8 +7927,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Light Mode Control Configuration Middle Compartment: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Light Mode Control Configuration Middle Compartment: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Eco Mode Request",
     "id": "0x1076",
@@ -8088,7 +8063,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
     "comment": "Door Totals: Multi-field sensor, may need custom handling to extract individual values."
@@ -8323,7 +8297,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
     "comment": "Most Recent Cycle Status 2: Multi-field sensor, may need custom handling to extract individual values."
@@ -8407,7 +8380,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
     "comment": "Convertible Drawer Door Totals: Multi-field sensor, may need custom handling to extract individual values."
@@ -8544,7 +8516,6 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
     "comment": "Usage Profile Data Part 3: Multi-field sensor, may need custom handling to extract individual values."
@@ -8692,7 +8663,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
     "comment": "Most Recent Cycle Status 3: Multi-field sensor, may need custom handling to extract individual values."
@@ -8775,7 +8745,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
     "comment": "Wine Chiller / Beverage Center Usage Profile Data Part 1: Multi-field sensor, may need custom handling to extract individual values."
@@ -8854,7 +8823,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
     "comment": "Wine Chiller / Beverage Center Usage Profile Data Part 2: Multi-field sensor, may need custom handling to extract individual values."
@@ -9674,8 +9642,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "System Fault Alert: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "System Fault Alert: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Daily Water Usage",
     "id": "0x116d",
@@ -10850,8 +10817,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "high",
-    "comment": "Auto-suggested: Home Water Filter 0 Type Information",
-    "device_class": "enum"
+    "comment": "Auto-suggested: Home Water Filter 0 Type Information"
   }, {
     "name": "Home Water Filter 1 Type Information",
     "id": "0x117a",
@@ -10898,8 +10864,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "high",
-    "comment": "Auto-suggested: Home Water Filter 1 Type Information",
-    "device_class": "enum"
+    "comment": "Auto-suggested: Home Water Filter 1 Type Information"
   }, {
     "name": "Home Water Filter 2 Type Information",
     "id": "0x117b",
@@ -10946,8 +10911,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "high",
-    "comment": "Auto-suggested: Home Water Filter 2 Type Information",
-    "device_class": "enum"
+    "comment": "Auto-suggested: Home Water Filter 2 Type Information"
   }, {
     "name": "Turbo Cool Request",
     "id": "0x120c",
@@ -12188,7 +12152,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "medium",
     "comment": "Door Alarm Timer Timeout Range Data: Timer/duration value."
@@ -12899,8 +12862,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Nutrient Cartridge Level 1: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Nutrient Cartridge Level 1: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Nutrient Cartridge Level 2",
     "id": "0x1302",
@@ -12935,8 +12897,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Nutrient Cartridge Level 2: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Nutrient Cartridge Level 2: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Nutrient Cartridge Level 3",
     "id": "0x1303",
@@ -12971,8 +12932,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Nutrient Cartridge Level 3: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Nutrient Cartridge Level 3: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Water Filter Status",
     "id": "0x1304",
@@ -13241,8 +13201,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "In Home Grower Door Status: Door status sensor with multiple fields.",
-    "device_class": "enum"
+    "comment": "In Home Grower Door Status: Door status sensor with multiple fields."
   }, {
     "name": "Grow Request Response",
     "id": "0x130d",
@@ -13277,8 +13236,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Grow Request Response: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Grow Request Response: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Mixing Spraying Data Request",
     "id": "0x130e",
@@ -17221,8 +17179,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Nutrient Cartridge Level 4: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Nutrient Cartridge Level 4: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Nutrient Cartridge Level 5",
     "id": "0x131c",
@@ -17257,8 +17214,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Nutrient Cartridge Level 5: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Nutrient Cartridge Level 5: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Nutrient Cartridge Level 6",
     "id": "0x131d",
@@ -17293,8 +17249,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Nutrient Cartridge Level 6: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Nutrient Cartridge Level 6: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Air Filter Status",
     "id": "0x131e",
@@ -17495,8 +17450,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Clean Cycle Request Result: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Clean Cycle Request Result: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Clean Cycle State",
     "id": "0x1324",
@@ -17570,8 +17524,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Paused Request Result: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Paused Request Result: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Paused Mode Status",
     "id": "0x1327",
@@ -21135,8 +21088,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Tank Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Tank Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Tank Selected",
     "id": "0x2009",
@@ -21184,8 +21136,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Tank Selected: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Tank Selected: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Laundry Current Selected Cycle",
     "id": "0x200a",
@@ -28253,8 +28204,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Smart Dispense Adjustability Request: Multi-field enum, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Smart Dispense Adjustability Request: Multi-field enum, may need custom handling."
   }, {
     "name": "Smart Dispense Adjustability Option",
     "id": "0x20c2",
@@ -28306,8 +28256,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Smart Dispense Adjustability Option: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Smart Dispense Adjustability Option: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Soil Level Option Allowable",
     "id": "0x20c4",
@@ -28586,7 +28535,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°C",
     "confidence": "medium",
     "comment": "Water Temperature Option Allowable: Temperature sensor, unit not explicitly specified."
@@ -31051,8 +30999,7 @@
     "paired_erd": "0x20d6",
     "pair_role": "request",
     "confidence": "low",
-    "comment": "Flex Dispense Request: Multi-field enum, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Flex Dispense Request: Multi-field enum, may need custom handling."
   }, {
     "name": "Flex Dispense Current",
     "id": "0x20d6",
@@ -31179,8 +31126,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Low Airflow Notification or Warning: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Low Airflow Notification or Warning: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Water Tank Warnings",
     "id": "0x20db",
@@ -31889,8 +31835,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Remote Dryer MyCycle Request: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Remote Dryer MyCycle Request: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 00",
     "id": "0x20e0",
@@ -32247,8 +32192,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 00: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 00: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 01",
     "id": "0x20e1",
@@ -32605,8 +32549,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 01: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 01: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 02",
     "id": "0x20e2",
@@ -32963,8 +32906,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 02: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 02: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 03",
     "id": "0x20e3",
@@ -33321,8 +33263,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 03: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 03: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 04",
     "id": "0x20e4",
@@ -33679,8 +33620,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 04: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 04: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 05",
     "id": "0x20e5",
@@ -34037,8 +33977,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 05: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 05: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 06",
     "id": "0x20e6",
@@ -34395,8 +34334,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 06: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 06: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 07",
     "id": "0x20e7",
@@ -34753,8 +34691,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 07: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 07: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 08",
     "id": "0x20e8",
@@ -35111,8 +35048,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 08: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 08: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 09",
     "id": "0x20e9",
@@ -35469,8 +35405,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 09: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 09: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 10",
     "id": "0x20ea",
@@ -35827,8 +35762,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 10: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 10: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 11",
     "id": "0x20eb",
@@ -36185,8 +36119,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 11: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 11: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 12",
     "id": "0x20ec",
@@ -36543,8 +36476,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 12: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 12: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 13",
     "id": "0x20ed",
@@ -36901,8 +36833,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 13: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 13: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Dryer MyCycle Storage External 14",
     "id": "0x20ee",
@@ -37259,8 +37190,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dryer MyCycle Storage External 14: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dryer MyCycle Storage External 14: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Scent Liquid Cumulative Usage",
     "id": "0x20ef",
@@ -37740,8 +37670,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 00: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 00: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 01",
     "id": "0x20f7",
@@ -38047,8 +37976,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 01: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 01: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 02",
     "id": "0x20f8",
@@ -38354,8 +38282,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 02: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 02: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 03",
     "id": "0x20f9",
@@ -38661,8 +38588,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 03: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 03: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 04",
     "id": "0x20fa",
@@ -38968,8 +38894,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 04: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 04: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 05",
     "id": "0x20fb",
@@ -39275,8 +39200,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 05: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 05: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 06",
     "id": "0x20fc",
@@ -39582,8 +39506,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 06: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 06: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 07",
     "id": "0x20fd",
@@ -39889,8 +39812,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 07: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 07: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 08",
     "id": "0x20fe",
@@ -40196,8 +40118,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 08: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 08: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 09",
     "id": "0x20ff",
@@ -40503,8 +40424,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 09: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 09: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 10",
     "id": "0x2100",
@@ -40810,8 +40730,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 10: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 10: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 11",
     "id": "0x2101",
@@ -41117,8 +41036,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 11: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 11: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 12",
     "id": "0x2102",
@@ -41424,8 +41342,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 12: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 12: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Data 13",
     "id": "0x2103",
@@ -41731,8 +41648,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Washer Remote My Cycle Data 13: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Washer Remote My Cycle Data 13: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Washer Remote My Cycle Request",
     "id": "0x2104",
@@ -42152,7 +42068,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "paired_erd": "0x212d",
     "pair_role": "status",
     "confidence": "low",
@@ -44474,8 +44389,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Smart Softener Dispense Adjustability Request: Multi-field enum, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Smart Softener Dispense Adjustability Request: Multi-field enum, may need custom handling."
   }, {
     "name": "Smart Softener Dispense Adjustability Option",
     "id": "0x2144",
@@ -44527,8 +44441,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Smart Softener Dispense Adjustability Option: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Smart Softener Dispense Adjustability Option: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Smart Softener Dispense Usage Profile Record Auto",
     "id": "0x2145",
@@ -55157,8 +55070,7 @@
     "paired_erd": "0x222c",
     "pair_role": "request",
     "confidence": "low",
-    "comment": "Flexible Dispensing Tank 1 Configuration Request: Multi-field enum, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Flexible Dispensing Tank 1 Configuration Request: Multi-field enum, may need custom handling."
   }, {
     "name": "Flexible Dispensing Tank 2 Configuration Status",
     "id": "0x222e",
@@ -55237,8 +55149,7 @@
     "paired_erd": "0x222e",
     "pair_role": "request",
     "confidence": "low",
-    "comment": "Flexible Dispensing Tank 2 Configuration Request: Multi-field enum, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Flexible Dispensing Tank 2 Configuration Request: Multi-field enum, may need custom handling."
   }, {
     "name": "Pet Hair Removal Option",
     "id": "0x2230",
@@ -57527,8 +57438,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Commercial Cycle Id Order: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Commercial Cycle Id Order: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Commercial Option Id Order",
     "id": "0x2236",
@@ -60091,7 +60001,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "number",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "paired_erd": "0x2250",
     "pair_role": "request",
@@ -60168,7 +60077,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "paired_erd": "0x224f",
@@ -60305,7 +60213,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "confidence": "medium",
@@ -60700,7 +60607,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "number",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "paired_erd": "0x2256",
     "pair_role": "request",
@@ -60777,7 +60683,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "paired_erd": "0x2255",
@@ -60914,7 +60819,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "confidence": "medium",
@@ -61831,8 +61735,7 @@
     "paired_erd": "0x2f08",
     "pair_role": "request",
     "confidence": "low",
-    "comment": "Mabe - Loads Request: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Mabe - Loads Request: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Mabe - Loads Status",
     "id": "0x2f08",
@@ -62016,8 +61919,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Mabe - Failure code: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Mabe - Failure code: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Mabe - Cycle Function",
     "id": "0x2f0a",
@@ -66892,8 +66794,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Cycle Definition 0: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Cycle Definition 0: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Cycle Definition 1",
     "id": "0x3211",
@@ -67138,8 +67039,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Cycle Definition 1: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Cycle Definition 1: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Cycle Definition 2",
     "id": "0x3212",
@@ -67384,8 +67284,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Cycle Definition 2: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Cycle Definition 2: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Cycle Definition 3",
     "id": "0x3213",
@@ -67630,8 +67529,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Cycle Definition 3: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Cycle Definition 3: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Cycle Definition 4",
     "id": "0x3214",
@@ -67876,8 +67774,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Cycle Definition 4: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Cycle Definition 4: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Cycle Definition 5",
     "id": "0x3215",
@@ -68122,8 +68019,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Cycle Definition 5: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Cycle Definition 5: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Cycle Definition 6",
     "id": "0x3216",
@@ -68368,8 +68264,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Cycle Definition 6: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Cycle Definition 6: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Cycle Definition 7",
     "id": "0x3217",
@@ -68614,8 +68509,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Cycle Definition 7: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Cycle Definition 7: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Cycle Definition 8",
     "id": "0x3218",
@@ -68860,8 +68754,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Cycle Definition 8: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Cycle Definition 8: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Cycle Definition 9",
     "id": "0x3219",
@@ -69106,8 +68999,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Cycle Definition 9: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Cycle Definition 9: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Delay Start Value",
     "id": "0x321a",
@@ -72260,8 +72152,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Tub 1 Cycle Definition 0: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Tub 1 Cycle Definition 0: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Tub 1 Cycle Definition 1",
     "id": "0x3611",
@@ -72506,8 +72397,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Tub 1 Cycle Definition 1: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Tub 1 Cycle Definition 1: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Tub 1 Cycle Definition 2",
     "id": "0x3612",
@@ -72752,8 +72642,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Tub 1 Cycle Definition 2: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Tub 1 Cycle Definition 2: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Tub 1 Cycle Definition 3",
     "id": "0x3613",
@@ -72998,8 +72887,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Tub 1 Cycle Definition 3: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Tub 1 Cycle Definition 3: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Tub 1 Cycle Definition 4",
     "id": "0x3614",
@@ -73244,8 +73132,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Tub 1 Cycle Definition 4: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Tub 1 Cycle Definition 4: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Tub 1 Cycle Definition 5",
     "id": "0x3615",
@@ -73490,8 +73377,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Tub 1 Cycle Definition 5: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Tub 1 Cycle Definition 5: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Tub 1 Cycle Definition 6",
     "id": "0x3616",
@@ -73736,8 +73622,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Tub 1 Cycle Definition 6: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Tub 1 Cycle Definition 6: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Tub 1 Cycle Definition 7",
     "id": "0x3617",
@@ -73982,8 +73867,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Tub 1 Cycle Definition 7: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Tub 1 Cycle Definition 7: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Tub 1 Cycle Definition 8",
     "id": "0x3618",
@@ -74228,8 +74112,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Tub 1 Cycle Definition 8: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Tub 1 Cycle Definition 8: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Tub 1 Cycle Definition 9",
     "id": "0x3619",
@@ -74474,8 +74357,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Tub 1 Cycle Definition 9: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Tub 1 Cycle Definition 9: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Tub 1 Delay Start Value",
     "id": "0x361a",
@@ -74979,7 +74861,6 @@
       "size": 2
     }],
     "ha_domain": "number",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "confidence": "high",
@@ -75004,7 +74885,6 @@
       "size": 2
     }],
     "ha_domain": "number",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "confidence": "high",
@@ -76925,7 +76805,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Oven Minimum and Maximum Temperatures: Temperature sensor, unit not explicitly specified."
@@ -77025,8 +76904,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "medium",
-    "comment": "Timer ERD Availability: Availability flags for timers.",
-    "device_class": "enum"
+    "comment": "Timer ERD Availability: Availability flags for timers."
   }, {
     "name": "Knob Mode Setting",
     "id": "0x5012",
@@ -77252,8 +77130,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Bake Cycle Availability: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Bake Cycle Availability: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Auto Oven Light On Off Request",
     "id": "0x5014",
@@ -77447,8 +77324,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Broil Level Availability: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Broil Level Availability: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Cavity Layout",
     "id": "0x5018",
@@ -77929,7 +77805,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Air Fry Oven Minimum and Maximum Temperatures: Temperature sensor, unit not explicitly specified."
@@ -79133,7 +79008,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Upper Oven Cook Mode Command: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -80272,8 +80146,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Upper Oven Light Level Availability: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Upper Oven Light Level Availability: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Upper Oven Available Extended Cook Modes",
     "id": "0x5113",
@@ -82078,8 +81951,7 @@
     "paired_erd": "0x5120",
     "pair_role": "request",
     "confidence": "low",
-    "comment": "Upper Cavity Cook Recipe Request: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Upper Cavity Cook Recipe Request: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Upper Cavity Index",
     "id": "0x5122",
@@ -82629,7 +82501,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Upper Cavity Cook Recipe Stage 1: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -83164,7 +83035,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Upper Cavity Cook Recipe Stage 2: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -83699,7 +83569,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Upper Cavity Cook Recipe Stage 3: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -84234,7 +84103,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Upper Cavity Cook Recipe Stage 4: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -84769,7 +84637,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Upper Cavity Cook Recipe Stage 5: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -85560,7 +85427,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Lower Oven Cook Mode: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -86679,8 +86545,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Lower Oven Light Level Availability: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Lower Oven Light Level Availability: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Lower Oven Available Extended Cook Modes",
     "id": "0x5213",
@@ -88457,8 +88322,7 @@
     "paired_erd": "0x5220",
     "pair_role": "request",
     "confidence": "low",
-    "comment": "Lower Cavity Cook Recipe Request: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Lower Cavity Cook Recipe Request: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Lower Cavity Index ",
     "id": "0x5222",
@@ -89008,7 +88872,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Lower Cavity Cook Recipe Stage 1: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -89543,7 +89406,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Lower Cavity Cook Recipe Stage 2: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -90078,7 +89940,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Lower Cavity Cook Recipe Stage 3: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -90613,7 +90474,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Lower Cavity Cook Recipe Stage 4: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -91148,7 +91008,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Lower Cavity Cook Recipe Stage 5: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -93700,7 +93559,6 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "paired_erd": "0x5401",
     "pair_role": "request",
     "confidence": "low",
@@ -93730,7 +93588,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "medium",
     "comment": "Advantium Cook Time Remaining: Timer/duration value."
   }, {
@@ -93895,7 +93752,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
     "comment": "Advantium Allowable Oven Cook Time: Multi-field sensor, may need custom handling to extract individual values."
@@ -93997,7 +93853,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
     "comment": "Advantium Allowable Microwave Cook Time: Multi-field sensor, may need custom handling to extract individual values."
@@ -94101,7 +93956,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
     "comment": "Advantium Allowable Precision Cook Time: Multi-field sensor, may need custom handling to extract individual values."
@@ -94127,7 +93981,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
     "comment": "Advantium Allowable Kitchen Time: Multi-field sensor, may need custom handling to extract individual values."
@@ -94326,8 +94179,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Primary Oven Remote Precision Cook UI Configuration: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Primary Oven Remote Precision Cook UI Configuration: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Primary Oven Remote Precision Cook App Sequence ID from Unit To App",
     "id": "0x5414",
@@ -94745,7 +94597,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "paired_erd": "0x5417",
     "pair_role": "request",
     "confidence": "low",
@@ -95117,8 +94968,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Secondary Oven Remote Precision Cook UI Configuration: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Secondary Oven Remote Precision Cook UI Configuration: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Secondary Oven Remote Precision Cook App Sequence ID from Unit To App",
     "id": "0x5424",
@@ -95375,8 +95225,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Cooktop Configuration: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Cooktop Configuration: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Cooktop Status",
     "id": "0x5520",
@@ -95995,8 +95844,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Cooktop Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Cooktop Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Cooktop Built-In Temperature Sensors",
     "id": "0x5521",
@@ -96038,7 +95886,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Cooktop Built-In Temperature Sensors: Temperature sensor, unit not explicitly specified."
@@ -96987,8 +96834,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Extended Cooktop Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Extended Cooktop Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Water Reservoir Status",
     "id": "0x5523",
@@ -97505,8 +97351,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Left Front Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Left Front Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Left Rear Closed-Loop Cooking Status",
     "id": "0x5772",
@@ -97621,8 +97466,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Left Rear Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Left Rear Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Center Front (Left-Center Front) Closed-Loop Cooking Status",
     "id": "0x5773",
@@ -97737,8 +97581,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Center Front (Left-Center Front) Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Center Front (Left-Center Front) Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Center Rear (Left-Center Rear) Closed-Loop Cooking Status",
     "id": "0x5774",
@@ -97853,8 +97696,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Center Rear (Left-Center Rear) Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Center Rear (Left-Center Rear) Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Right Front Closed-Loop Cooking Status",
     "id": "0x5775",
@@ -97969,8 +97811,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Right Front Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Right Front Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Right Rear Closed-Loop Cooking Status",
     "id": "0x5776",
@@ -98085,8 +97926,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Right Rear Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Right Rear Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Bridge/Sync Closed-Loop Cooking Status",
     "id": "0x5777",
@@ -98201,8 +98041,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Bridge/Sync Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Bridge/Sync Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Left Front Closed-Loop Cooking Configuration",
     "id": "0x5778",
@@ -98915,8 +98754,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Right-Center Front Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Right-Center Front Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Right-Center Rear Closed-Loop Cooking Status",
     "id": "0x5787",
@@ -99031,8 +98869,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Right-Center Rear Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Right-Center Rear Closed-Loop Cooking Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Right-Center Front Closed-Loop Cooking Configuration",
     "id": "0x5788",
@@ -108387,8 +108224,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7D Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7D Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7D Cooktop - Zone 2 Assisted Cook Status (Slow)",
     "id": "0x5966",
@@ -108444,8 +108280,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7D Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7D Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7D Cooktop - Zone 3 Assisted Cook Status (Slow)",
     "id": "0x5967",
@@ -108501,8 +108336,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7D Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7D Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7D Cooktop - Zone 4 Assisted Cook Status (Slow)",
     "id": "0x5968",
@@ -108558,8 +108392,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7D Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7D Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7D Cooktop - Zone 5 Assisted Cook Status (Slow)",
     "id": "0x5969",
@@ -108615,8 +108448,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7D Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7D Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7D Cooktop - Zone 6 Assisted Cook Status (Slow)",
     "id": "0x596a",
@@ -108672,8 +108504,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7D Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7D Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7E Cooktop - Zone 1 Assisted Cook Status (Slow)",
     "id": "0x596b",
@@ -108729,8 +108560,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7E Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7E Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7E Cooktop - Zone 2 Assisted Cook Status (Slow)",
     "id": "0x596c",
@@ -108786,8 +108616,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7E Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7E Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7E Cooktop - Zone 3 Assisted Cook Status (Slow)",
     "id": "0x596d",
@@ -108843,8 +108672,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7E Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7E Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7E Cooktop - Zone 4 Assisted Cook Status (Slow)",
     "id": "0x596e",
@@ -108900,8 +108728,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7E Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7E Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7E Cooktop - Zone 5 Assisted Cook Status (Slow)",
     "id": "0x596f",
@@ -108957,8 +108784,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7E Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7E Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7E Cooktop - Zone 6 Assisted Cook Status (Slow)",
     "id": "0x5970",
@@ -109014,8 +108840,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7E Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7E Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7F Cooktop - Zone 1 Assisted Cook Status (Slow)",
     "id": "0x5971",
@@ -109071,8 +108896,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7F Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7F Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7F Cooktop - Zone 2 Assisted Cook Status (Slow)",
     "id": "0x5972",
@@ -109128,8 +108952,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7F Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7F Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7F Cooktop - Zone 3 Assisted Cook Status (Slow)",
     "id": "0x5973",
@@ -109185,8 +109008,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7F Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7F Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7F Cooktop - Zone 4 Assisted Cook Status (Slow)",
     "id": "0x5974",
@@ -109242,8 +109064,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7F Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7F Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7F Cooktop - Zone 5 Assisted Cook Status (Slow)",
     "id": "0x5975",
@@ -109299,8 +109120,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7F Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7F Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x7F Cooktop - Zone 6 Assisted Cook Status (Slow)",
     "id": "0x5976",
@@ -109356,8 +109176,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x7F Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x7F Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x80 Cooktop - Zone 1 Assisted Cook Status (Slow)",
     "id": "0x5977",
@@ -109413,8 +109232,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x80 Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x80 Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x80 Cooktop - Zone 2 Assisted Cook Status (Slow)",
     "id": "0x5978",
@@ -109470,8 +109288,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x80 Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x80 Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x80 Cooktop - Zone 3 Assisted Cook Status (Slow)",
     "id": "0x5979",
@@ -109527,8 +109344,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x80 Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x80 Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x80 Cooktop - Zone 4 Assisted Cook Status (Slow)",
     "id": "0x597a",
@@ -109584,8 +109400,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x80 Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x80 Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x80 Cooktop - Zone 5 Assisted Cook Status (Slow)",
     "id": "0x597b",
@@ -109641,8 +109456,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x80 Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x80 Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x80 Cooktop - Zone 6 Assisted Cook Status (Slow)",
     "id": "0x597c",
@@ -109698,8 +109512,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x80 Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x80 Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x81 Cooktop - Zone 1 Assisted Cook Status (Slow)",
     "id": "0x597d",
@@ -109755,8 +109568,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x81 Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x81 Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x81 Cooktop - Zone 2 Assisted Cook Status (Slow)",
     "id": "0x597e",
@@ -109812,8 +109624,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x81 Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x81 Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x81 Cooktop - Zone 3 Assisted Cook Status (Slow)",
     "id": "0x597f",
@@ -109869,8 +109680,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x81 Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x81 Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x81 Cooktop - Zone 4 Assisted Cook Status (Slow)",
     "id": "0x5980",
@@ -109926,8 +109736,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x81 Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x81 Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x81 Cooktop - Zone 5 Assisted Cook Status (Slow)",
     "id": "0x5981",
@@ -109983,8 +109792,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x81 Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x81 Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x81 Cooktop - Zone 6 Assisted Cook Status (Slow)",
     "id": "0x5982",
@@ -110040,8 +109848,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x81 Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x81 Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x82 Cooktop - Zone 1 Assisted Cook Status (Slow)",
     "id": "0x5983",
@@ -110097,8 +109904,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x82 Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x82 Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x82 Cooktop - Zone 2 Assisted Cook Status (Slow)",
     "id": "0x5984",
@@ -110154,8 +109960,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x82 Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x82 Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x82 Cooktop - Zone 3 Assisted Cook Status (Slow)",
     "id": "0x5985",
@@ -110211,8 +110016,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x82 Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x82 Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x82 Cooktop - Zone 4 Assisted Cook Status (Slow)",
     "id": "0x5986",
@@ -110268,8 +110072,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x82 Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x82 Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x82 Cooktop - Zone 5 Assisted Cook Status (Slow)",
     "id": "0x5987",
@@ -110325,8 +110128,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x82 Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x82 Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x82 Cooktop - Zone 6 Assisted Cook Status (Slow)",
     "id": "0x5988",
@@ -110382,8 +110184,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x82 Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x82 Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x83 Cooktop - Zone 1 Assisted Cook Status (Slow)",
     "id": "0x5989",
@@ -110439,8 +110240,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x83 Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x83 Cooktop - Zone 1 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x83 Cooktop - Zone 2 Assisted Cook Status (Slow)",
     "id": "0x598a",
@@ -110496,8 +110296,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x83 Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x83 Cooktop - Zone 2 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x83 Cooktop - Zone 3 Assisted Cook Status (Slow)",
     "id": "0x598b",
@@ -110553,8 +110352,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x83 Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x83 Cooktop - Zone 3 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x83 Cooktop - Zone 4 Assisted Cook Status (Slow)",
     "id": "0x598c",
@@ -110610,8 +110408,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x83 Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x83 Cooktop - Zone 4 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x83 Cooktop - Zone 5 Assisted Cook Status (Slow)",
     "id": "0x598d",
@@ -110667,8 +110464,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x83 Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x83 Cooktop - Zone 5 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Device Position 0x83 Cooktop - Zone 6 Assisted Cook Status (Slow)",
     "id": "0x598e",
@@ -110724,8 +110520,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Device Position 0x83 Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Device Position 0x83 Cooktop - Zone 6 Assisted Cook Status (Slow): Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Global Wireless Food Probe Status",
     "id": "0x598f",
@@ -111492,8 +111287,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "MCT Current Event Record: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "MCT Current Event Record: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "MCT System Market Code",
     "id": "0x599c",
@@ -111556,7 +111350,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "medium",
     "comment": "Global Timer Status: Timer/duration value."
   }, {
@@ -111671,8 +111464,7 @@
     "ha_domain": "sensor",
     "unit_of_measurement": "rpm",
     "confidence": "high",
-    "comment": "Hood Fan Speed Availability: Speed/RPM sensor.",
-    "device_class": "enum"
+    "comment": "Hood Fan Speed Availability: Speed/RPM sensor."
   }, {
     "name": "Hood Light Level",
     "id": "0x5b02",
@@ -111781,8 +111573,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Hood Light Level Availability: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Hood Light Level Availability: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Hood Delay Off",
     "id": "0x5b04",
@@ -111962,8 +111753,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Hood Camera Light Assist Level Availability: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Hood Camera Light Assist Level Availability: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Hood Display Protection Fan Speed",
     "id": "0x5b0a",
@@ -112075,8 +111865,7 @@
     "ha_domain": "sensor",
     "unit_of_measurement": "rpm",
     "confidence": "high",
-    "comment": "Hood Display Protection Fan Speed Availability: Speed/RPM sensor.",
-    "device_class": "enum"
+    "comment": "Hood Display Protection Fan Speed Availability: Speed/RPM sensor."
   }, {
     "name": "Hood Notifications",
     "id": "0x5b0c",
@@ -112556,8 +112345,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "high",
-    "comment": "Hood Model: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Hood Model: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Hood Actual Light Color",
     "id": "0x5b21",
@@ -112660,8 +112448,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Hood Available Light Colors: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Hood Available Light Colors: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Hood to Hob Actual Auto Control",
     "id": "0x5b24",
@@ -112833,7 +112620,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "high",
     "comment": "Relative Humidity (%): Humidity percentage sensor."
   }, {
@@ -113672,7 +113458,6 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "high",
     "comment": "Environmental Temperature: Temperature in Fahrenheit."
   }, {
@@ -116363,8 +116148,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Microwave State: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Microwave State: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Microwave Power in Watts",
     "id": "0x5c12",
@@ -116447,7 +116231,6 @@
       "unit_of_measurement": "s"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "medium",
     "comment": "Microwave Cook Timer: Timer/duration value."
@@ -116762,8 +116545,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Microwave Cycle Setting Modification Availability: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Microwave Cycle Setting Modification Availability: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Microwave Cook Timer Modification",
     "id": "0x5c1b",
@@ -117321,8 +117103,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Microwave Auto Defrost Mode - Current Setting: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Microwave Auto Defrost Mode - Current Setting: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Microwave Broil Mode - Available Settings",
     "id": "0x5c25",
@@ -117834,8 +117615,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Microwave Auto Bake Mode - Current Setting: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Microwave Auto Bake Mode - Current Setting: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Microwave Auto Roast - Available Settings",
     "id": "0x5c29",
@@ -118210,8 +117990,7 @@
     "ha_domain": "sensor",
     "scaling_factor": 10,
     "confidence": "low",
-    "comment": "Microwave Auto Roast Mode - Current Setting: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Microwave Auto Roast Mode - Current Setting: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Microwave Oven Cook Timer",
     "id": "0x5c2b",
@@ -118701,7 +118480,6 @@
       "size": 2
     }],
     "ha_domain": "number",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Microwave Oven Temperature Range: Temperature sensor, unit not explicitly specified."
@@ -118739,8 +118517,7 @@
     "ha_domain": "sensor",
     "scaling_factor": 10,
     "confidence": "low",
-    "comment": "Microwave Protein Mode - Current Setting: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Microwave Protein Mode - Current Setting: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Microwave Broil With Time Mode - Available Settings",
     "id": "0x5c2f",
@@ -119029,8 +118806,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Microwave Melt Mode - Current Setting: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Microwave Melt Mode - Current Setting: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Microwave Steam Cook Mode - Available Settings",
     "id": "0x5c34",
@@ -119385,8 +119161,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Microwave Steam Cook Mode - Current Setting: Multi-field enum, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Microwave Steam Cook Mode - Current Setting: Multi-field enum, may need custom handling."
   }, {
     "name": "Staged Microwave Data Uid",
     "id": "0x5c3c",
@@ -119900,8 +119675,7 @@
     "paired_erd": "0x5c3e",
     "pair_role": "request",
     "confidence": "low",
-    "comment": "Staged Microwave Cook Request: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Staged Microwave Cook Request: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Staged Microwave Cook Status",
     "id": "0x5c3e",
@@ -119936,7 +119710,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": null,
     "paired_erd": "0x5c3d",
     "pair_role": "status",
     "confidence": "low",
@@ -129352,7 +129125,6 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "paired_erd": "0x7451",
     "pair_role": "status",
     "comment": "High confidence: Smart Fan Cooling mode status; enum: 0=Cyclic, 1=Continuous. Paired with request ERD 0x7451.",
@@ -129457,7 +129229,6 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "paired_erd": "0x7453",
     "pair_role": "status",
     "comment": "High confidence: Smart Fan Heating mode status; enum: 0=Cyclic, 1=Continuous. Paired with request ERD 0x7453.",
@@ -129776,8 +129547,7 @@
     "paired_erd": "0x7459",
     "pair_role": "status",
     "comment": "High confidence: Constant Fan enabled status; first byte 0x01=enabled, 0x00=disabled. Paired with request ERD 0x7459.",
-    "confidence": "high",
-    "device_class": "enum"
+    "confidence": "high"
   }, {
     "name": "Constant Fan Request",
     "id": "0x7459",
@@ -130113,7 +129883,6 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "paired_erd": "0x745f",
     "pair_role": "status",
     "comment": "High confidence: Heat Selector mode status; enum: 0=Electric Heat Only, 1=High Demand, 2=Hybrid, 3=Boost Heat Pump, 4=Heat Pump Only. Paired with request ERD 0x745f.",
@@ -130220,8 +129989,7 @@
     }],
     "ha_domain": "sensor",
     "comment": "High confidence: Electric Heat Lockout (Strict) status; first byte 0x01=locked out, 0x00=not locked out.",
-    "confidence": "high",
-    "device_class": "enum"
+    "confidence": "high"
   }, {
     "name": "UVC Module Status",
     "id": "0x7462",
@@ -130301,8 +130069,7 @@
     "paired_erd": "0x7463",
     "pair_role": "status",
     "confidence": "low",
-    "comment": "UVC Module Status: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "UVC Module Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "UVC Module Request",
     "id": "0x7463",
@@ -130462,7 +130229,6 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "paired_erd": "0x7467",
     "pair_role": "status",
     "comment": "High confidence: Make-up Air Filter Setting status; enum: 0=No Filter, 1=MERV13 Filter. Paired with request ERD 0x7467.",
@@ -130690,7 +130456,6 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "paired_erd": "0x746b",
     "pair_role": "status",
     "comment": "High confidence: Dehumidification Mode status; enum: 0=Off, 1=Low, 2=Standard, 3=High. Paired with request ERD 0x746b.",
@@ -130850,7 +130615,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "state_class": "measurement",
     "confidence": "high",
@@ -131022,8 +130786,7 @@
     "confidence": "high",
     "comment": "Auto-suggested: Heat Source Optimization Status",
     "pair_role": "status",
-    "paired_erd": "0x7473",
-    "device_class": "enum"
+    "paired_erd": "0x7473"
   }, {
     "name": "Heat Source Optimization Request",
     "id": "0x7473",
@@ -131580,7 +131343,6 @@
     "ha_domain": "sensor",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
-    "device_class": "temperature",
     "comment": "High confidence: Temperature setpoint step size in DegreesFx10. Divide raw value by 10 for actual degF step size.",
     "confidence": "high"
   }, {
@@ -131649,7 +131411,6 @@
     "ha_domain": "sensor",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
-    "device_class": "temperature",
     "comment": "High confidence: Configured range for user heating setpoint; min/max in DegreesFx10. Divide by 10 for degF.",
     "confidence": "high"
   }, {
@@ -131718,7 +131479,6 @@
     "ha_domain": "sensor",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
-    "device_class": "temperature",
     "comment": "High confidence: Configured range for user cooling setpoint; min/max in Fahrenheit x10. Divide by 10 for degF.",
     "confidence": "high"
   }, {
@@ -131851,7 +131611,6 @@
     "ha_domain": "sensor",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
-    "device_class": "temperature",
     "comment": "Medium confidence: Read-only allowed range for user heating setpoint minimum limit; assumed DegreesFx10.",
     "confidence": "medium"
   }, {
@@ -131896,7 +131655,6 @@
     "ha_domain": "sensor",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
-    "device_class": "temperature",
     "comment": "Medium confidence: Read-only allowed range for user heating setpoint maximum limit; assumed DegreesFx10.",
     "confidence": "medium"
   }, {
@@ -131941,7 +131699,6 @@
     "ha_domain": "sensor",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
-    "device_class": "temperature",
     "comment": "Medium confidence: Read-only allowed range for user cooling setpoint minimum limit; assumed DegreesFx10.",
     "confidence": "medium"
   }, {
@@ -131986,7 +131743,6 @@
     "ha_domain": "sensor",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
-    "device_class": "temperature",
     "comment": "Medium confidence: Read-only allowed range for user cooling setpoint maximum limit; assumed DegreesFx10.",
     "confidence": "medium"
   }, {
@@ -134436,7 +134192,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "confidence": "medium",
@@ -134507,8 +134262,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "High and Low Pressure switch status: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "High and Low Pressure switch status: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "ODU Gas Pipe temperatures (Tc1 - A,B,C,D,E)",
     "id": "0x790e",
@@ -134549,7 +134303,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "confidence": "medium",
@@ -134594,7 +134347,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "confidence": "medium",
@@ -134791,7 +134543,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Defrost Interval Minimum Time Setting and Counter and Compressor Stop Minimum Time Setting and Counter: Multi-field sensor, may need custom handling to extract individual values."
@@ -134959,7 +134710,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Usage Profile Data ODU: Multi-field sensor, may need custom handling to extract individual values."
@@ -136804,8 +136554,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Dry Contact Application: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Dry Contact Application: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Filter Operating Hours",
     "id": "0x79a7",
@@ -137131,7 +136880,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "confidence": "high",
@@ -137215,8 +136963,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Blower Minimum Runtime allowable values: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Blower Minimum Runtime allowable values: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Auto Mode Temperature Deadband allowable range",
     "id": "0x79b9",
@@ -137245,7 +136992,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "confidence": "high",
@@ -137312,7 +137058,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "confidence": "high",
@@ -137345,7 +137090,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "confidence": "high",
@@ -137473,7 +137217,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 100,
     "paired_erd": "0x79c1",
@@ -137500,7 +137243,6 @@
       "size": 2
     }],
     "ha_domain": "number",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "paired_erd": "0x79c0",
     "pair_role": "request",
@@ -138465,8 +138207,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Available AC Modes: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Available AC Modes: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Current Humidity",
     "id": "0x7b01",
@@ -138495,7 +138236,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "high",
     "comment": "Current Humidity: Humidity percentage sensor."
   }, {
@@ -138539,7 +138279,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "humidity",
     "unit_of_measurement": "%",
     "confidence": "high",
     "comment": "Target Humidity Range: Humidity percentage sensor."
@@ -138587,7 +138326,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Target Temperature Range: Temperature sensor, unit not explicitly specified."
@@ -138658,8 +138396,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Air Swing Availability: Multi-field enum sensor, may need custom handling.",
-    "device_class": "enum"
+    "comment": "Air Swing Availability: Multi-field enum sensor, may need custom handling."
   }, {
     "name": "Available AC Fan Speeds",
     "id": "0x7b0b",
@@ -138746,8 +138483,7 @@
     "ha_domain": "sensor",
     "unit_of_measurement": "rpm",
     "confidence": "high",
-    "comment": "Available AC Fan Speeds: Speed/RPM sensor.",
-    "device_class": "enum"
+    "comment": "Available AC Fan Speeds: Speed/RPM sensor."
   }, {
     "name": "Eco Mode",
     "id": "0x7b0c",
@@ -139034,7 +138770,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Coffee Brewer Brew Temperature Limits: Temperature sensor, unit not explicitly specified."
@@ -139241,8 +138976,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Coffee Brewer Supported Brew Strengths: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Coffee Brewer Supported Brew Strengths: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Coffee Brewer Time Since Brew Complete",
     "id": "0x900a",
@@ -139297,8 +139031,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Coffee Brewer Start Brew: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Coffee Brewer Start Brew: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Coffee Brewer Cancel Brew",
     "id": "0x900c",
@@ -142484,7 +142217,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
     "comment": "Coffee Brewer Brew Setting Limits: Multi-field sensor, may need custom handling to extract individual values."
@@ -142551,8 +142283,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Coffee Brewer Supported Features: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Coffee Brewer Supported Features: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Coffee Maker Model",
     "id": "0x905c",
@@ -144033,7 +143764,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -144116,7 +143846,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -144400,7 +144129,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Air Fry Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -144462,7 +144190,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Air Fry Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -144718,7 +144445,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Bake Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -144780,7 +144506,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Bake Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145036,7 +144761,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Broil Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145098,7 +144822,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Broil Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145354,7 +145077,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Roast Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145416,7 +145138,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Roast Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145672,7 +145393,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Reheat Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145734,7 +145454,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Reheat Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145990,7 +145709,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Warm Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -146052,7 +145770,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Warm Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -146308,7 +146025,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Slow Cook Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -146370,7 +146086,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Slow Cook Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -146626,7 +146341,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Dehydrate Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -146688,7 +146402,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Dehydrate Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -146944,7 +146657,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Proof Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147006,7 +146718,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Proof Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147262,7 +146973,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Cookie Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147324,7 +147034,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Cookie Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147580,7 +147289,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Pizza Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147642,7 +147350,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Pizza Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147898,7 +147605,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Bagel Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147960,7 +147666,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Bagel Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -148216,7 +147921,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Toast Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -148278,7 +147982,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Toast Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -148588,7 +148291,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Crisp Finish Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -148650,7 +148352,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Crisp Finish Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -149055,7 +148756,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Cake Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -149117,7 +148817,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Cake Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -149383,7 +149082,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Cookie Mode with Preferences Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -149455,7 +149153,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Cookie Mode with Preferences Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -149726,7 +149423,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Pizza Mode with Preferences Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -149803,7 +149499,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Pizza Mode with Preferences Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -150199,7 +149894,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Convection Bake Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -150284,7 +149978,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "high",
     "comment": "Mixer Control Current Settings: Current sensor."
   }, {
@@ -151115,8 +150808,7 @@
     }],
     "ha_domain": "sensor",
     "confidence": "low",
-    "comment": "Mixer Supported Equipment: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Mixer Supported Equipment: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Mixer Model",
     "id": "0x9313",
@@ -151301,7 +150993,6 @@
       "size": 64
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Mixer Control v2 Current: Multi-field sensor, may need custom handling to extract individual values.",
     "pair_role": "status",
@@ -152565,7 +152256,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "paired_erd": "0x9400",
     "pair_role": "request",
     "confidence": "low",
@@ -152868,7 +152558,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Target Cavity Temperature Limits: Temperature sensor, unit not explicitly specified."
@@ -152894,7 +152583,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Probe Temperature Limits: Temperature sensor, unit not explicitly specified."
@@ -152920,7 +152608,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Cook Time Limits: Multi-field sensor, may need custom handling to extract individual values."
@@ -153003,7 +152690,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Custom Mode Current Parameters: Multi-field sensor, may need custom handling to extract individual values."
@@ -153090,7 +152776,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Keep Warm Mode Current Parameters: Multi-field sensor, may need custom handling to extract individual values."
@@ -153177,7 +152862,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Brisket Mode Current Parameters: Multi-field sensor, may need custom handling to extract individual values."
@@ -153264,7 +152948,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Pork Rib Mode Current Parameters: Multi-field sensor, may need custom handling to extract individual values."
@@ -153351,7 +153034,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Pork Butt Mode Current Parameters: Multi-field sensor, may need custom handling to extract individual values."
@@ -153438,7 +153120,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Wings Mode Current Parameters: Multi-field sensor, may need custom handling to extract individual values."
@@ -153525,7 +153206,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Chicken Mode Current Parameters: Multi-field sensor, may need custom handling to extract individual values."
@@ -153612,7 +153292,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Salmon Mode Current Parameters: Multi-field sensor, may need custom handling to extract individual values."
@@ -153831,7 +153510,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Warm Mode Temperature Limits: Temperature sensor, unit not explicitly specified."
@@ -153857,7 +153535,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Warm Mode Time Limits: Multi-field sensor, may need custom handling to extract individual values."
@@ -153985,7 +153662,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°C",
     "confidence": "high",
     "comment": "Early Completion Notification Temperature Limits: Temperature in Celsius."
@@ -154058,7 +153734,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Early Completion Notification Time Limits: Multi-field sensor, may need custom handling to extract individual values."
@@ -154133,7 +153808,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Igniter Temperature Limits: Temperature sensor, unit not explicitly specified."
@@ -154585,7 +154259,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "enum",
     "confidence": "low",
     "comment": "Sourdough Starter Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -154672,7 +154345,6 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
     "comment": "Temperature Offset Limits: Temperature sensor, unit not explicitly specified."
@@ -155045,7 +154717,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "power",
     "unit_of_measurement": "W",
     "state_class": "measurement",
     "confidence": "high",
@@ -155299,7 +154970,6 @@
       "size": 2
     }],
     "ha_domain": "number",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "paired_erd": "0xd00c",
     "pair_role": "request",
@@ -155439,7 +155109,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
     "unit_of_measurement": "°F",
     "paired_erd": "0xd00b",
     "pair_role": "status",
@@ -155888,8 +155557,7 @@
     "paired_erd": "0xd022",
     "pair_role": "request",
     "confidence": "low",
-    "comment": "Electrical Pricing Structure Selection Request: Multi-field sensor, may need custom handling to extract individual values.",
-    "device_class": "enum"
+    "comment": "Electrical Pricing Structure Selection Request: Multi-field sensor, may need custom handling to extract individual values."
   }, {
     "name": "Electrical Time of Use Pricing Schedule Request - Season 1",
     "id": "0xd024",
@@ -158950,7 +158618,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "power",
     "unit_of_measurement": "W",
     "state_class": "measurement",
     "confidence": "high",
