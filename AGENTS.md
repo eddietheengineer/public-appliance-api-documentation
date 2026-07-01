@@ -441,13 +441,13 @@ The `confidence` field on each ERD indicates how certain the auto-detection was 
 
 ### 19. ERDs without `ha_domain`
 
-A small number of ERDs intentionally have no `ha_domain` (currently 3):
+A small number of ERDs intentionally have no `ha_domain`:
 
 - **`0x0038` Supported Image Types** — Firmware image support matrix. Matches filter pattern "supported image types".
-- **`0x5411` Precision Cooking Short Name Cavity 1 Status** — Internal UI display state for precision cook cycles.
-- **`0x5421` Precision Cooking Short Name Cavity 2 Status** — Same as above for cavity 2.
 
 These are internal noise that gets filtered from JSONL output. They have no `ha_domain` because they don't map to meaningful Home Assistant entities.
+
+**Note**: `0x5411` (Precision Cooking Short Name Cavity 1 Status) and `0x5421` (Precision Cooking Short Name Cavity 2 Status) were previously without `ha_domain` but now have `ha_domain: sensor`. They are multi-field ERDs with a `string` sub-field (Short Name) that the generator converts to ASCII text, similar to Model Number (`0x0001`) and Serial Number (`0x0002`). Each produces 6 entities: Short Name (string), UID (u32), Status (enum), and 3 Padding fields.
 
 ### 20. Paired ERD consistency
 
@@ -464,3 +464,18 @@ ERDs with `raw` type data fields contain unstructured bytes (padding, hashes, bi
 - **112** do not have `paired_erd` — these are multi-field bool switches (e.g., `0x3086` Enable Features, `0x7901` ODU Dip Switch Settings) where the bool payload is implicitly `01`/`00`.
 
 This is correct — bool switches don't need explicit `values` when the payload is binary on/off.
+### 23. String sub-fields in multi-field ERDs
+
+The generator (`generate_ha_discovery.py`) supports `string` type sub-fields within multi-field ERDs. When a multi-field ERD has a `string` type field, the `_byte_subfield_value_template()` function generates a Jinja2 template that:
+
+1. Slices the correct hex range from the full ERD payload based on the field's `offset` and `size`.
+2. Converts each hex byte pair to its ASCII character (0x20–0x7E printable range).
+3. Skips null bytes and non-printable characters.
+4. Strips trailing `_` padding characters.
+
+This produces the same result as single-field string ERDs like Model Number (`0x0001`) and Serial Number (`0x0002`). The template uses Jinja2's `chr()` function for character conversion.
+
+**Example**: `0x5411` (Precision Cooking Short Name Cavity 1 Status) has a 16-byte `Short Name` string field at offset 0. The generated template slices `value[0:32]` (16 bytes = 32 hex chars), converts to ASCII, and strips trailing `_`.
+
+**Limitation**: Only the first non-reserved, non-bitfield field in a `mixed` classification ERD gets the primary value template. String sub-fields in `mixed` ERDs are not automatically handled — they require `byte_offset` classification.
+
