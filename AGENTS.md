@@ -342,6 +342,48 @@ The `number` domain represents **user-input numeric values** (writable setpoints
 - **`device_class: "duration"` is valid on `sensor` domain ONLY when the sensor reports a timestamp** (e.g., `sensor.last_triggered`). It is NOT valid for sensors that report a duration value like "time remaining" or "cycle duration" — those should use `device_class: null` with `unit_of_measurement: "min"` or `"s"`.
 - Fields with "time", "minutes", "seconds" in the name and a numeric type should get `device_class: null` (not `duration`) unless they are actually timestamp sensors.
 
+### 13c. Percentage and speed sensors
+
+- Sensors reporting percentages (fan speed, pump speed, light level, brightness, current limiting, etc.) should have `unit_of_measurement: "%"`.
+- **Do NOT use `unit_of_measurement: "rpm"` for percentage-based fan speed controls**. If the ERD describes fan speed as a percentage (e.g., "0 = OFF to X = Max Speed"), use `unit_of_measurement: "%"`. Use `"rpm"` only when the sensor reports actual rotational speed from a physical RPM measurement.
+- **Examples**:
+  - `0x5b26` (Hood Requested Auto Fan Speed): `ha_domain: "sensor"`, `unit_of_measurement: "%"`, `device_class: null` — percentage-based speed control
+  - `0x303e` (Drain Pump Speed Percentage): `ha_domain: "sensor"`, `unit_of_measurement: "%"`, `device_class: null`
+  - `0x3449` (Tub 1 Fan 1 Speed Percentage): `ha_domain: "sensor"`, `unit_of_measurement: "%"`, `device_class: null`
+
+### 13d. Sensors with no standard HA device_class
+
+Some sensor types don't map to any Home Assistant `device_class`. These are valid and should have `device_class: null` (or no device_class field).
+
+- **Turbidity sensors**: Raw NTU (Nephelometric Turbidity Units) measurements have no HA device_class. Use `device_class: null` with no unit_of_measurement.
+  - `0x3036` (Average Turbidity): `ha_domain: "sensor"`, `device_class: null`
+  - `0x3236` (Average Turbidity Tub 1): `ha_domain: "sensor"`, `device_class: null`
+- **Light level sensors**: Raw light level readings (not lux meters) should have `device_class: null`. If the sensor reports actual illuminance in lux, use `device_class: "illuminance"` with `unit_of_measurement: "lx"`.
+  - `0x5b17` (Hood Actual Light Level): `ha_domain: "sensor"`, `device_class: null` — raw level, not a lux measurement
+- **Protocol request/response markers**: ERDs with a single u8 field where value 255 means "request consumed" or "request processed" are protocol markers, not measurements. Use `device_class: null`.
+  - `0x5b35` (Request Update of NOx Index): `ha_domain: "sensor"`, `device_class: null`
+  - `0x5b5d` (Request Update of PM 10 Index): `ha_domain: "sensor"`, `device_class: null`
+- **Internal notifications**: ERDs containing reserved bytes and expiry notifications for filters/elements. Use `device_class: null`.
+  - `0x5b0c` (Hood Notifications): `ha_domain: "sensor"`, `device_class: null`
+- **Heartbeat ticks**: Protocol-level heartbeat counters. Use `device_class: null`.
+  - `0x5071` (Heartbeat Tick From Client): `ha_domain: "sensor"`, `device_class: null`
+- **Device indices/UIDs**: Identifiers used to index into other ERDs or sessions. Use `device_class: null`.
+  - `0x540d` (Precision Cook Mode UID Cavity 1 Request): `ha_domain: "sensor"`, `device_class: null`
+  - `0x58b5` (Right Front Closed Loop Cooking Device Index): `ha_domain: "sensor"`, `device_class: null`
+
+### 13e. Multi-field status ERDs
+
+Some ERDs contain multiple sub-fields that represent different aspects of a single status (e.g., cook zone status with temperature, power, and timer). These are NOT individual sensors — they are a single status entity.
+
+- **If the ERD has a dominant measurement type** (e.g., temperature), assign `device_class` based on that dominant field.
+  - `0x5933` (Device Position 0x7D Cooktop - Zone 5 Status): `ha_domain: "sensor"`, `device_class: "temperature"` — dominant field is temperature
+  - `0x5936` (Device Position 0x7E Cooktop - Zone 2 Status): `ha_domain: "sensor"`, `device_class: "temperature"`
+  - `0x5948` (Device Position 0x81 Cooktop - Zone 2 Status): `ha_domain: "sensor"`, `device_class: "temperature"`
+- **If the ERD is a mixed status with no dominant type**, use `device_class: null`.
+  - `0x3000` (Cycle Status): `ha_domain: "sensor"`, `device_class: null` — multi-field cycle state
+  - `0x3009` (Cycle Counts): `ha_domain: "sensor"`, `device_class: null`, `state_class: "total"` — counter fields
+  - `0x3406` (Tub 1 Door Count): `ha_domain: "sensor"`, `device_class: null`, `state_class: "total"` — counter field
+
 
 ### 14. Unit of measurement
 
