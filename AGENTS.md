@@ -409,3 +409,58 @@ The ERD-level `device_class` should almost always be omitted for multi-field ERD
 - `total`: cumulative counters (energy, water, gas).
 - `total_increasing`: counters that only increase (cycle counts, runtime).
 - `measurement`: instantaneous values (temperature, voltage, current).
+
+### 16. JSON formatter behavior
+
+**`format_erd_json()` preserves key and data field order exactly as they exist in the input dict.** It does NOT reorder anything. However, callers that modify dicts (adding/removing keys or data fields) will change insertion order, which `format_erd_json()` will faithfully output.
+
+**Never modify data field order in the dict before calling `format_erd_json()`.** If you need to reorder data fields, do it before any modifications, not after. The `verify_data_field_order()` helper in `format_json.py` can be used to catch accidental reordering.
+
+**When modifying sub-field metadata** (adding `device_class`, `unit_of_measurement`, etc. to data fields), the new keys are appended to the end of the field's key order. This changes the JSON output key order but not the semantic content. The `format_erd_json` docstring warns about this.
+
+### 17. Confidence field rules
+
+The `confidence` field on each ERD indicates how certain the auto-detection was about the HA metadata:
+
+- **`high`**: ERD has both `ha_domain` and `device_class` set. The auto-detector was confident in both the domain and the device class.
+- **`medium`**: ERD has `ha_domain` but no `device_class`. The domain was detected but the device class is null (the default for most ERDs — only specific cases need a device_class).
+- **`low`**: ERD matches a filter pattern (diagnostics, firmware, commissioning, etc.) and will be filtered from JSONL output. These still need valid metadata for validation but won't appear in the bridge.
+
+**Confidence is derived from metadata completeness, not from the quality of the metadata itself.** A filtered ERD with `confidence: "low"` may still have perfectly valid `ha_domain` and `device_class` values.
+
+### 18. Domain distribution
+
+| Domain | Count | Notes |
+|---|---|---|
+| `sensor` | ~1,559 | Largest category. Most numeric and enum readings. |
+| `binary_sensor` | ~363 | Read-only on/off states. |
+| `number` | ~120 | Writable numeric setpoints (temperatures, timers, levels). |
+| `select` | ~82 | Writable enum selections (cycle modes, settings). |
+| `switch` | ~66 | Writable toggle controls. |
+| `button` | ~6 | One-shot commands (reset, restart). |
+
+### 19. ERDs without `ha_domain`
+
+A small number of ERDs intentionally have no `ha_domain` (currently 3):
+
+- **`0x0038` Supported Image Types** — Firmware image support matrix. Matches filter pattern "supported image types".
+- **`0x5411` Precision Cooking Short Name Cavity 1 Status** — Internal UI display state for precision cook cycles.
+- **`0x5421` Precision Cooking Short Name Cavity 2 Status** — Same as above for cavity 2.
+
+These are internal noise that gets filtered from JSONL output. They have no `ha_domain` because they don't map to meaningful Home Assistant entities.
+
+### 20. Paired ERD consistency
+
+All ERD pairings are **bidirectional** — if ERD A's `paired_erd` points to ERD B, then ERD B's `paired_erd` points back to ERD A. Zero asymmetric pairings exist in the dataset. The `validate_pairings.py` script checks this invariant.
+
+### 21. `raw` type fields
+
+ERDs with `raw` type data fields contain unstructured bytes (padding, hashes, binary blobs). These are expected and should be filtered. There are ~80+ `raw` type fields across the file, all of which are padding or diagnostics. They are correct as-is.
+
+### 22. Bool switches without explicit `values`
+
+186 `switch`-domain ERDs with `bool` type fields lack explicit `values` in their data. Of these:
+- **74** have `paired_erd` — the pairing provides the value mapping (01/00).
+- **112** do not have `paired_erd` — these are multi-field bool switches (e.g., `0x3086` Enable Features, `0x7901` ODU Dip Switch Settings) where the bool payload is implicitly `01`/`00`.
+
+This is correct — bool switches don't need explicit `values` when the payload is binary on/off.
