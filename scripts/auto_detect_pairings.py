@@ -16,7 +16,6 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-import sys
 sys.path.insert(0, str(Path(__file__).parent))
 
 from ha_constants import ERD_DEFINITIONS_FILE

@@ -13,8 +13,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
+from ha_constants import ERD_DEFINITIONS_FILE
 from format_json import (
-    ERD_DEFINITIONS_FILE,
     format_erd_json,
     load_erd_definitions,
     save_erd_definitions,

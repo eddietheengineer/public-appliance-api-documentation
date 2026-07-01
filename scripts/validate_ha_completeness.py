@@ -13,37 +13,17 @@ Warnings (print but exit 0):
 """
 
 import json
-import re
 import sys
 from pathlib import Path
 
-from validator_utils import emit_error, emit_warning
+sys.path.insert(0, str(Path(__file__).parent))
+
+from validator_utils import emit_error, emit_warning, is_reserved_field, extract_unit_hint, get_field_unit
 from ha_constants import (
     UNIT_IMPLYING_DEVICE_CLASSES,
     VALID_STATE_CLASSES,
-    UNIT_KEYWORD_MAP,
     ERD_DEFINITIONS_FILE,
 )
-
-
-def is_reserved_field(name: str) -> bool:
-    return name.lower().startswith("reserved")
-
-
-def extract_unit_hint(field_name: str) -> str:
-    m = re.search(r'\(([^)]+)\)', field_name)
-    if not m:
-        return ''
-    hint = m.group(1).strip().lower()
-    hint = re.sub(r'x\s*\d+', '', hint).strip()
-    return hint
-
-
-def get_field_unit(hint: str) -> str:
-    for keyword, unit in UNIT_KEYWORD_MAP.items():
-        if keyword in hint:
-            return unit
-    return ''
 
 
 def main():

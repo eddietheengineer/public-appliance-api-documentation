@@ -8,6 +8,9 @@ Exits with code 1 and prints errors if any violations are found.
 
 import json
 import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
 
 from validator_utils import emit_error
 from ha_constants import (

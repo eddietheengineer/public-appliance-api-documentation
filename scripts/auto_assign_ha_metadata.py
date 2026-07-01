@@ -21,50 +21,11 @@ sys.path.insert(0, str(Path(__file__).parent))
 from ha_constants import (
     ERD_DEFINITIONS_FILE,
     NUMERIC_TYPES,
-    DEVICE_CLASS_KEYWORDS,
-    DEVICE_CLASS_EXCLUSIONS,
-    UNIT_KEYWORD_MAP,
     BINARY_SENSOR_KEYWORDS,
     VALID_DEVICE_CLASSES,
     SENSOR_NON_NUMERIC_DEVICE_CLASSES,
 )
-
-OUTPUT_FILE = Path(__file__).parent.parent / "doc" / "ha_metadata_suggestions.md"
-
-
-def is_reserved_field(name: str) -> bool:
-    return name.lower().startswith("reserved")
-
-
-def extract_unit_hint(field_name: str) -> str:
-    m = re.search(r"\(([^)]+)\)", field_name)
-    if m:
-        hint = m.group(1).strip().lower()
-        hint = re.sub(r"x\s*\d+", "", hint).strip()
-        return hint
-    m = re.search(r"in\s+(fahrenheit|celsius)\s*(?:x\s*\d+)?", field_name, re.IGNORECASE)
-    if m:
-        return m.group(1).lower()
-    return ""
-
-
-def get_field_unit(hint: str) -> str:
-    for keyword, unit in UNIT_KEYWORD_MAP.items():
-        if keyword in hint:
-            return unit
-    return ""
-
-
-def detect_device_class_from_name(name: str) -> str:
-    name_lower = name.lower()
-    for device_class, keywords in DEVICE_CLASS_KEYWORDS.items():
-        for keyword in keywords:
-            if keyword in name_lower:
-                exclusions = DEVICE_CLASS_EXCLUSIONS.get(device_class, [])
-                if any(excl in name_lower for excl in exclusions):
-                    continue
-                return device_class
-    return ""
+from validator_utils import is_reserved_field, extract_unit_hint, get_field_unit, detect_device_class_from_name
 
 
 def detect_button_device_class(name: str) -> str:

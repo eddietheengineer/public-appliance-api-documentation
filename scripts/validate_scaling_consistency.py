@@ -12,6 +12,9 @@ Errors (exit 1):
 import json
 import re
 import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
 
 from validator_utils import emit_error
 from ha_constants import ERD_DEFINITIONS_FILE
