@@ -82,8 +82,7 @@
       "unit_of_measurement": "s"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "h",
+    "device_class": "timestamp",
     "confidence": "low",
     "comment": "Clock Time: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -634,7 +633,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "medium",
@@ -2987,7 +2986,7 @@
       "size": 1,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
@@ -3434,7 +3433,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
@@ -3503,7 +3502,7 @@
       "size": 1,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "high",
@@ -4068,7 +4067,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "medium",
@@ -5207,7 +5206,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "K",
     "scaling_factor": 32,
@@ -5227,7 +5226,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "K",
     "scaling_factor": 32,
@@ -5247,7 +5246,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "K",
     "scaling_factor": 32,
@@ -22031,7 +22030,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "medium",
@@ -54164,7 +54163,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "medium",
@@ -74432,7 +74431,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
@@ -74452,7 +74451,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
@@ -74472,7 +74471,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "scaling_factor": 10,
     "unit_of_measurement": "°F",
@@ -74692,7 +74691,7 @@
       "offset": 2,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
@@ -74717,7 +74716,7 @@
       "offset": 2,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
@@ -79038,7 +79037,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "medium",
@@ -79057,7 +79056,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
@@ -85462,7 +85461,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "medium",
@@ -85481,7 +85480,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
@@ -93441,7 +93440,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
@@ -96800,7 +96799,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
@@ -96819,7 +96818,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "scaling_factor": 100,
     "unit_of_measurement": "°F",
@@ -96839,7 +96838,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "medium",
@@ -112376,7 +112375,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "humidity",
     "unit_of_measurement": "%",
     "confidence": "high",
@@ -112395,7 +112394,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "humidity",
     "unit_of_measurement": "%",
     "confidence": "high",
@@ -113220,7 +113219,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
@@ -113239,7 +113238,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
@@ -114050,7 +114049,7 @@
       "size": 1,
       "unit_of_measurement": "s"
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
@@ -116108,7 +116107,7 @@
       "size": 1,
       "unit_of_measurement": "s"
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
@@ -116316,7 +116315,7 @@
       "size": 1,
       "unit_of_measurement": "s"
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "medium",
@@ -117845,7 +117844,7 @@
       "size": 1,
       "unit_of_measurement": "s"
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "medium",
@@ -118308,7 +118307,7 @@
       "offset": 30,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
@@ -126877,7 +126876,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
@@ -126896,7 +126895,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "high",
@@ -127466,7 +127465,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "device_class": "temperature",
@@ -127487,7 +127486,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "device_class": "temperature",
@@ -127507,7 +127506,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "device_class": "temperature",
@@ -127527,7 +127526,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "device_class": "temperature",
@@ -127547,7 +127546,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "device_class": "temperature",
@@ -127609,7 +127608,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "device_class": "temperature",
@@ -127629,7 +127628,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "device_class": "temperature",
@@ -127649,7 +127648,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "%",
     "device_class": "humidity",
     "comment": "High confidence: Read-only relative humidity percentage (0-100%). Maps to a sensor with device_class 'humidity'.",
@@ -127710,7 +127709,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "device_class": "temperature",
     "comment": "High confidence: Read-only processed indoor ambient temperature (rounded integer); description states 'degrees F' with no scaling. Raw value = actual degF.",
@@ -127729,7 +127728,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "device_class": "temperature",
     "comment": "High confidence: Read-only processed outdoor ambient temperature (rounded integer); description states 'degrees F' with no scaling. Raw value = actual degF.",
@@ -131399,7 +131398,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "device_class": "temperature",
@@ -131444,7 +131443,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "device_class": "temperature",
@@ -131489,7 +131488,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "device_class": "temperature",
@@ -131534,7 +131533,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "unit_of_measurement": "°F",
     "scaling_factor": 10,
     "device_class": "temperature",
@@ -137647,7 +137646,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°C",
     "paired_erd": "0x7a25",
@@ -138061,7 +138060,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "humidity",
     "unit_of_measurement": "%",
     "confidence": "high",
@@ -138959,7 +138958,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "low",
@@ -139100,7 +139099,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
@@ -152572,7 +152571,7 @@
       "offset": 6,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
@@ -152660,7 +152659,7 @@
       "offset": 6,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
@@ -152748,7 +152747,7 @@
       "offset": 6,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
@@ -152836,7 +152835,7 @@
       "offset": 6,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
@@ -152924,7 +152923,7 @@
       "offset": 6,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
@@ -153012,7 +153011,7 @@
       "offset": 6,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
@@ -153100,7 +153099,7 @@
       "offset": 6,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
@@ -153188,7 +153187,7 @@
       "offset": 6,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
@@ -153295,7 +153294,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "medium",
@@ -153339,7 +153338,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
@@ -153641,7 +153640,7 @@
       "offset": 0,
       "size": 2
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "°F",
     "confidence": "medium",
@@ -158333,10 +158332,9 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
+    "ha_domain": "number",
     "device_class": "energy",
     "unit_of_measurement": "Wh",
-    "state_class": "total",
     "confidence": "high",
     "comment": "Requested Appliance Energy Usage Update Period in Minutes: Cumulative energy measurement."
   }, {
