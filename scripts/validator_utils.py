@@ -59,6 +59,9 @@ def get_field_unit(hint: str) -> str:
 
 def detect_device_class_from_name(name: str) -> str:
     name_lower = name.lower()
+    # Skip hash fields entirely (sha256, sha1, etc.)
+    if "sha" in name_lower:
+        return ""
     for device_class, keywords in DEVICE_CLASS_KEYWORDS.items():
         for keyword in keywords:
             if keyword in name_lower:

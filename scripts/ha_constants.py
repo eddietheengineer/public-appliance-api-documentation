@@ -14,7 +14,6 @@ NUMERIC_TYPES = {"u8", "u16", "u32", "i8", "i16", "i32"}
 DEVICE_CLASS_KEYWORDS = {
     "temperature": ["temperature", "temp"],
     "voltage": ["voltage", "volts"],
-    "current": ["current"],
     "power": ["power"],
     "humidity": ["humidity"],
     "pressure": ["pressure"],
@@ -31,8 +30,9 @@ DEVICE_CLASS_KEYWORDS = {
 }
 
 DEVICE_CLASS_EXCLUSIONS = {
-    "power": ["power off", "power on"],
-    "current": ["current limit"],
+    "power": ["power off", "power on", "power level"],
+    "current": ["current limit", "current stage", "current setting", "current status", "current parameters"],
+    "duration": ["dry time", "sha", "time of use", "padding", "enabled", "update"],
 }
 
 # Union of all unit keyword mappings from all scripts (authoritative)

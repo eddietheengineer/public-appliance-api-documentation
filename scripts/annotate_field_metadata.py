@@ -29,7 +29,7 @@ from format_json import format_erd_json, save_erd_definitions
 from validator_utils import is_reserved_field, get_field_unit, detect_device_class_from_name, extract_unit_hint
 
 
-def detect_field_device_class(field: dict) -> str:
+def detect_field_device_class(field: dict, parent_domain: str = "") -> str:
     """Detect device_class for a specific field, considering type and values."""
     field_type = field.get("type", "")
     name = field.get("name", "")
@@ -51,7 +51,13 @@ def detect_field_device_class(field: dict) -> str:
         return "enum"
 
     # Detect from name keywords
-    return detect_device_class_from_name(name)
+    dc = detect_device_class_from_name(name)
+
+    # For number domain, skip duration — it's a number input, not a time sensor
+    if parent_domain == "number" and dc == "duration":
+        return ""
+
+    return dc
 
 
 def detect_field_ha_domain(field: dict, parent_domain: str) -> str | None:
@@ -81,12 +87,19 @@ def detect_field_ha_domain(field: dict, parent_domain: str) -> str | None:
     return None
 
 
-def detect_field_state_class(field_device_class: str, parent_state_class: str) -> str | None:
+def detect_field_state_class(field_device_class: str, parent_state_class: str, field_name: str = "") -> str | None:
     """Detect if a field needs a different state_class than the parent."""
     if not field_device_class:
         return None
 
+    name_lower = field_name.lower()
+
     if field_device_class in TOTAL_STATE_CLASSES:
+        # Min/max limits are measurements, not cumulative totals
+        if any(kw in name_lower for kw in ("min", "max", "limit")):
+            if parent_state_class != "measurement":
+                return "measurement"
+            return None
         if parent_state_class != "total":
             return "total"
         return None
@@ -149,9 +162,12 @@ def annotate_erd(erd: dict) -> int:
             changes["ha_domain"] = field_domain
 
         # --- device_class ---
-        field_dc = detect_field_device_class(field)
+        field_dc = detect_field_device_class(field, ha_domain)
         if field_dc != parent_device_class:
             changes["device_class"] = field_dc
+        elif field_dc != field.get("device_class"):
+            # Field has a device_class that doesn't match parent or detected value — remove it
+            changes["device_class"] = ""
 
         # --- unit_of_measurement ---
         hint = extract_unit_hint(name)
@@ -161,7 +177,7 @@ def annotate_erd(erd: dict) -> int:
 
         # --- state_class ---
         if field_dc:
-            field_sc = detect_field_state_class(field_dc, parent_state_class)
+            field_sc = detect_field_state_class(field_dc, parent_state_class, name)
             if field_sc and field_sc != parent_state_class:
                 changes["state_class"] = field_sc
 
