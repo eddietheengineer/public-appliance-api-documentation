@@ -1,0 +1,2437 @@
+[
+  {
+    "id": "0x5962",
+    "name": "Device Position 0x81 Downdraft Status (Fast)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5963",
+    "name": "Device Position 0x82 Downdraft Status (Fast)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5964",
+    "name": "Device Position 0x83 Downdraft Status (Fast)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5965",
+    "name": "Device Position 0x7D Cooktop - Zone 1 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5966",
+    "name": "Device Position 0x7D Cooktop - Zone 2 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5967",
+    "name": "Device Position 0x7D Cooktop - Zone 3 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5968",
+    "name": "Device Position 0x7D Cooktop - Zone 4 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5969",
+    "name": "Device Position 0x7D Cooktop - Zone 5 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x596a",
+    "name": "Device Position 0x7D Cooktop - Zone 6 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x596b",
+    "name": "Device Position 0x7E Cooktop - Zone 1 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x596c",
+    "name": "Device Position 0x7E Cooktop - Zone 2 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x596d",
+    "name": "Device Position 0x7E Cooktop - Zone 3 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x596e",
+    "name": "Device Position 0x7E Cooktop - Zone 4 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x596f",
+    "name": "Device Position 0x7E Cooktop - Zone 5 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5970",
+    "name": "Device Position 0x7E Cooktop - Zone 6 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5971",
+    "name": "Device Position 0x7F Cooktop - Zone 1 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5972",
+    "name": "Device Position 0x7F Cooktop - Zone 2 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5973",
+    "name": "Device Position 0x7F Cooktop - Zone 3 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5974",
+    "name": "Device Position 0x7F Cooktop - Zone 4 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5975",
+    "name": "Device Position 0x7F Cooktop - Zone 5 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5976",
+    "name": "Device Position 0x7F Cooktop - Zone 6 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5977",
+    "name": "Device Position 0x80 Cooktop - Zone 1 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5978",
+    "name": "Device Position 0x80 Cooktop - Zone 2 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5979",
+    "name": "Device Position 0x80 Cooktop - Zone 3 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x597a",
+    "name": "Device Position 0x80 Cooktop - Zone 4 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x597b",
+    "name": "Device Position 0x80 Cooktop - Zone 5 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x597c",
+    "name": "Device Position 0x80 Cooktop - Zone 6 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x597d",
+    "name": "Device Position 0x81 Cooktop - Zone 1 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x597e",
+    "name": "Device Position 0x81 Cooktop - Zone 2 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x597f",
+    "name": "Device Position 0x81 Cooktop - Zone 3 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5980",
+    "name": "Device Position 0x81 Cooktop - Zone 4 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5981",
+    "name": "Device Position 0x81 Cooktop - Zone 5 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5982",
+    "name": "Device Position 0x81 Cooktop - Zone 6 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5983",
+    "name": "Device Position 0x82 Cooktop - Zone 1 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5984",
+    "name": "Device Position 0x82 Cooktop - Zone 2 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5985",
+    "name": "Device Position 0x82 Cooktop - Zone 3 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5986",
+    "name": "Device Position 0x82 Cooktop - Zone 4 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5987",
+    "name": "Device Position 0x82 Cooktop - Zone 5 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5988",
+    "name": "Device Position 0x82 Cooktop - Zone 6 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5989",
+    "name": "Device Position 0x83 Cooktop - Zone 1 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x598a",
+    "name": "Device Position 0x83 Cooktop - Zone 2 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x598b",
+    "name": "Device Position 0x83 Cooktop - Zone 3 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x598c",
+    "name": "Device Position 0x83 Cooktop - Zone 4 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x598d",
+    "name": "Device Position 0x83 Cooktop - Zone 5 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x598e",
+    "name": "Device Position 0x83 Cooktop - Zone 6 Assisted Cook Status (Slow)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x598f",
+    "name": "Global Wireless Food Probe Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16",
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5991",
+    "name": "Device 0x7D - Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5992",
+    "name": "Device 0x7E - Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5993",
+    "name": "Device 0x7F - Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5994",
+    "name": "Device 0x80 - Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5995",
+    "name": "Device 0x81 - Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5996",
+    "name": "Device 0x82 - Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5997",
+    "name": "Device 0x83 - Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5999",
+    "name": "MCT User Settings Request",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (17)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "enum",
+      "enum",
+      "enum",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x599a",
+    "name": "MCT Settings Actual",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (19)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "enum",
+      "enum",
+      "enum",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "u8",
+      "u8",
+      "u8",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x599b",
+    "name": "MCT Current Event Record",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (7)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "enum",
+      "enum",
+      "u8",
+      "enum",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x599c",
+    "name": "MCT System Market Code",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (7 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x599d",
+    "name": "Global Timer Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b00",
+    "name": "Hood Fan Speed",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (5 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b01",
+    "name": "Hood Fan Speed Availability",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (10)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b02",
+    "name": "Hood Light Level",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (4 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b03",
+    "name": "Hood Light Level Availability",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (10)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b04",
+    "name": "Hood Delay Off",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable descriptive (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b05",
+    "name": "Hood Delay On",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b06",
+    "name": "Hood Heat Sensor Temperature",
+    "ha_domain": "sensor",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x5b07",
+    "name": "Hood Heat Sensor State",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b08",
+    "name": "Hood Camera Light Assist Level",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "camera",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b09",
+    "name": "Hood Camera Light Assist Level Availability",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "camera",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b0a",
+    "name": "Hood Display Protection Fan Speed",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (4 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b0b",
+    "name": "Hood Display Protection Fan Speed Availability",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (10)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b0c",
+    "name": "Hood Notifications",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b0d",
+    "name": "Hood Notification Reset",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b0e",
+    "name": "Boost Duration",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b0f",
+    "name": "Delay Off Duration",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b10",
+    "name": "Boost Duration Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b11",
+    "name": "Delay Off Duration Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b12",
+    "name": "Hood Request On/Off",
+    "ha_domain": "switch",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "2-value enum writable",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b13",
+    "name": "Hood Actual Fan Speed",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - speed",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b14",
+    "name": "Hood Requested Fan Speed",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - speed",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b15",
+    "name": "Hood Available Fan Speeds",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b16",
+    "name": "Hood Available Boost Speeds",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b17",
+    "name": "Hood Actual Light Level",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b18",
+    "name": "Hood Requested Light Level",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b19",
+    "name": "Hood Available Light Levels",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b1a",
+    "name": "Hood Actual Delay Off Mode",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b1b",
+    "name": "Hood Delay Off Request",
+    "ha_domain": "switch",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "2-value enum writable",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b1c",
+    "name": "Hood Actual Delay Off Duration",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b1d",
+    "name": "Hood Requested Delay Off Duration",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b1e",
+    "name": "Hood to Cooktop Connection Status (Hood-Side)",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (4 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b1f",
+    "name": "Hood Status",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b20",
+    "name": "Hood Model",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b21",
+    "name": "Hood Actual Light Color",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (4 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b22",
+    "name": "Hood Requested Light Color",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b23",
+    "name": "Hood Available Light Colors",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b24",
+    "name": "Hood to Hob Actual Auto Control",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b25",
+    "name": "Hood to Hob Request Auto Control",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable descriptive (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b26",
+    "name": "Hood Requested Auto Fan Speed",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - speed",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b27",
+    "name": "Relative Humidity Sensor Idle Update Period in Minutes",
+    "ha_domain": "sensor",
+    "device_class": "humidity",
+    "unit_of_measurement": "%",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "humidity"
+  },
+  {
+    "id": "0x5b28",
+    "name": "Requested Relative Humidity Sensor Idle Update Period in Minutes",
+    "ha_domain": "number",
+    "device_class": "humidity",
+    "unit_of_measurement": "%",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b29",
+    "name": "Request Update of Relative Humidity (%)",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  }
+]

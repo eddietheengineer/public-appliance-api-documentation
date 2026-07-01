@@ -1,0 +1,2294 @@
+[
+  {
+    "id": "0x79a9",
+    "name": "Auto Mode Temperature Deadband Status",
+    "ha_domain": "sensor",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x79aa",
+    "name": "Auto Mode Temperature Deadband Request",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x79ab",
+    "name": "Compressor Minimum Runtime Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79ac",
+    "name": "Compressor Minimum Runtime Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x79ad",
+    "name": "Compressor Minimum Idle Time Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79ae",
+    "name": "Compressor Minimum Idle Time Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x79af",
+    "name": "Compressor Maximum Stage1 Runtime Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79b0",
+    "name": "Compressor Maximum Stage1 Runtime Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x79b3",
+    "name": "Compressor Minimum Runtime allowable range",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79b4",
+    "name": "Compressor Minimum Idletime allowable range",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79b5",
+    "name": "Compressor Maximum Stage1 Runtime allowable range",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79b6",
+    "name": "Compressor Minimum Stage2 Temperature Delta allowable range",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79b7",
+    "name": "Indoor Fan Minimum Delay allowable range",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79b8",
+    "name": "Blower Minimum Runtime allowable values",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "raw",
+      "u32"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79b9",
+    "name": "Auto Mode Temperature Deadband allowable range",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79ba",
+    "name": "Minimum Heating Time allowable range",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79bb",
+    "name": "Auxiliary Heat Minimum Temperature Delta allowable range",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79bc",
+    "name": "Indoor Ambient Temperature Sensor Calibration allowable range",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "i8",
+      "i8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79bd",
+    "name": "Fan Operating Mode Status",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (4 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x79be",
+    "name": "Fan Operating Mode Request",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (4 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x79bf",
+    "name": "Available Fan Operating Modes",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool",
+      "bool",
+      "bool",
+      "u8"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79c0",
+    "name": "Indoor Temperature Chassis/Install Adjustment Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (1)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "i16",
+      "i16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79c1",
+    "name": "Indoor Temperature Chassis/Install Adjustment Request",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (1)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "i16",
+      "i16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x79c2",
+    "name": "Ambient Temperature Sensor Status",
+    "ha_domain": "sensor",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "i16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x79c3",
+    "name": "Compressor Minimum Stage2 Temperature Delta Status",
+    "ha_domain": "sensor",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x79c4",
+    "name": "Compressor Minimum Stage2 Temperature Delta Request",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x79c5",
+    "name": "Blower Minimum Runtime Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79c6",
+    "name": "Blower Minimum Runtime Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x79c7",
+    "name": "Indoor Fan Delay Status",
+    "ha_domain": "sensor",
+    "device_class": "door",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - door",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79c8",
+    "name": "Indoor Fan Delay Request",
+    "ha_domain": "number",
+    "device_class": "door",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - door",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x79c9",
+    "name": "Minimum Heat Time Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x79ca",
+    "name": "Minimum Heat Time Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x79cb",
+    "name": "Auxiliary Heat Minimum Temperature Delta Status",
+    "ha_domain": "sensor",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x79cc",
+    "name": "Auxiliary Heat Minimum Temperature Delta Request",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x79cd",
+    "name": "Indoor Ambient Temperature Sensor Calibration Status",
+    "ha_domain": "sensor",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "i16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x79ce",
+    "name": "Indoor Ambient Temperature Sensor Calibration Request",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "i16"
+    ],
+    "current_domain": "number",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x7a00",
+    "name": "WAC Fan Setting",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (5 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x7a01",
+    "name": "WAC Operation Mode",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (8 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x7a02",
+    "name": "WAC Ambient Temperature",
+    "ha_domain": "sensor",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x7a04",
+    "name": "WAC Filter Notification",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable descriptive (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x7a06",
+    "name": "Information of consumed power and time period.",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u32",
+      "u32",
+      "u32"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7a0f",
+    "name": "WAC Power On/Off State",
+    "ha_domain": "switch",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Bool writable",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7a10",
+    "name": "Compressor Error Status",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x7a12",
+    "name": "Cumulative Energy",
+    "ha_domain": "sensor",
+    "device_class": "energy",
+    "unit_of_measurement": "kWh",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u32"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "energy"
+  },
+  {
+    "id": "0x7a13",
+    "name": "WAC Save Energy Info Indicator",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x7a14",
+    "name": "WAC Save Energy Time",
+    "ha_domain": "number",
+    "device_class": "energy",
+    "unit_of_measurement": "kWh",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7a20",
+    "name": "Matter Thermostat Cluster Local Temperature",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "i16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x7a21",
+    "name": "Matter Thermostat Cluster Minimum Cooling Setpoint",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "i16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x7a22",
+    "name": "Matter Thermostat Cluster Maximum Cooling Setpoint",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "i16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x7a23",
+    "name": "Matter Thermostat Cluster PI Cooling Demand",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7a24",
+    "name": "Matter Thermostat Cluster Occupied Cooling Setpoint Request",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "i16"
+    ],
+    "current_domain": "number",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x7a25",
+    "name": "Matter Thermostat Cluster Occupied Cooling Setpoint Actual",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "i16"
+    ],
+    "current_domain": "number",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x7a26",
+    "name": "Matter Thermostat Cluster Control Sequence of Operation",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x7a27",
+    "name": "Matter Thermostat Cluster System Mode Request",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x7a28",
+    "name": "Matter Thermostat Cluster System Mode Actual",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x7a40",
+    "name": "Matter Fan Control Cluster Fan Mode Request",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x7a41",
+    "name": "Matter Fan Control Cluster Fan Mode Actual",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x7a42",
+    "name": "Matter Fan Control Cluster Fan Mode Sequence",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x7a43",
+    "name": "Matter Fan Control Cluster Percent Setting Request",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7a44",
+    "name": "Matter Fan Control Cluster Percent Setting Actual",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x7a45",
+    "name": "Matter Fan Control Cluster Percent Current",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "matter",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7b00",
+    "name": "Available AC Modes",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7b01",
+    "name": "Current Humidity",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7b02",
+    "name": "Target Humidity",
+    "ha_domain": "number",
+    "device_class": "humidity",
+    "unit_of_measurement": "%",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": "humidity"
+  },
+  {
+    "id": "0x7b03",
+    "name": "Target Humidity Range",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7b05",
+    "name": "Sleep Mode",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable descriptive (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x7b06",
+    "name": "Target Temperature Range",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7b07",
+    "name": "Up-down Air Swing",
+    "ha_domain": "switch",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Bool writable",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7b08",
+    "name": "Left-right Air Swing",
+    "ha_domain": "switch",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Bool writable",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7b09",
+    "name": "Air Swing Availability",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7b0b",
+    "name": "Available AC Fan Speeds",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7b0c",
+    "name": "Eco Mode",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable descriptive (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x7b0e",
+    "name": "Sleep Mode Request",
+    "ha_domain": "switch",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Bool writable",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x7b0f",
+    "name": "Sleep Mode On/Off Status",
+    "ha_domain": "binary_sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Bool read-only",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x8004",
+    "name": "Water Softener Error State",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (11 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x8005",
+    "name": "Water Softener Estimated Days of Salt Remaining",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x8007",
+    "name": "Water Softener Low Salt Alert",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x800d",
+    "name": "Water Softener Average Daily Water Usage",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u32"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x800e",
+    "name": "Water Softener Daily Water Usage",
+    "ha_domain": "sensor",
+    "device_class": "current",
+    "unit_of_measurement": "A",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u32"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x8032",
+    "name": "Water Softener Shutoff Valve Installed",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable descriptive (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x8033",
+    "name": "Water Softener Shutoff Valve Actual State",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x8034",
+    "name": "Water Softener Shutoff Valve Requested State",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x9000",
+    "name": "Coffee Brewer Brewing",
+    "ha_domain": "binary_sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Bool read-only",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x9001",
+    "name": "Coffee Brewer Brew Temperature",
+    "ha_domain": "sensor",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x9002",
+    "name": "Coffee Brewer Brew Temperature Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x9003",
+    "name": "Coffee Brewer Bloom Pump Run Time",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x9004",
+    "name": "Coffee Brewer Bloom Dwell Time",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x9005",
+    "name": "Coffee Brewer Brew Duration",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x9006",
+    "name": "Coffee Brewer Brew Cups",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x9007",
+    "name": "Coffee Brewer Brew Cups Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x9008",
+    "name": "Coffee Brewer Brew Strength",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (6 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x9009",
+    "name": "Coffee Brewer Supported Brew Strengths",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (10)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x900a",
+    "name": "Coffee Brewer Time Since Brew Complete",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x900b",
+    "name": "Coffee Brewer Start Brew",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x900c",
+    "name": "Coffee Brewer Cancel Brew",
+    "ha_domain": "number",
+    "device_class": "current",
+    "unit_of_measurement": "A",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x900d",
+    "name": "Coffee Brewer Brew Duration Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x900e",
+    "name": "Coffee Brewer Bloom Pump Run Time Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x900f",
+    "name": "Coffee Brewer Bloom Dwell Time Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x9010",
+    "name": "Coffee Brewer Start Custom Brew",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u16",
+      "u16",
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x9011",
+    "name": "Coffee Brewer Filter Remaining Gallons",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  }
+]

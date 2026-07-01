@@ -1,0 +1,2859 @@
+[
+  {
+    "id": "0x2203",
+    "name": "Additional Cavity Laundry Current Selected Cycle",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (127 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2204",
+    "name": "Additional Cavity Delay Time Remaining Minutes",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2205",
+    "name": "Additional Cavity Lid Switch State",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2206",
+    "name": "Additional Cavity Remote Set Delay Start Minutes",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x2207",
+    "name": "Additional Cavity Remote Status",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2208",
+    "name": "Additional Cavity Remote Stop Cycle Request",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable descriptive (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2209",
+    "name": "Additional Cavity Remote Cycle Selection Request",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (127 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x222a",
+    "name": "Washer Push Notifications",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "push notification",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "u8",
+      "u8",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x222b",
+    "name": "Laundry Appliance Fault Push Notifications",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "fault",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool",
+      "u8",
+      "u8",
+      "bool",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x222c",
+    "name": "Flexible Dispensing Tank 1 Configuration Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x222d",
+    "name": "Flexible Dispensing Tank 1 Configuration Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x222e",
+    "name": "Flexible Dispensing Tank 2 Configuration Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x222f",
+    "name": "Flexible Dispensing Tank 2 Configuration Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2230",
+    "name": "Pet Hair Removal Option",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (5 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2231",
+    "name": "Pet Hair Removal Option Request",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (5 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2232",
+    "name": "Pet Hair Removal Option Is In Client Writable State",
+    "ha_domain": "binary_sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Bool read-only",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2233",
+    "name": "Flexible Dispensing Tank 1 Level",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2234",
+    "name": "Flexible Dispensing Tank 2 Level",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2235",
+    "name": "Commercial Cycle Id Order",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (16)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2236",
+    "name": "Commercial Option Id Order",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (20)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2237",
+    "name": "Commercial Remote Admin Mode Pin Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x2238",
+    "name": "Commercial Remote Admin Mode Pin Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2239",
+    "name": "Commercial Remote Number Of Admin Mode Pin Digits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x223a",
+    "name": "Commercial Remote Buzzer Disable Request",
+    "ha_domain": "switch",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Bool writable",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool"
+    ],
+    "current_domain": "switch",
+    "current_dc": null
+  },
+  {
+    "id": "0x223b",
+    "name": "Commercial Remote Buzzer Disable Status",
+    "ha_domain": "binary_sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Bool read-only",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x223c",
+    "name": "Commercial Remote Wash Times Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (32)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x223d",
+    "name": "Commercial Remote Wash Times Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (32)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x223e",
+    "name": "Commercial Remote Wash Time Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (112)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x223f",
+    "name": "Commercial Remote Wash Water Level Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x2240",
+    "name": "Commercial Remote Wash Water Level Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2241",
+    "name": "Commercial Remote Wash Water Level Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2242",
+    "name": "Commercial Remote Wash Time In Seconds Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x2243",
+    "name": "Commercial Remote Wash Time In Seconds Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2244",
+    "name": "Commercial Remote Wash Time Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2245",
+    "name": "Commercial Remote Rinse Water Level Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x2246",
+    "name": "Commercial Remote Rinse Water Level Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2247",
+    "name": "Commercial Remote Rinse Water Level Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2248",
+    "name": "Commercial Remote Extra Rinse Option Deselected By Default Request",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "fault",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool"
+    ],
+    "current_domain": "switch",
+    "current_dc": null
+  },
+  {
+    "id": "0x2249",
+    "name": "Commercial Remote Extra Rinse Option Deselected By Default Status",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "fault",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x224a",
+    "name": "Commercial Remote Spin Limit Option Request",
+    "ha_domain": "binary_sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool"
+    ],
+    "current_domain": "switch",
+    "current_dc": null
+  },
+  {
+    "id": "0x224b",
+    "name": "Commercial Remote Spin Limit Option Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (16)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x224c",
+    "name": "Commercial Remote Dry Times Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (20)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x224d",
+    "name": "Commercial Remote Dry Times Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (20)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x224e",
+    "name": "Commercial Remote Dry Time Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (40)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x224f",
+    "name": "Commercial Remote Dry Temperature Request",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (10)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x2250",
+    "name": "Commercial Remote Dry Temperature Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (10)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2251",
+    "name": "Commercial Remote Dry Temperature Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (20)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2252",
+    "name": "Commercial Remote Cooldown Times Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (10)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2253",
+    "name": "Commercial Remote Cooldown Times Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (10)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x2254",
+    "name": "Commercial Remote Cooldown Time Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (20)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2255",
+    "name": "Commercial Remote Cooldown Temperature Request",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (10)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x2256",
+    "name": "Commercial Remote Cooldown Temperature Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (10)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2257",
+    "name": "Commercial Remote Cooldown Temperature Limits",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (20)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2258",
+    "name": "Remote Payment Method Request",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2259",
+    "name": "Remote Payment Method Status",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x2316",
+    "name": "Commercial Remote Max Drying Times Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (10)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2317",
+    "name": "Commercial Remote Max Drying Times Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (30)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x2338",
+    "name": "Commercial Remote Free Mode Request",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x2339",
+    "name": "Commercial Remote Free Mode Status",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (3 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2f00",
+    "name": "Mabe - Water Level Selection",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (8 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2f01",
+    "name": "Mabe - Sensed Water Level Selection",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (8 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2f02",
+    "name": "Mabe - Manual Selection",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (9 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2f03",
+    "name": "Mabe - Soil Level Selection",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (6 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2f04",
+    "name": "Mabe - Temperature Level Selection",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (10 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2f05",
+    "name": "Mabe - Spin Level Selection",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (10 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2f06",
+    "name": "Mabe - Washer Options",
+    "ha_domain": "binary_sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f07",
+    "name": "Mabe - Loads Request",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (12)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u16",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f08",
+    "name": "Mabe - Loads Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (14)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "u8",
+      "enum",
+      "enum",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f09",
+    "name": "Mabe - Failure code",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "failure",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f0a",
+    "name": "Mabe - Cycle Function",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (52 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2f0b",
+    "name": "Mabe - Run Application State",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (9 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2f0c",
+    "name": "Mabe - Main State",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (8 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x2f0d",
+    "name": "Mabe - Remote enable",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f0e",
+    "name": "Mabe - Water Inlet Flow",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16",
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f0f",
+    "name": "Mabe - Torque",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f10",
+    "name": "Mabe - Agitation supervisor",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u16",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f11",
+    "name": "Mabe - Cycle stage time",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u16",
+      "u8",
+      "u8",
+      "u16",
+      "u16",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f12",
+    "name": "Mabe - Drain Flow",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u32"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f13",
+    "name": "Mabe - Spin supervisor",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (5)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u32",
+      "u32",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f14",
+    "name": "Mabe - Lid open while Running cycle",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - count",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f15",
+    "name": "Mabe - Parameter table",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f16",
+    "name": "Mabe - Remaining Drain Time",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f17",
+    "name": "Mabe - Public Fault Code",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "fault",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f18",
+    "name": "Mabe - Public Doob (Diagonal Out Of Balance) Size",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f19",
+    "name": "Mabe - Public Oob (Out Of Balance) Size",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f1a",
+    "name": "Short Cycle Option",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x2f1b",
+    "name": "Short Cycle Option Request",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable descriptive (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x3000",
+    "name": "Cycle Status",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (22)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x3001",
+    "name": "Operating Mode",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (18 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x3003",
+    "name": "Reminder",
+    "ha_domain": "binary_sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x3006",
+    "name": "Door Count",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - count",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x3007",
+    "name": "User Settings",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (28)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "u8",
+      "u8",
+      "bool",
+      "bool",
+      "u8",
+      "bool",
+      "bool",
+      "bool"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x3008",
+    "name": "Error",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "bool"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x3009",
+    "name": "Cycle Counts",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x300c",
+    "name": "Dish Personality",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x300d",
+    "name": "Delay Start Remaining Time In Minutes",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x300e",
+    "name": "Cycle Indication",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (19 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x300f",
+    "name": "Analog Inputs",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x3015",
+    "name": "Inlet Flow Rate",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x301a",
+    "name": "CSM Life Count",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - count",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  }
+]

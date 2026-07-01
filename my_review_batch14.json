@@ -1,0 +1,2682 @@
+[
+  {
+    "id": "0x5b2a",
+    "name": "Relative Humidity (%)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b2b",
+    "name": "VOC Index Sensor Idle Update Period in Minutes",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b2c",
+    "name": "Requested VOC Index Sensor Update Idle Period in Minutes",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b2d",
+    "name": "Request Update of VOC Index",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b2e",
+    "name": "VOC Index",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b2f",
+    "name": "PM 2.5 Update Idle Period in Minutes",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - air quality",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b30",
+    "name": "Requested PM 2.5 Sensor Idle Update Period in Minutes",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - air quality",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b31",
+    "name": "Request Update of PM 2.5 (ug/m^3)",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b32",
+    "name": "PM 2.5 (ug/m^3)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b33",
+    "name": "NOx Index Idle Update Period in Minutes",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - air quality",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b34",
+    "name": "Requested NOx Sensor Idle Update Period in Minutes",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - air quality",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b35",
+    "name": "Request Update of NOx Index",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b36",
+    "name": "NOx Index",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b37",
+    "name": "PM 1 Update Idle Period in Minutes",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - air quality",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b38",
+    "name": "Requested PM 1 Sensor Idle Update Period in Minutes",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - air quality",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b39",
+    "name": "Request Update of PM 1 (ug/m^3)",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b3a",
+    "name": "PM 1 (ug/m^3)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b3b",
+    "name": "PM 4 Update Idle Period in Minutes",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - air quality",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b3c",
+    "name": "Requested PM 4 Sensor Idle Update Period in Minutes",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - air quality",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b3d",
+    "name": "Request Update of PM 4 (ug/m^3)",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b3e",
+    "name": "Hood Notifications V2",
+    "ha_domain": "binary_sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b3f",
+    "name": "PM 4 (ug/m^3)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b40",
+    "name": "PM 10 Update Idle Period in Minutes",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - air quality",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b41",
+    "name": "Requested PM 10 Sensor Idle Update Period in Minutes",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - air quality",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b42",
+    "name": "Request Update of PM 10 (ug/m^3)",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b43",
+    "name": "PM 10 (ug/m^3)",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b44",
+    "name": "Environmental Temperature Update Idle Period in Minutes",
+    "ha_domain": "sensor",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x5b45",
+    "name": "Requested Environmental Temperature Idle Update Period in Minutes",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x5b46",
+    "name": "Request Update of Environmental Temperature (F)",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": "temperature"
+  },
+  {
+    "id": "0x5b47",
+    "name": "Environmental Temperature",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "enum",
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b48",
+    "name": "Supported Hood Notifications V2",
+    "ha_domain": "binary_sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b49",
+    "name": "Air Filter Fan Run Time",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u32"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b4a",
+    "name": "Charcoal Filter Fan Run Time",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u32"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b4b",
+    "name": "Overall Air Quality",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (12 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b4c",
+    "name": "Available Color Schemes",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool",
+      "bool"
+    ],
+    "current_domain": "binary_sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b4d",
+    "name": "Selected Color Scheme",
+    "ha_domain": "sensor",
+    "device_class": "enum",
+    "unit_of_measurement": null,
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum read-only (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5b4e",
+    "name": "Requested Color Scheme",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable descriptive (2 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b4f",
+    "name": "PM 2.5 Index Update Period in Minutes",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b50",
+    "name": "Requested PM 2.5 Index Sensor Update Period in Minutes",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b51",
+    "name": "Request Update of PM 2.5 Index",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b52",
+    "name": "PM 2.5 Index",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b53",
+    "name": "PM 1 Index Update Period in Minutes",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b54",
+    "name": "Requested PM 1 Index Sensor Update Period in Minutes",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b55",
+    "name": "Request Update of PM 1 Index",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b56",
+    "name": "PM 1 Index",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b57",
+    "name": "PM 4 Index Update Period in Minutes",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b58",
+    "name": "Requested PM 4 Index Sensor Update Period in Minutes",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b59",
+    "name": "Request Update of PM 4 Index",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b5a",
+    "name": "PM 4 Index",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b5b",
+    "name": "PM 10 Index Update Period in Minutes",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b5c",
+    "name": "Requested PM 10 Index Sensor Update Period in Minutes",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b5d",
+    "name": "Request Update of PM 10 Index",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - numeric",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5b5e",
+    "name": "PM 10 Index",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "enum",
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c00",
+    "name": "Microwave Timed Mode Current Setting",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c01",
+    "name": "Available Microwave Modes",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c02",
+    "name": "Microwave Popcorn Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c03",
+    "name": "Microwave Popcorn Mode - Current Setting",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (7 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5c04",
+    "name": "Microwave Potato Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c05",
+    "name": "Microwave Potato Mode - Current Setting",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (7 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5c06",
+    "name": "Microwave Beverage Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c07",
+    "name": "Microwave Beverage Mode - Current Setting",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (7 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5c08",
+    "name": "Microwave Pizza Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c09",
+    "name": "Microwave Pizza Mode - Current Setting",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (7 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5c0a",
+    "name": "Microwave Frozen Vegetable Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c0b",
+    "name": "Microwave Frozen Vegetable Mode - Current Setting",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (9 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5c0c",
+    "name": "Microwave Fresh Vegetable Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c0d",
+    "name": "Microwave Fresh Vegetable Mode - Current Setting",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (17 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5c0e",
+    "name": "Microwave Reheat Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c0f",
+    "name": "Microwave Reheat Mode - Current Setting",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (12 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5c10",
+    "name": "Microwave Add 30 Second Command",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c11",
+    "name": "Microwave State",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (5)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "enum",
+      "u8",
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c12",
+    "name": "Microwave Power in Watts",
+    "ha_domain": "sensor",
+    "device_class": "power",
+    "unit_of_measurement": "W",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "power"
+  },
+  {
+    "id": "0x5c13",
+    "name": "Microwave Time after Cycle End",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Sensor - count",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c14",
+    "name": "Microwave Remote Enable",
+    "ha_domain": "switch",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "2-value enum writable",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c15",
+    "name": "Microwave Cook Timer",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c16",
+    "name": "Microwave Defrost by Weight - Current Setting",
+    "ha_domain": "number",
+    "device_class": "current",
+    "unit_of_measurement": "A",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c17",
+    "name": "Microwave Defrost by Time Mode - Current Setting",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (3)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c18",
+    "name": "Microwave Notifications",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (28)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c19",
+    "name": "Microwave Kitchen/Display Timer",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c1a",
+    "name": "Microwave Cycle Setting Modification Availability",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "enum",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c1b",
+    "name": "Microwave Cook Timer Modification",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c1c",
+    "name": "Microwave Dinner Plate Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c1d",
+    "name": "Microwave Dinner Plate Mode - Current Setting",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (7 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5c1e",
+    "name": "Microwave Kitchen Timer Modification",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "select",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c20",
+    "name": "Microwave Defrost by Weight - Maximum Allowed Setting",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "allowed",
+    "reasoning": "",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c21",
+    "name": "Microwave Warm Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c22",
+    "name": "Microwave Warm Mode - Current Setting",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (5 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5c23",
+    "name": "Microwave Auto Defrost Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c24",
+    "name": "Microwave Auto Defrost Mode - Current Setting",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c25",
+    "name": "Microwave Broil Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c26",
+    "name": "Microwave Broil Mode - Current Setting",
+    "ha_domain": "select",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Enum writable (5 vals)",
+    "is_multi": false,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum"
+    ],
+    "current_domain": "sensor",
+    "current_dc": "enum"
+  },
+  {
+    "id": "0x5c27",
+    "name": "Microwave Auto Bake - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c28",
+    "name": "Microwave Auto Bake Mode - Current Setting",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c29",
+    "name": "Microwave Auto Roast - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c2a",
+    "name": "Microwave Auto Roast Mode - Current Setting",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c2b",
+    "name": "Microwave Oven Cook Timer",
+    "ha_domain": "sensor",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Clock time",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c2c",
+    "name": "Microwave Protein Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c2d",
+    "name": "Microwave Oven Temperature Range",
+    "ha_domain": "number",
+    "device_class": "temperature",
+    "unit_of_measurement": "\u00b0F",
+    "confidence": "high",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (4)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16",
+      "u16"
+    ],
+    "current_domain": "number",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c2e",
+    "name": "Microwave Protein Mode - Current Setting",
+    "ha_domain": "number",
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "medium",
+    "filtered": false,
+    "filter_reason": "",
+    "reasoning": "Multi-field writable (2)",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "write",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "enum",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  },
+  {
+    "id": "0x5c2f",
+    "name": "Microwave Broil With Time Mode - Available Settings",
+    "ha_domain": null,
+    "device_class": null,
+    "unit_of_measurement": null,
+    "confidence": "low",
+    "filtered": true,
+    "filter_reason": "available",
+    "reasoning": "",
+    "is_multi": true,
+    "ops": [
+      "read",
+      "publish",
+      "subscribe"
+    ],
+    "data_types": [
+      "u8",
+      "u8",
+      "u8",
+      "u8",
+      "u8"
+    ],
+    "current_domain": "sensor",
+    "current_dc": null
+  }
+]
