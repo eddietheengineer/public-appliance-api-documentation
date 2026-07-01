@@ -1314,8 +1314,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "current",
-    "unit_of_measurement": "A",
+    "device_class": "enum",
     "confidence": "high",
     "comment": "Image Capture Currently Available: Current sensor."
   }, {
@@ -3283,8 +3282,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "humidity",
-    "unit_of_measurement": "%",
+    "device_class": "enum",
     "confidence": "high",
     "comment": "Humidity Control: Humidity percentage sensor."
   }, {
@@ -3419,8 +3417,7 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Hot Water Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -3704,8 +3701,7 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Temperature Pan Current Setting: Temperature sensor, unit not explicitly specified."
   }, {
@@ -3934,8 +3930,7 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Temperature Pan Control Settings: Temperature sensor, unit not explicitly specified."
   }, {
@@ -4283,8 +4278,7 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Convertible Drawer Modes Temperature: Temperature sensor, unit not explicitly specified."
   }, {
@@ -4470,8 +4464,7 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Adjustable Convertible Drawer Temperature Limits: Temperature sensor, unit not explicitly specified."
   }, {
@@ -9566,8 +9559,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Low Temperature Alert: Temperature sensor, unit not explicitly specified."
   }, {
@@ -21469,8 +21461,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Legacy - Washer Remote Wash Temperature Level: Temperature sensor, unit not explicitly specified."
   }, {
@@ -22610,8 +22601,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Dryer Temperature Level Request: Temperature sensor, unit not explicitly specified."
   }, {
@@ -22729,8 +22719,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Dryer Temperature Option Selection: Temperature sensor, unit not explicitly specified."
   }, {
@@ -27944,8 +27933,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Water Temperature Option: Temperature sensor, unit not explicitly specified."
   }, {
@@ -27981,8 +27969,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Water Temperature Option Request: Temperature sensor, unit not explicitly specified."
   }, {
@@ -59196,7 +59183,7 @@
       "offset": 15,
       "size": 1
     }],
-    "ha_domain": "number",
+    "ha_domain": "binary_sensor",
     "paired_erd": "0x224a",
     "pair_role": "status",
     "confidence": "low",
@@ -61239,8 +61226,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Mabe - Temperature Level Selection: Temperature sensor, unit not explicitly specified."
   }, {
@@ -68911,8 +68897,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Wash Temperature Setting: Temperature sensor, unit not explicitly specified."
   }, {
@@ -74264,8 +74249,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Tub 1 Wash Temperature Setting: Temperature sensor, unit not explicitly specified."
   }, {
@@ -77579,7 +77563,7 @@
       "offset": 8,
       "size": 4
     }],
-    "ha_domain": "number",
+    "ha_domain": "binary_sensor",
     "paired_erd": "0x5023",
     "pair_role": "status",
     "confidence": "low",
@@ -78844,8 +78828,7 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "h",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Upper Oven Cook Mode Command: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -81150,7 +81133,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "number",
+    "ha_domain": "switch",
     "paired_erd": "0x511b",
     "pair_role": "request",
     "confidence": "medium",
@@ -82338,8 +82321,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Upper Cavity Cook Recipe Stage 1: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -82874,8 +82856,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Upper Cavity Cook Recipe Stage 2: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -83410,8 +83391,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Upper Cavity Cook Recipe Stage 3: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -83946,8 +83926,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Upper Cavity Cook Recipe Stage 4: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -84482,8 +84461,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Upper Cavity Cook Recipe Stage 5: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -85274,8 +85252,7 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "h",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Lower Oven Cook Mode: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -87532,7 +87509,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "number",
+    "ha_domain": "switch",
     "paired_erd": "0x521b",
     "pair_role": "request",
     "confidence": "medium",
@@ -88720,8 +88697,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Lower Cavity Cook Recipe Stage 1: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -89256,8 +89232,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Lower Cavity Cook Recipe Stage 2: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -89792,8 +89767,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Lower Cavity Cook Recipe Stage 3: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -90328,8 +90302,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Lower Cavity Cook Recipe Stage 4: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -90864,8 +90837,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Lower Cavity Cook Recipe Stage 5: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -93416,8 +93388,7 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "paired_erd": "0x5401",
     "pair_role": "request",
     "confidence": "low",
@@ -93447,8 +93418,7 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Advantium Cook Time Remaining: Timer/duration value."
   }, {
@@ -93986,7 +93956,6 @@
       "offset": 23,
       "size": 1
     }],
-    "ha_domain": "number",
     "paired_erd": "0x5410",
     "pair_role": "status",
     "confidence": "low",
@@ -94464,8 +94433,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "paired_erd": "0x5417",
     "pair_role": "request",
     "confidence": "low",
@@ -94777,7 +94745,6 @@
       "offset": 23,
       "size": 1
     }],
-    "ha_domain": "number",
     "paired_erd": "0x5420",
     "pair_role": "status",
     "confidence": "low",
@@ -111222,8 +111189,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Global Timer Status: Timer/duration value."
   }, {
@@ -112488,8 +112454,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "humidity",
-    "unit_of_measurement": "%",
+    "device_class": "enum",
     "confidence": "high",
     "comment": "Relative Humidity (%): Humidity percentage sensor."
   }, {
@@ -113328,8 +113293,7 @@
       "device_class": "enum"
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "high",
     "comment": "Environmental Temperature: Temperature in Fahrenheit."
   }, {
@@ -116449,8 +116413,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "min",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Microwave Cook Timer Modification: Timer/duration value."
   }, {
@@ -116653,8 +116616,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "min",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Microwave Kitchen Timer Modification: Timer/duration value."
   }, {
@@ -119640,7 +119602,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "number",
+    "ha_domain": "binary_sensor",
     "paired_erd": "0x5c40",
     "pair_role": "status",
     "confidence": "low",
@@ -127458,7 +127420,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "number",
+    "ha_domain": "binary_sensor",
     "paired_erd": "0x7051",
     "pair_role": "status",
     "confidence": "low",
@@ -128715,8 +128677,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Cool Temperature Limit Mode: Temperature sensor, unit not explicitly specified."
   }, {
@@ -128744,8 +128705,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Heat Temperature Limit Mode: Temperature sensor, unit not explicitly specified."
   }, {
@@ -134905,9 +134865,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "ha_domain": "binary_sensor",
     "confidence": "medium",
     "comment": "Outdoor temperature permits Self Clean operation: Temperature sensor, unit not explicitly specified."
   }, {
@@ -138086,8 +138044,7 @@
       "state_class": "measurement"
     }],
     "ha_domain": "sensor",
-    "device_class": "humidity",
-    "unit_of_measurement": "%",
+    "device_class": "enum",
     "confidence": "high",
     "comment": "Current Humidity: Humidity percentage sensor."
   }, {
@@ -141384,9 +141341,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "ha_domain": "binary_sensor",
     "confidence": "low",
     "comment": "Coffee Brewer Current Brew Settings: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -141479,9 +141434,7 @@
       "offset": 13,
       "size": 1
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "ha_domain": "switch",
     "confidence": "low",
     "comment": "Coffee Brewer Request Brew Settings: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -141577,9 +141530,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "ha_domain": "binary_sensor",
     "confidence": "low",
     "comment": "Coffee Brewer Favorite Brew 1 Current Settings: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -141658,9 +141609,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "ha_domain": "switch",
     "confidence": "low",
     "comment": "Coffee Brewer Favorite Brew 1 Request Settings: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -141739,9 +141688,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "ha_domain": "binary_sensor",
     "confidence": "low",
     "comment": "Coffee Brewer Favorite Brew 2 Current Settings: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -141820,9 +141767,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "ha_domain": "switch",
     "confidence": "low",
     "comment": "Coffee Brewer Favorite Brew 2 Request Settings: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -141901,9 +141846,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "ha_domain": "binary_sensor",
     "confidence": "low",
     "comment": "Coffee Brewer Favorite Brew 3 Current Settings: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -141982,9 +141925,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "ha_domain": "switch",
     "confidence": "low",
     "comment": "Coffee Brewer Favorite Brew 3 Request Settings: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -142198,7 +142139,7 @@
       "device_class": "duration",
       "state_class": "measurement"
     }],
-    "ha_domain": "number",
+    "ha_domain": "binary_sensor",
     "paired_erd": "0x905e",
     "pair_role": "status",
     "confidence": "low",
@@ -143619,8 +143560,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -143703,8 +143643,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -143988,8 +143927,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Air Fry Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -144051,8 +143989,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Air Fry Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -144308,8 +144245,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Bake Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -144371,8 +144307,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Bake Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -144628,8 +144563,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Broil Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -144691,8 +144625,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Broil Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -144948,8 +144881,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Roast Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145011,8 +144943,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Roast Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145268,8 +145199,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Reheat Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145331,8 +145261,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Reheat Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145588,8 +145517,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Warm Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145651,8 +145579,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Warm Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145908,8 +145835,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Slow Cook Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -145971,8 +145897,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Slow Cook Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -146228,8 +146153,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Dehydrate Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -146291,8 +146215,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Dehydrate Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -146548,8 +146471,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Proof Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -146611,8 +146533,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Proof Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -146868,8 +146789,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Cookie Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -146931,8 +146851,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Cookie Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147188,8 +147107,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Pizza Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147251,8 +147169,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Pizza Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147508,8 +147425,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Bagel Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147571,8 +147487,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Bagel Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147828,8 +147743,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Toast Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -147891,8 +147805,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Toast Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -148202,8 +148115,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Crisp Finish Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -148265,8 +148177,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Crisp Finish Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -148671,8 +148582,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Cake Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -148734,8 +148644,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Cake Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -149001,8 +148910,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Cookie Mode with Preferences Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -149074,8 +148982,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Cookie Mode with Preferences Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -149346,8 +149253,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Pizza Mode with Preferences Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -149424,8 +149330,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Requested Pizza Mode with Preferences Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -149821,8 +149726,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Toaster Oven Current Convection Bake Mode Cooking Parameters: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -149907,8 +149811,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "current",
-    "unit_of_measurement": "A",
+    "device_class": "enum",
     "confidence": "high",
     "comment": "Mixer Control Current Settings: Current sensor."
   }, {
@@ -150023,9 +149926,7 @@
       "offset": 11,
       "size": 1
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "ha_domain": "switch",
     "confidence": "low",
     "comment": "Mixer Control Requested Settings: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -150480,8 +150381,7 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "min",
+    "device_class": "enum",
     "confidence": "medium",
     "comment": "Cycle Timer Absolute Time Modification: Timer/duration value."
   }, {
@@ -150928,8 +150828,7 @@
       "size": 64
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Mixer Control v2 Current: Multi-field sensor, may need custom handling to extract individual values.",
     "pair_role": "status",
@@ -151235,9 +151134,7 @@
       "offset": 36,
       "size": 64
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "ha_domain": "switch",
     "confidence": "low",
     "comment": "Mixer Control v2 Requested: Multi-field sensor, may need custom handling to extract individual values.",
     "pair_role": "request",
@@ -151602,9 +151499,7 @@
       "offset": 56,
       "size": 64
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "s",
+    "ha_domain": "binary_sensor",
     "confidence": "low",
     "comment": "Mixer Control v2 Limits: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -152196,8 +152091,7 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "min",
+    "device_class": "enum",
     "paired_erd": "0x9400",
     "pair_role": "request",
     "confidence": "low",
@@ -153384,9 +153278,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "min",
+    "ha_domain": "binary_sensor",
     "confidence": "low",
     "comment": "Auto Warm Current Time: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -153430,9 +153322,7 @@
       "size": 1,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "ha_domain": "binary_sensor",
     "confidence": "medium",
     "comment": "Auto Warm Current Temperature: Temperature sensor, unit not explicitly specified."
   }, {
@@ -153581,9 +153471,7 @@
       "size": 1,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°C",
+    "ha_domain": "binary_sensor",
     "paired_erd": "0x942c",
     "pair_role": "status",
     "confidence": "high",
@@ -153657,9 +153545,7 @@
       "size": 1,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "min",
+    "ha_domain": "binary_sensor",
     "paired_erd": "0x942f",
     "pair_role": "status",
     "confidence": "low",
@@ -153738,9 +153624,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "temperature",
-    "unit_of_measurement": "°F",
+    "ha_domain": "binary_sensor",
     "confidence": "medium",
     "comment": "Current Igniter Temperature: Temperature sensor, unit not explicitly specified."
   }, {
@@ -154236,8 +154120,7 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "min",
+    "device_class": "enum",
     "confidence": "low",
     "comment": "Sourdough Starter Status: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -154508,9 +154391,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "min",
+    "ha_domain": "binary_sensor",
     "confidence": "low",
     "comment": "Time Since Complete: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -154541,9 +154422,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "min",
+    "ha_domain": "binary_sensor",
     "confidence": "low",
     "comment": "Time To Crock Full: Multi-field sensor, may need custom handling to extract individual values."
   }, {
@@ -154574,9 +154453,7 @@
       "size": 2,
       "state_class": "measurement"
     }],
-    "ha_domain": "sensor",
-    "device_class": "duration",
-    "unit_of_measurement": "min",
+    "ha_domain": "binary_sensor",
     "confidence": "low",
     "comment": "Time Until Next Feed: Multi-field sensor, may need custom handling to extract individual values."
   }, {

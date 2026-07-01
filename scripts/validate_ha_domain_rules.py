@@ -3,6 +3,17 @@
 Validate that ERD metadata follows Home Assistant domain-specific rules.
 Based on Home Assistant core source code validation logic.
 
+Checks:
+  - Sensor/number domains: numeric device_class requires numeric field types (u8/u16/u32/i8/i16/i32)
+  - Sensor: non-numeric device_class cannot have unit_of_measurement or state_class
+  - Sensor: unit_of_measurement must be valid for device_class
+  - Sensor: state_class must be valid for device_class
+  - Binary sensor: cannot have unit_of_measurement or state_class; device_class must be valid
+  - Number: cannot have state_class; non-numeric device_class is invalid
+  - Select: cannot have unit_of_measurement or state_class; device_class must be valid
+  - Switch: cannot have unit_of_measurement or state_class; device_class must be valid
+  - Button: device_class must be valid (identify/restart/update)
+
 Exits with code 1 and prints errors if any violations are found.
 """
 
@@ -12,10 +23,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from validator_utils import emit_error
+from validator_utils import emit_error, is_reserved_field
 from ha_constants import (
     ERD_DEFINITIONS_FILE,
     BINARY_SENSOR_DEVICE_CLASSES,
+    NUMERIC_TYPES,
     SENSOR_NON_NUMERIC_DEVICE_CLASSES,
     SENSOR_DEVICE_CLASS_UNITS,
     SENSOR_DEVICE_CLASS_STATE_CLASSES,
@@ -24,13 +36,30 @@ from ha_constants import (
     VALID_DEVICE_CLASSES,
 )
 
-
 def validate_sensor(erd: dict, erd_id: str, name: str, defs_file: str) -> int:
     """Validate sensor domain rules. Returns error count."""
     error_count = 0
     device_class = erd.get('device_class') or ''
     unit_of_measurement = erd.get('unit_of_measurement') or None
     state_class = erd.get('state_class') or ''
+    fields = erd.get('data', [])
+
+    # Numeric device classes require numeric field types
+    if device_class and device_class not in SENSOR_NON_NUMERIC_DEVICE_CLASSES:
+        for field in fields:
+            if not isinstance(field, dict):
+                continue
+            if is_reserved_field(field.get('name', '')):
+                continue
+            ftype = field.get('type', '')
+            if ftype and ftype not in NUMERIC_TYPES:
+                error_count += 1
+                emit_error(
+                    f"ERD {erd_id} ({name}): sensor with device_class='{device_class}' "
+                    f"requires numeric fields but field '{field.get('name', '')}' has type='{ftype}'",
+                    file=defs_file
+                )
+                break  # one error per ERD is enough
 
     # Non-numeric device classes cannot have unit_of_measurement or state_class
     if device_class in SENSOR_NON_NUMERIC_DEVICE_CLASSES:
@@ -125,6 +154,28 @@ def validate_binary_sensor(erd: dict, erd_id: str, name: str, defs_file: str) ->
 
 
 def validate_number(erd: dict, erd_id: str, name: str, defs_file: str) -> int:
+    """Validate number domain rules. Returns error count."""
+    error_count = 0
+    device_class = erd.get('device_class') or ''
+    unit_of_measurement = erd.get('unit_of_measurement') or None
+    state_class = erd.get('state_class')
+    fields = erd.get('data', [])
+
+    # Number domain requires numeric field types
+    for field in fields:
+        if not isinstance(field, dict):
+            continue
+        if is_reserved_field(field.get('name', '')):
+            continue
+        ftype = field.get('type', '')
+        if ftype and ftype not in NUMERIC_TYPES:
+            error_count += 1
+            emit_error(
+                f"ERD {erd_id} ({name}): number domain requires numeric fields "
+                f"but field '{field.get('name', '')}' has type='{ftype}'",
+                file=defs_file
+            )
+            break  # one error per ERD is enough
     """Validate number domain rules. Returns error count."""
     error_count = 0
     device_class = erd.get('device_class') or ''
