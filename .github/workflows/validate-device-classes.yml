@@ -35,6 +35,3 @@ jobs:
       - name: Validate HA domain-specific rules
         run: python3 scripts/validate_ha_domain_rules.py
 
-      - name: Generate coverage report
-        if: always()
-        run: python3 scripts/generate_coverage_report.py
