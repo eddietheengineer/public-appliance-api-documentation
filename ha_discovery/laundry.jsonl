@@ -862,7 +862,9 @@
 {"i":"2108","n":"Water Level Option Request - Med","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 2) % 2 else '00' }}","fi":"med","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"2108","n":"Water Level Option Request - High","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 4) % 2 else '00' }}","fi":"high","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"2108","n":"Water Level Option Request - Auto","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 8) % 2 else '00' }}","fi":"auto","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"2109","n":"Wash Progress Option Current","d":"number","ds":1,"mn":0.0,"mx":255.0,"st":1.0,"p":"210b","r":"status","vt":"{{ value | int(base=16) }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
+{"i":"2109","n":"Wash Progress Option Current - Spin","d":"binary_sensor","ds":1,"p":"210b","r":"status","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 1) % 2 else '00' }}","fi":"spin","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"2109","n":"Wash Progress Option Current - Rinse","d":"binary_sensor","ds":1,"p":"210b","r":"status","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 2) % 2 else '00' }}","fi":"rinse","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"2109","n":"Wash Progress Option Current - Wash","d":"binary_sensor","ds":1,"p":"210b","r":"status","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 4) % 2 else '00' }}","fi":"wash","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"210a","n":"Wash Progress Option Allowable - Spin","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 1) % 2 else '00' }}","fi":"spin","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"210a","n":"Wash Progress Option Allowable - Rinse","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 2) % 2 else '00' }}","fi":"rinse","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"210a","n":"Wash Progress Option Allowable - Wash","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 4) % 2 else '00' }}","fi":"wash","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -906,7 +908,11 @@
 {"i":"2111","n":"Optimise Cycle Option - Speed","d":"binary_sensor","ds":1,"p":"210f","r":"request","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 2) % 2 else '00' }}","fi":"speed","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"2111","n":"Optimise Cycle Option - Eco","d":"binary_sensor","ds":1,"p":"210f","r":"request","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 4) % 2 else '00' }}","fi":"eco","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"2111","n":"Optimise Cycle Option - Quiet","d":"binary_sensor","ds":1,"p":"210f","r":"request","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 8) % 2 else '00' }}","fi":"quiet","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"2112","n":"Auto Dose Option Actual","d":"number","ds":1,"mn":0.0,"mx":255.0,"st":1.0,"p":"2114","r":"status","vt":"{{ value | int(base=16) }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
+{"i":"2112","n":"Auto Dose Option Actual - Auto Detergent","d":"binary_sensor","ds":1,"p":"2114","r":"status","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 1) % 2 else '00' }}","fi":"auto_detergent","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"2112","n":"Auto Dose Option Actual - Auto Softener","d":"binary_sensor","ds":1,"p":"2114","r":"status","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 2) % 2 else '00' }}","fi":"auto_softener","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"2112","n":"Auto Dose Option Actual - Manual Detergent","d":"binary_sensor","ds":1,"p":"2114","r":"status","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 4) % 2 else '00' }}","fi":"manual_detergent","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"2112","n":"Auto Dose Option Actual - Manual Softener","d":"binary_sensor","ds":1,"p":"2114","r":"status","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 8) % 2 else '00' }}","fi":"manual_softener","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"2112","n":"Auto Dose Option Actual - Auto Detergent (Tank 2)","d":"binary_sensor","ds":1,"p":"2114","r":"status","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 16) % 2 else '00' }}","fi":"auto_detergent_tank_2","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"2113","n":"Auto Dose Option Allowable - Auto Detergent","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 1) % 2 else '00' }}","fi":"auto_detergent","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"2113","n":"Auto Dose Option Allowable - Auto Softener","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 2) % 2 else '00' }}","fi":"auto_softener","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"2113","n":"Auto Dose Option Allowable - Manual Detergent","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 4) % 2 else '00' }}","fi":"manual_detergent","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -920,7 +926,7 @@
 {"i":"2114","n":"Auto Dose Option - Manual Softener","d":"binary_sensor","ds":1,"p":"2112","r":"request","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 8) % 2 else '00' }}","fi":"manual_softener","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"2114","n":"Auto Dose Option - Auto Detergent (Tank 2)","d":"binary_sensor","ds":1,"p":"2112","r":"request","vt":"{{ '01' if ((value[0:2] | int(base=16)) // 16) % 2 else '00' }}","fi":"auto_detergent_tank_2","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"2116","n":"Active Intelligent Option","d":"switch","ds":1,"p":"2115","r":"request","vt":"{{ value[0:2] }}","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"211b","n":"Signal Option Current","d":"number","ds":1,"mn":0.0,"mx":255.0,"st":1.0,"p":"211d","r":"status","vt":"{{ value | int(base=16) }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
+{"i":"211b","n":"Signal Option Current","d":"binary_sensor","ds":1,"p":"211d","r":"status","vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"211c","n":"Signal Option Allowable","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"211d","n":"Signal Option","d":"sensor","ds":1,"p":"211b","r":"request","vt":"{{ value | int(base=16) }}"}
 {"i":"211e","n":"Commercial Laundry Payment V1 Attribute Bitmap - FreeMode_NoAppInteraction","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 16) % 2 else '00' }}","fi":"freemode_noappinteraction","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -1503,7 +1509,6 @@
 {"i":"2166","n":"Option Pricing - Option n Level[6]","d":"sensor","ds":36,"p":"2167","r":"request","vt":"{{ value[66:68] | int(base=16) }}","fi":"option_n_level_6"}
 {"i":"2166","n":"Option Pricing - Option n Level[7]","d":"sensor","ds":36,"p":"2167","r":"request","vt":"{{ value[68:70] | int(base=16) }}","fi":"option_n_level_7"}
 {"i":"2166","n":"Option Pricing - Option n Level[8]","d":"sensor","ds":36,"p":"2167","r":"request","vt":"{{ value[70:72] | int(base=16) }}","fi":"option_n_level_8"}
-{"i":"2167","n":"Option Pricing","d":"number","ds":36,"mn":0.0,"mx":65535.0,"st":1.0,"p":"2166","r":"status","vt":"{{ value[0:4] | int(base=16) }}","ct":"{{ '%072x' % (value | int) }}","m":"box"}
 {"i":"2168","n":"Mid-Cycle Adjustment Pricing - Mid-Cycle Adjustment n Price[0]","d":"sensor","ds":28,"p":"2169","r":"request","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"2168","n":"Mid-Cycle Adjustment Pricing - Mid-Cycle Adjustment n Price[1]","d":"sensor","ds":28,"p":"2169","r":"request","vt":"{{ value[4:8] | int(base=16) }}","fi":"mid_cycle_adjustment_n_price_1"}
 {"i":"2168","n":"Mid-Cycle Adjustment Pricing - Mid-Cycle Adjustment n Price[2]","d":"sensor","ds":28,"p":"2169","r":"request","vt":"{{ value[8:12] | int(base=16) }}","fi":"mid_cycle_adjustment_n_price_2"}

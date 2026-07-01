@@ -42209,7 +42209,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "number",
+    "ha_domain": "binary_sensor",
     "paired_erd": "0x210b",
     "pair_role": "status",
     "confidence": "medium",
@@ -42993,7 +42993,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "number",
+    "ha_domain": "binary_sensor",
     "paired_erd": "0x2114",
     "pair_role": "status",
     "confidence": "medium",
@@ -43392,7 +43392,7 @@
       "offset": 0,
       "size": 1
     }],
-    "ha_domain": "number",
+    "ha_domain": "binary_sensor",
     "paired_erd": "0x211d",
     "pair_role": "status",
     "confidence": "medium",
@@ -52593,7 +52593,6 @@
       "offset": 35,
       "size": 1
     }],
-    "ha_domain": "number",
     "paired_erd": "0x2166",
     "pair_role": "status",
     "confidence": "medium",
