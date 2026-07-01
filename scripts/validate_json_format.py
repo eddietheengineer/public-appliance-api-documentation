@@ -23,12 +23,17 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from ha_constants import ERD_DEFINITIONS_FILE
+from validator_utils import emit_error
 
 
 def validate_format() -> list[str]:
     """Validate the JSON file format and return a list of errors."""
     errors: list[str] = []
-    raw = ERD_DEFINITIONS_FILE.read_text(encoding="utf-8")
+    try:
+        raw = ERD_DEFINITIONS_FILE.read_text(encoding="utf-8")
+    except (FileNotFoundError, OSError) as e:
+        errors.append(f"Cannot read {ERD_DEFINITIONS_FILE}: {e}")
+        return errors
 
     # 1. Valid JSON
     try:
@@ -69,9 +74,8 @@ def validate_format() -> list[str]:
 def main():
     errors = validate_format()
     if errors:
-        print(f"JSON format validation failed: {len(errors)} error(s)\n")
         for e in errors:
-            print(f"  {e}")
+            emit_error(e, file=str(ERD_DEFINITIONS_FILE))
         sys.exit(1)
     else:
         print("JSON format validation passed")

@@ -28,6 +28,8 @@ def remove_empty_device_class(data: dict) -> int:
         if not isinstance(erd, dict):
             continue
         for field in erd.get("data", []):
+            if not isinstance(field, dict):
+                continue
             if field.get("device_class") == "":
                 del field["device_class"]
                 removed += 1
@@ -50,6 +52,7 @@ def main():
         1 for erd in reloaded.get("erds", [])
         if isinstance(erd, dict)
         for field in erd.get("data", [])
+        if isinstance(field, dict)
         if field.get("device_class") == ""
     )
     print(f"Remaining device_class: \"\" entries: {remaining}", file=sys.stderr)

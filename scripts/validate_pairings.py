@@ -19,15 +19,15 @@ def main():
     try:
         with open(ERD_DEFINITIONS_FILE) as f:
             data = json.load(f)
-    except json.JSONDecodeError as e:
-        emit_error(f"Failed to parse {ERD_DEFINITIONS_FILE}: {e}")
+    except (json.JSONDecodeError, FileNotFoundError, OSError) as e:
+        emit_error(f"Failed to read {ERD_DEFINITIONS_FILE}: {e}")
         sys.exit(1)
 
     if not isinstance(data, dict):
         emit_error(f"Expected a JSON object in {ERD_DEFINITIONS_FILE}")
         sys.exit(1)
 
-    erds = {item['id']: item for item in data.get('erds', []) if 'pair_role' in item}
+    erds = {item['id']: item for item in data.get('erds', []) if isinstance(item, dict) and 'pair_role' in item}
 
     error_count = 0
     seen = set()

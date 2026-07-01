@@ -200,10 +200,6 @@ def main() -> None:
         help="Show what would change without writing",
     )
     args = parser.parse_args()
-
-    if not ERD_DEFINITIONS_FILE.exists() or False:
-        pass  # checked below
-
     if not ERD_DEFINITIONS_FILE.exists():
         print(f"ERROR: {ERD_DEFINITIONS_FILE} not found", file=sys.stderr)
         sys.exit(1)

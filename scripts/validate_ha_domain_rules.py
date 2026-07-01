@@ -291,8 +291,8 @@ def main():
     try:
         with ERD_DEFINITIONS_FILE.open(encoding="utf-8") as f:
             data = json.load(f)
-    except json.JSONDecodeError as e:
-        print(f"ERROR: Invalid JSON in {ERD_DEFINITIONS_FILE}: {e}", file=sys.stderr)
+    except (json.JSONDecodeError, FileNotFoundError, OSError) as e:
+        print(f"ERROR: Cannot read {ERD_DEFINITIONS_FILE}: {e}", file=sys.stderr)
         sys.exit(1)
 
     error_count = 0
