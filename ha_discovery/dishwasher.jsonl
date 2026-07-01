@@ -30,7 +30,7 @@
 {"i":"3009","n":"Cycle Counts - Power On Reset Counter","d":"sensor","ds":6,"vt":"{{ value[8:12] | int(base=16) }}","fi":"power_on_reset_counter"}
 {"i":"300c","n":"Dish Personality - Personality","d":"sensor","ds":2,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"300c","n":"Dish Personality - Source","d":"sensor","ds":2,"dc":"enum","vt":"{{ {'00': 'Boot Loader', '01': 'ADC', '02': 'Entity', '03': 'Undefined'}.get(value[2:4], 'Unknown') }}","fi":"source"}
-{"i":"300d","n":"Delay Start Remaining Time In Minutes","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
+{"i":"300d","n":"Delay Start Remaining Time In Minutes","d":"sensor","ds":2,"u":"min","vt":"{{ value | int(base=16) }}"}
 {"i":"300e","n":"Cycle Indication","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'No Change', '01': 'PreWash', '02': 'Sensing', '03': 'Main Wash', '04': 'Drying', '05': 'Sanitizing', '06': 'Turbidity Cal', '07': 'Diverter Cal', '08': 'Pause', '09': 'Rinsing', '0a': 'PreWash 1', '0b': 'Final Rinse', '0c': 'End PreWash 1', '0d': 'Auto Hot Start 1', '0e': 'Auto Hot Start 2', '0f': 'Auto Hot Start 3', '10': 'Final Rinse Fill', '11': 'Cycle Inactive', '12': 'End of Cycle'}.get(value[:2], 'Unknown') }}"}
 {"i":"300f","n":"Analog Inputs - A2D Turbidity Temp","d":"sensor","ds":12,"vt":"{{ value[8:10] | int(base=16) }}"}
 {"i":"300f","n":"Analog Inputs - A2D Turbidity","d":"sensor","ds":12,"vt":"{{ value[10:12] | int(base=16) }}","fi":"a2d_turbidity"}
@@ -180,7 +180,7 @@
 {"i":"3300","n":"Turbidity Calibration Value Tub 1","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
 {"i":"3401","n":"Tub 1 Operating Mode","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Low Power', '01': 'Power Up', '02': 'Standby', '03': 'Delay Start', '04': 'Pause', '05': 'Run', '06': 'EOC', '07': 'Download Mode', '08': 'Sensor Check Mode', '09': 'Load Activation Mode', '0b': 'MC Only Mode', '0c': 'User Alert Mode', '0d': 'Lock', '0e': 'CSM', '0f': 'Wifi Binding', '10': 'Rinse Aid Level Selection', '11': 'Sabbath Mode', '12': 'Delay Pause'}.get(value[:2], 'Unknown') }}"}
 {"i":"3406","n":"Tub 1 Door Count","d":"sensor","ds":2,"sc":"total","vt":"{{ value | int(base=16) }}"}
-{"i":"340d","n":"Tub 1 Delay Start Remaining Time In Minutes","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
+{"i":"340d","n":"Tub 1 Delay Start Remaining Time In Minutes","d":"sensor","ds":2,"u":"min","vt":"{{ value | int(base=16) }}"}
 {"i":"341e","n":"Tub 1 Dispense Count","d":"sensor","ds":2,"sc":"total","vt":"{{ value | int(base=16) }}"}
 {"i":"343f","n":"Tub 1 Water Valve State","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"3446","n":"Tub 1 Heater Relay State","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}

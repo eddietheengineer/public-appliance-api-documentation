@@ -242,7 +242,7 @@
 {"i":"9139","n":"Requested Filter Type","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Unknown', '01': 'Carbon Filter', '02': 'Scale Inhibiting Filter', '03': 'Opal Mini: CTO', '04': 'Opal Mini: CTO + Scale Inhibiting'}.get(value[:2], 'Unknown') }}"}
 {"i":"913a","n":"Descale Indication Elapsed Time","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
 {"i":"913b","n":"Sanitize Indication Elapsed Time","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
-{"i":"913c","n":"Total Compressor Runtime","d":"sensor","ds":2,"u":"h","dc":"duration","vt":"{{ value | int(base=16) }}"}
+{"i":"913c","n":"Total Compressor Runtime","d":"sensor","ds":2,"u":"h","vt":"{{ value | int(base=16) }}"}
 {"i":"913d","n":"Time To Descale","d":"sensor","ds":2,"u":"%","vt":"{{ value | int(base=16) }}"}
 {"i":"913e","n":"Light Color","d":"number","ds":4,"u":"%","mn":0.0,"mx":255.0,"st":1.0,"p":"913f","r":"status","vt":"{{ value[0:2] | int(base=16) }}","ct":"{{ '%08x' % (value | int) }}","m":"box"}
 {"i":"913f","n":"Light Color - Intensity Percentage (0-100)","d":"sensor","ds":4,"p":"913e","r":"request","vt":"{{ value[0:2] | int(base=16) }}"}
@@ -499,10 +499,10 @@
 {"i":"9229","n":"Toaster Oven Current Preheat Enabled Setting","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"922b","n":"Toaster Oven Current Convection Fan State","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"922c","n":"Toaster Oven Requested Convection Fan State","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"922d","n":"Toaster Oven Time Remaining for Remote Start","d":"sensor","ds":2,"u":"s","dc":"duration","vt":"{{ value | int(base=16) }}"}
+{"i":"922d","n":"Toaster Oven Time Remaining for Remote Start","d":"sensor","ds":2,"u":"s","vt":"{{ value | int(base=16) }}"}
 {"i":"922e","n":"Toaster Oven Add More Time - Add Cook Time Seconds","d":"sensor","ds":8,"vt":"{{ value[0:8] | int(base=16) }}"}
 {"i":"922e","n":"Toaster Oven Add More Time - Request ID","d":"sensor","ds":8,"vt":"{{ value[8:16] | int(base=16) }}","fi":"request_id"}
-{"i":"922f","n":"Toaster Oven Cook Time Remaining","d":"sensor","ds":4,"u":"s","dc":"duration","vt":"{{ value | int(base=16) }}"}
+{"i":"922f","n":"Toaster Oven Cook Time Remaining","d":"sensor","ds":4,"u":"s","vt":"{{ value | int(base=16) }}"}
 {"i":"9230","n":"Toaster Oven Current Cake Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9230","n":"Toaster Oven Current Cake Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9230","n":"Toaster Oven Current Cake Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -585,7 +585,7 @@
 {"i":"9306","n":"Mixer Notifications - Scale Target Weight Reached Notification Supported","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 16) % 2 else '00' }}","fi":"scale_target_weight_reached_notification_supported","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9306","n":"Mixer Notifications - Auto Sense Error Detect Response Notification Supported","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 32) % 2 else '00' }}","fi":"auto_sense_error_detect_response_notification_supported","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9307","n":"Reset Mixer Notifications","d":"switch","ds":1,"pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9308","n":"Mixer Run Time in Minutes","d":"sensor","ds":4,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
+{"i":"9308","n":"Mixer Run Time in Minutes","d":"sensor","ds":4,"u":"min","vt":"{{ value | int(base=16) }}"}
 {"i":"930a","n":"Cycle Timer Absolute Time Modification","d":"select","ds":8,"vt":"{{ {'00': 'Subtract Cycle Time', '01': 'Add Cycle Time'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Subtract Cycle Time': '00', 'Add Cycle Time': '01'}[value] }}","o":"[\"Subtract Cycle Time\", \"Add Cycle Time\"]"}
 {"i":"930b","n":"Scale Mode Current Units","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Metric', '01': 'US Standard'}.get(value[:2], 'Unknown') }}"}
 {"i":"930c","n":"Scale Mode Requested Units","d":"select","ds":1,"vt":"{{ {'00': 'Metric', '01': 'US Standard'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Metric': '00', 'US Standard': '01'}[value] }}","o":"[\"Metric\", \"US Standard\"]"}
@@ -606,8 +606,8 @@
 {"i":"9404","n":"Smoke","d":"switch","ds":1,"p":"9403","r":"request","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9405","n":"Pause Smoke Status - Smoke Paused","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 2) % 2 else '00' }}","fi":"smoke_paused","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9406","n":"Smoke Paused Request","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9407","n":"Cook Time Remaining","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
-{"i":"9408","n":"Total Elapsed Cooking Time","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
+{"i":"9407","n":"Cook Time Remaining","d":"sensor","ds":2,"u":"min","vt":"{{ value | int(base=16) }}"}
+{"i":"9408","n":"Total Elapsed Cooking Time","d":"sensor","ds":2,"u":"min","vt":"{{ value | int(base=16) }}"}
 {"i":"9409","n":"Actual Cavity Temperature","d":"sensor","ds":2,"u":"°F","dc":"temperature","vt":"{{ value | int(base=16) }}"}
 {"i":"940a","n":"Probe Temperature","d":"sensor","ds":2,"u":"°F","dc":"temperature","vt":"{{ value | int(base=16) }}"}
 {"i":"940b","n":"Probe Present","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -659,7 +659,7 @@
 {"i":"9434","n":"Reset Cooking Parameters","d":"button","ds":1,"dc":"restart"}
 {"i":"9435","n":"Restore Factory Defaults","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9436","n":"Smoker Type","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Arden Indoor Smoker'}.get(value[:2], 'Unknown') }}"}
-{"i":"9438","n":"Total Elapsed Warming Time","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
+{"i":"9438","n":"Total Elapsed Warming Time","d":"sensor","ds":2,"u":"min","vt":"{{ value | int(base=16) }}"}
 {"i":"9439","n":"Preheat Progress","d":"sensor","ds":1,"u":"%","vt":"{{ value | int(base=16) }}"}
 {"i":"9500","n":"Sourdough Starter Status - Mode","d":"sensor","ds":26,"dc":"enum","vt":"{{ {'00': 'Unknown', '01': 'Off', '02': 'Auto', '03': 'By Ratio', '04': 'By Mass'}.get(value[0:2], 'Unknown') }}"}
 {"i":"9500","n":"Sourdough Starter Status - State","d":"sensor","ds":26,"dc":"enum","vt":"{{ {'00': 'Unknown', '01': 'Off', '02': 'In Progress', '03': 'Paused', '04': 'Complete', '05': 'Feeding'}.get(value[2:4], 'Unknown') }}","fi":"state"}

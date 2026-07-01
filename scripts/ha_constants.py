@@ -18,7 +18,7 @@ DEVICE_CLASS_KEYWORDS = {
     "humidity": ["humidity"],
     "pressure": ["pressure"],
     "energy": ["energy", "watt seconds", "watt-hours", "wh"],
-    "duration": ["duration", "time", "timer", "timeout"],
+    "duration": ["duration", "timer", "timeout"],
     "frequency": ["frequency", "hertz"],
     "speed": ["speed", "rpm"],
     "weight": ["weight", "mass"],
@@ -32,7 +32,10 @@ DEVICE_CLASS_KEYWORDS = {
 DEVICE_CLASS_EXCLUSIONS = {
     "power": ["power off", "power on", "power level"],
     "current": ["current limit", "current stage", "current setting", "current status", "current parameters"],
-    "duration": ["dry time", "sha", "time of use", "padding", "enabled", "update"],
+    "duration": ["dry time", "sha", "time of use", "padding", "enabled", "update",
+                 "remaining", "elapsed", "runtime", "cook time", "cycle time",
+                 "delay time", "time remaining", "time after", "startup time",
+                 "uptime", "run time", "warming time"],
 }
 
 # Union of all unit keyword mappings from all scripts (authoritative)

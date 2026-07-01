@@ -1665,7 +1665,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 2 Enabled",
@@ -1677,7 +1676,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 3 Enabled",
@@ -1689,7 +1687,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 4 Enabled",
@@ -1701,7 +1698,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 5 Enabled",
@@ -1713,7 +1709,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 6 Enabled",
@@ -1725,7 +1720,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 7 Enabled",
@@ -1737,7 +1731,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 8 Enabled",
@@ -1749,7 +1742,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 9 Enabled",
@@ -1761,7 +1753,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 10 Enabled",
@@ -1773,7 +1764,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 11 Enabled",
@@ -1785,7 +1775,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 12 Enabled",
@@ -1797,7 +1786,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 13 Enabled",
@@ -1809,7 +1797,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 14 Enabled",
@@ -1821,7 +1808,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Digital Feature 15 Enabled",
@@ -1833,7 +1819,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Current Enabled Digital Features.Reserved",
@@ -2010,7 +1995,6 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "low",
     "comment": "Linux Diagnostics - Uptime: Single numeric read-only sensor."
@@ -20538,7 +20522,6 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "System Startup Time in Minutes After Last Power Outage: Single numeric read-only sensor."
@@ -21037,7 +21020,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "high",
     "comment": "Remaining Cycle Time: Timer/duration value."
@@ -21332,7 +21314,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Delay Time Remaining Minutes: Timer/duration value."
@@ -25399,7 +25380,6 @@
       "offset": 29,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Commercial Laundry Request.Attributes.WashCycleOutOfBalance",
@@ -25758,7 +25738,6 @@
       "offset": 29,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Commercial Laundry Status.Attributes.Wash Cycle OOB",
@@ -26227,7 +26206,6 @@
       "offset": 0,
       "size": 32,
       "ha_domain": "binary_sensor",
-      "device_class": "speed",
       "state_class": "measurement"
     }, {
       "name": "Remote Cycle Allowable - Heavy Duty",
@@ -26802,7 +26780,6 @@
       "offset": 0,
       "size": 32,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Remote Cycle Allowable - DeWrinkle",
@@ -26854,7 +26831,6 @@
       "offset": 0,
       "size": 32,
       "ha_domain": "binary_sensor",
-      "device_class": "speed",
       "state_class": "measurement"
     }, {
       "name": "Remote Cycle Allowable - Mixed",
@@ -29375,7 +29351,6 @@
       "offset": 0,
       "size": 32,
       "ha_domain": "binary_sensor",
-      "device_class": "speed",
       "state_class": "measurement"
     }, {
       "name": "Remote Cycle Allowable - Heavy Duty",
@@ -29950,7 +29925,6 @@
       "offset": 0,
       "size": 32,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Remote Cycle Allowable - DeWrinkle",
@@ -30002,7 +29976,6 @@
       "offset": 0,
       "size": 32,
       "ha_domain": "binary_sensor",
-      "device_class": "speed",
       "state_class": "measurement"
     }, {
       "name": "Remote Cycle Allowable - Mixed",
@@ -43618,7 +43591,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "high",
     "comment": "Laundry Combi Unit Remaining Wash Cycle Time: Single numeric read-only sensor."
@@ -43638,7 +43610,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "high",
     "comment": "Laundry Combi Unit Remaining Dry Cycle Time: Single numeric read-only sensor."
@@ -47620,7 +47591,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Door Open Notification",
@@ -47721,7 +47691,6 @@
       "offset": 2,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Door Open Notification Supported",
@@ -53439,7 +53408,6 @@
       "offset": 0,
       "size": 4,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Door Open Notification",
@@ -53461,7 +53429,6 @@
       "offset": 0,
       "size": 4,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Room Temp High Notification",
@@ -53473,7 +53440,6 @@
       "offset": 0,
       "size": 4,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Invalid Connection Notification",
@@ -53645,7 +53611,6 @@
       "offset": 0,
       "size": 4,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Door Open Notification",
@@ -53667,7 +53632,6 @@
       "offset": 0,
       "size": 4,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Room Temp High Notification",
@@ -53679,7 +53643,6 @@
       "offset": 0,
       "size": 4,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Invalid Connection Notification",
@@ -54066,7 +54029,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "high",
     "comment": "Additional Cavity Remaining Cycle Time: Timer/duration value."
@@ -54233,7 +54195,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Additional Cavity Delay Time Remaining Minutes: Timer/duration value."
@@ -54585,7 +54546,6 @@
       "offset": 0,
       "size": 4,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Crease Free Air Notification",
@@ -54795,7 +54755,6 @@
       "offset": 4,
       "size": 4,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Crease Free Air Notification Supported",
@@ -62334,7 +62293,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "pressure",
       "state_class": "measurement"
     }, {
       "name": "FaultHeaterActive",
@@ -62356,7 +62314,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "FaultLidLockActive",
@@ -62418,7 +62375,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "voltage",
       "state_class": "measurement"
     }, {
       "name": "FaultWaterLevelMeasurementActive",
@@ -62440,7 +62396,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "voltage",
       "state_class": "measurement"
     }, {
       "name": "Reserved 1",
@@ -63046,7 +63001,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Delay Start Remaining Time In Minutes: Timer/duration value."
@@ -66680,7 +66634,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -66692,7 +66645,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -66704,7 +66656,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -66716,7 +66667,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -66925,7 +66875,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -66937,7 +66886,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -66949,7 +66897,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -66961,7 +66908,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -67170,7 +67116,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -67182,7 +67127,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -67194,7 +67138,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -67206,7 +67149,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -67415,7 +67357,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -67427,7 +67368,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -67439,7 +67379,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -67451,7 +67390,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -67660,7 +67598,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -67672,7 +67609,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -67684,7 +67620,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -67696,7 +67631,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -67905,7 +67839,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -67917,7 +67850,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -67929,7 +67861,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -67941,7 +67872,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -68150,7 +68080,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -68162,7 +68091,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -68174,7 +68102,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -68186,7 +68113,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -68395,7 +68321,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -68407,7 +68332,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -68419,7 +68343,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -68431,7 +68354,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -68640,7 +68562,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -68652,7 +68573,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -68664,7 +68584,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -68676,7 +68595,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -68885,7 +68803,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -68897,7 +68814,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -68909,7 +68825,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -68921,7 +68836,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -70199,7 +70113,6 @@
       "offset": 0,
       "size": 8,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "DishKey_248HrDelayIncrement",
@@ -70453,7 +70366,6 @@
       "offset": 0,
       "size": 8,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "DishKey_WashTempBoostSaniAndSteam",
@@ -70465,7 +70377,6 @@
       "offset": 0,
       "size": 8,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "DishKey_HeatedDryOnly",
@@ -71431,7 +71342,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Tub 1 Delay Start Remaining Time In Minutes: Timer/duration value."
@@ -72038,7 +71948,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -72050,7 +71959,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -72062,7 +71970,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -72074,7 +71981,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -72283,7 +72189,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -72295,7 +72200,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -72307,7 +72211,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -72319,7 +72222,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -72528,7 +72430,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -72540,7 +72441,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -72552,7 +72452,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -72564,7 +72463,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -72773,7 +72671,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -72785,7 +72682,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -72797,7 +72693,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -72809,7 +72704,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -73018,7 +72912,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -73030,7 +72923,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -73042,7 +72934,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -73054,7 +72945,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -73263,7 +73153,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -73275,7 +73164,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -73287,7 +73175,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -73299,7 +73186,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -73508,7 +73394,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -73520,7 +73405,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -73532,7 +73416,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -73544,7 +73427,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -73753,7 +73635,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -73765,7 +73646,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -73777,7 +73657,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -73789,7 +73668,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -73998,7 +73876,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -74010,7 +73887,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -74022,7 +73898,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -74034,7 +73909,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -74243,7 +74117,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.boost",
@@ -74255,7 +74128,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.sani",
@@ -74267,7 +74139,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.saniAndBoost",
@@ -74279,7 +74150,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Wash Temps Allowed.reserved0",
@@ -75212,7 +75082,6 @@
       "offset": 0,
       "size": 8,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "HeatPumpDryTankDetectionActive",
@@ -75284,7 +75153,6 @@
       "offset": 0,
       "size": 8,
       "ha_domain": "binary_sensor",
-      "device_class": "voltage",
       "state_class": "measurement"
     }, {
       "name": "Fault_DirtyFilter",
@@ -75460,7 +75328,6 @@
       "offset": 0,
       "size": 8,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Fault_CompressorFail",
@@ -75502,7 +75369,6 @@
       "offset": 0,
       "size": 8,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Fault_CondensateSensor",
@@ -75554,7 +75420,6 @@
       "offset": 0,
       "size": 8,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Fault_LowCompressorDischargeTemp",
@@ -75566,7 +75431,6 @@
       "offset": 0,
       "size": 8,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Failure_EvaporatorFrosted",
@@ -76722,7 +76586,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Uses TO12 Timer",
@@ -76734,7 +76597,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Is LCD Wall Oven",
@@ -79134,7 +78996,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Upper Oven Delay Time Remaining: Timer/duration value."
@@ -79172,7 +79033,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Upper Oven Cook Time Remaining: Timer/duration value."
@@ -79245,7 +79105,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Upper Oven Elapsed Cook Time: Single numeric read-only sensor."
@@ -81422,7 +81281,6 @@
       "type": "bool",
       "offset": 8,
       "size": 1,
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Cook Time.Countdown Time.Padding[0]",
@@ -81450,7 +81308,6 @@
       "type": "bool",
       "offset": 12,
       "size": 1,
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Cook Time.Padding[0]",
@@ -81478,7 +81335,6 @@
       "type": "bool",
       "offset": 16,
       "size": 1,
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Cook Delay Time.Delay Time.Expiration Time.Clock Type",
@@ -81526,7 +81382,6 @@
       "type": "bool",
       "offset": 22,
       "size": 1,
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Padding",
@@ -81636,7 +81491,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Settings.Door Request State",
@@ -81683,7 +81537,6 @@
       "offset": 12,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Settings.Cook Time.Count Down Time.Padding[0]",
@@ -81712,7 +81565,6 @@
       "offset": 16,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Settings.Cook Time.Padding[0]",
@@ -81741,7 +81593,6 @@
       "offset": 20,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Settings.Cook Delay Time.Delay Time.Padding[0]",
@@ -81860,7 +81711,6 @@
       "offset": 36,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Settings.Cook Delay Time.Padding[0]",
@@ -85552,7 +85402,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Lower Oven Delay Time Remaining: Timer/duration value."
@@ -85590,7 +85439,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Lower Oven Cook Time Remaining: Timer/duration value."
@@ -85663,7 +85511,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Lower Oven Elapsed Cook Time: Single numeric read-only sensor."
@@ -87792,7 +87639,6 @@
       "type": "bool",
       "offset": 8,
       "size": 1,
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Cook Time.Countdown Time.Padding[0]",
@@ -87820,7 +87666,6 @@
       "type": "bool",
       "offset": 12,
       "size": 1,
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Cook Time.Padding[0]",
@@ -87848,7 +87693,6 @@
       "type": "bool",
       "offset": 16,
       "size": 1,
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Cook Delay Time.Delay Time.Expiration Time.Clock Type",
@@ -87896,7 +87740,6 @@
       "type": "bool",
       "offset": 22,
       "size": 1,
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Padding",
@@ -88006,7 +87849,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Settings.Door Request State",
@@ -88053,7 +87895,6 @@
       "offset": 12,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Settings.Cook Time.Count Down Time.Padding[0]",
@@ -88082,7 +87923,6 @@
       "offset": 16,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Settings.Cook Time.Padding[0]",
@@ -88111,7 +87951,6 @@
       "offset": 20,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Settings.Cook Delay Time.Delay Time.Padding[0]",
@@ -88230,7 +88069,6 @@
       "offset": 36,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Settings.Cook Delay Time.Padding[0]",
@@ -91622,7 +91460,6 @@
       "offset": 0,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Convection Bake Allows Oven Temperature",
@@ -91634,7 +91471,6 @@
       "offset": 0,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Convection Bake Allows Upper Heater On Time",
@@ -91646,7 +91482,6 @@
       "offset": 0,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Convection Bake Allows Lower Heater On Time",
@@ -91658,7 +91493,6 @@
       "offset": 0,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Convection Bake Allows Microwave On Time",
@@ -91670,7 +91504,6 @@
       "offset": 0,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Convection Bake Allows Convection On Time",
@@ -91682,7 +91515,6 @@
       "offset": 0,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Broil Available",
@@ -91714,7 +91546,6 @@
       "offset": 1,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Broil Allows Oven Temperature",
@@ -91726,7 +91557,6 @@
       "offset": 1,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Broil Allows Upper Heater On Time",
@@ -91738,7 +91568,6 @@
       "offset": 1,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Broil Allows Lower Heater On Time",
@@ -91750,7 +91579,6 @@
       "offset": 1,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Broil Allows Microwave On Time",
@@ -91762,7 +91590,6 @@
       "offset": 1,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Broil Allows Convection On Time",
@@ -91774,7 +91601,6 @@
       "offset": 1,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Available",
@@ -91806,7 +91632,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Allows Oven Temperature",
@@ -91818,7 +91643,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Allows Upper Heater On Time",
@@ -91830,7 +91654,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Allows Lower Heater On Time",
@@ -91842,7 +91665,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Allows Microwave On Time",
@@ -91854,7 +91676,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Allows Convection On Time",
@@ -91866,7 +91687,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Sensor Available",
@@ -91898,7 +91718,6 @@
       "offset": 3,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Sensor Allows Oven Temperature",
@@ -91910,7 +91729,6 @@
       "offset": 3,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Sensor Allows Upper Heater On Time",
@@ -91922,7 +91740,6 @@
       "offset": 3,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Sensor Allows Lower Heater On Time",
@@ -91934,7 +91751,6 @@
       "offset": 3,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Sensor Allows Microwave On Time",
@@ -91946,7 +91762,6 @@
       "offset": 3,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Sensor Allows Convection On Time",
@@ -91958,7 +91773,6 @@
       "offset": 3,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Staged Available",
@@ -91990,7 +91804,6 @@
       "offset": 4,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Staged Allows Oven Temperature",
@@ -92002,7 +91815,6 @@
       "offset": 4,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Staged Allows Upper Heater On Time",
@@ -92014,7 +91826,6 @@
       "offset": 4,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Staged Allows Lower Heater On Time",
@@ -92026,7 +91837,6 @@
       "offset": 4,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Staged Allows Microwave On Time",
@@ -92038,7 +91848,6 @@
       "offset": 4,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Staged Allows Convection On Time",
@@ -92050,7 +91859,6 @@
       "offset": 4,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Slow Cook Available",
@@ -92082,7 +91890,6 @@
       "offset": 5,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Slow Cook Allows Oven Temperature",
@@ -92094,7 +91901,6 @@
       "offset": 5,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Slow Cook Allows Upper Heater On Time",
@@ -92106,7 +91912,6 @@
       "offset": 5,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Slow Cook Allows Lower Heater On Time",
@@ -92118,7 +91923,6 @@
       "offset": 5,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Slow Cook Allows Microwave On Time",
@@ -92130,7 +91934,6 @@
       "offset": 5,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Microwave Slow Cook Allows Convection On Time",
@@ -92142,7 +91945,6 @@
       "offset": 5,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Available",
@@ -92174,7 +91976,6 @@
       "offset": 6,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Allows Oven Temperature",
@@ -92186,7 +91987,6 @@
       "offset": 6,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Allows Upper Heater On Time",
@@ -92198,7 +91998,6 @@
       "offset": 6,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Allows Lower Heater On Time",
@@ -92210,7 +92009,6 @@
       "offset": 6,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Allows Microwave On Time",
@@ -92222,7 +92020,6 @@
       "offset": 6,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Allows Convection On Time",
@@ -92234,7 +92031,6 @@
       "offset": 6,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Staged Available",
@@ -92266,7 +92062,6 @@
       "offset": 7,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Staged Allows Oven Temperature",
@@ -92278,7 +92073,6 @@
       "offset": 7,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Staged Allows Upper Heater On Time",
@@ -92290,7 +92084,6 @@
       "offset": 7,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Staged Allows Lower Heater On Time",
@@ -92302,7 +92095,6 @@
       "offset": 7,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Staged Allows Microwave On Time",
@@ -92314,7 +92106,6 @@
       "offset": 7,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Staged Allows Convection On Time",
@@ -92326,7 +92117,6 @@
       "offset": 7,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Custom Available",
@@ -92358,7 +92148,6 @@
       "offset": 8,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Custom Allows Oven Temperature",
@@ -92370,7 +92159,6 @@
       "offset": 8,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Custom Allows Upper Heater On Time",
@@ -92382,7 +92170,6 @@
       "offset": 8,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Custom Allows Lower Heater On Time",
@@ -92394,7 +92181,6 @@
       "offset": 8,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Custom Allows Microwave On Time",
@@ -92406,7 +92192,6 @@
       "offset": 8,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Precision Cook Custom Allows Convection On Time",
@@ -92418,7 +92203,6 @@
       "offset": 8,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Warm Available",
@@ -92450,7 +92234,6 @@
       "offset": 9,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Warm Allows Oven Temperature",
@@ -92462,7 +92245,6 @@
       "offset": 9,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Warm Allows Upper Heater On Time",
@@ -92474,7 +92256,6 @@
       "offset": 9,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Warm Allows Lower Heater On Time",
@@ -92486,7 +92267,6 @@
       "offset": 9,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Warm Allows Microwave On Time",
@@ -92498,7 +92278,6 @@
       "offset": 9,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Warm Allows Convection On Time",
@@ -92510,7 +92289,6 @@
       "offset": 9,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Proof Available",
@@ -92542,7 +92320,6 @@
       "offset": 10,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Proof Allows Oven Temperature",
@@ -92554,7 +92331,6 @@
       "offset": 10,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Proof Allows Upper Heater On Time",
@@ -92566,7 +92342,6 @@
       "offset": 10,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Proof Allows Lower Heater On Time",
@@ -92578,7 +92353,6 @@
       "offset": 10,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Proof Allows Microwave On Time",
@@ -92590,7 +92364,6 @@
       "offset": 10,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Proof Allows Convection On Time",
@@ -92602,7 +92375,6 @@
       "offset": 10,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Toast Available",
@@ -92634,7 +92406,6 @@
       "offset": 11,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Toast Allows Oven Temperature",
@@ -92646,7 +92417,6 @@
       "offset": 11,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Toast Allows Upper Heater On Time",
@@ -92658,7 +92428,6 @@
       "offset": 11,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Toast Allows Lower Heater On Time",
@@ -92670,7 +92439,6 @@
       "offset": 11,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Toast Allows Microwave On Time",
@@ -92682,7 +92450,6 @@
       "offset": 11,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Toast Allows Convection On Time",
@@ -92694,7 +92461,6 @@
       "offset": 11,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Steam Clean Available",
@@ -92726,7 +92492,6 @@
       "offset": 12,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Steam Clean Allows Oven Temperature",
@@ -92738,7 +92503,6 @@
       "offset": 12,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Steam Clean Allows Upper Heater On Time",
@@ -92750,7 +92514,6 @@
       "offset": 12,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Steam Clean Allows Lower Heater On Time",
@@ -92762,7 +92525,6 @@
       "offset": 12,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Steam Clean Allows Microwave On Time",
@@ -92774,7 +92536,6 @@
       "offset": 12,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Steam Clean Allows Convection On Time",
@@ -92786,7 +92547,6 @@
       "offset": 12,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Air Fry Available",
@@ -92818,7 +92578,6 @@
       "offset": 13,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Air Fry Allows Oven Temperature",
@@ -92830,7 +92589,6 @@
       "offset": 13,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Air Fry Allows Upper Heater On Time",
@@ -92842,7 +92600,6 @@
       "offset": 13,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Air Fry Allows Lower Heater On Time",
@@ -92854,7 +92611,6 @@
       "offset": 13,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Air Fry Allows Microwave On Time",
@@ -92866,7 +92622,6 @@
       "offset": 13,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Air Fry Allows Convection On Time",
@@ -92878,7 +92633,6 @@
       "offset": 13,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Crisp Reheat Available",
@@ -92910,7 +92664,6 @@
       "offset": 14,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Crisp Reheat Allows Oven Temperature",
@@ -92922,7 +92675,6 @@
       "offset": 14,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Crisp Reheat Allows Upper Heater On Time",
@@ -92934,7 +92686,6 @@
       "offset": 14,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Crisp Reheat Allows Lower Heater On Time",
@@ -92946,7 +92697,6 @@
       "offset": 14,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Crisp Reheat Allows Microwave On Time",
@@ -92958,7 +92708,6 @@
       "offset": 14,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Crisp Reheat Allows Convection On Time",
@@ -92970,7 +92719,6 @@
       "offset": 14,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Convection Roast Available",
@@ -93002,7 +92750,6 @@
       "offset": 15,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Convection Roast Allows Oven Temperature",
@@ -93014,7 +92761,6 @@
       "offset": 15,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Convection Roast Allows Upper Heater On Time",
@@ -93026,7 +92772,6 @@
       "offset": 15,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Convection Roast Allows Lower Heater On Time",
@@ -93038,7 +92783,6 @@
       "offset": 15,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Convection Roast Allows Microwave On Time",
@@ -93050,7 +92794,6 @@
       "offset": 15,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Convection Roast Allows Convection On Time",
@@ -93062,7 +92805,6 @@
       "offset": 15,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Fast Cook Available",
@@ -93094,7 +92836,6 @@
       "offset": 16,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Fast Cook Allows Oven Temperature",
@@ -93106,7 +92847,6 @@
       "offset": 16,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Mode Fast Cook Allows Upper Heater On Time",
@@ -93118,7 +92858,6 @@
       "offset": 16,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Fast Cook Allows Lower Heater On Time",
@@ -93130,7 +92869,6 @@
       "offset": 16,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Fast Cook Allows Microwave On Time",
@@ -93142,7 +92880,6 @@
       "offset": 16,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Mode Fast Cook Allows Convection On Time",
@@ -93154,7 +92891,6 @@
       "offset": 16,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Reserved 1",
@@ -97011,7 +96747,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Elapsed Closed-Loop Cooking Time: Single numeric read-only sensor."
@@ -116153,7 +115888,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Microwave Time after Cycle End: Single numeric read-only sensor."
@@ -134333,7 +134067,6 @@
       "offset": 0,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Compressor Speed Limited by Compressor current",
@@ -134341,7 +134074,6 @@
       "offset": 1,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Compressor Speed Limited by Indoor Coil Temperature",
@@ -134349,7 +134081,6 @@
       "offset": 2,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Compressor Speed Limited by Low Input Voltage",
@@ -134357,7 +134088,6 @@
       "offset": 3,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "voltage",
       "state_class": "measurement"
     }, {
       "name": "Compressor Speed Limited by High Input Voltage",
@@ -134365,7 +134095,6 @@
       "offset": 4,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "voltage",
       "state_class": "measurement"
     }, {
       "name": "Compressor Speed Limited by Suction Temperature",
@@ -134373,7 +134102,6 @@
       "offset": 5,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Compressor Speed Limited by Discharge Temperature",
@@ -134381,7 +134109,6 @@
       "offset": 6,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Compressor Speed Limited by Drive Module Temperature",
@@ -134389,7 +134116,6 @@
       "offset": 7,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Reserved1",
@@ -142169,7 +141895,6 @@
       "offset": 1,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Grind Time Delta Supported",
@@ -142181,7 +141906,6 @@
       "offset": 1,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Favorites Supported",
@@ -142325,7 +142049,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Supported Features.Volume Edit Supported",
@@ -142378,7 +142101,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Supported Features.Bloom Dwell Time Supported",
@@ -142390,7 +142112,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Supported Features.Bloom Pump Time Supported",
@@ -142402,7 +142123,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Supported Features.Favorites Supported",
@@ -143106,7 +142826,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "h",
     "confidence": "high",
     "comment": "Total Compressor Runtime: Single numeric read-only sensor."
@@ -143897,7 +143616,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -143960,7 +143678,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -143972,7 +143689,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -144213,7 +143929,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -144276,7 +143991,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -144288,7 +144002,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -144529,7 +144242,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -144592,7 +144304,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -144604,7 +144315,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -144845,7 +144555,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -144908,7 +144617,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -144920,7 +144628,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -145161,7 +144868,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -145224,7 +144930,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -145236,7 +144941,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -145477,7 +145181,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -145540,7 +145243,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -145552,7 +145254,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -145793,7 +145494,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -145856,7 +145556,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -145868,7 +145567,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -146109,7 +145807,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -146172,7 +145869,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -146184,7 +145880,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -146425,7 +146120,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -146488,7 +146182,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -146500,7 +146193,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -146741,7 +146433,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -146804,7 +146495,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -146816,7 +146506,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -147057,7 +146746,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -147120,7 +146808,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -147132,7 +146819,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -147373,7 +147059,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -147436,7 +147121,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -147448,7 +147132,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -147689,7 +147372,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -147752,7 +147434,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -147764,7 +147445,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -148059,7 +147739,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -148122,7 +147801,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -148134,7 +147812,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -148373,7 +148050,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "high",
     "comment": "Toaster Oven Time Remaining for Remote Start: Timer/duration value."
@@ -148417,7 +148093,6 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "s",
     "confidence": "high",
     "comment": "Toaster Oven Cook Time Remaining: Timer/duration value."
@@ -148524,7 +148199,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -148587,7 +148261,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -148599,7 +148272,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -148850,7 +148522,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -148913,7 +148584,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -148925,7 +148595,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -149191,7 +148860,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -149254,7 +148922,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -149266,7 +148933,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -149437,7 +149103,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cooking Push Notifications.Cooking Started",
@@ -149459,7 +149124,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Cooking Push Notifications.Cooking Complete",
@@ -149490,7 +149154,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cooking Push Notifications.Cooking Started Notification Supported",
@@ -149512,7 +149175,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Cooking Push Notifications.Cooking Complete Notification Supported",
@@ -149662,7 +149324,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Cook Time Used",
@@ -149725,7 +149386,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Max Temperature Used",
@@ -149737,7 +149397,6 @@
       "offset": 26,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Min Cook Time Used",
@@ -149924,7 +149583,6 @@
       "offset": 0,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "speed",
       "state_class": "measurement"
     }, {
       "name": "Requested Setting Mask.Timer Set Value Requested",
@@ -150189,7 +149847,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "weight",
       "state_class": "measurement"
     }, {
       "name": "Mixer notifications.Auto Sense Error Detect Response",
@@ -150260,7 +149917,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "weight",
       "state_class": "measurement"
     }, {
       "name": "Mixer notifications.Auto Sense Error Detect Response Notification Supported",
@@ -150342,7 +149998,6 @@
       "size": 4
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Mixer Run Time in Minutes: Single numeric read-only sensor."
@@ -150374,7 +150029,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "speed",
       "state_class": "measurement"
     }, {
       "name": "Cycle Time Setting Modification Available",
@@ -150386,7 +150040,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Torque Profile Modification Available",
@@ -150614,7 +150267,6 @@
       "offset": 0,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "weight",
       "state_class": "measurement"
     }, {
       "name": "Tare Scale Available",
@@ -150938,7 +150590,6 @@
       "offset": 0,
       "size": 4,
       "ha_domain": "binary_sensor",
-      "device_class": "speed",
       "state_class": "measurement"
     }, {
       "name": "Requested Settings Mask.Timer Set Value Requested",
@@ -151607,7 +151258,6 @@
       "offset": 0,
       "size": 4,
       "ha_domain": "binary_sensor",
-      "device_class": "speed",
       "state_class": "measurement"
     }, {
       "name": "Cycle Time Setting Modification Available",
@@ -151619,7 +151269,6 @@
       "offset": 0,
       "size": 4,
       "ha_domain": "binary_sensor",
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Auto Sense Modification Available",
@@ -151836,7 +151485,6 @@
       },
       "offset": 10,
       "size": 2,
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Editable Fields.Cook Time Editable",
@@ -151847,7 +151495,6 @@
       },
       "offset": 10,
       "size": 2,
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Editable Fields.Probe Target Temperature Editable",
@@ -151858,7 +151505,6 @@
       },
       "offset": 10,
       "size": 2,
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Editable Fields.Smoke Level Editable",
@@ -151905,7 +151551,6 @@
       },
       "offset": 12,
       "size": 2,
-      "device_class": "current",
       "state_class": "measurement"
     }, {
       "name": "Valid Fields.Cook Mode Valid",
@@ -151925,7 +151570,6 @@
       },
       "offset": 12,
       "size": 2,
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Valid Fields.Cook Time Valid",
@@ -151936,7 +151580,6 @@
       },
       "offset": 12,
       "size": 2,
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Valid Fields.Probe Target Temperature Valid",
@@ -151947,7 +151590,6 @@
       },
       "offset": 12,
       "size": 2,
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Valid Fields.Smoke Level Valid",
@@ -152103,7 +151745,6 @@
       "offset": 8,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Requested Parameter Mask.Cook Time Requested",
@@ -152126,7 +151767,6 @@
       "offset": 8,
       "size": 2,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Requested Parameter Mask.Smoke Level Requested",
@@ -152369,7 +152009,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Cook Time Remaining: Timer/duration value."
@@ -152389,7 +152028,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Total Elapsed Cooking Time: Single numeric read-only sensor."
@@ -153996,7 +153634,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Total Elapsed Warming Time: Single numeric read-only sensor."
@@ -154588,7 +154225,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Cycle Time Remaining: Timer/duration value."
@@ -154708,7 +154344,6 @@
       "offset": 0,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Temporary Load Increase Available",
@@ -154720,7 +154355,6 @@
       "offset": 0,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Temporary Temperature Offset Available",
@@ -154732,7 +154366,6 @@
       "offset": 0,
       "size": 1,
       "ha_domain": "binary_sensor",
-      "device_class": "temperature",
       "state_class": "measurement"
     }, {
       "name": "Reserved",
@@ -155370,7 +155003,6 @@
       },
       "offset": 2,
       "size": 2,
-      "device_class": "duration",
       "state_class": "measurement"
     }, {
       "name": "Supported Pricing Structures.Blocks",
@@ -158351,7 +157983,6 @@
       "size": 2
     }],
     "ha_domain": "sensor",
-    "device_class": "duration",
     "unit_of_measurement": "min",
     "confidence": "high",
     "comment": "Cycle Time Remaining Tub 1: Timer/duration value."
