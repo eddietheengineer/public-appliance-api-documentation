@@ -47376,7 +47376,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "state_class": "total",
     "confidence": "medium",
     "comment": "Load Item Count: Counter/count sensor.",
     "device_class": "enum"
@@ -47405,7 +47404,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "state_class": "total",
     "confidence": "medium",
     "comment": "Load Item Count Set Request: Counter/count sensor.",
     "device_class": "enum"
@@ -111348,7 +111346,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "unit_of_measurement": "rpm",
     "confidence": "high",
     "comment": "Hood Fan Speed: Speed/RPM sensor.",
     "device_class": "enum"
@@ -111749,7 +111746,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "unit_of_measurement": "rpm",
     "confidence": "high",
     "comment": "Hood Display Protection Fan Speed: Speed/RPM sensor.",
     "device_class": "enum"
@@ -128960,7 +128956,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "unit_of_measurement": "rpm",
     "confidence": "high",
     "comment": "MUAM Fan Speed setting: Speed/RPM sensor.",
     "device_class": "enum"
@@ -134409,7 +134404,6 @@
       "size": 1
     }],
     "ha_domain": "binary_sensor",
-    "unit_of_measurement": "rpm",
     "confidence": "high",
     "comment": "Compressor Speed Limiting Factor: Speed/RPM sensor."
   }, {
@@ -138451,7 +138445,6 @@
       "size": 1
     }],
     "ha_domain": "sensor",
-    "unit_of_measurement": "rpm",
     "confidence": "high",
     "comment": "Available AC Fan Speeds: Speed/RPM sensor."
   }, {
@@ -142709,7 +142702,6 @@
       "size": 1
     }],
     "ha_domain": "binary_sensor",
-    "state_class": "total",
     "confidence": "medium",
     "comment": "Under Counter Ice Maker Bin Full: Counter/count sensor."
   }, {
@@ -150097,8 +150089,7 @@
       "offset": 17,
       "size": 1
     }],
-    "ha_domain": "binary_sensor",
-    "unit_of_measurement": "s",
+    "ha_domain": "sensor",
     "confidence": "low",
     "comment": "Mixer Control Settings Limits: Multi-field sensor, may need custom handling to extract individual values."
   }, {
