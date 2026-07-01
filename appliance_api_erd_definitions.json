@@ -94094,8 +94094,9 @@
     }],
     "paired_erd": "0x5410",
     "pair_role": "status",
-    "confidence": "low",
-    "comment": "Precision Cooking Short Name Cavity 1 Status: Multi-field sensor, may need custom handling to extract individual values."
+    "confidence": "medium",
+    "comment": "Precision Cooking Short Name Cavity 1 Status: Multi-field sensor, may need custom handling to extract individual values.",
+    "ha_domain": "sensor"
   }, {
     "name": "Precision Cooking Menu Cavity 1 Config Key",
     "id": "0x5412",
@@ -94883,8 +94884,9 @@
     }],
     "paired_erd": "0x5420",
     "pair_role": "status",
-    "confidence": "low",
-    "comment": "Precision Cooking Short Name Cavity 2 Status: Multi-field sensor, may need custom handling to extract individual values."
+    "confidence": "medium",
+    "comment": "Precision Cooking Short Name Cavity 2 Status: Multi-field sensor, may need custom handling to extract individual values.",
+    "ha_domain": "sensor"
   }, {
     "name": "Precision Cooking Menu Cavity 2 Config Key",
     "id": "0x5422",

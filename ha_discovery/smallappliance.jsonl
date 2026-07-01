@@ -4,7 +4,7 @@
 {"i":"9004","n":"Coffee Brewer Bloom Dwell Time","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
 {"i":"9005","n":"Coffee Brewer Brew Duration","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
 {"i":"9006","n":"Coffee Brewer Brew Cups","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
-{"i":"9008","n":"Coffee Brewer Brew Strength","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Custom', '01': 'Light', '02': 'Medium', '03': 'Dark', '04': 'Gold', '05': 'Iced Coffee'}.get(value[:2], 'Unknown') }}"}
+{"i":"9008","n":"Coffee Brewer Brew Strength","d":"sensor","ds":1,"dc":"enum","p":"9016","r":"status","vt":"{{ {'00': 'Custom', '01': 'Light', '02': 'Medium', '03': 'Dark', '04': 'Gold', '05': 'Iced Coffee'}.get(value[:2], 'Unknown') }}"}
 {"i":"9009","n":"Coffee Brewer Supported Brew Strengths - Light","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 1) % 2 else '00' }}","fi":"light","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9009","n":"Coffee Brewer Supported Brew Strengths - Medium","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 2) % 2 else '00' }}","fi":"medium","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9009","n":"Coffee Brewer Supported Brew Strengths - Dark","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 4) % 2 else '00' }}","fi":"dark","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -15,13 +15,13 @@
 {"i":"900b","n":"Coffee Brewer Start Brew - Temperature (F)","d":"sensor","ds":3,"vt":"{{ value[2:4] | int(base=16) }}","fi":"temperature_f"}
 {"i":"900b","n":"Coffee Brewer Start Brew - Cups","d":"sensor","ds":3,"vt":"{{ value[4:6] | int(base=16) }}","fi":"cups"}
 {"i":"900c","n":"Coffee Brewer Cancel Brew","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
-{"i":"9010","n":"Coffee Brewer Start Custom Brew","d":"number","ds":8,"u":"s","dc":"duration","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%016x' % (value | int) }}","m":"box"}
+{"i":"9010","n":"Coffee Brewer Start Custom Brew","d":"number","ds":8,"u":"s","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%016x' % (value | int) }}","m":"box"}
 {"i":"9011","n":"Coffee Brewer Filter Remaining Gallons","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
 {"i":"9012","n":"Coffee Brewer Pot Present","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Not present', '01': 'Present'}.get(value[:2], 'Unknown') }}"}
 {"i":"9013","n":"Coffee Brewer Out of Water","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Not out of water', '01': 'Out of water'}.get(value[:2], 'Unknown') }}"}
 {"i":"9014","n":"Coffee Brewer Brew Current Outlet Temperature","d":"sensor","ds":1,"u":"°F","dc":"temperature","vt":"{{ value | int(base=16) }}"}
 {"i":"9015","n":"Coffee Brewer Descale Remaining Cycles","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
-{"i":"9016","n":"Coffee Brewer Brew Strength Request","d":"sensor","ds":1,"vt":"{{ {'00': 'Reserved', '01': 'Light', '02': 'Medium', '03': 'Dark', '04': 'Gold', '05': 'Iced Coffee'}.get(value[:2], 'Unknown') }}"}
+{"i":"9016","n":"Coffee Brewer Brew Strength","d":"sensor","ds":1,"dc":"enum","p":"9008","r":"controlling","vt":"{{ {'00': 'Reserved', '01': 'Light', '02': 'Medium', '03': 'Dark', '04': 'Gold', '05': 'Iced Coffee'}.get(value[:2], 'Unknown') }}"}
 {"i":"9017","n":"Coffee Brewer Brew Temperature Request","d":"number","ds":1,"u":"°F","dc":"temperature","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
 {"i":"9018","n":"Coffee Brewer Brew Cups Request","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"9019","n":"Coffee Brewer Descaling","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -66,7 +66,7 @@
 {"i":"902b","n":"Espresso Maker Grind Hopper Presence Status","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"902c","n":"Espresso Maker Empty Waste Bin","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"902d","n":"Espresso Maker Bean Status","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"902e","n":"Espresso Maker Set the Water Hardness Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Very Soft', '01': 'Soft', '02': 'Hard', '03': 'Very Hard'}.get(value[:2], 'Unknown') }}"}
+{"i":"902e","n":"Espresso Maker Set the Water Hardness Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Very Soft', '01': 'Soft', '02': 'Hard', '03': 'Very Hard'}.get(value[:2], 'Unknown') }}"}
 {"i":"902f","n":"Espresso Maker Service Door/Brew Module Status","d":"binary_sensor","ds":1,"dc":"door","vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9030","n":"Espresso Maker Descale Needed Status","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9031","n":"Espresso Maker Steam Knob Position","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Off', '01': 'Steam', '02': 'Hot Water'}.get(value[:2], 'Unknown') }}"}
@@ -212,11 +212,11 @@
 {"i":"905d","n":"Delay Start Enabled","d":"binary_sensor","ds":3,"p":"905e","r":"status","vt":"{{ '01' if value[0:2] != '00' else '00' }}"}
 {"i":"905d","n":"Delay Start - Hours: Time of Day (24-Hour Format)","d":"binary_sensor","ds":3,"p":"905e","r":"status","vt":"{{ value[2:4] | int(base=16) }}","fi":"hours_time_of_day_24_hour_format"}
 {"i":"905d","n":"Delay Start - Minutes: Time of Day","d":"binary_sensor","ds":3,"p":"905e","r":"status","vt":"{{ value[4:6] | int(base=16) }}","fi":"minutes_time_of_day"}
-{"i":"905e","n":"Delay Start Enabled","d":"sensor","ds":3,"p":"905d","r":"request","vt":"{{ '01' if value[0:2] != '00' else '00' }}"}
-{"i":"905e","n":"Delay Start - Hours: Time of Day (24-Hour Format)","d":"sensor","ds":3,"p":"905d","r":"request","vt":"{{ value[2:4] | int(base=16) }}","fi":"hours_time_of_day_24_hour_format"}
-{"i":"905e","n":"Delay Start - Minutes: Time of Day","d":"sensor","ds":3,"p":"905d","r":"request","vt":"{{ value[4:6] | int(base=16) }}","fi":"minutes_time_of_day"}
+{"i":"905e","n":"Delay Start Enabled","d":"binary_sensor","ds":3,"p":"905d","r":"request","vt":"{{ '01' if value[0:2] != '00' else '00' }}"}
+{"i":"905e","n":"Delay Start - Hours: Time of Day (24-Hour Format)","d":"binary_sensor","ds":3,"p":"905d","r":"request","vt":"{{ value[2:4] | int(base=16) }}","fi":"hours_time_of_day_24_hour_format"}
+{"i":"905e","n":"Delay Start - Minutes: Time of Day","d":"binary_sensor","ds":3,"p":"905d","r":"request","vt":"{{ value[4:6] | int(base=16) }}","fi":"minutes_time_of_day"}
 {"i":"9100","n":"Ice Maker Status","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Making ice', '01': 'Defrosting', '02': 'Cleaning', '03': 'Ice bin full', '04': 'Add water', '05': 'Ice bin missing', '06': 'Idle', '07': 'Missing water source', '08': 'Lid Open'}.get(value[:2], 'Unknown') }}"}
-{"i":"9101","n":"Ice Maker Light","d":"sensor","ds":1,"vt":"{{ {'00': 'Off', '01': 'On', '02': 'Dim'}.get(value[:2], 'Unknown') }}"}
+{"i":"9101","n":"Ice Maker Light","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Off', '01': 'On', '02': 'Dim'}.get(value[:2], 'Unknown') }}"}
 {"i":"9102","n":"Ice Maker Cloud Schedule Enabled","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9104","n":"Ice Maker Filter Status","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9105","n":"Under Counter Ice Maker Notifications - Clean soon","d":"binary_sensor","ds":4,"vt":"{{ '01' if ((value[0:8] | int(base=16)) // 1) % 2 else '00' }}","fi":"clean_soon","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -227,24 +227,24 @@
 {"i":"9106","n":"Ice Maker Cleaning Required","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9107","n":"Ice Maker Power","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9108","n":"Ice Maker Ice Production","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
-{"i":"9109","n":"Ice Maker Cube Size","d":"sensor","ds":1,"vt":"{{ {'00': 'Small', '01': 'Standard', '02': 'Large'}.get(value[:2], 'Unknown') }}"}
-{"i":"910a","n":"Under Counter Ice Maker Bin Full","d":"sensor","ds":1,"sc":"total","vt":"{{ value | int(base=16) }}"}
+{"i":"9109","n":"Ice Maker Cube Size","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Small', '01': 'Standard', '02': 'Large'}.get(value[:2], 'Unknown') }}"}
+{"i":"910a","n":"Under Counter Ice Maker Bin Full","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"910b","n":"Ice Maker Filter Life Used Percentage","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"910c","n":"Ice Maker Clean Status","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Clean', '01': 'Clean soon (order supplies)', '02': 'Clean now'}.get(value[:2], 'Unknown') }}"}
 {"i":"910f","n":"Door Status","d":"binary_sensor","ds":1,"dc":"door","vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"911d","n":"Ice Maker Filter Status Reset","d":"button","ds":1,"dc":"restart"}
-{"i":"9132","n":"Tank Drain Frequency Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Normal', '01': 'More Frequent', '02': 'Very Frequent'}.get(value[:2], 'Unknown') }}"}
-{"i":"9133","n":"Harvest Time Adjustment Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Normal', '01': 'Longer', '02': 'Longest'}.get(value[:2], 'Unknown') }}"}
+{"i":"9132","n":"Tank Drain Frequency Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Normal', '01': 'More Frequent', '02': 'Very Frequent'}.get(value[:2], 'Unknown') }}"}
+{"i":"9133","n":"Harvest Time Adjustment Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Normal', '01': 'Longer', '02': 'Longest'}.get(value[:2], 'Unknown') }}"}
 {"i":"9134","n":"Ice Maker Model","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Legacy', '01': 'Opal Mass', '02': 'Opal 2.0 Legacy Power Board', '03': 'Opal 2.0 New Power Board', '04': 'Opal 2.5 Legacy PowerBoard', '05': 'Opal 2.5 New Power Board', '06': 'Opal 2.1', '07': 'Opal 2.6', '08': 'Opal Mini', '09': 'Opal Clear', '0a': 'Opal 1.0'}.get(value[:2], 'Unknown') }}"}
 {"i":"9136","n":"Current Filter Usage","d":"sensor","ds":2,"u":"%","vt":"{{ value | int(base=16) }}"}
 {"i":"9137","n":"Filter Expiration Elapsed Time","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
 {"i":"9138","n":"Current Filter Type","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Unknown', '01': 'Carbon Filter', '02': 'Scale Inhibiting Filter', '03': 'Opal Mini: CTO', '04': 'Opal Mini: CTO + Scale Inhibiting'}.get(value[:2], 'Unknown') }}"}
-{"i":"9139","n":"Requested Filter Type","d":"sensor","ds":1,"vt":"{{ {'00': 'Unknown', '01': 'Carbon Filter', '02': 'Scale Inhibiting Filter', '03': 'Opal Mini: CTO', '04': 'Opal Mini: CTO + Scale Inhibiting'}.get(value[:2], 'Unknown') }}"}
+{"i":"9139","n":"Requested Filter Type","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Unknown', '01': 'Carbon Filter', '02': 'Scale Inhibiting Filter', '03': 'Opal Mini: CTO', '04': 'Opal Mini: CTO + Scale Inhibiting'}.get(value[:2], 'Unknown') }}"}
 {"i":"913a","n":"Descale Indication Elapsed Time","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
 {"i":"913b","n":"Sanitize Indication Elapsed Time","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
 {"i":"913c","n":"Total Compressor Runtime","d":"sensor","ds":2,"u":"h","dc":"duration","vt":"{{ value | int(base=16) }}"}
 {"i":"913d","n":"Time To Descale","d":"sensor","ds":2,"u":"%","vt":"{{ value | int(base=16) }}"}
-{"i":"913e","n":"Light Color","d":"number","ds":4,"mn":0.0,"mx":255.0,"st":1.0,"p":"913f","r":"status","vt":"{{ value[0:2] | int(base=16) }}","ct":"{{ '%08x' % (value | int) }}","m":"box"}
+{"i":"913e","n":"Light Color","d":"number","ds":4,"u":"%","mn":0.0,"mx":255.0,"st":1.0,"p":"913f","r":"status","vt":"{{ value[0:2] | int(base=16) }}","ct":"{{ '%08x' % (value | int) }}","m":"box"}
 {"i":"913f","n":"Light Color - Intensity Percentage (0-100)","d":"sensor","ds":4,"p":"913e","r":"request","vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"913f","n":"Light Color - Red (0-255)","d":"sensor","ds":4,"p":"913e","r":"request","vt":"{{ value[2:4] | int(base=16) }}","fi":"red_0_255"}
 {"i":"913f","n":"Light Color - Green (0-255)","d":"sensor","ds":4,"p":"913e","r":"request","vt":"{{ value[4:6] | int(base=16) }}","fi":"green_0_255"}
@@ -274,7 +274,7 @@
 {"i":"9203","n":"SDA Current Display Brightness Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Low', '01': 'Medium', '02': 'High'}.get(value[:2], 'Unknown') }}"}
 {"i":"9205","n":"Toaster Oven Door Status","d":"binary_sensor","ds":1,"dc":"door","vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9206","n":"Toaster Oven Door Alarm Status","d":"binary_sensor","ds":1,"dc":"door","vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9207","n":"Toaster Oven Current Cooking Parameters - Shade","d":"sensor","ds":12,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9207","n":"Toaster Oven Current Cooking Parameters - Shade","d":"sensor","ds":12,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9207","n":"Toaster Oven Current Cooking Parameters - Size","d":"sensor","ds":12,"dc":"enum","vt":"{{ {'00': 'Small', '01': 'Medium', '02': 'Large'}.get(value[2:4], 'Unknown') }}","fi":"size"}
 {"i":"9207","n":"Toaster Oven Current Cooking Parameters - Temperature (F)","d":"sensor","ds":12,"vt":"{{ value[4:8] | int(base=16) }}","fi":"temperature_f"}
 {"i":"9207","n":"Toaster Oven Current Cooking Parameters - Cook Time (Seconds)","d":"sensor","ds":12,"vt":"{{ value[8:16] | int(base=16) }}","fi":"cook_time_seconds"}
@@ -283,7 +283,7 @@
 {"i":"9207","n":"Toaster Oven Current Cooking Parameters - Preferences","d":"sensor","ds":12,"vt":"{{ value[20:22] | int(base=16) }}","fi":"preferences"}
 {"i":"9207","n":"Toaster Oven Current Cooking Parameters - Padding","d":"sensor","ds":12,"vt":"{{ value[22:24] | int(base=16) }}","fi":"padding"}
 {"i":"9209","n":"Toaster Oven Current State","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Sleep', '01': 'Standby', '02': 'Initialization', '03': 'Cooking', '04': 'Preheating', '05': 'Idle', '06': 'Temperature Achieved', '07': 'Cooking Complete'}.get(value[:2], 'Unknown') }}"}
-{"i":"920a","n":"Toaster Oven Current Air Fry Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"920a","n":"Toaster Oven Current Air Fry Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"920a","n":"Toaster Oven Current Air Fry Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"920a","n":"Toaster Oven Current Air Fry Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"920a","n":"Toaster Oven Current Air Fry Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -298,7 +298,7 @@
 {"i":"920a","n":"Toaster Oven Current Air Fry Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"920a","n":"Toaster Oven Current Air Fry Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"920a","n":"Toaster Oven Current Air Fry Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"920c","n":"Toaster Oven Current Bake Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"920c","n":"Toaster Oven Current Bake Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"920c","n":"Toaster Oven Current Bake Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"920c","n":"Toaster Oven Current Bake Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"920c","n":"Toaster Oven Current Bake Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -313,7 +313,7 @@
 {"i":"920c","n":"Toaster Oven Current Bake Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"920c","n":"Toaster Oven Current Bake Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"920c","n":"Toaster Oven Current Bake Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"920e","n":"Toaster Oven Current Broil Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"920e","n":"Toaster Oven Current Broil Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"920e","n":"Toaster Oven Current Broil Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"920e","n":"Toaster Oven Current Broil Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"920e","n":"Toaster Oven Current Broil Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -328,7 +328,7 @@
 {"i":"920e","n":"Toaster Oven Current Broil Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"920e","n":"Toaster Oven Current Broil Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"920e","n":"Toaster Oven Current Broil Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9210","n":"Toaster Oven Current Roast Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9210","n":"Toaster Oven Current Roast Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9210","n":"Toaster Oven Current Roast Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9210","n":"Toaster Oven Current Roast Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9210","n":"Toaster Oven Current Roast Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -343,7 +343,7 @@
 {"i":"9210","n":"Toaster Oven Current Roast Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9210","n":"Toaster Oven Current Roast Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9210","n":"Toaster Oven Current Roast Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9212","n":"Toaster Oven Current Reheat Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9212","n":"Toaster Oven Current Reheat Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9212","n":"Toaster Oven Current Reheat Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9212","n":"Toaster Oven Current Reheat Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9212","n":"Toaster Oven Current Reheat Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -358,7 +358,7 @@
 {"i":"9212","n":"Toaster Oven Current Reheat Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9212","n":"Toaster Oven Current Reheat Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9212","n":"Toaster Oven Current Reheat Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9214","n":"Toaster Oven Current Warm Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9214","n":"Toaster Oven Current Warm Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9214","n":"Toaster Oven Current Warm Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9214","n":"Toaster Oven Current Warm Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9214","n":"Toaster Oven Current Warm Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -373,7 +373,7 @@
 {"i":"9214","n":"Toaster Oven Current Warm Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9214","n":"Toaster Oven Current Warm Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9214","n":"Toaster Oven Current Warm Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9216","n":"Toaster Oven Current Slow Cook Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9216","n":"Toaster Oven Current Slow Cook Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9216","n":"Toaster Oven Current Slow Cook Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9216","n":"Toaster Oven Current Slow Cook Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9216","n":"Toaster Oven Current Slow Cook Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -388,7 +388,7 @@
 {"i":"9216","n":"Toaster Oven Current Slow Cook Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9216","n":"Toaster Oven Current Slow Cook Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9216","n":"Toaster Oven Current Slow Cook Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9218","n":"Toaster Oven Current Dehydrate Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9218","n":"Toaster Oven Current Dehydrate Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9218","n":"Toaster Oven Current Dehydrate Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9218","n":"Toaster Oven Current Dehydrate Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9218","n":"Toaster Oven Current Dehydrate Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -403,7 +403,7 @@
 {"i":"9218","n":"Toaster Oven Current Dehydrate Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9218","n":"Toaster Oven Current Dehydrate Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9218","n":"Toaster Oven Current Dehydrate Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"921a","n":"Toaster Oven Current Proof Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"921a","n":"Toaster Oven Current Proof Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"921a","n":"Toaster Oven Current Proof Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"921a","n":"Toaster Oven Current Proof Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"921a","n":"Toaster Oven Current Proof Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -418,7 +418,7 @@
 {"i":"921a","n":"Toaster Oven Current Proof Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"921a","n":"Toaster Oven Current Proof Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"921a","n":"Toaster Oven Current Proof Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"921c","n":"Toaster Oven Current Cookie Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"921c","n":"Toaster Oven Current Cookie Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"921c","n":"Toaster Oven Current Cookie Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"921c","n":"Toaster Oven Current Cookie Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"921c","n":"Toaster Oven Current Cookie Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -433,7 +433,7 @@
 {"i":"921c","n":"Toaster Oven Current Cookie Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"921c","n":"Toaster Oven Current Cookie Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"921c","n":"Toaster Oven Current Cookie Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"921e","n":"Toaster Oven Current Pizza Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"921e","n":"Toaster Oven Current Pizza Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"921e","n":"Toaster Oven Current Pizza Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"921e","n":"Toaster Oven Current Pizza Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"921e","n":"Toaster Oven Current Pizza Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -448,7 +448,7 @@
 {"i":"921e","n":"Toaster Oven Current Pizza Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"921e","n":"Toaster Oven Current Pizza Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"921e","n":"Toaster Oven Current Pizza Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9220","n":"Toaster Oven Current Bagel Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9220","n":"Toaster Oven Current Bagel Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9220","n":"Toaster Oven Current Bagel Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9220","n":"Toaster Oven Current Bagel Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9220","n":"Toaster Oven Current Bagel Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -463,7 +463,7 @@
 {"i":"9220","n":"Toaster Oven Current Bagel Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9220","n":"Toaster Oven Current Bagel Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9220","n":"Toaster Oven Current Bagel Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9222","n":"Toaster Oven Current Toast Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9222","n":"Toaster Oven Current Toast Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9222","n":"Toaster Oven Current Toast Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9222","n":"Toaster Oven Current Toast Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9222","n":"Toaster Oven Current Toast Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -480,7 +480,7 @@
 {"i":"9222","n":"Toaster Oven Current Toast Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9224","n":"Toaster Oven Door Alarm Silence","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9225","n":"Toaster Oven Reset Cooking Parameters for the Selected Cooking Mode","d":"button","ds":1,"dc":"restart"}
-{"i":"9226","n":"Toaster Oven Current Crisp Finish Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9226","n":"Toaster Oven Current Crisp Finish Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9226","n":"Toaster Oven Current Crisp Finish Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9226","n":"Toaster Oven Current Crisp Finish Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9226","n":"Toaster Oven Current Crisp Finish Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -503,7 +503,7 @@
 {"i":"922e","n":"Toaster Oven Add More Time - Add Cook Time Seconds","d":"sensor","ds":8,"vt":"{{ value[0:8] | int(base=16) }}"}
 {"i":"922e","n":"Toaster Oven Add More Time - Request ID","d":"sensor","ds":8,"vt":"{{ value[8:16] | int(base=16) }}","fi":"request_id"}
 {"i":"922f","n":"Toaster Oven Cook Time Remaining","d":"sensor","ds":4,"u":"s","dc":"duration","vt":"{{ value | int(base=16) }}"}
-{"i":"9230","n":"Toaster Oven Current Cake Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9230","n":"Toaster Oven Current Cake Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9230","n":"Toaster Oven Current Cake Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9230","n":"Toaster Oven Current Cake Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9230","n":"Toaster Oven Current Cake Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -518,7 +518,7 @@
 {"i":"9230","n":"Toaster Oven Current Cake Mode Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9230","n":"Toaster Oven Current Cake Mode Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9230","n":"Toaster Oven Current Cake Mode Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9232","n":"Toaster Oven Current Cookie Mode with Preferences Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9232","n":"Toaster Oven Current Cookie Mode with Preferences Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9232","n":"Toaster Oven Current Cookie Mode with Preferences Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9232","n":"Toaster Oven Current Cookie Mode with Preferences Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9232","n":"Toaster Oven Current Cookie Mode with Preferences Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -533,7 +533,7 @@
 {"i":"9232","n":"Toaster Oven Current Cookie Mode with Preferences Cooking Parameters - Max Shade Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 8) % 2 else '00' }}","fi":"max_shade_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9232","n":"Toaster Oven Current Cookie Mode with Preferences Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9232","n":"Toaster Oven Current Cookie Mode with Preferences Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9234","n":"Toaster Oven Current Pizza Mode with Preferences Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9234","n":"Toaster Oven Current Pizza Mode with Preferences Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9234","n":"Toaster Oven Current Pizza Mode with Preferences Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9234","n":"Toaster Oven Current Pizza Mode with Preferences Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9234","n":"Toaster Oven Current Pizza Mode with Preferences Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -549,7 +549,7 @@
 {"i":"9234","n":"Toaster Oven Current Pizza Mode with Preferences Cooking Parameters - Min Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 16) % 2 else '00' }}","fi":"min_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9234","n":"Toaster Oven Current Pizza Mode with Preferences Cooking Parameters - Max Count Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 32) % 2 else '00' }}","fi":"max_count_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9237","n":"Toaster Oven Model","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Legacy', '01': 'Profile Speedcook'}.get(value[:2], 'Unknown') }}"}
-{"i":"9238","n":"Toaster Oven Current Convection Bake Mode Cooking Parameters","d":"sensor","ds":28,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"9238","n":"Toaster Oven Current Convection Bake Mode Cooking Parameters","d":"sensor","ds":28,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"9238","n":"Toaster Oven Current Convection Bake Mode Cooking Parameters - Temperature Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 256) % 2 else '00' }}","fi":"temperature_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9238","n":"Toaster Oven Current Convection Bake Mode Cooking Parameters - Cook Time Used","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 512) % 2 else '00' }}","fi":"cook_time_used","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9238","n":"Toaster Oven Current Convection Bake Mode Cooking Parameters - Convection fan can be controlled","d":"binary_sensor","ds":28,"vt":"{{ '01' if ((value[52:56] | int(base=16)) // 1024) % 2 else '00' }}","fi":"convection_fan_can_be_controlled","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -584,16 +584,11 @@
 {"i":"9306","n":"Mixer Notifications - Mixing Cycle Complete Notification Supported","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 8) % 2 else '00' }}","fi":"mixing_cycle_complete_notification_supported","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9306","n":"Mixer Notifications - Scale Target Weight Reached Notification Supported","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 16) % 2 else '00' }}","fi":"scale_target_weight_reached_notification_supported","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9306","n":"Mixer Notifications - Auto Sense Error Detect Response Notification Supported","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 32) % 2 else '00' }}","fi":"auto_sense_error_detect_response_notification_supported","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9307","n":"Reset Mixer Notifications - Reset Check Calibration Flag","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 1) % 2 else '00' }}","fi":"reset_check_calibration_flag","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9307","n":"Reset Mixer Notifications - Reset Auto Sense Error Detect Response Flag","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 2) % 2 else '00' }}","fi":"reset_auto_sense_error_detect_response_flag","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"9307","n":"Reset Mixer Notifications","d":"switch","ds":1,"pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9308","n":"Mixer Run Time in Minutes","d":"sensor","ds":4,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
-{"i":"930a","n":"Cycle Timer Absolute Time Modification - Add or Subtract Cycle Time","d":"sensor","ds":8,"dc":"enum","vt":"{{ {'00': 'Subtract Cycle Time', '01': 'Add Cycle Time'}.get(value[0:2], 'Unknown') }}"}
-{"i":"930a","n":"Cycle Timer Absolute Time Modification - Cycle Time Minutes Modification","d":"sensor","ds":8,"vt":"{{ value[2:4] | int(base=16) }}","fi":"cycle_time_minutes_modification"}
-{"i":"930a","n":"Cycle Timer Absolute Time Modification - Cycle Time Seconds Modification","d":"sensor","ds":8,"vt":"{{ value[4:6] | int(base=16) }}","fi":"cycle_time_seconds_modification"}
-{"i":"930a","n":"Cycle Timer Absolute Time Modification - Padding","d":"sensor","ds":8,"vt":"{{ value[6:8] | int(base=16) }}","fi":"padding"}
-{"i":"930a","n":"Cycle Timer Absolute Time Modification - Sequence Number","d":"sensor","ds":8,"vt":"{{ value[8:16] | int(base=16) }}","fi":"sequence_number"}
+{"i":"930a","n":"Cycle Timer Absolute Time Modification","d":"select","ds":8,"vt":"{{ {'00': 'Subtract Cycle Time', '01': 'Add Cycle Time'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Subtract Cycle Time': '00', 'Add Cycle Time': '01'}[value] }}","o":"[\"Subtract Cycle Time\", \"Add Cycle Time\"]"}
 {"i":"930b","n":"Scale Mode Current Units","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Metric', '01': 'US Standard'}.get(value[:2], 'Unknown') }}"}
-{"i":"930c","n":"Scale Mode Requested Units","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Metric', '01': 'US Standard'}.get(value[:2], 'Unknown') }}"}
+{"i":"930c","n":"Scale Mode Requested Units","d":"select","ds":1,"vt":"{{ {'00': 'Metric', '01': 'US Standard'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Metric': '00', 'US Standard': '01'}[value] }}","o":"[\"Metric\", \"US Standard\"]"}
 {"i":"930d","n":"Scale Current Target Weight","d":"sensor","ds":2,"vt":"{{ (value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16)) }}"}
 {"i":"930e","n":"Scale Requested Target Weight","d":"sensor","ds":2,"vt":"{{ (value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16)) }}"}
 {"i":"930f","n":"Scale Mode Enable","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -617,47 +612,47 @@
 {"i":"940a","n":"Probe Temperature","d":"sensor","ds":2,"u":"°F","dc":"temperature","vt":"{{ value | int(base=16) }}"}
 {"i":"940b","n":"Probe Present","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9410","n":"Remote Configure Enabled","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"9411","n":"Custom Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","dc":"duration","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"9411","n":"Custom Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"9411","n":"Custom Mode Current Parameters - Cook Time (Minutes)","d":"sensor","ds":8,"u":"min","vt":"{{ value[4:8] | int(base=16) }}","fi":"cook_time_minutes"}
 {"i":"9411","n":"Custom Mode Current Parameters - Probe Target Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[8:10] | int(base=16) }}","fi":"probe_target_temperature_f"}
 {"i":"9411","n":"Custom Mode Current Parameters - Smoke Level","d":"sensor","ds":8,"u":"min","vt":"{{ value[10:12] | int(base=16) }}","fi":"smoke_level"}
-{"i":"9413","n":"Keep Warm Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","dc":"duration","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"9413","n":"Keep Warm Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"9413","n":"Keep Warm Mode Current Parameters - Cook Time (Minutes)","d":"sensor","ds":8,"u":"min","vt":"{{ value[4:8] | int(base=16) }}","fi":"cook_time_minutes"}
 {"i":"9413","n":"Keep Warm Mode Current Parameters - Probe Target Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[8:10] | int(base=16) }}","fi":"probe_target_temperature_f"}
 {"i":"9413","n":"Keep Warm Mode Current Parameters - Smoke Level","d":"sensor","ds":8,"u":"min","vt":"{{ value[10:12] | int(base=16) }}","fi":"smoke_level"}
-{"i":"9415","n":"Brisket Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","dc":"duration","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"9415","n":"Brisket Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"9415","n":"Brisket Mode Current Parameters - Cook Time (Minutes)","d":"sensor","ds":8,"u":"min","vt":"{{ value[4:8] | int(base=16) }}","fi":"cook_time_minutes"}
 {"i":"9415","n":"Brisket Mode Current Parameters - Probe Target Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[8:10] | int(base=16) }}","fi":"probe_target_temperature_f"}
 {"i":"9415","n":"Brisket Mode Current Parameters - Smoke Level","d":"sensor","ds":8,"u":"min","vt":"{{ value[10:12] | int(base=16) }}","fi":"smoke_level"}
-{"i":"9417","n":"Pork Rib Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","dc":"duration","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"9417","n":"Pork Rib Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"9417","n":"Pork Rib Mode Current Parameters - Cook Time (Minutes)","d":"sensor","ds":8,"u":"min","vt":"{{ value[4:8] | int(base=16) }}","fi":"cook_time_minutes"}
 {"i":"9417","n":"Pork Rib Mode Current Parameters - Probe Target Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[8:10] | int(base=16) }}","fi":"probe_target_temperature_f"}
 {"i":"9417","n":"Pork Rib Mode Current Parameters - Smoke Level","d":"sensor","ds":8,"u":"min","vt":"{{ value[10:12] | int(base=16) }}","fi":"smoke_level"}
-{"i":"9419","n":"Pork Butt Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","dc":"duration","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"9419","n":"Pork Butt Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"9419","n":"Pork Butt Mode Current Parameters - Cook Time (Minutes)","d":"sensor","ds":8,"u":"min","vt":"{{ value[4:8] | int(base=16) }}","fi":"cook_time_minutes"}
 {"i":"9419","n":"Pork Butt Mode Current Parameters - Probe Target Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[8:10] | int(base=16) }}","fi":"probe_target_temperature_f"}
 {"i":"9419","n":"Pork Butt Mode Current Parameters - Smoke Level","d":"sensor","ds":8,"u":"min","vt":"{{ value[10:12] | int(base=16) }}","fi":"smoke_level"}
-{"i":"941b","n":"Wings Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","dc":"duration","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"941b","n":"Wings Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"941b","n":"Wings Mode Current Parameters - Cook Time (Minutes)","d":"sensor","ds":8,"u":"min","vt":"{{ value[4:8] | int(base=16) }}","fi":"cook_time_minutes"}
 {"i":"941b","n":"Wings Mode Current Parameters - Probe Target Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[8:10] | int(base=16) }}","fi":"probe_target_temperature_f"}
 {"i":"941b","n":"Wings Mode Current Parameters - Smoke Level","d":"sensor","ds":8,"u":"min","vt":"{{ value[10:12] | int(base=16) }}","fi":"smoke_level"}
-{"i":"941d","n":"Chicken Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","dc":"duration","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"941d","n":"Chicken Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"941d","n":"Chicken Mode Current Parameters - Cook Time (Minutes)","d":"sensor","ds":8,"u":"min","vt":"{{ value[4:8] | int(base=16) }}","fi":"cook_time_minutes"}
 {"i":"941d","n":"Chicken Mode Current Parameters - Probe Target Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[8:10] | int(base=16) }}","fi":"probe_target_temperature_f"}
 {"i":"941d","n":"Chicken Mode Current Parameters - Smoke Level","d":"sensor","ds":8,"u":"min","vt":"{{ value[10:12] | int(base=16) }}","fi":"smoke_level"}
-{"i":"941f","n":"Salmon Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","dc":"duration","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"941f","n":"Salmon Mode Current Parameters - Cavity Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"941f","n":"Salmon Mode Current Parameters - Cook Time (Minutes)","d":"sensor","ds":8,"u":"min","vt":"{{ value[4:8] | int(base=16) }}","fi":"cook_time_minutes"}
 {"i":"941f","n":"Salmon Mode Current Parameters - Probe Target Temperature (F)","d":"sensor","ds":8,"u":"min","vt":"{{ value[8:10] | int(base=16) }}","fi":"probe_target_temperature_f"}
 {"i":"941f","n":"Salmon Mode Current Parameters - Smoke Level","d":"sensor","ds":8,"u":"min","vt":"{{ value[10:12] | int(base=16) }}","fi":"smoke_level"}
 {"i":"9421","n":"Auto Warm Enable Current Setting - Auto Warm Setting Status","d":"binary_sensor","ds":1,"vt":"{{ '01' if ((value[0:2] | int(base=16)) // 2) % 2 else '00' }}","fi":"auto_warm_setting_status","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"9423","n":"Auto Warm Current Time - Padding","d":"binary_sensor","ds":4,"vt":"{{ value[2:4] | int(base=16) }}","fi":"padding"}
 {"i":"9423","n":"Auto Warm Current Time - Auto Warm Time (Minutes)","d":"binary_sensor","ds":4,"vt":"{{ value[4:8] | int(base=16) }}","fi":"auto_warm_time_minutes"}
-{"i":"9424","n":"Auto Warm Requested Time","d":"number","ds":2,"u":"min","dc":"duration","mn":0.0,"mx":65535.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%04x' % (value | int) }}","m":"box"}
+{"i":"9424","n":"Auto Warm Requested Time","d":"number","ds":2,"u":"min","mn":0.0,"mx":65535.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%04x' % (value | int) }}","m":"box"}
 {"i":"9425","n":"Auto Warm Current Temperature - Auto Warm Temperature (F)","d":"binary_sensor","ds":2,"vt":"{{ value[2:4] | int(base=16) }}","fi":"auto_warm_temperature_f"}
 {"i":"9426","n":"Auto Warm Requested Temperature","d":"number","ds":1,"u":"°F","dc":"temperature","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
-{"i":"9429","n":"Auto Warm Reminder Current Setting - Auto Warm Reminder","d":"sensor","ds":2,"dc":"enum","vt":"{{ {'00': 'No Reminder', '01': '1 hour Interval', '02': '2 hour Interval', '03': '3 hour Interval'}.get(value[2:4], 'Unknown') }}","fi":"auto_warm_reminder"}
+{"i":"9429","n":"Auto Warm Reminder Current Setting - Auto Warm Reminder","d":"binary_sensor","ds":2,"vt":"{{ 'ON' if value[:4] | int(base=16) != 0 else 'OFF' }}","fi":"auto_warm_reminder"}
 {"i":"942c","n":"Early Completion Notification Temperature Threshold","d":"number","ds":1,"u":"°C","dc":"temperature","mn":0.0,"mx":255.0,"st":1.0,"p":"942b","r":"request","vt":"{{ '01' if value[0:2] != '00' else '00' }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
-{"i":"942f","n":"Early Completion Notification Time Threshold","d":"number","ds":1,"u":"min","dc":"duration","mn":0.0,"mx":255.0,"st":1.0,"p":"942e","r":"request","vt":"{{ '01' if value[0:2] != '00' else '00' }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
+{"i":"942f","n":"Early Completion Notification Time Threshold","d":"number","ds":1,"u":"min","mn":0.0,"mx":255.0,"st":1.0,"p":"942e","r":"request","vt":"{{ '01' if value[0:2] != '00' else '00' }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
 {"i":"9431","n":"Current Igniter Temperature - Padding","d":"binary_sensor","ds":4,"vt":"{{ value[2:4] | int(base=16) }}","fi":"padding"}
 {"i":"9431","n":"Current Igniter Temperature - Igniter Temperature (F)","d":"binary_sensor","ds":4,"vt":"{{ value[4:8] | int(base=16) }}","fi":"igniter_temperature_f"}
 {"i":"9432","n":"Requested Igniter Temperature","d":"number","ds":2,"u":"°F","dc":"temperature","mn":0.0,"mx":65535.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%04x' % (value | int) }}","m":"box"}

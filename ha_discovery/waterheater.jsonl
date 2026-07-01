@@ -3,13 +3,13 @@
 {"i":"400a","n":"Mixing valve step offset","d":"sensor","ds":2,"vt":"{{ (value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16)) }}"}
 {"i":"400b","n":"Mixing valve absolute position","d":"sensor","ds":2,"vt":"{{ (value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16)) }}"}
 {"i":"400c","n":"Mixing valve park position","d":"sensor","ds":2,"vt":"{{ (value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16)) }}"}
-{"i":"4020","n":"Water Heater User Mode","d":"sensor","ds":1,"vt":"{{ {'00': 'Hybrid', '01': 'Standard electric', '02': 'E-heat', '03': 'HiDemand', '04': 'Vacation'}.get(value[:2], 'Unknown') }}"}
-{"i":"4023","n":"Vacation Fallback Mode","d":"sensor","ds":1,"vt":"{{ {'00': 'Hybrid', '01': 'Standard electric', '02': 'E-heat', '03': 'HiDemand', '04': 'Vacation'}.get(value[:2], 'Unknown') }}"}
+{"i":"4020","n":"Water Heater User Mode","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Hybrid', '01': 'Standard electric', '02': 'E-heat', '03': 'HiDemand', '04': 'Vacation'}.get(value[:2], 'Unknown') }}"}
+{"i":"4023","n":"Vacation Fallback Mode","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Hybrid', '01': 'Standard electric', '02': 'E-heat', '03': 'HiDemand', '04': 'Vacation'}.get(value[:2], 'Unknown') }}"}
 {"i":"4024","n":"User Setpoint Temperature","d":"number","ds":2,"u":"°F","dc":"temperature","sf":10,"mn":-3276.8,"mx":3276.7,"st":0.1,"vt":"{{ ((value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16))) / 10 | round(1) }}","ct":"{{ '%04x' % ((((value | float) * 10) | round | int) % 65536) }}","m":"box"}
 {"i":"4025","n":"Vacation Setpoint Temperature","d":"number","ds":2,"u":"°F","dc":"temperature","sf":10,"mn":-3276.8,"mx":3276.7,"st":0.1,"vt":"{{ ((value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16))) / 10 | round(1) }}","ct":"{{ '%04x' % ((((value | float) * 10) | round | int) % 65536) }}","m":"box"}
 {"i":"4026","n":"Actual Setpoint Temperature","d":"number","ds":2,"u":"°F","dc":"temperature","sf":10,"mn":-3276.8,"mx":3276.7,"st":0.1,"vt":"{{ ((value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16))) / 10 | round(1) }}","ct":"{{ '%04x' % ((((value | float) * 10) | round | int) % 65536) }}","m":"box"}
 {"i":"4028","n":"Timed Mode Hours Remaining","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
-{"i":"402a","n":"Water Heater Mixing Valve Tank Capacity","d":"sensor","ds":1,"vt":"{{ {'00': 'Normal', '01': 'High', '02': 'X-High'}.get(value[:2], 'Unknown') }}"}
+{"i":"402a","n":"Water Heater Mixing Valve Tank Capacity","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Normal', '01': 'High', '02': 'X-High'}.get(value[:2], 'Unknown') }}"}
 {"i":"4030","n":"Notifications","d":"sensor","ds":32}
 {"i":"4041","n":"Tank size","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"404c","n":"Anode depleted mass - Mass (most significant 32 bits)","d":"sensor","ds":8,"vt":"{{ value[0:8] | int(base=16) }}"}

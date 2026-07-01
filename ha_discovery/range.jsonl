@@ -1,5 +1,5 @@
 {"i":"5000","n":"Twelve Hour Shutoff","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"5001","n":"End Tone","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"5001","n":"End Tone","d":"select","ds":1,"vt":"{{ {'00': 'Beep', '01': 'Continuous Tone'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Beep': '00', 'Continuous Tone': '01'}[value] }}","o":"[\"Beep\", \"Continuous Tone\"]"}
 {"i":"5003","n":"Convection Conversion","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5006","n":"Key Pressed","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"5007","n":"Oven Configuration - Has Camera","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 256) % 2 else '00' }}","fi":"has_camera","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -15,10 +15,10 @@
 {"i":"5007","n":"Oven Configuration - Uses TO12 Timer","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 32) % 2 else '00' }}","fi":"uses_to12_timer","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5007","n":"Oven Configuration - Is LCD Wall Oven","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 64) % 2 else '00' }}","fi":"is_lcd_wall_oven","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5007","n":"Oven Configuration - Has Scan-to-cook","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 128) % 2 else '00' }}","fi":"has_scan_to_cook","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"5009","n":"Warming Drawer Power Level","d":"sensor","ds":1,"vt":"{{ {'00': 'Off', '01': 'Low', '02': 'Medium', '03': 'High'}.get(value[:2], 'Unknown') }}"}
-{"i":"5012","n":"Knob Mode Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'n/a', '01': 'Bake', '02': 'Broil', '03': 'Self Clean', '04': 'Steam Clean', '05': 'Convection Bake', '06': 'Convection Bake Multi', '07': 'Convection Roast', '08': 'Convection Broil', '09': 'Warm', '0a': 'Proof', '0b': 'Sabbath Bake'}.get(value[:2], 'Unknown') }}"}
-{"i":"5014","n":"Auto Oven Light On Off Request","d":"sensor","ds":1,"vt":"{{ {'00': 'Manual', '01': 'Haier Knob Auto On', '02': 'Auto Off', '03': 'Auto On', 'ff': 'Unset'}.get(value[:2], 'Unknown') }}"}
-{"i":"5016","n":"Broil Level","d":"sensor","ds":1,"vt":"{{ {'00': 'Low', '01': 'High', '02': 'Convection Low', '03': 'Convection High', '04': 'Convection Crisp'}.get(value[:2], 'Unknown') }}"}
+{"i":"5009","n":"Warming Drawer Power Level","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Off', '01': 'Low', '02': 'Medium', '03': 'High'}.get(value[:2], 'Unknown') }}"}
+{"i":"5012","n":"Knob Mode Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'n/a', '01': 'Bake', '02': 'Broil', '03': 'Self Clean', '04': 'Steam Clean', '05': 'Convection Bake', '06': 'Convection Bake Multi', '07': 'Convection Roast', '08': 'Convection Broil', '09': 'Warm', '0a': 'Proof', '0b': 'Sabbath Bake'}.get(value[:2], 'Unknown') }}"}
+{"i":"5014","n":"Auto Oven Light On Off Request","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Manual', '01': 'Haier Knob Auto On', '02': 'Auto Off', '03': 'Auto On', 'ff': 'Unset'}.get(value[:2], 'Unknown') }}"}
+{"i":"5016","n":"Broil Level","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Low', '01': 'High', '02': 'Convection Low', '03': 'Convection High', '04': 'Convection Crisp'}.get(value[:2], 'Unknown') }}"}
 {"i":"5018","n":"Cavity Layout","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Over Under', '01': 'Side by Side'}.get(value[:2], 'Unknown') }}"}
 {"i":"5019","n":"Clock Display","d":"switch","ds":1,"p":"501a","r":"request","vt":"{{ value[0:2] }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5020","n":"Active Notifications in Range/Cooktop - Expiry notification for Kitchen Timer 1 associated with ERD 0x5105","d":"binary_sensor","ds":6,"vt":"{{ '01' if ((value[0:12] | int(base=16)) // 1099511627776) % 2 else '00' }}","fi":"expiry_notification_for_kitchen_timer_1_associated_with_erd_0x51","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -29,20 +29,20 @@
 {"i":"5020","n":"Active Notifications in Range/Cooktop - Oven Cavity 1 Probe Cook Expiry Notifications","d":"binary_sensor","ds":6,"vt":"{{ '01' if ((value[0:12] | int(base=16)) // 8589934592) % 2 else '00' }}","fi":"oven_cavity_1_probe_cook_expiry_notifications","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5020","n":"Active Notifications in Range/Cooktop - Oven Cavity 2 Cook Timer Expiry Notifications","d":"binary_sensor","ds":6,"vt":"{{ '01' if ((value[0:12] | int(base=16)) // 16777216) % 2 else '00' }}","fi":"oven_cavity_2_cook_timer_expiry_notifications","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5020","n":"Active Notifications in Range/Cooktop - Oven Cavity 2 Probe Cook Expiry Notifications","d":"binary_sensor","ds":6,"vt":"{{ '01' if ((value[0:12] | int(base=16)) // 33554432) % 2 else '00' }}","fi":"oven_cavity_2_probe_cook_expiry_notifications","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"5023","n":"Accent Lighting - Custom Color Active","d":"sensor","ds":12,"p":"5024","r":"request","vt":"{{ '01' if value[0:2] != '00' else '00' }}"}
-{"i":"5023","n":"Accent Lighting - Brightness","d":"sensor","ds":12,"p":"5024","r":"request","vt":"{{ value[2:4] | int(base=16) }}","fi":"brightness"}
-{"i":"5023","n":"Accent Lighting - Temperature","d":"sensor","ds":12,"p":"5024","r":"request","vt":"{{ value[4:8] | int(base=16) }}","fi":"temperature"}
-{"i":"5023","n":"Accent Lighting - Custom Color Code","d":"sensor","ds":12,"p":"5024","r":"request","vt":"{{ value[8:16] | int(base=16) }}","fi":"custom_color_code"}
+{"i":"5023","n":"Accent Lighting - Custom Color Active","d":"binary_sensor","ds":12,"p":"5024","r":"request","vt":"{{ '01' if value[0:2] != '00' else '00' }}"}
+{"i":"5023","n":"Accent Lighting - Brightness","d":"binary_sensor","ds":12,"p":"5024","r":"request","vt":"{{ value[2:4] | int(base=16) }}","fi":"brightness"}
+{"i":"5023","n":"Accent Lighting - Temperature","d":"binary_sensor","ds":12,"p":"5024","r":"request","vt":"{{ value[4:8] | int(base=16) }}","fi":"temperature"}
+{"i":"5023","n":"Accent Lighting - Custom Color Code","d":"binary_sensor","ds":12,"p":"5024","r":"request","vt":"{{ value[8:16] | int(base=16) }}","fi":"custom_color_code"}
 {"i":"5024","n":"Accent Lighting - Custom Color Active","d":"binary_sensor","ds":12,"p":"5023","r":"status","vt":"{{ '01' if value[0:2] != '00' else '00' }}"}
 {"i":"5024","n":"Accent Lighting - Brightness","d":"binary_sensor","ds":12,"p":"5023","r":"status","vt":"{{ value[2:4] | int(base=16) }}","fi":"brightness"}
 {"i":"5024","n":"Accent Lighting - Color Temperature","d":"binary_sensor","ds":12,"p":"5023","r":"status","vt":"{{ value[4:8] | int(base=16) }}","fi":"color_temperature"}
 {"i":"5024","n":"Accent Lighting - Custom Color Code","d":"binary_sensor","ds":12,"p":"5023","r":"status","vt":"{{ value[8:16] | int(base=16) }}","fi":"custom_color_code"}
-{"i":"5028","n":"Articulating Display Mode","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Auto', '01': 'Manual'}.get(value[:2], 'Unknown') }}"}
-{"i":"5029","n":"Articulating Display Mode Request","d":"sensor","ds":1,"vt":"{{ {'00': 'Don\\'t Care', '01': 'Auto', '02': 'Manual'}.get(value[:2], 'Unknown') }}"}
-{"i":"502a","n":"Articulating Display Position","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Unknown', '01': 'Extended', '02': 'Retracted', '03': 'Extending', '04': 'Retracting'}.get(value[:2], 'Unknown') }}"}
-{"i":"502b","n":"Articulating Display Position Request","d":"sensor","ds":1,"vt":"{{ {'00': 'Don\\'t Care', '01': 'Extend', '02': 'Retract'}.get(value[:2], 'Unknown') }}"}
+{"i":"5028","n":"Articulating Display Mode","d":"sensor","ds":1,"dc":"enum","p":"5029","r":"status","vt":"{{ {'00': 'Auto', '01': 'Manual'}.get(value[:2], 'Unknown') }}"}
+{"i":"5029","n":"Articulating Display Mode","d":"sensor","ds":1,"dc":"enum","p":"5028","r":"controlling","vt":"{{ {'00': 'Don\\'t Care', '01': 'Auto', '02': 'Manual'}.get(value[:2], 'Unknown') }}"}
+{"i":"502a","n":"Articulating Display Position","d":"sensor","ds":1,"dc":"enum","p":"502b","r":"status","vt":"{{ {'00': 'Unknown', '01': 'Extended', '02': 'Retracted', '03': 'Extending', '04': 'Retracting'}.get(value[:2], 'Unknown') }}"}
+{"i":"502b","n":"Articulating Display Position","d":"sensor","ds":1,"dc":"enum","p":"502a","r":"controlling","vt":"{{ {'00': 'Don\\'t Care', '01': 'Extend', '02': 'Retract'}.get(value[:2], 'Unknown') }}"}
 {"i":"502c","n":"Automatic Door Opener Local Public Enable","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"502d","n":"Oven Light Auto On Off State","d":"sensor","ds":1,"vt":"{{ {'00': 'Manual', '01': 'Haier Knob Auto On', '02': 'Auto Off', '03': 'Auto On', 'ff': 'Unset'}.get(value[:2], 'Unknown') }}"}
+{"i":"502d","n":"Oven Light Auto On Off State","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Manual', '01': 'Haier Knob Auto On', '02': 'Auto Off', '03': 'Auto On', 'ff': 'Unset'}.get(value[:2], 'Unknown') }}"}
 {"i":"502e","n":"Enhanced Sabbath State","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Inactive', '01': 'Prompt Sabbath', '02': 'Prompt Holiday', '03': 'Cooking Accepted, Sabbath Pending', '04': 'Cooking Accepted, Holiday Pending', '05': 'Sabbath Active, No Cooking', '06': 'Holiday Active, No Cooking', '07': 'Sabbath Active, Warm', '08': 'Holiday Active, Warm', '09': 'Holiday Active, Bake'}.get(value[:2], 'Unknown') }}"}
 {"i":"502f","n":"Enhanced Sabbath Cooking Accepted","d":"switch","ds":1,"p":"5030","r":"request","vt":"{{ value[0:2] }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5031","n":"Enhanced Sabbath Warmness Setting","d":"switch","ds":1,"p":"5032","r":"request","vt":"{{ value[0:2] }}","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -82,7 +82,7 @@
 {"i":"5102","n":"Upper Oven Delay Time Remaining","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
 {"i":"5103","n":"Upper Oven Probe Display Temperature","d":"sensor","ds":2,"u":"°F","dc":"temperature","vt":"{{ (value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16)) }}"}
 {"i":"5104","n":"Upper Oven Cook Time Remaining","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
-{"i":"5105","n":"Upper Oven Display Timer","d":"number","ds":2,"u":"min","dc":"duration","mn":0.0,"mx":65535.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%04x' % (value | int) }}","m":"box"}
+{"i":"5105","n":"Upper Oven Display Timer","d":"number","ds":2,"u":"min","mn":0.0,"mx":65535.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%04x' % (value | int) }}","m":"box"}
 {"i":"5106","n":"Upper Oven User Temperature Offset","d":"number","ds":1,"u":"°F","dc":"temperature","mn":-128.0,"mx":127.0,"st":1.0,"vt":"{{ (value | int(base=16)) - 256 if (value | int(base=16)) >= 128 else (value | int(base=16)) }}","ct":"{{ '%02x' % ((value | int) % 256) }}","m":"box"}
 {"i":"5107","n":"Upper Oven Probe Present","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5108","n":"Upper Oven Elapsed Cook Time","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
@@ -90,12 +90,12 @@
 {"i":"510a","n":"Upper Oven Remote Enabled","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"510d","n":"Upper Oven Temperature","d":"sensor","ds":2,"u":"°F","dc":"temperature","vt":"{{ (value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16)) }}"}
 {"i":"510e","n":"Upper Oven Baking Surface Temperature","d":"sensor","ds":2,"u":"°F","dc":"temperature","vt":"{{ (value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16)) }}"}
-{"i":"510f","n":"Request Upper Door Open","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"510f","n":"Request Upper Door Open","d":"select","ds":1,"vt":"{{ {'00': 'Default', '01': 'Open Door Request'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Default': '00', 'Open Door Request': '01'}[value] }}","o":"[\"Default\", \"Open Door Request\"]"}
 {"i":"5110","n":"Upper Oven Door State","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Unknown', '01': 'Open', '02': 'Closed', '03': 'Initial Inspection'}.get(value[:2], 'Unknown') }}"}
-{"i":"5111","n":"Upper Oven Light Level","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'01': 'High', '02': 'Dim'}.get(value[:2], 'Unknown') }}"}
+{"i":"5111","n":"Upper Oven Light Level","d":"select","ds":1,"vt":"{{ {'01': 'High', '02': 'Dim'}.get(value[:2], 'Unknown') }}","ct":"{{ {'High': '01', 'Dim': '02'}[value] }}","o":"[\"High\", \"Dim\"]"}
 {"i":"5114","n":"Upper Oven Baking Surface Cook Stage","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'No Mode', '01': 'Preheat', '02': 'Ready for Cooking', '03': 'Cooking', '04': 'Baking', '05': 'Recharge', '06': 'Ready for Recharge', '07': 'Ready for Baking'}.get(value[:2], 'Unknown') }}"}
 {"i":"5118","n":"Upper Oven Door Open Remote Enabled","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"5119","n":"Session ID for Cavity 1 - ID","d":"sensor","ds":38,"vt":"{{ value[0:74] | int(base=16) }}"}
+{"i":"5119","n":"Session ID for Cavity 1 - ID","d":"sensor","ds":38,"vt":"{% set ns = namespace(value='') %}{% for i in range(0, 74, 2) %}{% set b = value[i:i+2] | int(base=16) %}{% if b >= 0x20 and b <= 0x7E %}{% set ns.value = ns.value ~ chr(b) %}{% endif %}{% endfor %}{{ ns.value.rstrip('_') }}"}
 {"i":"5119","n":"Session ID for Cavity 1 - Active","d":"sensor","ds":38,"vt":"{{ '01' if value[74:76] != '00' else '00' }}","fi":"active"}
 {"i":"511a","n":"Upper Oven Do Not Stop Cook Mode On Timer Expiration","d":"switch","ds":1,"p":"511b","r":"request","vt":"{{ value[0:2] }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"511c","n":"Upper Oven Cook Time Add Or Subtract - Request ID","d":"sensor","ds":4,"p":"511d","r":"request","vt":"{{ value[0:2] | int(base=16) }}"}
@@ -144,12 +144,12 @@
 {"i":"5121","n":"Upper Cavity Cook Recipe - Recipe UUID","d":"sensor","ds":80,"p":"5120","r":"request","vt":"{{ value[80:84] | int(base=16) }}","fi":"recipe_uuid"}
 {"i":"5121","n":"Upper Cavity Cook Recipe - Recipe CRC","d":"sensor","ds":80,"p":"5120","r":"request","vt":"{{ value[84:88] | int(base=16) }}","fi":"recipe_crc"}
 {"i":"5121","n":"Upper Cavity Cook Recipe - Request ID","d":"sensor","ds":80,"p":"5120","r":"request","vt":"{{ value[88:90] | int(base=16) }}","fi":"request_id"}
-{"i":"5121","n":"Upper Cavity Cook Recipe - Recipe Name","d":"sensor","ds":80,"p":"5120","r":"request","vt":"{{ value[90:154] | int(base=16) }}","fi":"recipe_name"}
+{"i":"5121","n":"Upper Cavity Cook Recipe - Recipe Name","d":"sensor","ds":80,"p":"5120","r":"request","vt":"{% set ns = namespace(value='') %}{% for i in range(90, 154, 2) %}{% set b = value[i:i+2] | int(base=16) %}{% if b >= 0x20 and b <= 0x7E %}{% set ns.value = ns.value ~ chr(b) %}{% endif %}{% endfor %}{{ ns.value.rstrip('_') }}","fi":"recipe_name"}
 {"i":"5121","n":"Upper Cavity Cook Recipe - Padding[0]","d":"sensor","ds":80,"p":"5120","r":"request","vt":"{{ value[154:156] | int(base=16) }}","fi":"padding_0_154"}
 {"i":"5121","n":"Upper Cavity Cook Recipe - Padding[1]","d":"sensor","ds":80,"p":"5120","r":"request","vt":"{{ value[156:158] | int(base=16) }}","fi":"padding_1_156"}
 {"i":"5121","n":"Upper Cavity Cook Recipe - Padding[2]","d":"sensor","ds":80,"p":"5120","r":"request","vt":"{{ value[158:160] | int(base=16) }}","fi":"padding_2_158"}
 {"i":"5122","n":"Upper Cavity Index","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
-{"i":"5124","n":"Upper Cavity Cook Recipe Stage 1 - Request ID","d":"sensor","ds":150,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5124","n":"Upper Cavity Cook Recipe Stage 1 - Request ID","d":"sensor","ds":150,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5124","n":"Upper Cavity Cook Recipe Stage 1 - Temperature Target Mode","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'User', '01': 'Fixed', '02': 'Rtd', '03': 'User With Offset'}.get(value[2:4], 'Unknown') }}","fi":"temperature_target_mode"}
 {"i":"5124","n":"Upper Cavity Cook Recipe Stage 1 - Set Temperature (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[4:8] | int(base=16)) - 65536 if (value[4:8] | int(base=16)) >= 32768 else (value[4:8] | int(base=16)) }}","fi":"set_temperature_fahrenheit"}
 {"i":"5124","n":"Upper Cavity Cook Recipe Stage 1 - Performance Offset (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[8:12] | int(base=16)) - 65536 if (value[8:12] | int(base=16)) >= 32768 else (value[8:12] | int(base=16)) }}","fi":"performance_offset_fahrenheit"}
@@ -205,7 +205,7 @@
 {"i":"5124","n":"Upper Cavity Cook Recipe Stage 1 - Time (Seconds)","d":"sensor","ds":150,"vt":"{{ value[256:260] | int(base=16) }}","fi":"time_seconds_256"}
 {"i":"5124","n":"Upper Cavity Cook Recipe Stage 1 - Next Stage","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'Stage 1', '01': 'Stage 2', '02': 'Stage 3', '03': 'Stage 4', '04': 'Stage 5', 'ff': 'Stage Sequential'}.get(value[296:298], 'Unknown') }}","fi":"next_stage"}
 {"i":"5124","n":"Upper Cavity Cook Recipe Stage 1 - Padding","d":"sensor","ds":150,"vt":"{{ value[298:300] | int(base=16) }}","fi":"padding_298"}
-{"i":"5125","n":"Upper Cavity Cook Recipe Stage 2 - Request ID","d":"sensor","ds":150,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5125","n":"Upper Cavity Cook Recipe Stage 2 - Request ID","d":"sensor","ds":150,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5125","n":"Upper Cavity Cook Recipe Stage 2 - Temperature Target Mode","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'User', '01': 'Fixed', '02': 'Rtd', '03': 'User With Offset'}.get(value[2:4], 'Unknown') }}","fi":"temperature_target_mode"}
 {"i":"5125","n":"Upper Cavity Cook Recipe Stage 2 - Set Temperature (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[4:8] | int(base=16)) - 65536 if (value[4:8] | int(base=16)) >= 32768 else (value[4:8] | int(base=16)) }}","fi":"set_temperature_fahrenheit"}
 {"i":"5125","n":"Upper Cavity Cook Recipe Stage 2 - Performance Offset (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[8:12] | int(base=16)) - 65536 if (value[8:12] | int(base=16)) >= 32768 else (value[8:12] | int(base=16)) }}","fi":"performance_offset_fahrenheit"}
@@ -261,7 +261,7 @@
 {"i":"5125","n":"Upper Cavity Cook Recipe Stage 2 - Time (Seconds)","d":"sensor","ds":150,"vt":"{{ value[256:260] | int(base=16) }}","fi":"time_seconds_256"}
 {"i":"5125","n":"Upper Cavity Cook Recipe Stage 2 - Next Stage","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'Stage 1', '01': 'Stage 2', '02': 'Stage 3', '03': 'Stage 4', '04': 'Stage 5', 'ff': 'Stage Sequential'}.get(value[296:298], 'Unknown') }}","fi":"next_stage"}
 {"i":"5125","n":"Upper Cavity Cook Recipe Stage 2 - Padding","d":"sensor","ds":150,"vt":"{{ value[298:300] | int(base=16) }}","fi":"padding_298"}
-{"i":"5126","n":"Upper Cavity Cook Recipe Stage 3 - Request ID","d":"sensor","ds":150,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5126","n":"Upper Cavity Cook Recipe Stage 3 - Request ID","d":"sensor","ds":150,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5126","n":"Upper Cavity Cook Recipe Stage 3 - Temperature Target Mode","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'User', '01': 'Fixed', '02': 'Rtd', '03': 'User With Offset'}.get(value[2:4], 'Unknown') }}","fi":"temperature_target_mode"}
 {"i":"5126","n":"Upper Cavity Cook Recipe Stage 3 - Set Temperature (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[4:8] | int(base=16)) - 65536 if (value[4:8] | int(base=16)) >= 32768 else (value[4:8] | int(base=16)) }}","fi":"set_temperature_fahrenheit"}
 {"i":"5126","n":"Upper Cavity Cook Recipe Stage 3 - Performance Offset (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[8:12] | int(base=16)) - 65536 if (value[8:12] | int(base=16)) >= 32768 else (value[8:12] | int(base=16)) }}","fi":"performance_offset_fahrenheit"}
@@ -317,7 +317,7 @@
 {"i":"5126","n":"Upper Cavity Cook Recipe Stage 3 - Time (Seconds)","d":"sensor","ds":150,"vt":"{{ value[256:260] | int(base=16) }}","fi":"time_seconds_256"}
 {"i":"5126","n":"Upper Cavity Cook Recipe Stage 3 - Next Stage","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'Stage 1', '01': 'Stage 2', '02': 'Stage 3', '03': 'Stage 4', '04': 'Stage 5', 'ff': 'Stage Sequential'}.get(value[296:298], 'Unknown') }}","fi":"next_stage"}
 {"i":"5126","n":"Upper Cavity Cook Recipe Stage 3 - Padding","d":"sensor","ds":150,"vt":"{{ value[298:300] | int(base=16) }}","fi":"padding_298"}
-{"i":"5127","n":"Upper Cavity Cook Recipe Stage 4 - Request ID","d":"sensor","ds":150,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5127","n":"Upper Cavity Cook Recipe Stage 4 - Request ID","d":"sensor","ds":150,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5127","n":"Upper Cavity Cook Recipe Stage 4 - Temperature Target Mode","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'User', '01': 'Fixed', '02': 'Rtd', '03': 'User With Offset'}.get(value[2:4], 'Unknown') }}","fi":"temperature_target_mode"}
 {"i":"5127","n":"Upper Cavity Cook Recipe Stage 4 - Set Temperature (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[4:8] | int(base=16)) - 65536 if (value[4:8] | int(base=16)) >= 32768 else (value[4:8] | int(base=16)) }}","fi":"set_temperature_fahrenheit"}
 {"i":"5127","n":"Upper Cavity Cook Recipe Stage 4 - Performance Offset (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[8:12] | int(base=16)) - 65536 if (value[8:12] | int(base=16)) >= 32768 else (value[8:12] | int(base=16)) }}","fi":"performance_offset_fahrenheit"}
@@ -373,7 +373,7 @@
 {"i":"5127","n":"Upper Cavity Cook Recipe Stage 4 - Time (Seconds)","d":"sensor","ds":150,"vt":"{{ value[256:260] | int(base=16) }}","fi":"time_seconds_256"}
 {"i":"5127","n":"Upper Cavity Cook Recipe Stage 4 - Next Stage","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'Stage 1', '01': 'Stage 2', '02': 'Stage 3', '03': 'Stage 4', '04': 'Stage 5', 'ff': 'Stage Sequential'}.get(value[296:298], 'Unknown') }}","fi":"next_stage"}
 {"i":"5127","n":"Upper Cavity Cook Recipe Stage 4 - Padding","d":"sensor","ds":150,"vt":"{{ value[298:300] | int(base=16) }}","fi":"padding_298"}
-{"i":"5128","n":"Upper Cavity Cook Recipe Stage 5 - Request ID","d":"sensor","ds":150,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5128","n":"Upper Cavity Cook Recipe Stage 5 - Request ID","d":"sensor","ds":150,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5128","n":"Upper Cavity Cook Recipe Stage 5 - Temperature Target Mode","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'User', '01': 'Fixed', '02': 'Rtd', '03': 'User With Offset'}.get(value[2:4], 'Unknown') }}","fi":"temperature_target_mode"}
 {"i":"5128","n":"Upper Cavity Cook Recipe Stage 5 - Set Temperature (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[4:8] | int(base=16)) - 65536 if (value[4:8] | int(base=16)) >= 32768 else (value[4:8] | int(base=16)) }}","fi":"set_temperature_fahrenheit"}
 {"i":"5128","n":"Upper Cavity Cook Recipe Stage 5 - Performance Offset (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[8:12] | int(base=16)) - 65536 if (value[8:12] | int(base=16)) >= 32768 else (value[8:12] | int(base=16)) }}","fi":"performance_offset_fahrenheit"}
@@ -449,18 +449,18 @@
 {"i":"5202","n":"Lower Oven Delay Time Remaining","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
 {"i":"5203","n":"Lower Oven Probe Display Temperature","d":"sensor","ds":2,"u":"°F","dc":"temperature","vt":"{{ (value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16)) }}"}
 {"i":"5204","n":"Lower Oven Cook Time Remaining","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
-{"i":"5205","n":"Lower Oven Display Timer","d":"number","ds":2,"u":"min","dc":"duration","mn":0.0,"mx":65535.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%04x' % (value | int) }}","m":"box"}
+{"i":"5205","n":"Lower Oven Display Timer","d":"number","ds":2,"u":"min","mn":0.0,"mx":65535.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%04x' % (value | int) }}","m":"box"}
 {"i":"5206","n":"Lower Oven User Temperature Offset","d":"number","ds":1,"u":"°F","dc":"temperature","mn":-128.0,"mx":127.0,"st":1.0,"vt":"{{ (value | int(base=16)) - 256 if (value | int(base=16)) >= 128 else (value | int(base=16)) }}","ct":"{{ '%02x' % ((value | int) % 256) }}","m":"box"}
 {"i":"5207","n":"Lower Oven Probe Present","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5208","n":"Lower Oven Elapsed Cook Time","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
 {"i":"5209","n":"Lower Oven Display Temperature","d":"sensor","ds":2,"u":"°F","dc":"temperature","vt":"{{ (value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16)) }}"}
 {"i":"520a","n":"Lower Oven Remote Enabled","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"520d","n":"Lower Oven Temperature","d":"sensor","ds":2,"u":"°F","dc":"temperature","vt":"{{ (value | int(base=16)) - 65536 if (value | int(base=16)) >= 32768 else (value | int(base=16)) }}"}
-{"i":"520f","n":"Request Lower Door Open","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"520f","n":"Request Lower Door Open","d":"select","ds":1,"vt":"{{ {'00': 'Default', '01': 'Open Door Request'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Default': '00', 'Open Door Request': '01'}[value] }}","o":"[\"Default\", \"Open Door Request\"]"}
 {"i":"5210","n":"Lower Oven Door State","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Unknown', '01': 'Open', '02': 'Closed', '03': 'Initial Inspection'}.get(value[:2], 'Unknown') }}"}
-{"i":"5211","n":"Lower Oven Light Level","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'01': 'High', '02': 'Dim'}.get(value[:2], 'Unknown') }}"}
+{"i":"5211","n":"Lower Oven Light Level","d":"select","ds":1,"vt":"{{ {'01': 'High', '02': 'Dim'}.get(value[:2], 'Unknown') }}","ct":"{{ {'High': '01', 'Dim': '02'}[value] }}","o":"[\"High\", \"Dim\"]"}
 {"i":"5218","n":"Lower Oven Door Open Remote Enabled","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"5219","n":"Session ID for Cavity 2 - ID","d":"sensor","ds":38,"vt":"{{ value[0:74] | int(base=16) }}"}
+{"i":"5219","n":"Session ID for Cavity 2 - ID","d":"sensor","ds":38,"vt":"{% set ns = namespace(value='') %}{% for i in range(0, 74, 2) %}{% set b = value[i:i+2] | int(base=16) %}{% if b >= 0x20 and b <= 0x7E %}{% set ns.value = ns.value ~ chr(b) %}{% endif %}{% endfor %}{{ ns.value.rstrip('_') }}"}
 {"i":"5219","n":"Session ID for Cavity 2 - Active","d":"sensor","ds":38,"vt":"{{ '01' if value[74:76] != '00' else '00' }}","fi":"active"}
 {"i":"521a","n":"Lower Oven Do Not Stop Cook Mode On Timer Expiration","d":"switch","ds":1,"p":"521b","r":"request","vt":"{{ value[0:2] }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"521c","n":"Lower Oven Cook Time Add Or Subtract - Request ID","d":"sensor","ds":4,"p":"521d","r":"request","vt":"{{ value[0:2] | int(base=16) }}"}
@@ -509,12 +509,12 @@
 {"i":"5221","n":"Lower Cavity Cook Recipe - Recipe UUID","d":"sensor","ds":80,"p":"5220","r":"request","vt":"{{ value[80:84] | int(base=16) }}","fi":"recipe_uuid"}
 {"i":"5221","n":"Lower Cavity Cook Recipe - Recipe CRC","d":"sensor","ds":80,"p":"5220","r":"request","vt":"{{ value[84:88] | int(base=16) }}","fi":"recipe_crc"}
 {"i":"5221","n":"Lower Cavity Cook Recipe - Request ID","d":"sensor","ds":80,"p":"5220","r":"request","vt":"{{ value[88:90] | int(base=16) }}","fi":"request_id"}
-{"i":"5221","n":"Lower Cavity Cook Recipe - Recipe Name","d":"sensor","ds":80,"p":"5220","r":"request","vt":"{{ value[90:154] | int(base=16) }}","fi":"recipe_name"}
+{"i":"5221","n":"Lower Cavity Cook Recipe - Recipe Name","d":"sensor","ds":80,"p":"5220","r":"request","vt":"{% set ns = namespace(value='') %}{% for i in range(90, 154, 2) %}{% set b = value[i:i+2] | int(base=16) %}{% if b >= 0x20 and b <= 0x7E %}{% set ns.value = ns.value ~ chr(b) %}{% endif %}{% endfor %}{{ ns.value.rstrip('_') }}","fi":"recipe_name"}
 {"i":"5221","n":"Lower Cavity Cook Recipe - Padding[0]","d":"sensor","ds":80,"p":"5220","r":"request","vt":"{{ value[154:156] | int(base=16) }}","fi":"padding_0_154"}
 {"i":"5221","n":"Lower Cavity Cook Recipe - Padding[1]","d":"sensor","ds":80,"p":"5220","r":"request","vt":"{{ value[156:158] | int(base=16) }}","fi":"padding_1_156"}
 {"i":"5221","n":"Lower Cavity Cook Recipe - Padding[2]","d":"sensor","ds":80,"p":"5220","r":"request","vt":"{{ value[158:160] | int(base=16) }}","fi":"padding_2_158"}
 {"i":"5222","n":"Lower Cavity Index ","d":"sensor","ds":2,"vt":"{{ value | int(base=16) }}"}
-{"i":"5224","n":"Lower Cavity Cook Recipe Stage 1 - Request ID","d":"sensor","ds":150,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5224","n":"Lower Cavity Cook Recipe Stage 1 - Request ID","d":"sensor","ds":150,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5224","n":"Lower Cavity Cook Recipe Stage 1 - Temperature Target Mode","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'User', '01': 'Fixed', '02': 'Rtd', '03': 'User With Offset'}.get(value[2:4], 'Unknown') }}","fi":"temperature_target_mode"}
 {"i":"5224","n":"Lower Cavity Cook Recipe Stage 1 - Set Temperature (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[4:8] | int(base=16)) - 65536 if (value[4:8] | int(base=16)) >= 32768 else (value[4:8] | int(base=16)) }}","fi":"set_temperature_fahrenheit"}
 {"i":"5224","n":"Lower Cavity Cook Recipe Stage 1 - Performance Offset (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[8:12] | int(base=16)) - 65536 if (value[8:12] | int(base=16)) >= 32768 else (value[8:12] | int(base=16)) }}","fi":"performance_offset_fahrenheit"}
@@ -570,7 +570,7 @@
 {"i":"5224","n":"Lower Cavity Cook Recipe Stage 1 - Time (Seconds)","d":"sensor","ds":150,"vt":"{{ value[256:260] | int(base=16) }}","fi":"time_seconds_256"}
 {"i":"5224","n":"Lower Cavity Cook Recipe Stage 1 - Next Stage","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'Stage 1', '01': 'Stage 2', '02': 'Stage 3', '03': 'Stage 4', '04': 'Stage 5', 'ff': 'Stage Sequential'}.get(value[296:298], 'Unknown') }}","fi":"next_stage"}
 {"i":"5224","n":"Lower Cavity Cook Recipe Stage 1 - Padding","d":"sensor","ds":150,"vt":"{{ value[298:300] | int(base=16) }}","fi":"padding_298"}
-{"i":"5225","n":"Lower Cavity Cook Recipe Stage 2 - Request ID","d":"sensor","ds":150,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5225","n":"Lower Cavity Cook Recipe Stage 2 - Request ID","d":"sensor","ds":150,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5225","n":"Lower Cavity Cook Recipe Stage 2 - Temperature Target Mode","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'User', '01': 'Fixed', '02': 'Rtd', '03': 'User With Offset'}.get(value[2:4], 'Unknown') }}","fi":"temperature_target_mode"}
 {"i":"5225","n":"Lower Cavity Cook Recipe Stage 2 - Set Temperature (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[4:8] | int(base=16)) - 65536 if (value[4:8] | int(base=16)) >= 32768 else (value[4:8] | int(base=16)) }}","fi":"set_temperature_fahrenheit"}
 {"i":"5225","n":"Lower Cavity Cook Recipe Stage 2 - Performance Offset (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[8:12] | int(base=16)) - 65536 if (value[8:12] | int(base=16)) >= 32768 else (value[8:12] | int(base=16)) }}","fi":"performance_offset_fahrenheit"}
@@ -626,7 +626,7 @@
 {"i":"5225","n":"Lower Cavity Cook Recipe Stage 2 - Time (Seconds)","d":"sensor","ds":150,"vt":"{{ value[256:260] | int(base=16) }}","fi":"time_seconds_256"}
 {"i":"5225","n":"Lower Cavity Cook Recipe Stage 2 - Next Stage","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'Stage 1', '01': 'Stage 2', '02': 'Stage 3', '03': 'Stage 4', '04': 'Stage 5', 'ff': 'Stage Sequential'}.get(value[296:298], 'Unknown') }}","fi":"next_stage"}
 {"i":"5225","n":"Lower Cavity Cook Recipe Stage 2 - Padding","d":"sensor","ds":150,"vt":"{{ value[298:300] | int(base=16) }}","fi":"padding_298"}
-{"i":"5226","n":"Lower Cavity Cook Recipe Stage 3 - Request ID","d":"sensor","ds":150,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5226","n":"Lower Cavity Cook Recipe Stage 3 - Request ID","d":"sensor","ds":150,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5226","n":"Lower Cavity Cook Recipe Stage 3 - Temperature Target Mode","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'User', '01': 'Fixed', '02': 'Rtd', '03': 'User With Offset'}.get(value[2:4], 'Unknown') }}","fi":"temperature_target_mode"}
 {"i":"5226","n":"Lower Cavity Cook Recipe Stage 3 - Set Temperature (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[4:8] | int(base=16)) - 65536 if (value[4:8] | int(base=16)) >= 32768 else (value[4:8] | int(base=16)) }}","fi":"set_temperature_fahrenheit"}
 {"i":"5226","n":"Lower Cavity Cook Recipe Stage 3 - Performance Offset (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[8:12] | int(base=16)) - 65536 if (value[8:12] | int(base=16)) >= 32768 else (value[8:12] | int(base=16)) }}","fi":"performance_offset_fahrenheit"}
@@ -682,7 +682,7 @@
 {"i":"5226","n":"Lower Cavity Cook Recipe Stage 3 - Time (Seconds)","d":"sensor","ds":150,"vt":"{{ value[256:260] | int(base=16) }}","fi":"time_seconds_256"}
 {"i":"5226","n":"Lower Cavity Cook Recipe Stage 3 - Next Stage","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'Stage 1', '01': 'Stage 2', '02': 'Stage 3', '03': 'Stage 4', '04': 'Stage 5', 'ff': 'Stage Sequential'}.get(value[296:298], 'Unknown') }}","fi":"next_stage"}
 {"i":"5226","n":"Lower Cavity Cook Recipe Stage 3 - Padding","d":"sensor","ds":150,"vt":"{{ value[298:300] | int(base=16) }}","fi":"padding_298"}
-{"i":"5227","n":"Lower Cavity Cook Recipe Stage 4 - Request ID","d":"sensor","ds":150,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5227","n":"Lower Cavity Cook Recipe Stage 4 - Request ID","d":"sensor","ds":150,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5227","n":"Lower Cavity Cook Recipe Stage 4 - Temperature Target Mode","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'User', '01': 'Fixed', '02': 'Rtd', '03': 'User With Offset'}.get(value[2:4], 'Unknown') }}","fi":"temperature_target_mode"}
 {"i":"5227","n":"Lower Cavity Cook Recipe Stage 4 - Set Temperature (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[4:8] | int(base=16)) - 65536 if (value[4:8] | int(base=16)) >= 32768 else (value[4:8] | int(base=16)) }}","fi":"set_temperature_fahrenheit"}
 {"i":"5227","n":"Lower Cavity Cook Recipe Stage 4 - Performance Offset (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[8:12] | int(base=16)) - 65536 if (value[8:12] | int(base=16)) >= 32768 else (value[8:12] | int(base=16)) }}","fi":"performance_offset_fahrenheit"}
@@ -738,7 +738,7 @@
 {"i":"5227","n":"Lower Cavity Cook Recipe Stage 4 - Time (Seconds)","d":"sensor","ds":150,"vt":"{{ value[256:260] | int(base=16) }}","fi":"time_seconds_256"}
 {"i":"5227","n":"Lower Cavity Cook Recipe Stage 4 - Next Stage","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'Stage 1', '01': 'Stage 2', '02': 'Stage 3', '03': 'Stage 4', '04': 'Stage 5', 'ff': 'Stage Sequential'}.get(value[296:298], 'Unknown') }}","fi":"next_stage"}
 {"i":"5227","n":"Lower Cavity Cook Recipe Stage 4 - Padding","d":"sensor","ds":150,"vt":"{{ value[298:300] | int(base=16) }}","fi":"padding_298"}
-{"i":"5228","n":"Lower Cavity Cook Recipe Stage 5 - Request ID","d":"sensor","ds":150,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5228","n":"Lower Cavity Cook Recipe Stage 5 - Request ID","d":"sensor","ds":150,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5228","n":"Lower Cavity Cook Recipe Stage 5 - Temperature Target Mode","d":"sensor","ds":150,"dc":"enum","vt":"{{ {'00': 'User', '01': 'Fixed', '02': 'Rtd', '03': 'User With Offset'}.get(value[2:4], 'Unknown') }}","fi":"temperature_target_mode"}
 {"i":"5228","n":"Lower Cavity Cook Recipe Stage 5 - Set Temperature (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[4:8] | int(base=16)) - 65536 if (value[4:8] | int(base=16)) >= 32768 else (value[4:8] | int(base=16)) }}","fi":"set_temperature_fahrenheit"}
 {"i":"5228","n":"Lower Cavity Cook Recipe Stage 5 - Performance Offset (Fahrenheit)","d":"sensor","ds":150,"u":"°F","vt":"{{ (value[8:12] | int(base=16)) - 65536 if (value[8:12] | int(base=16)) >= 32768 else (value[8:12] | int(base=16)) }}","fi":"performance_offset_fahrenheit"}
@@ -925,7 +925,7 @@
 {"i":"5400","n":"Advantium Remote Cook Mode Configuration - Mode Fast Cook Allows Microwave On Time","d":"binary_sensor","ds":32,"vt":"{{ '01' if ((value[32:34] | int(base=16)) // 64) % 2 else '00' }}","fi":"mode_fast_cook_allows_microwave_on_time","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5400","n":"Advantium Remote Cook Mode Configuration - Mode Fast Cook Allows Convection On Time","d":"binary_sensor","ds":32,"vt":"{{ '01' if ((value[32:34] | int(base=16)) // 128) % 2 else '00' }}","fi":"mode_fast_cook_allows_convection_on_time","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5401","n":"Advantium Cook","d":"select","ds":16,"p":"5402","r":"status","vt":"{{ {'00': 'Stop', '01': 'Start', '02': 'Updated', '03': 'Pause', '04': 'Resume'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Stop': '00', 'Start': '01', 'Updated': '02', 'Pause': '03', 'Resume': '04'}[value] }}","o":"[\"Stop\", \"Start\", \"Updated\", \"Pause\", \"Resume\"]"}
-{"i":"5402","n":"Advantium Cook - Remote Cook Request ID","d":"sensor","ds":19,"dc":"enum","p":"5401","r":"request","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5402","n":"Advantium Cook - Remote Cook Request ID","d":"sensor","ds":19,"p":"5401","r":"request","vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5402","n":"Advantium Cook - Cook Action","d":"sensor","ds":19,"dc":"enum","p":"5401","r":"request","vt":"{{ {'00': 'Stop', '01': 'Start', '02': 'Updated', '03': 'Pause', '04': 'Resume'}.get(value[2:4], 'Unknown') }}","fi":"cook_action"}
 {"i":"5402","n":"Advantium Cook - Cook Mode","d":"sensor","ds":19,"dc":"enum","p":"5401","r":"request","vt":"{{ {'00': 'No Mode', '01': 'Convection Bake', '02': 'Broil', '03': 'Microwave', '04': 'Microwave Sensor', '05': 'Microwave Staged', '06': 'Precision Cook', '07': 'Precision Cook Staged', '08': 'Precision Cook Custom', '09': 'Warm', '0a': 'Proof', '0b': 'Toast', '0c': 'Steam Clean', '0d': 'Microwave Slow Cook'}.get(value[4:6], 'Unknown') }}","fi":"cook_mode"}
 {"i":"5402","n":"Advantium Cook - Target Temperature (fahrenheit)","d":"sensor","ds":19,"u":"°F","p":"5401","r":"request","vt":"{{ value[6:10] | int(base=16) }}","fi":"target_temperature_fahrenheit"}
@@ -942,10 +942,10 @@
 {"i":"5402","n":"Advantium Cook - Warm Option","d":"sensor","ds":19,"dc":"enum","p":"5401","r":"request","vt":"{{ {'00': 'Off', '01': 'Crisp', '02': 'Moist'}.get(value[36:38], 'Unknown') }}","fi":"warm_option"}
 {"i":"5403","n":"Advantium Cook Time Remaining - Cook time adjustable","d":"sensor","ds":3,"dc":"enum","vt":"{{ {'00': 'Not adjustable', '01': 'Adjustable'}.get(value[0:2], 'Unknown') }}"}
 {"i":"5403","n":"Advantium Cook Time Remaining - Remaining cook time (seconds)","d":"sensor","ds":3,"vt":"{{ value[2:6] | int(base=16) }}","fi":"remaining_cook_time_seconds"}
-{"i":"5404","n":"Advantium Cook Time Adjustment","d":"number","ds":3,"u":"s","dc":"duration","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%06x' % (value | int) }}","m":"box"}
+{"i":"5404","n":"Advantium Cook Time Adjustment","d":"number","ds":3,"u":"s","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%06x' % (value | int) }}","m":"box"}
 {"i":"5405","n":"Advantium Menu Tree Parametric Hash","d":"sensor","ds":32}
 {"i":"5406","n":"Advantium Menu Tree Selection","d":"sensor","ds":4,"vt":"{{ value | int(base=16) }}"}
-{"i":"5407","n":"Advantium Allowable Oven Cook Time - Convection Bake Min Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","dc":"duration","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"5407","n":"Advantium Allowable Oven Cook Time - Convection Bake Min Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"5407","n":"Advantium Allowable Oven Cook Time - Convection Bake Max Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[4:8] | int(base=16) }}","fi":"convection_bake_max_allowable_cook_time_seconds"}
 {"i":"5407","n":"Advantium Allowable Oven Cook Time - Broil Min Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[8:12] | int(base=16) }}","fi":"broil_min_allowable_cook_time_seconds"}
 {"i":"5407","n":"Advantium Allowable Oven Cook Time - Broil Max Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[12:16] | int(base=16) }}","fi":"broil_max_allowable_cook_time_seconds"}
@@ -959,7 +959,7 @@
 {"i":"5407","n":"Advantium Allowable Oven Cook Time - Convection Roast Max Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[44:48] | int(base=16) }}","fi":"convection_roast_max_allowable_cook_time_seconds"}
 {"i":"5407","n":"Advantium Allowable Oven Cook Time - Fast Cook Min Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[48:52] | int(base=16) }}","fi":"fast_cook_min_allowable_cook_time_seconds"}
 {"i":"5407","n":"Advantium Allowable Oven Cook Time - Fast Cook Max Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[52:56] | int(base=16) }}","fi":"fast_cook_max_allowable_cook_time_seconds"}
-{"i":"5408","n":"Advantium Allowable Microwave Cook Time - Express Min Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","dc":"duration","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"5408","n":"Advantium Allowable Microwave Cook Time - Express Min Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"5408","n":"Advantium Allowable Microwave Cook Time - Express Max Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[4:8] | int(base=16) }}","fi":"express_max_allowable_cook_time_seconds"}
 {"i":"5408","n":"Advantium Allowable Microwave Cook Time - Slow Cook Min Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[8:12] | int(base=16) }}","fi":"slow_cook_min_allowable_cook_time_seconds"}
 {"i":"5408","n":"Advantium Allowable Microwave Cook Time - Slow Cook Max Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[12:16] | int(base=16) }}","fi":"slow_cook_max_allowable_cook_time_seconds"}
@@ -967,7 +967,7 @@
 {"i":"5408","n":"Advantium Allowable Microwave Cook Time - Defrost Max Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[20:24] | int(base=16) }}","fi":"defrost_max_allowable_cook_time_seconds"}
 {"i":"5408","n":"Advantium Allowable Microwave Cook Time - Microwave Min Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[24:28] | int(base=16) }}","fi":"microwave_min_allowable_cook_time_seconds"}
 {"i":"5408","n":"Advantium Allowable Microwave Cook Time - Microwave Max Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[28:32] | int(base=16) }}","fi":"microwave_max_allowable_cook_time_seconds"}
-{"i":"5409","n":"Advantium Allowable Precision Cook Time - Precision Cook Min Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","dc":"duration","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"5409","n":"Advantium Allowable Precision Cook Time - Precision Cook Min Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"5409","n":"Advantium Allowable Precision Cook Time - Precision Cook Max Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[4:8] | int(base=16) }}","fi":"precision_cook_max_allowable_cook_time_seconds"}
 {"i":"5409","n":"Advantium Allowable Precision Cook Time - Custom Precision Cook 120V Min Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[8:12] | int(base=16) }}","fi":"custom_precision_cook_120v_min_allowable_cook_time_seconds"}
 {"i":"5409","n":"Advantium Allowable Precision Cook Time - Custom Precision Cook 120V Max Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[12:16] | int(base=16) }}","fi":"custom_precision_cook_120v_max_allowable_cook_time_seconds"}
@@ -977,13 +977,19 @@
 {"i":"5409","n":"Advantium Allowable Precision Cook Time - Air Fry Max Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[28:32] | int(base=16) }}","fi":"air_fry_max_allowable_cook_time_seconds"}
 {"i":"5409","n":"Advantium Allowable Precision Cook Time - Crisp Reheat Min Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[32:36] | int(base=16) }}","fi":"crisp_reheat_min_allowable_cook_time_seconds"}
 {"i":"5409","n":"Advantium Allowable Precision Cook Time - Crisp Reheat Max Allowable Cook Time (seconds)","d":"sensor","ds":32,"u":"s","vt":"{{ value[36:40] | int(base=16) }}","fi":"crisp_reheat_max_allowable_cook_time_seconds"}
-{"i":"540a","n":"Advantium Allowable Kitchen Time - Min Allowable Kitchen Time (seconds)","d":"sensor","ds":4,"u":"s","dc":"duration","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"540a","n":"Advantium Allowable Kitchen Time - Min Allowable Kitchen Time (seconds)","d":"sensor","ds":4,"u":"s","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"540a","n":"Advantium Allowable Kitchen Time - Max Allowable Kitchen Time (seconds)","d":"sensor","ds":4,"u":"s","vt":"{{ value[4:8] | int(base=16) }}","fi":"max_allowable_kitchen_time_seconds"}
 {"i":"540b","n":"Precision Cook Mode UID Cavity 1 Selection","d":"sensor","ds":4,"vt":"{{ value | int(base=16) }}"}
 {"i":"540c","n":"Precision Cook Mode UID Cavity 2 Selection","d":"sensor","ds":4,"vt":"{{ value | int(base=16) }}"}
 {"i":"540d","n":"Precision Cook Mode UID Cavity 1 Request","d":"sensor","ds":4,"vt":"{{ value | int(base=16) }}"}
 {"i":"540e","n":"Precision Cook Mode UID Cavity 2 Request","d":"sensor","ds":4,"vt":"{{ value | int(base=16) }}"}
 {"i":"5410","n":"Precision Cooking Short Name Cavity 1","d":"sensor","ds":16,"p":"5411","r":"request","vt":"{% set chars = ' !\"#$%&\\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~' %}{% set ns = namespace(value='') %}{% for i in range(0, value | length, 2) %}{% set b = value[i:i+2] | int(base=16) %}{% if b >= 0x20 and b <= 0x7E %}{% set ns.value = ns.value ~ chars[b - 0x20] %}{% endif %}{% endfor %}{{ ns.value.rstrip('_') }}"}
+{"i":"5411","n":"Precision Cooking Short Name Cavity 1 - Short Name","d":"sensor","ds":24,"p":"5410","r":"status","vt":"{% set ns = namespace(value='') %}{% for i in range(0, 32, 2) %}{% set b = value[i:i+2] | int(base=16) %}{% if b >= 0x20 and b <= 0x7E %}{% set ns.value = ns.value ~ chr(b) %}{% endif %}{% endfor %}{{ ns.value.rstrip('_') }}"}
+{"i":"5411","n":"Precision Cooking Short Name Cavity 1 - UID","d":"sensor","ds":24,"p":"5410","r":"status","vt":"{{ value[32:40] | int(base=16) }}","fi":"uid"}
+{"i":"5411","n":"Precision Cooking Short Name Cavity 1 - Status","d":"sensor","ds":24,"dc":"enum","p":"5410","r":"status","vt":"{{ {'00': 'Clear', '01': 'Pending', '02': 'Active', '03': 'Complete', '04': 'Rejected (Cook Mode Running)', '05': 'Rejected (Cavity Door Locked)', '06': 'Rejected (High Temperature)', '07': 'Rejected (Other Cavity Cleaning)'}.get(value[40:42], 'Unknown') }}","fi":"status"}
+{"i":"5411","n":"Precision Cooking Short Name Cavity 1 - Padding[0]","d":"sensor","ds":24,"p":"5410","r":"status","vt":"{{ value[42:44] | int(base=16) }}","fi":"padding_0"}
+{"i":"5411","n":"Precision Cooking Short Name Cavity 1 - Padding[1]","d":"sensor","ds":24,"p":"5410","r":"status","vt":"{{ value[44:46] | int(base=16) }}","fi":"padding_1"}
+{"i":"5411","n":"Precision Cooking Short Name Cavity 1 - Padding[2]","d":"sensor","ds":24,"p":"5410","r":"status","vt":"{{ value[46:48] | int(base=16) }}","fi":"padding_2"}
 {"i":"5412","n":"Precision Cooking Menu Cavity 1 Config Key","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"5413","n":"Primary Oven Remote Precision Cook UI Configuration - Precision Cook Probe Required","d":"sensor","ds":3,"dc":"enum","vt":"{{ {'00': 'Not Required', '01': 'Required', 'ff': 'Dont Care'}.get(value[0:2], 'Unknown') }}"}
 {"i":"5413","n":"Primary Oven Remote Precision Cook UI Configuration - Precision Cook Preheat Ramp Display Required","d":"sensor","ds":3,"dc":"enum","vt":"{{ {'00': 'Not Required', '01': 'Required', 'ff': 'Dont Care'}.get(value[2:4], 'Unknown') }}","fi":"precision_cook_preheat_ramp_display_required"}
@@ -1037,6 +1043,12 @@
 {"i":"5416","n":"Advantium Remote JSON Cook - Choice Tree Selections[11]","d":"sensor","ds":36,"p":"5417","r":"request","vt":"{{ value[70:72] | int(base=16) }}","fi":"choice_tree_selections_11"}
 {"i":"5417","n":"Advantium Remote JSON Cook","d":"select","ds":36,"p":"5416","r":"status","vt":"{{ {'00': 'Stop', '01': 'Start', '02': 'Updated', '03': 'Pause', '04': 'Resume'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Stop': '00', 'Start': '01', 'Updated': '02', 'Pause': '03', 'Resume': '04'}[value] }}","o":"[\"Stop\", \"Start\", \"Updated\", \"Pause\", \"Resume\"]"}
 {"i":"5420","n":"Precision Cooking Short Name Cavity 2","d":"sensor","ds":16,"p":"5421","r":"request","vt":"{% set chars = ' !\"#$%&\\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~' %}{% set ns = namespace(value='') %}{% for i in range(0, value | length, 2) %}{% set b = value[i:i+2] | int(base=16) %}{% if b >= 0x20 and b <= 0x7E %}{% set ns.value = ns.value ~ chars[b - 0x20] %}{% endif %}{% endfor %}{{ ns.value.rstrip('_') }}"}
+{"i":"5421","n":"Precision Cooking Short Name Cavity 2 - Short Name","d":"sensor","ds":24,"p":"5420","r":"status","vt":"{% set ns = namespace(value='') %}{% for i in range(0, 32, 2) %}{% set b = value[i:i+2] | int(base=16) %}{% if b >= 0x20 and b <= 0x7E %}{% set ns.value = ns.value ~ chr(b) %}{% endif %}{% endfor %}{{ ns.value.rstrip('_') }}"}
+{"i":"5421","n":"Precision Cooking Short Name Cavity 2 - UID","d":"sensor","ds":24,"p":"5420","r":"status","vt":"{{ value[32:40] | int(base=16) }}","fi":"uid"}
+{"i":"5421","n":"Precision Cooking Short Name Cavity 2 - Status","d":"sensor","ds":24,"dc":"enum","p":"5420","r":"status","vt":"{{ {'00': 'Clear', '01': 'Pending', '02': 'Active', '03': 'Complete', '04': 'Rejected (Cook Mode Running)', '05': 'Rejected (Cavity Door Locked)', '06': 'Rejected (High Temperature)', '07': 'Rejected (Other Cavity Cleaning)'}.get(value[40:42], 'Unknown') }}","fi":"status"}
+{"i":"5421","n":"Precision Cooking Short Name Cavity 2 - Padding[0]","d":"sensor","ds":24,"p":"5420","r":"status","vt":"{{ value[42:44] | int(base=16) }}","fi":"padding_0"}
+{"i":"5421","n":"Precision Cooking Short Name Cavity 2 - Padding[1]","d":"sensor","ds":24,"p":"5420","r":"status","vt":"{{ value[44:46] | int(base=16) }}","fi":"padding_1"}
+{"i":"5421","n":"Precision Cooking Short Name Cavity 2 - Padding[2]","d":"sensor","ds":24,"p":"5420","r":"status","vt":"{{ value[46:48] | int(base=16) }}","fi":"padding_2"}
 {"i":"5422","n":"Precision Cooking Menu Cavity 2 Config Key","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"5423","n":"Secondary Oven Remote Precision Cook UI Configuration - Precision Cook Probe Required","d":"sensor","ds":3,"dc":"enum","vt":"{{ {'00': 'Not Required', '01': 'Required', 'ff': 'Dont Care'}.get(value[0:2], 'Unknown') }}"}
 {"i":"5423","n":"Secondary Oven Remote Precision Cook UI Configuration - Precision Cook Preheat Ramp Display Required","d":"sensor","ds":3,"dc":"enum","vt":"{{ {'00': 'Not Required', '01': 'Required', 'ff': 'Dont Care'}.get(value[2:4], 'Unknown') }}","fi":"precision_cook_preheat_ramp_display_required"}
@@ -1110,7 +1122,7 @@
 {"i":"5520","n":"Cooktop Status - Bridge Mode","d":"binary_sensor","ds":13,"vt":"{{ '01' if ((value[22:24] | int(base=16)) // 32) % 2 else '00' }}","fi":"bridge_mode_22","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5520","n":"Cooktop Status - Burner State","d":"binary_sensor","ds":13,"vt":"{{ '01' if ((value[22:24] | int(base=16)) // 64) % 2 else '00' }}","fi":"burner_state_22","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5520","n":"Cooktop Status - Burner Power Level","d":"sensor","ds":13,"vt":"{{ ((value[24:26] | int(base=16)) // 1) % 128 }}","fi":"burner_power_level_24"}
-{"i":"5521","n":"Cooktop Built-In Temperature Sensors - Left Front Temperature","d":"sensor","ds":12,"u":"°F","dc":"temperature","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"5521","n":"Cooktop Built-In Temperature Sensors - Left Front Temperature","d":"sensor","ds":12,"u":"°F","vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"5521","n":"Cooktop Built-In Temperature Sensors - Left Rear","d":"sensor","ds":12,"u":"°F","vt":"{{ value[4:8] | int(base=16) }}","fi":"left_rear"}
 {"i":"5521","n":"Cooktop Built-In Temperature Sensors - Center Front","d":"sensor","ds":12,"u":"°F","vt":"{{ value[8:12] | int(base=16) }}","fi":"center_front"}
 {"i":"5521","n":"Cooktop Built-In Temperature Sensors - Center Rear","d":"sensor","ds":12,"u":"°F","vt":"{{ value[12:16] | int(base=16) }}","fi":"center_rear"}
@@ -1189,7 +1201,7 @@
 {"i":"5671","n":"Closed-Loop Cooking Device Status - Device Status","d":"sensor","ds":4,"dc":"enum","vt":"{{ {'00': 'Not paired and not currently connected', '01': 'Paired but not currently connected', '02': 'Paired and currently connected', 'ff': 'Invalid'}.get(value[6:8], 'Unknown') }}","fi":"device_status"}
 {"i":"5672","n":"Closed-Loop Cooking Target Temperature","d":"number","ds":2,"u":"°F","dc":"temperature","mn":0.0,"mx":65535.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%04x' % (value | int) }}","m":"box"}
 {"i":"5673","n":"Closed-Loop Cooking Current Temperature","d":"number","ds":2,"u":"°F","dc":"temperature","sf":100,"mn":0.0,"mx":655.35,"st":0.01,"vt":"{{ (value | int(base=16)) / 100 | round(2) }}","ct":"{{ '%04x' % (((value | float) * 100) | round | int) }}","m":"box"}
-{"i":"5674","n":"Target Closed-Loop Cooking Time","d":"number","ds":2,"u":"min","dc":"duration","mn":0.0,"mx":65535.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%04x' % (value | int) }}","m":"box"}
+{"i":"5674","n":"Target Closed-Loop Cooking Time","d":"number","ds":2,"u":"min","mn":0.0,"mx":65535.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%04x' % (value | int) }}","m":"box"}
 {"i":"5675","n":"Start Closed-Loop Cooking Cook Timer","d":"switch","ds":1,"pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5676","n":"Elapsed Closed-Loop Cooking Time","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
 {"i":"5677","n":"Closed-Loop Cooking Target Time Reached","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -1328,7 +1340,7 @@
 {"i":"577e","n":"Bridge/Sync Closed-Loop Cooking Configuration - Integral Term qBits","d":"sensor","ds":20,"u":"%","vt":"{{ value[28:30] | int(base=16) }}","fi":"integral_term_qbits"}
 {"i":"577e","n":"Bridge/Sync Closed-Loop Cooking Configuration - Derivative Term Value","d":"sensor","ds":20,"u":"%","vt":"{{ (value[30:38] | int(base=16)) - 4294967296 if (value[30:38] | int(base=16)) >= 2147483648 else (value[30:38] | int(base=16)) }}","fi":"derivative_term_value"}
 {"i":"577e","n":"Bridge/Sync Closed-Loop Cooking Configuration - Derivative Term qBits","d":"sensor","ds":20,"u":"%","vt":"{{ value[38:40] | int(base=16) }}","fi":"derivative_term_qbits"}
-{"i":"577f","n":"Set Pan Type","d":"sensor","ds":1,"vt":"{{ {'00': 'Generic', '01': 'Stainless', '02': 'Cast Iron', 'ff': 'Not Set'}.get(value[:2], 'Unknown') }}"}
+{"i":"577f","n":"Set Pan Type","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Generic', '01': 'Stainless', '02': 'Cast Iron', 'ff': 'Not Set'}.get(value[:2], 'Unknown') }}"}
 {"i":"5780","n":"Front Left Closed Loop Temperature","d":"sensor","ds":2,"u":"°F","dc":"temperature","sf":100,"vt":"{{ (value | int(base=16)) / 100 | round(2) }}"}
 {"i":"5781","n":"Rear Left Closed Loop Temperature","d":"sensor","ds":2,"u":"°F","dc":"temperature","sf":100,"vt":"{{ (value | int(base=16)) / 100 | round(2) }}"}
 {"i":"5782","n":"Front Center Left Closed Loop Temperature","d":"sensor","ds":2,"u":"°F","dc":"temperature","sf":100,"vt":"{{ (value | int(base=16)) / 100 | round(2) }}"}
@@ -1389,7 +1401,7 @@
 {"i":"58b5","n":"Right Front Closed Loop Cooking Device Index","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"58b6","n":"Right Rear Closed Loop Cooking Device Index","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"5900","n":"Gas Lockout Valve Status","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Initializing', '01': 'Gas Valve Unlocked', '02': 'Gas Valve Locked', '03': 'Gas Valve in Transition', '04': 'Gas Valve status unknown'}.get(value[:2], 'Unknown') }}"}
-{"i":"5901","n":"Lock Gas Valve Request","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"5901","n":"Lock Gas Valve Request","d":"select","ds":1,"vt":"{{ {'00': 'Do Nothing', '01': 'Request Gas Valve to be Locked'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Do Nothing': '00', 'Request Gas Valve to be Locked': '01'}[value] }}","o":"[\"Do Nothing\", \"Request Gas Valve to be Locked\"]"}
 {"i":"5903","n":"Modular Cooktops (MCT) System Configuration Status - Number of Devices to Report","d":"sensor","ds":15,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5903","n":"Modular Cooktops (MCT) System Configuration Status - Pos 7D Device Type","d":"sensor","ds":15,"dc":"enum","vt":"{{ {'00': 'Undefined', '01': 'Induction Cooktop 300 mm', '02': 'Induction Cooktop 390 mm', '03': 'Induction Cooktop 600 mm', '04': 'Induction Cooktop 760 mm', '05': 'Induction Cooktop 900 mm', '06': 'Teppan Cooktop 300 mm', '07': 'Teppan Cooktop 390 mm', '08': 'Downdraft', 'ff': 'Unknown'}.get(value[2:4], 'Unknown') }}","fi":"pos_7d_device_type"}
 {"i":"5903","n":"Modular Cooktops (MCT) System Configuration Status - Pos 7D Device State","d":"sensor","ds":15,"dc":"enum","vt":"{{ {'00': 'Undefined', '01': 'Missing', '02': 'Confirmed', '03': 'New Found'}.get(value[4:6], 'Unknown') }}","fi":"pos_7d_device_state"}
@@ -2387,30 +2399,30 @@
 {"i":"599b","n":"MCT Current Event Record","d":"sensor","ds":8,"dc":"enum","vt":"{{ {'00': 'Undefined', '01': 'Over Voltage', '02': 'Mains Voltage Out of Range', '03': 'Mains Connection Fault', '04': 'AD-Converter Defect', '05': 'LIN Communication Error', '06': 'CM Auxiliary Communication Lost', '07': 'Coil Temperature Sensor Defect', '08': 'Fan Defect', '09': 'Heat Sink Temperature Sensor Defect', '0a': 'PWM Output Incorrect', '0b': 'Plausibility Error of Configuration Data', '0c': 'CRC Error of Configuration Data', '0d': 'Temperature Pin Short Cut to Neighbour', '0e': 'TFT Overheat Level 2', '0f': 'TFT Overheat Max', '10': 'CM Master Overheat', '11': 'SBC Overheat', '12': 'CM Auxiliary Overheat', '13': 'Over Temperature of Coil Sensor (Zone Error)', '14': 'Over Temperature of Coil Sensor (Module Error)', '41': 'TFT Overheat Level 1', '42': 'Ambient Probe Overheated', '43': 'Internal Probe Overheated', '81': 'Monitor Probe Connection Lost', '82': 'Hold Probe Connection Lost', '83': 'Cook Probe Connection Lost', '84': 'Hold Probe Under Temp Limit Exceeded', '85': 'Cook Probe Under Temp Limit Exceeded', '86': 'Hold Probe Over Temp Limit Exceeded', '87': 'Cook Probe Over Temp Limit Exceeded', '88': 'Pot Detection Timeout', 'c1': 'Probe Reach Goal Complete', 'c2': 'Cook Preheat Complete', 'c3': 'Manual Timer Complete', 'c4': 'Cook Timer Complete', 'c5': 'Hold Preheat Complete', 'c6': 'Hold Timer Complete'}.get(value[0:2], 'Unknown') }}"}
 {"i":"599b","n":"MCT Current Event Record - Event Support Status","d":"binary_sensor","ds":8,"vt":"{{ '01' if ((value[10:12] | int(base=16)) // 1) % 2 else '00' }}","fi":"event_support_status","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"599c","n":"MCT System Market Code","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Undefined', '01': 'AA', '02': 'US', '03': 'BI', '04': 'Reserved', '05': 'TW', '06': 'CN'}.get(value[:2], 'Unknown') }}"}
-{"i":"599d","n":"Global Timer Status - Timer Time Remaining in seconds","d":"sensor","ds":4,"dc":"enum","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"599d","n":"Global Timer Status - Timer Time Remaining in seconds","d":"sensor","ds":4,"vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"599d","n":"Global Timer Status - Timer State","d":"sensor","ds":4,"dc":"enum","vt":"{{ {'00': 'Undefined', '01': 'Armed', '02': 'Running', '03': 'Disarmed', '04': 'Expired', '05': 'Paused'}.get(value[4:6], 'Unknown') }}","fi":"timer_state"}
 {"i":"599d","n":"Global Timer Status - Padding","d":"sensor","ds":4,"vt":"{{ value[6:8] | int(base=16) }}","fi":"padding"}
-{"i":"5b00","n":"Hood Fan Speed","d":"sensor","ds":1,"u":"rpm","vt":"{{ {'00': 'Off', '01': 'Low', '02': 'Med', '03': 'High', '04': 'Boost'}.get(value[:2], 'Unknown') }}"}
-{"i":"5b02","n":"Hood Light Level","d":"sensor","ds":1,"vt":"{{ {'00': 'Off', '01': 'Dim', '02': 'High', '03': 'Med'}.get(value[:2], 'Unknown') }}"}
-{"i":"5b04","n":"Hood Delay Off","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"5b00","n":"Hood Fan Speed","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Off', '01': 'Low', '02': 'Med', '03': 'High', '04': 'Boost'}.get(value[:2], 'Unknown') }}"}
+{"i":"5b02","n":"Hood Light Level","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Off', '01': 'Dim', '02': 'High', '03': 'Med'}.get(value[:2], 'Unknown') }}"}
+{"i":"5b04","n":"Hood Delay Off","d":"select","ds":1,"vt":"{{ {'00': 'Cancel', '01': 'Activate'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Cancel': '00', 'Activate': '01'}[value] }}","o":"[\"Cancel\", \"Activate\"]"}
 {"i":"5b05","n":"Hood Delay On","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Cancel', '01': 'Activate'}.get(value[:2], 'Unknown') }}"}
 {"i":"5b06","n":"Hood Heat Sensor Temperature","d":"sensor","ds":1,"u":"°F","dc":"temperature","vt":"{{ value | int(base=16) }}"}
 {"i":"5b07","n":"Hood Heat Sensor State","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Normal', '01': 'Heat Alarm', 'ff': 'Invalid'}.get(value[:2], 'Unknown') }}"}
-{"i":"5b08","n":"Hood Camera Light Assist Level","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"5b0a","n":"Hood Display Protection Fan Speed","d":"sensor","ds":1,"u":"rpm","vt":"{{ {'01': 'Low', '02': 'Med', '03': 'High', '04': 'Boost'}.get(value[:2], 'Unknown') }}"}
+{"i":"5b08","n":"Hood Camera Light Assist Level","d":"select","ds":1,"vt":"{{ {'01': 'Dim', '02': 'High'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Dim': '01', 'High': '02'}[value] }}","o":"[\"Dim\", \"High\"]"}
+{"i":"5b0a","n":"Hood Display Protection Fan Speed","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'01': 'Low', '02': 'Med', '03': 'High', '04': 'Boost'}.get(value[:2], 'Unknown') }}"}
 {"i":"5b0c","n":"Hood Notifications - Expiry notification for Air Filter","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 1) % 2 else '00' }}","fi":"expiry_notification_for_air_filter","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5b0c","n":"Hood Notifications - Expiry notification for Charcoal  Filter","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 2) % 2 else '00' }}","fi":"expiry_notification_for_charcoal_filter","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5b0d","n":"Hood Notification Reset - Expiry notification for Air Filter","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 1) % 2 else '00' }}","fi":"expiry_notification_for_air_filter","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5b0d","n":"Hood Notification Reset - Expiry notification for Charcoal  Filter","d":"binary_sensor","ds":2,"vt":"{{ '01' if ((value[0:4] | int(base=16)) // 2) % 2 else '00' }}","fi":"expiry_notification_for_charcoal_filter","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5b0e","n":"Boost Duration","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"5b0f","n":"Delay Off Duration","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
-{"i":"5b12","n":"Hood Request On/Off","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"5b12","n":"Hood Request On/Off","d":"select","ds":1,"vt":"{{ {'00': 'Off', '01': 'On'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Off': '00', 'On': '01'}[value] }}","o":"[\"Off\", \"On\"]"}
 {"i":"5b13","n":"Hood Actual Fan Speed","d":"sensor","ds":1,"u":"rpm","vt":"{{ value | int(base=16) }}"}
 {"i":"5b14","n":"Hood Requested Fan Speed","d":"sensor","ds":1,"u":"rpm","vt":"{{ value | int(base=16) }}"}
 {"i":"5b17","n":"Hood Actual Light Level","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"5b18","n":"Hood Requested Light Level","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"5b1a","n":"Hood Actual Delay Off Mode","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Disabled', '01': 'Enabled', 'ff': 'Not Available'}.get(value[:2], 'Unknown') }}"}
-{"i":"5b1b","n":"Hood Delay Off Request","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
+{"i":"5b1b","n":"Hood Delay Off Request","d":"select","ds":1,"vt":"{{ {'00': 'Disabled', '01': 'Enabled'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Disabled': '00', 'Enabled': '01'}[value] }}","o":"[\"Disabled\", \"Enabled\"]"}
 {"i":"5b1c","n":"Hood Actual Delay Off Duration","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"5b1d","n":"Hood Requested Delay Off Duration","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"5b1e","n":"Hood to Cooktop Connection Status (Hood-Side)","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Not Paired And Not Connected', '01': 'Paired But Not Connected', '02': 'Paired And Connected', 'ff': 'Hood-To-Cooktop Not Available'}.get(value[:2], 'Unknown') }}"}
@@ -2418,14 +2430,14 @@
 {"i":"5b20","n":"Hood Model","d":"sensor","ds":2,"dc":"enum","vt":"{{ {'00': 'Undefined', '01': 'F&P SDA', '02': 'OEM CATA'}.get(value[0:2], 'Unknown') }}"}
 {"i":"5b20","n":"Hood Model - Personality","d":"sensor","ds":2,"vt":"{{ value[2:4] | int(base=16) }}","fi":"personality"}
 {"i":"5b21","n":"Hood Actual Light Color","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Default or Not Set', '01': '3000K', '02': '4000K', 'ff': 'Not Supported'}.get(value[:2], 'Unknown') }}"}
-{"i":"5b22","n":"Hood Requested Light Color","d":"sensor","ds":1,"vt":"{{ {'00': 'Invalid', '01': '3000K', '02': '4000K'}.get(value[:2], 'Unknown') }}"}
+{"i":"5b22","n":"Hood Requested Light Color","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Invalid', '01': '3000K', '02': '4000K'}.get(value[:2], 'Unknown') }}"}
 {"i":"5b24","n":"Hood to Hob Actual Auto Control","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Off', '01': 'Auto'}.get(value[:2], 'Unknown') }}"}
-{"i":"5b25","n":"Hood to Hob Request Auto Control","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Off', '01': 'Auto'}.get(value[:2], 'Unknown') }}"}
-{"i":"5b26","n":"Hood Requested Auto Fan Speed","d":"sensor","ds":1,"u":"rpm","vt":"{{ value | int(base=16) }}"}
+{"i":"5b25","n":"Hood to Hob Request Auto Control","d":"select","ds":1,"vt":"{{ {'00': 'Off', '01': 'Auto'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Off': '00', 'Auto': '01'}[value] }}","o":"[\"Off\", \"Auto\"]"}
+{"i":"5b26","n":"Hood Requested Auto Fan Speed","d":"sensor","ds":1,"u":"%","vt":"{{ value | int(base=16) }}"}
 {"i":"5b27","n":"Relative Humidity Sensor Idle Update Period in Minutes","d":"sensor","ds":1,"u":"%","dc":"humidity","vt":"{{ value | int(base=16) }}"}
-{"i":"5b28","n":"Requested Relative Humidity Sensor Idle Update Period in Minutes","d":"number","ds":1,"u":"%","dc":"humidity","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
-{"i":"5b29","n":"Request Update of Relative Humidity (%)","d":"number","ds":1,"u":"%","dc":"humidity","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
-{"i":"5b2a","n":"Relative Humidity (%)","d":"sensor","ds":4,"dc":"enum","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5b28","n":"Requested Relative Humidity Sensor Idle Update Period in Minutes","d":"number","ds":1,"u":"min","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
+{"i":"5b29","n":"Request Update of Relative Humidity (%)","d":"number","ds":1,"u":"min","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
+{"i":"5b2a","n":"Relative Humidity (%)","d":"sensor","ds":4,"vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5b2a","n":"Relative Humidity (%) - Humidity Air Quality","d":"sensor","ds":4,"dc":"enum","vt":"{{ {'00': 'Good', '01': 'Air Quality 1', '02': 'Air Quality 2', '03': 'Air Quality 3', '04': 'Air Quality 4', '05': 'Moderate', '06': 'Air Quality 6', '07': 'Air Quality 7', '08': 'Air Quality 8', '09': 'Air Quality 9', '0a': 'Poor', 'ff': 'Invalid'}.get(value[2:4], 'Unknown') }}","fi":"humidity_air_quality"}
 {"i":"5b2a","n":"Relative Humidity (%) - State","d":"sensor","ds":4,"dc":"enum","vt":"{{ {'00': 'Invalid', '01': 'Operating', '02': 'Error', '03': 'Calibrating'}.get(value[4:6], 'Unknown') }}","fi":"state"}
 {"i":"5b2a","n":"Relative Humidity (%) - padding","d":"sensor","ds":4,"vt":"{{ value[6:8] | int(base=16) }}","fi":"padding"}
@@ -2472,14 +2484,14 @@
 {"i":"5b44","n":"Environmental Temperature Update Idle Period in Minutes","d":"sensor","ds":1,"u":"°F","dc":"temperature","vt":"{{ value | int(base=16) }}"}
 {"i":"5b45","n":"Requested Environmental Temperature Idle Update Period in Minutes","d":"number","ds":1,"u":"°F","dc":"temperature","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
 {"i":"5b46","n":"Request Update of Environmental Temperature (F)","d":"number","ds":1,"u":"°F","dc":"temperature","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%02x' % (value | int) }}","m":"box"}
-{"i":"5b47","n":"Environmental Temperature (F)","d":"sensor","ds":4,"dc":"enum","vt":"{{ value[0:4] | int(base=16) }}"}
+{"i":"5b47","n":"Environmental Temperature (F)","d":"sensor","ds":4,"vt":"{{ value[0:4] | int(base=16) }}"}
 {"i":"5b47","n":"Environmental Temperature - Temperature Air Quality","d":"sensor","ds":4,"dc":"enum","vt":"{{ {'00': 'Good', '01': 'Air Quality 1', '02': 'Air Quality 2', '03': 'Air Quality 3', '04': 'Air Quality 4', '05': 'Moderate', '06': 'Air Quality 6', '07': 'Air Quality 7', '08': 'Air Quality 8', '09': 'Air Quality 9', '0a': 'Poor', 'ff': 'Invalid'}.get(value[4:6], 'Unknown') }}","fi":"temperature_air_quality"}
 {"i":"5b47","n":"Environmental Temperature - State","d":"sensor","ds":4,"dc":"enum","vt":"{{ {'00': 'Invalid', '01': 'Operating', '02': 'Error', '03': 'Calibrating'}.get(value[6:8], 'Unknown') }}","fi":"state"}
 {"i":"5b49","n":"Air Filter Fan Run Time","d":"sensor","ds":4,"vt":"{{ value | int(base=16) }}"}
 {"i":"5b4a","n":"Charcoal Filter Fan Run Time","d":"sensor","ds":4,"vt":"{{ value | int(base=16) }}"}
 {"i":"5b4b","n":"Overall Air Quality","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Good', '01': 'Air Quality 1', '02': 'Air Quality 2', '03': 'Air Quality 3', '04': 'Air Quality 4', '05': 'Moderate', '06': 'Air Quality 6', '07': 'Air Quality 7', '08': 'Air Quality 8', '09': 'Air Quality 9', '0a': 'Poor', 'ff': 'Invalid'}.get(value[:2], 'Unknown') }}"}
 {"i":"5b4d","n":"Selected Color Scheme","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Traffic Light', '01': 'Profile'}.get(value[:2], 'Unknown') }}"}
-{"i":"5b4e","n":"Requested Color Scheme","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Traffic Light', '01': 'Profile'}.get(value[:2], 'Unknown') }}"}
+{"i":"5b4e","n":"Requested Color Scheme","d":"select","ds":1,"vt":"{{ {'00': 'Traffic Light', '01': 'Profile'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Traffic Light': '00', 'Profile': '01'}[value] }}","o":"[\"Traffic Light\", \"Profile\"]"}
 {"i":"5b4f","n":"PM 2.5 Index Update Period in Minutes","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"5b50","n":"Requested PM 2.5 Index Sensor Update Period in Minutes","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
 {"i":"5b51","n":"Request Update of PM 2.5 Index","d":"sensor","ds":1,"vt":"{{ value | int(base=16) }}"}
@@ -2508,16 +2520,15 @@
 {"i":"5b5e","n":"PM 10 Index - PM 10 Air Quality","d":"sensor","ds":4,"dc":"enum","vt":"{{ {'00': 'Good', '01': 'Air Quality 1', '02': 'Air Quality 2', '03': 'Air Quality 3', '04': 'Air Quality 4', '05': 'Moderate', '06': 'Air Quality 6', '07': 'Air Quality 7', '08': 'Air Quality 8', '09': 'Air Quality 9', '0a': 'Poor', 'ff': 'Invalid'}.get(value[2:4], 'Unknown') }}","fi":"pm_10_air_quality"}
 {"i":"5b5e","n":"PM 10 Index - State","d":"sensor","ds":4,"dc":"enum","vt":"{{ {'00': 'Invalid', '01': 'Operating', '02': 'Error', '03': 'Calibrating'}.get(value[4:6], 'Unknown') }}","fi":"state"}
 {"i":"5b5e","n":"PM 10 Index - padding","d":"sensor","ds":4,"vt":"{{ value[6:8] | int(base=16) }}","fi":"padding"}
-{"i":"5c00","n":"Microwave Timed Mode Current Setting","d":"number","ds":3,"u":"min","dc":"duration","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%06x' % (value | int) }}","m":"box"}
-{"i":"5c03","n":"Microwave Popcorn Mode - Current Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Sensed', '01': '1.75 oz', '02': '2 oz', '03': '2.25 oz', '04': '3 oz', '05': '3.5 oz', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
-{"i":"5c05","n":"Microwave Potato Mode - Current Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Sensed', '01': '1 Potato', '02': '2 Potato', '03': '3 Potato', '04': '4 Potato', '05': '5 Potato', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
-{"i":"5c07","n":"Microwave Beverage Mode - Current Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Sensed', '01': '1 Cup', '02': '2 Cup', '03': '3 Cup', '04': '4 Cup', '05': '5 Cup', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
-{"i":"5c09","n":"Microwave Pizza Mode - Current Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Sensed', '01': '1 Slice', '02': '2 Slice', '03': '3 Slice', '04': '4 Slice', '05': '5 Slice', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
-{"i":"5c0b","n":"Microwave Frozen Vegetable Mode - Current Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Sensed', '01': '0.5 cups', '02': '1 cup', '03': '1.5 cups', '04': '2 cups', '05': '2.5 cups', '06': '3 cups', '07': '4 cups', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
-{"i":"5c0d","n":"Microwave Fresh Vegetable Mode - Current Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Sensed', '01': '0.5 cups', '02': '1 cup', '03': '1.5 cups', '04': '2 cups', '05': '2.5 cups', '06': '3 cups', '07': '4 cups', '08': 'Sensed Canned', '09': '1 8oz Can', '0a': '1.5 8oz Can', '0b': '2 8oz Can', '0c': '2.5 8oz Can', '0d': '3 8oz Can', '0e': '3.5 8oz Can', '0f': '4 8oz Can', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
-{"i":"5c0f","n":"Microwave Reheat Mode - Current Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Sensed', '01': 'Plate', '02': 'Pasta', '03': 'Soup', '04': 'Vegetables', '05': 'Pizza', '06': 'Beef', '07': 'Poultry', '08': 'Pork', '09': 'Fish', '0a': 'Auto', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
-{"i":"5c10","n":"Microwave Add 30 Second Command - Add 30 Seconds Feature","d":"sensor","ds":2,"dc":"enum","vt":"{{ {'00': 'Not Set', '01': 'Set'}.get(value[0:2], 'Unknown') }}"}
-{"i":"5c10","n":"Microwave Add 30 Second Command - Sequence Number","d":"sensor","ds":2,"vt":"{{ value[2:4] | int(base=16) }}","fi":"sequence_number"}
+{"i":"5c00","n":"Microwave Timed Mode Current Setting","d":"number","ds":3,"u":"min","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%06x' % (value | int) }}","m":"box"}
+{"i":"5c03","n":"Microwave Popcorn Mode - Current Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': '1.75 oz', '02': '2 oz', '03': '2.25 oz', '04': '3 oz', '05': '3.5 oz', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
+{"i":"5c05","n":"Microwave Potato Mode - Current Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': '1 Potato', '02': '2 Potato', '03': '3 Potato', '04': '4 Potato', '05': '5 Potato', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
+{"i":"5c07","n":"Microwave Beverage Mode - Current Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': '1 Cup', '02': '2 Cup', '03': '3 Cup', '04': '4 Cup', '05': '5 Cup', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
+{"i":"5c09","n":"Microwave Pizza Mode - Current Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': '1 Slice', '02': '2 Slice', '03': '3 Slice', '04': '4 Slice', '05': '5 Slice', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
+{"i":"5c0b","n":"Microwave Frozen Vegetable Mode - Current Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': '0.5 cups', '02': '1 cup', '03': '1.5 cups', '04': '2 cups', '05': '2.5 cups', '06': '3 cups', '07': '4 cups', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
+{"i":"5c0d","n":"Microwave Fresh Vegetable Mode - Current Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': '0.5 cups', '02': '1 cup', '03': '1.5 cups', '04': '2 cups', '05': '2.5 cups', '06': '3 cups', '07': '4 cups', '08': 'Sensed Canned', '09': '1 8oz Can', '0a': '1.5 8oz Can', '0b': '2 8oz Can', '0c': '2.5 8oz Can', '0d': '3 8oz Can', '0e': '3.5 8oz Can', '0f': '4 8oz Can', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
+{"i":"5c0f","n":"Microwave Reheat Mode - Current Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': 'Plate', '02': 'Pasta', '03': 'Soup', '04': 'Vegetables', '05': 'Pizza', '06': 'Beef', '07': 'Poultry', '08': 'Pork', '09': 'Fish', '0a': 'Auto', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
+{"i":"5c10","n":"Microwave Add 30 Second Command","d":"select","ds":2,"vt":"{{ {'00': 'Not Set', '01': 'Set'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Not Set': '00', 'Set': '01'}[value] }}","o":"[\"Not Set\", \"Set\"]"}
 {"i":"5c11","n":"Microwave State - State","d":"sensor","ds":6,"dc":"enum","vt":"{{ {'00': 'Off', '01': 'On', '02': 'Paused', '03': 'End of Cycle'}.get(value[0:2], 'Unknown') }}"}
 {"i":"5c11","n":"Microwave State - Cook Mode","d":"sensor","ds":6,"dc":"enum","vt":"{{ {'00': 'No Mode', '01': 'Timed', '02': 'Popcorn', '03': 'Potato', '04': 'Frozen Vegetables', '05': 'Fresh Vegetables', '06': 'Pizza', '07': 'Reheat', '08': 'Dinner Plate', '09': 'Beverage', '0a': 'Defrost by Weight', '0b': 'Defrost by Time', '0c': 'Warm', '0d': 'Convection Bake', '0e': 'Convection Roast', '0f': 'Broil', '10': 'Sensor Cook', '11': 'Auto Roast', '12': 'Auto Bake', '13': 'Auto Defrost', '14': 'Broil with Time', '15': 'Pro Sensor', '16': 'Non-Connected Mode', '17': 'Melt', '18': 'Steam Cook', '19': 'Steam Clean', '1a': 'Chicken', '1b': 'Staged Microwave', '1c': 'Protein Mode'}.get(value[2:4], 'Unknown') }}","fi":"cook_mode"}
 {"i":"5c11","n":"Microwave State - Door State","d":"sensor","ds":6,"dc":"enum","vt":"{{ {'00': 'Closed', '01': 'Open'}.get(value[4:6], 'Unknown') }}","fi":"door_state"}
@@ -2525,11 +2536,11 @@
 {"i":"5c11","n":"Microwave State - Oven Temperature","d":"sensor","ds":6,"vt":"{{ value[8:12] | int(base=16) }}","fi":"oven_temperature"}
 {"i":"5c12","n":"Microwave Power in Watts","d":"sensor","ds":2,"u":"W","dc":"power","sc":"measurement","vt":"{{ value | int(base=16) }}"}
 {"i":"5c13","n":"Microwave Time after Cycle End","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value | int(base=16) }}"}
-{"i":"5c14","n":"Microwave Remote Enable","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"5c15","n":"Microwave Cook Timer - Minutes (minutes)","d":"sensor","ds":2,"u":"min","dc":"duration","vt":"{{ value[0:2] | int(base=16) }}"}
+{"i":"5c14","n":"Microwave Remote Enable","d":"select","ds":1,"vt":"{{ {'00': 'Disabled', '01': 'Enabled'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Disabled': '00', 'Enabled': '01'}[value] }}","o":"[\"Disabled\", \"Enabled\"]"}
+{"i":"5c15","n":"Microwave Cook Timer - Minutes (minutes)","d":"sensor","ds":2,"u":"min","vt":"{{ value[0:2] | int(base=16) }}"}
 {"i":"5c15","n":"Microwave Cook Timer - Seconds (seconds)","d":"sensor","ds":2,"u":"min","vt":"{{ value[2:4] | int(base=16) }}","fi":"seconds_seconds"}
 {"i":"5c16","n":"Microwave Defrost by Weight - Current Setting","d":"sensor","ds":1,"sf":10,"vt":"{{ (value | int(base=16)) / 10 | round(1) }}"}
-{"i":"5c17","n":"Microwave Defrost by Time Mode - Current Setting","d":"number","ds":3,"u":"min","dc":"duration","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%06x' % (value | int) }}","m":"box"}
+{"i":"5c17","n":"Microwave Defrost by Time Mode - Current Setting","d":"number","ds":3,"u":"min","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%06x' % (value | int) }}","m":"box"}
 {"i":"5c18","n":"Microwave Notifications - Turn Food Notification","d":"binary_sensor","ds":6,"vt":"{{ '01' if ((value[0:12] | int(base=16)) // 1099511627776) % 2 else '00' }}","fi":"turn_food_notification","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5c18","n":"Microwave Notifications - Stir Food Notification","d":"binary_sensor","ds":6,"vt":"{{ '01' if ((value[0:12] | int(base=16)) // 2199023255552) % 2 else '00' }}","fi":"stir_food_notification","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5c18","n":"Microwave Notifications - Check for doneness Notification","d":"binary_sensor","ds":6,"vt":"{{ '01' if ((value[0:12] | int(base=16)) // 4398046511104) % 2 else '00' }}","fi":"check_for_doneness_notification","pon":"01","poff":"00","son":"01","soff":"00"}
@@ -2544,29 +2555,23 @@
 {"i":"5c18","n":"Microwave Notifications - Drain, stir food, & add ingredients","d":"binary_sensor","ds":6,"vt":"{{ '01' if ((value[0:12] | int(base=16)) // 34359738368) % 2 else '00' }}","fi":"drain_stir_food_add_ingredients","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5c18","n":"Microwave Notifications - Turn food over & add ingredients","d":"binary_sensor","ds":6,"vt":"{{ '01' if ((value[0:12] | int(base=16)) // 68719476736) % 2 else '00' }}","fi":"turn_food_over_add_ingredients","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5c18","n":"Microwave Notifications - Turn food over & stir","d":"binary_sensor","ds":6,"vt":"{{ '01' if ((value[0:12] | int(base=16)) // 137438953472) % 2 else '00' }}","fi":"turn_food_over_stir","pon":"01","poff":"00","son":"01","soff":"00"}
-{"i":"5c19","n":"Microwave Kitchen/Display Timer","d":"number","ds":2,"u":"min","dc":"duration","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%04x' % (value | int) }}","m":"box"}
-{"i":"5c1b","n":"Microwave Cook Timer Modification - Add or Subtract Cook Time","d":"sensor","ds":4,"dc":"enum","vt":"{{ {'00': 'Subtract Cook Time', '01': 'Add Cook Time'}.get(value[0:2], 'Unknown') }}"}
-{"i":"5c1b","n":"Microwave Cook Timer Modification - Cook Time Minutes Modification","d":"sensor","ds":4,"vt":"{{ value[2:4] | int(base=16) }}","fi":"cook_time_minutes_modification"}
-{"i":"5c1b","n":"Microwave Cook Timer Modification - Cook Time Seconds Modification","d":"sensor","ds":4,"vt":"{{ value[4:6] | int(base=16) }}","fi":"cook_time_seconds_modification"}
-{"i":"5c1b","n":"Microwave Cook Timer Modification - Sequence Number","d":"sensor","ds":4,"vt":"{{ value[6:8] | int(base=16) }}","fi":"sequence_number"}
-{"i":"5c1d","n":"Microwave Dinner Plate Mode - Current Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Sensed', '01': '1 cup', '02': '2 cups', '03': '3 cups', '04': '4 cups', '05': '5 cups', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
-{"i":"5c1e","n":"Microwave Kitchen Timer Modification - Add or Subtract Kitchen Timer Time","d":"sensor","ds":4,"dc":"enum","vt":"{{ {'00': 'Subtract Time', '01': 'Add Time'}.get(value[0:2], 'Unknown') }}"}
-{"i":"5c1e","n":"Microwave Kitchen Timer Modification - Kitchen Timer Minutes Modification","d":"sensor","ds":4,"vt":"{{ value[2:4] | int(base=16) }}","fi":"kitchen_timer_minutes_modification"}
-{"i":"5c1e","n":"Microwave Kitchen Timer Modification - Kitchen Timer Seconds Modification","d":"sensor","ds":4,"vt":"{{ value[4:6] | int(base=16) }}","fi":"kitchen_timer_seconds_modification"}
-{"i":"5c1e","n":"Microwave Kitchen Timer Modification - Sequence Number","d":"sensor","ds":4,"vt":"{{ value[6:8] | int(base=16) }}","fi":"sequence_number"}
-{"i":"5c22","n":"Microwave Warm Mode - Current Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Sensed', '01': 'Low', '02': 'Medium', '03': 'High', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
+{"i":"5c19","n":"Microwave Kitchen/Display Timer","d":"number","ds":2,"u":"min","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%04x' % (value | int) }}","m":"box"}
+{"i":"5c1b","n":"Microwave Cook Timer Modification","d":"select","ds":4,"vt":"{{ {'00': 'Subtract Cook Time', '01': 'Add Cook Time'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Subtract Cook Time': '00', 'Add Cook Time': '01'}[value] }}","o":"[\"Subtract Cook Time\", \"Add Cook Time\"]"}
+{"i":"5c1d","n":"Microwave Dinner Plate Mode - Current Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': '1 cup', '02': '2 cups', '03': '3 cups', '04': '4 cups', '05': '5 cups', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
+{"i":"5c1e","n":"Microwave Kitchen Timer Modification","d":"select","ds":4,"vt":"{{ {'00': 'Subtract Time', '01': 'Add Time'}.get(value[:2], 'Unknown') }}","ct":"{{ {'Subtract Time': '00', 'Add Time': '01'}[value] }}","o":"[\"Subtract Time\", \"Add Time\"]"}
+{"i":"5c22","n":"Microwave Warm Mode - Current Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': 'Low', '02': 'Medium', '03': 'High', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
 {"i":"5c24","n":"Microwave Auto Defrost Mode - Current Setting - Auto Defrost Mode Current Setting","d":"sensor","ds":2,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': 'Meat', '02': 'Poultry', '03': 'Fish', 'ff': 'not set'}.get(value[0:2], 'Unknown') }}"}
 {"i":"5c24","n":"Microwave Auto Defrost Mode - Current Setting - Auto Defrost Weight Current Setting","d":"sensor","ds":2,"vt":"{{ value[2:4] | int(base=16) }}","fi":"auto_defrost_weight_current_setting"}
-{"i":"5c26","n":"Microwave Broil Mode - Current Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Sensed', '01': 'Low', '02': 'Medium', '03': 'High', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
+{"i":"5c26","n":"Microwave Broil Mode - Current Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': 'Low', '02': 'Medium', '03': 'High', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
 {"i":"5c28","n":"Microwave Auto Bake Mode - Current Setting - Current Mode","d":"sensor","ds":2,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': 'Pizza', '02': 'Muffins', '03': 'Biscuit/Dinner Roll', '04': 'French Fries', 'ff': 'not set'}.get(value[0:2], 'Unknown') }}"}
 {"i":"5c28","n":"Microwave Auto Bake Mode - Current Setting - Amount (oz or count)","d":"sensor","ds":2,"vt":"{{ value[2:4] | int(base=16) }}","fi":"amount_oz_or_count"}
 {"i":"5c2a","n":"Microwave Auto Roast Mode - Current Setting - Current Mode","d":"sensor","ds":2,"dc":"enum","sf":10,"vt":"{{ {'00': 'Sensed', '01': 'Beef', '02': 'Whole Chicken', '03': 'Turkey Breast', '04': 'Pork', 'ff': 'not set'}.get(value[0:2], 'Unknown') }}"}
 {"i":"5c2a","n":"Microwave Auto Roast Mode - Current Setting - Lbs of selected item x10","d":"sensor","ds":2,"sf":10,"vt":"{{ (value[2:4] | int(base=16)) / 10 | round(1) }}","fi":"lbs_of_selected_item_x10"}
-{"i":"5c2b","n":"Microwave Oven Cook Timer","d":"number","ds":3,"u":"min","dc":"duration","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%06x' % (value | int) }}","m":"box"}
-{"i":"5c2d","n":"Microwave Oven Temperature Range","d":"number","ds":32,"u":"°F","dc":"temperature","mn":0.0,"mx":65535.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%064x' % (value | int) }}","m":"box"}
+{"i":"5c2b","n":"Microwave Oven Cook Timer","d":"number","ds":3,"u":"min","mn":0.0,"mx":255.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%06x' % (value | int) }}","m":"box"}
+{"i":"5c2d","n":"Microwave Oven Temperature Range","d":"number","ds":32,"u":"°F","mn":0.0,"mx":65535.0,"st":1.0,"vt":"{{ value | int(base=16) }}","ct":"{{ '%064x' % (value | int) }}","m":"box"}
 {"i":"5c2e","n":"Microwave Protein Mode - Current Setting - Protein Type current Setting","d":"sensor","ds":2,"dc":"enum","sf":10,"vt":"{{ {'00': 'Sensed', '01': 'Ground Beef', '02': 'Fish', '03': 'Chicken', '04': 'Pork', '05': 'Turkey', 'ff': 'not set'}.get(value[0:2], 'Unknown') }}"}
 {"i":"5c2e","n":"Microwave Protein Mode - Current Setting - Selected Protein Weight (lbs x 10)","d":"sensor","ds":2,"sf":10,"vt":"{{ (value[2:4] | int(base=16)) / 10 | round(1) }}","fi":"selected_protein_weight_lbs_x_10"}
-{"i":"5c30","n":"Microwave Broil With Time Mode - Current Setting","d":"sensor","ds":1,"vt":"{{ {'00': 'Sensed', '01': 'Low', '02': 'Medium', '03': 'High', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
+{"i":"5c30","n":"Microwave Broil With Time Mode - Current Setting","d":"sensor","ds":1,"dc":"enum","vt":"{{ {'00': 'Sensed', '01': 'Low', '02': 'Medium', '03': 'High', 'ff': 'not set'}.get(value[:2], 'Unknown') }}"}
 {"i":"5c31","n":"Turntable Setting","d":"binary_sensor","ds":1,"vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5c33","n":"Microwave Melt Mode - Current Setting - Melt Type Current Setting","d":"sensor","ds":2,"dc":"enum","vt":"{{ {'00': 'Butter', '01': 'Caramel', '02': 'Chocolate Chip', '03': 'Marshmallow', '04': 'Cheese', '05': 'Soften Butter', '06': 'Soften Ice Cream', '07': 'Soften Cream Cheese', 'ff': 'Not Set'}.get(value[0:2], 'Unknown') }}"}
 {"i":"5c33","n":"Microwave Melt Mode - Current Setting - Selected Melt Amount (integer ounces)","d":"sensor","ds":2,"vt":"{{ value[2:4] | int(base=16) }}","fi":"selected_melt_amount_integer_ounces"}
@@ -2615,5 +2620,8 @@
 {"i":"5c3d","n":"Staged Microwave Cook - Microwave Power Level","d":"sensor","ds":208,"p":"5c3e","r":"request","vt":"{{ value[380:382] | int(base=16) }}","fi":"microwave_power_level_380"}
 {"i":"5c3d","n":"Staged Microwave Cook - End of Cook Action","d":"sensor","ds":208,"dc":"enum","p":"5c3e","r":"request","vt":"{{ {'00': 'Continue', '01': 'Pause', '02': 'Stop', '03': 'Pause until restart', '04': 'Pause until door close'}.get(value[382:384], 'Unknown') }}","fi":"end_of_cook_action_382"}
 {"i":"5c3d","n":"Staged Microwave Cook - End of Cook Message","d":"sensor","ds":208,"dc":"enum","p":"5c3e","r":"request","vt":"{{ {'00': 'None', '01': 'Drain And Stir Food', '02': 'Stir Food', '03': 'Check Doneness', '04': 'Turn Food Over'}.get(value[384:386], 'Unknown') }}","fi":"end_of_cook_message_384"}
-{"i":"5c40","n":"Customer Feedback","d":"sensor","ds":1,"p":"5c41","r":"request","vt":"{{ value | int(base=16) }}"}
+{"i":"5c3e","n":"Staged Microwave Cook - Recipe ID","d":"sensor","ds":8,"p":"5c3d","r":"status","vt":"{{ value[0:8] | int(base=16) }}"}
+{"i":"5c3e","n":"Staged Microwave Cook - Remaining Stage Cook Time In Seconds","d":"sensor","ds":8,"p":"5c3d","r":"status","vt":"{{ value[8:12] | int(base=16) }}","fi":"remaining_stage_cook_time_in_seconds"}
+{"i":"5c3e","n":"Staged Microwave Cook - Current Stage","d":"sensor","ds":8,"p":"5c3d","r":"status","vt":"{{ value[12:14] | int(base=16) }}","fi":"current_stage"}
+{"i":"5c40","n":"Customer Feedback","d":"binary_sensor","ds":1,"p":"5c41","r":"request","vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
 {"i":"5c41","n":"Customer Feedback","d":"binary_sensor","ds":1,"p":"5c40","r":"status","vt":"{{ 'ON' if value | int(base=16) != 0 else 'OFF' }}","pon":"01","poff":"00","son":"01","soff":"00"}
