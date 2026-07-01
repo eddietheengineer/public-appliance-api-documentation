@@ -58053,7 +58053,8 @@
     "paired_erd": "0x223c",
     "pair_role": "status",
     "confidence": "medium",
-    "comment": "Commercial Remote Wash Times Status: Multi-field sensor, may need custom handling to extract individual values."
+    "comment": "Commercial Remote Wash Times Status: Multi-field sensor, may need custom handling to extract individual values.",
+    "unit_of_measurement": "min"
   }, {
     "name": "Commercial Remote Wash Time Limits",
     "id": "0x223e",
@@ -59572,7 +59573,8 @@
     "paired_erd": "0x224c",
     "pair_role": "status",
     "confidence": "medium",
-    "comment": "Commercial Remote Dry Times Status: Multi-field sensor, may need custom handling to extract individual values."
+    "comment": "Commercial Remote Dry Times Status: Multi-field sensor, may need custom handling to extract individual values.",
+    "unit_of_measurement": "min"
   }, {
     "name": "Commercial Remote Dry Time Limits",
     "id": "0x224e",
@@ -60318,7 +60320,8 @@
     "paired_erd": "0x2252",
     "pair_role": "status",
     "confidence": "medium",
-    "comment": "Commercial Remote Cooldown Times Status: Multi-field sensor, may need custom handling to extract individual values."
+    "comment": "Commercial Remote Cooldown Times Status: Multi-field sensor, may need custom handling to extract individual values.",
+    "unit_of_measurement": "min"
   }, {
     "name": "Commercial Remote Cooldown Time Limits",
     "id": "0x2254",
@@ -61114,7 +61117,8 @@
     "paired_erd": "0x2316",
     "pair_role": "status",
     "confidence": "medium",
-    "comment": "Commercial Remote Max Drying Times Status: Multi-field sensor, may need custom handling to extract individual values."
+    "comment": "Commercial Remote Max Drying Times Status: Multi-field sensor, may need custom handling to extract individual values.",
+    "unit_of_measurement": "min"
   }, {
     "name": "Commercial Remote Free Mode Request",
     "id": "0x2338",
