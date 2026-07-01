@@ -1,0 +1,1244 @@
+{
+  "summary": {
+    "total_erds": 2199,
+    "my_giraffe_disagreements": 498,
+    "my_proc_disagreements": 1000,
+    "giraffe_proc_disagreements": 933,
+    "all_three_agree": 1136
+  },
+  "domain_distributions": {
+    "my": {
+      "sensor": 1159,
+      "select": 213,
+      "number": 324,
+      "binary_sensor": 166,
+      "switch": 104,
+      "button": 5,
+      "none": 228
+    },
+    "giraffe": {
+      "sensor": 910,
+      "select": 293,
+      "number": 324,
+      "binary_sensor": 143,
+      "switch": 186,
+      "button": 0,
+      "none": 343
+    },
+    "proc_aggregated": {
+      "sensor": 5586,
+      "select": 471,
+      "number": 1655,
+      "binary_sensor": 1483,
+      "switch": 275,
+      "button": 4,
+      "none": 361
+    }
+  },
+  "my_giraffe_disagreements": [
+    {
+      "id": "0x0004",
+      "my_domain": "select",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "2-value enum writable -> select"
+    },
+    {
+      "id": "0x0006",
+      "my_domain": "select",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "3-value enum writable -> select"
+    },
+    {
+      "id": "0x0007",
+      "my_domain": "select",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "2-value enum writable -> select"
+    },
+    {
+      "id": "0x0030",
+      "my_domain": "sensor",
+      "my_dc": "enum",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "4-value enum read-only -> sensor+device_class:enum"
+    },
+    {
+      "id": "0x0032",
+      "my_domain": "number",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "u8 writable -> number"
+    },
+    {
+      "id": "0x0035",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "u8 read-only -> sensor"
+    },
+    {
+      "id": "0x0038",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x0039",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "4-byte version -> sensor"
+    },
+    {
+      "id": "0x003a",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "4-byte version -> sensor"
+    },
+    {
+      "id": "0x003b",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "4-byte version -> sensor"
+    },
+    {
+      "id": "0x003c",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "4-byte version -> sensor"
+    },
+    {
+      "id": "0x004f",
+      "my_domain": "switch",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "2-value enum writable -> switch"
+    },
+    {
+      "id": "0x0911",
+      "my_domain": "binary_sensor",
+      "my_dc": "battery_charging",
+      "giraffe_domain": "binary_sensor",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x0912",
+      "my_domain": "binary_sensor",
+      "my_dc": "plug",
+      "giraffe_domain": "binary_sensor",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x100a",
+      "my_domain": "number",
+      "my_dc": null,
+      "giraffe_domain": "select",
+      "giraffe_dc": null,
+      "reasoning": "Multi-field writable -> number"
+    },
+    {
+      "id": "0x101a",
+      "my_domain": "number",
+      "my_dc": "temperature",
+      "giraffe_domain": "select",
+      "giraffe_dc": null,
+      "reasoning": "Multi-field writable -> number"
+    },
+    {
+      "id": "0x1022",
+      "my_domain": "number",
+      "my_dc": "temperature",
+      "giraffe_domain": "select",
+      "giraffe_dc": null,
+      "reasoning": "Multi-field writable -> number"
+    },
+    {
+      "id": "0x102e",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1031",
+      "my_domain": "number",
+      "my_dc": null,
+      "giraffe_domain": "select",
+      "giraffe_dc": null,
+      "reasoning": "Multi-field writable -> number"
+    },
+    {
+      "id": "0x1053",
+      "my_domain": "select",
+      "my_dc": null,
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "reasoning": "2-value enum writable -> select"
+    },
+    {
+      "id": "0x105a",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": ""
+    },
+    {
+      "id": "0x105b",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": ""
+    },
+    {
+      "id": "0x1077",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x1152",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1153",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1154",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1155",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1156",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1157",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1158",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1159",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x115a",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x115b",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x115c",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x115d",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1169",
+      "my_domain": "number",
+      "my_dc": null,
+      "giraffe_domain": "select",
+      "giraffe_dc": null,
+      "reasoning": "Multi-field writable -> number"
+    },
+    {
+      "id": "0x116f",
+      "my_domain": "button",
+      "my_dc": "restart",
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "reasoning": "bool writable one-shot (reset) -> button"
+    },
+    {
+      "id": "0x1174",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x120d",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x120e",
+      "my_domain": "binary_sensor",
+      "my_dc": "door",
+      "giraffe_domain": "binary_sensor",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x120f",
+      "my_domain": "binary_sensor",
+      "my_dc": "door",
+      "giraffe_domain": "binary_sensor",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x121b",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x121f",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "giraffe_domain": "number",
+      "giraffe_dc": null,
+      "reasoning": "u8 read-only -> sensor"
+    },
+    {
+      "id": "0x1223",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x1225",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x1228",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x122a",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x1256",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x1258",
+      "my_domain": "number",
+      "my_dc": "door",
+      "giraffe_domain": "number",
+      "giraffe_dc": null,
+      "reasoning": "u8 read-only -> sensor"
+    },
+    {
+      "id": "0x1259",
+      "my_domain": "sensor",
+      "my_dc": "door",
+      "giraffe_domain": "number",
+      "giraffe_dc": null,
+      "reasoning": "u8 read-only -> sensor"
+    }
+  ],
+  "my_proc_disagreements": [
+    {
+      "id": "0x0005",
+      "my_domain": null,
+      "my_dc": null,
+      "proc_domain": "sensor",
+      "proc_dc": null,
+      "reasoning": ""
+    },
+    {
+      "id": "0x0036",
+      "my_domain": null,
+      "my_dc": null,
+      "proc_domain": "select",
+      "proc_dc": null,
+      "reasoning": ""
+    },
+    {
+      "id": "0x0038",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x004f",
+      "my_domain": "switch",
+      "my_dc": null,
+      "proc_domain": "select",
+      "proc_dc": null,
+      "reasoning": "2-value enum writable -> switch"
+    },
+    {
+      "id": "0x0412",
+      "my_domain": null,
+      "my_dc": null,
+      "proc_domain": "select",
+      "proc_dc": null,
+      "reasoning": ""
+    },
+    {
+      "id": "0x0600",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x0601",
+      "my_domain": "number",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field writable -> number"
+    },
+    {
+      "id": "0x0602",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x070e",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x0911",
+      "my_domain": "binary_sensor",
+      "my_dc": "battery_charging",
+      "proc_domain": "binary_sensor",
+      "proc_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x0912",
+      "my_domain": "binary_sensor",
+      "my_dc": "plug",
+      "proc_domain": "binary_sensor",
+      "proc_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x0913",
+      "my_domain": "sensor",
+      "my_dc": "temperature",
+      "proc_domain": "sensor",
+      "proc_dc": "battery",
+      "reasoning": ""
+    },
+    {
+      "id": "0x1004",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1005",
+      "my_domain": "number",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD (ERD-level says number) -> number"
+    },
+    {
+      "id": "0x1006",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1007",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1009",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x100a",
+      "my_domain": "number",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field writable -> number"
+    },
+    {
+      "id": "0x100b",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1010",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1013",
+      "my_domain": "number",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD (ERD-level says number) -> number"
+    },
+    {
+      "id": "0x1016",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x101a",
+      "my_domain": "number",
+      "my_dc": "temperature",
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field writable -> number"
+    },
+    {
+      "id": "0x101b",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x101d",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1021",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1022",
+      "my_domain": "number",
+      "my_dc": "temperature",
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field writable -> number"
+    },
+    {
+      "id": "0x1023",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x102e",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1031",
+      "my_domain": "number",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field writable -> number"
+    },
+    {
+      "id": "0x1050",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1051",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1052",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1057",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x105a",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": ""
+    },
+    {
+      "id": "0x105b",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": ""
+    },
+    {
+      "id": "0x1063",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1066",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1069",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1077",
+      "my_domain": "binary_sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "bool read-only -> binary_sensor"
+    },
+    {
+      "id": "0x1100",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1101",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1102",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1105",
+      "my_domain": null,
+      "my_dc": null,
+      "proc_domain": "sensor",
+      "proc_dc": null,
+      "reasoning": "raw -> filtered"
+    },
+    {
+      "id": "0x1106",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x111c",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1152",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1153",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1154",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    },
+    {
+      "id": "0x1155",
+      "my_domain": "sensor",
+      "my_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)"
+    }
+  ],
+  "giraffe_proc_disagreements": [
+    {
+      "id": "0x0004",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "select",
+      "proc_dc": null,
+      "reasoning": "Filtered: user interface locked"
+    },
+    {
+      "id": "0x0005",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "sensor",
+      "proc_dc": null,
+      "reasoning": "Filtered: clock time"
+    },
+    {
+      "id": "0x0006",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "select",
+      "proc_dc": null,
+      "reasoning": "Filtered: clock format"
+    },
+    {
+      "id": "0x0007",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "select",
+      "proc_dc": null,
+      "reasoning": "Filtered: temperature display units"
+    },
+    {
+      "id": "0x0030",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "sensor",
+      "proc_dc": "enum",
+      "reasoning": "Filtered: boot loader version"
+    },
+    {
+      "id": "0x0032",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "number",
+      "proc_dc": null,
+      "reasoning": "Filtered: reset board"
+    },
+    {
+      "id": "0x0035",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "sensor",
+      "proc_dc": null,
+      "reasoning": "Filtered: personality"
+    },
+    {
+      "id": "0x0036",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "select",
+      "proc_dc": null,
+      "reasoning": "Filtered: service mode"
+    },
+    {
+      "id": "0x0039",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "sensor",
+      "proc_dc": null,
+      "reasoning": "Filtered: boot loader version"
+    },
+    {
+      "id": "0x003a",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "sensor",
+      "proc_dc": null,
+      "reasoning": "Filtered: application version"
+    },
+    {
+      "id": "0x003b",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "sensor",
+      "proc_dc": null,
+      "reasoning": "Filtered: parametric version"
+    },
+    {
+      "id": "0x003c",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "sensor",
+      "proc_dc": null,
+      "reasoning": "Filtered: auxiliary version"
+    },
+    {
+      "id": "0x004f",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "select",
+      "proc_dc": null,
+      "reasoning": "Filtered: enhanced sabbath mode"
+    },
+    {
+      "id": "0x0412",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "select",
+      "proc_dc": null,
+      "reasoning": "Filtered: matter"
+    },
+    {
+      "id": "0x0600",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=u8, domain=sensor"
+    },
+    {
+      "id": "0x0601",
+      "giraffe_domain": "number",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=u8, domain=number"
+    },
+    {
+      "id": "0x0602",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=u8, domain=sensor"
+    },
+    {
+      "id": "0x070e",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=u16, domain=sensor"
+    },
+    {
+      "id": "0x0913",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": "temperature",
+      "proc_domain": "sensor",
+      "proc_dc": "battery",
+      "reasoning": "i16 numeric read-only \u2192 sensor"
+    },
+    {
+      "id": "0x1004",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=i8, domain=sensor"
+    },
+    {
+      "id": "0x1005",
+      "giraffe_domain": "number",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=i8, domain=number"
+    },
+    {
+      "id": "0x1006",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=u8, domain=sensor"
+    },
+    {
+      "id": "0x1007",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=u8, domain=sensor"
+    },
+    {
+      "id": "0x1009",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=sensor"
+    },
+    {
+      "id": "0x100a",
+      "giraffe_domain": "select",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=select"
+    },
+    {
+      "id": "0x100b",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=i8, domain=sensor"
+    },
+    {
+      "id": "0x1010",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=sensor"
+    },
+    {
+      "id": "0x1013",
+      "giraffe_domain": "number",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=u8, domain=number"
+    },
+    {
+      "id": "0x1016",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=sensor"
+    },
+    {
+      "id": "0x101a",
+      "giraffe_domain": "select",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=select"
+    },
+    {
+      "id": "0x101b",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=sensor"
+    },
+    {
+      "id": "0x101d",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=sensor"
+    },
+    {
+      "id": "0x1021",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=i8, domain=sensor"
+    },
+    {
+      "id": "0x1022",
+      "giraffe_domain": "select",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=select"
+    },
+    {
+      "id": "0x1023",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=i8, domain=sensor"
+    },
+    {
+      "id": "0x1031",
+      "giraffe_domain": "select",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=select"
+    },
+    {
+      "id": "0x1050",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=sensor"
+    },
+    {
+      "id": "0x1051",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=sensor"
+    },
+    {
+      "id": "0x1052",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=sensor"
+    },
+    {
+      "id": "0x1053",
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "proc_domain": "select",
+      "proc_dc": null,
+      "reasoning": "2-value On/Off enum \u2192 switch"
+    },
+    {
+      "id": "0x1057",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=sensor"
+    },
+    {
+      "id": "0x1063",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=sensor"
+    },
+    {
+      "id": "0x1066",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=sensor"
+    },
+    {
+      "id": "0x1069",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=enum, domain=sensor"
+    },
+    {
+      "id": "0x1077",
+      "giraffe_domain": "switch",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Bool writable \u2192 switch"
+    },
+    {
+      "id": "0x1100",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=u16, domain=sensor"
+    },
+    {
+      "id": "0x1101",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=u32, domain=sensor"
+    },
+    {
+      "id": "0x1102",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=u16, domain=sensor"
+    },
+    {
+      "id": "0x1105",
+      "giraffe_domain": null,
+      "giraffe_dc": null,
+      "proc_domain": "sensor",
+      "proc_dc": null,
+      "reasoning": "Filtered: engineering snapshot"
+    },
+    {
+      "id": "0x1106",
+      "giraffe_domain": "sensor",
+      "giraffe_dc": null,
+      "proc_domain": null,
+      "proc_dc": null,
+      "reasoning": "Multi-field ERD, primary type=u16, domain=sensor"
+    }
+  ]
+}
