@@ -21,7 +21,13 @@ from ha_constants import ERD_DEFINITIONS_FILE
 
 
 def format_erd_json(data: dict) -> str:
-    """Format JSON following AGENTS.md compact format rules."""
+    """Format JSON following AGENTS.md compact format rules.
+
+    IMPORTANT: This function preserves the order of keys and data fields
+    as they exist in the input dict. Never modify key order in the data
+    before calling this function — the output will reflect whatever order
+    the dict has at call time.
+    """
     lines = ["{"]
 
     # Format erds array
@@ -125,6 +131,35 @@ def save_erd_definitions(data: dict) -> None:
             pass
         raise
 
+
+def verify_data_field_order(source_data: dict, local_data: dict) -> list:
+    """Verify that data field order matches between source and local ERDs.
+    
+    Returns a list of (erd_id, erd_name, reason) tuples for any mismatches.
+    This is a safety check to catch accidental reordering of data fields.
+    """
+    mismatches = []
+    source_by_id = {e['id']: e for e in source_data.get('erds', [])}
+    local_by_id = {e['id']: e for e in local_data.get('erds', [])}
+
+    for eid in source_by_id:
+        s = source_by_id[eid]
+        l = local_by_id.get(eid)
+        if not l:
+            continue
+
+        s_data = s.get('data', [])
+        l_data = l.get('data', [])
+
+        if len(s_data) != len(l_data):
+            mismatches.append((eid, s['name'], f"count mismatch: {len(s_data)} vs {len(l_data)}"))
+            continue
+
+        for i, (sd, ld) in enumerate(zip(s_data, l_data)):
+            if sd.get('name') != ld.get('name'):
+                mismatches.append((eid, s['name'], f"data[{i}] name mismatch: '{sd.get('name')}' vs '{ld.get('name')}'"))
+
+    return mismatches
 
 
 def load_erd_definitions() -> dict:
