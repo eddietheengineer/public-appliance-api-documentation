@@ -8,7 +8,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (3 sub-fields)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -33,7 +33,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (19 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -66,14 +66,14 @@
   },
   {
     "id": "0x101c",
-    "name": "Odor Filter Status",
+    "name": "Odor Filter",
     "ha_domain": "sensor",
     "device_class": "enum",
     "unit_of_measurement": null,
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only with 4 values - labeled display",
+    "reasoning": "4-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -95,7 +95,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (3 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -112,14 +112,14 @@
   },
   {
     "id": "0x101e",
-    "name": "Nighttime Snack Mode Status",
+    "name": "Nighttime Snack Mode",
     "ha_domain": "switch",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable - toggle control",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -138,11 +138,11 @@
     "name": "Nighttime Snack Mode Timeout",
     "ha_domain": "number",
     "device_class": null,
-    "unit_of_measurement": "min",
+    "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Numeric writable - user setpoint",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -165,7 +165,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 8 values - dropdown",
+    "reasoning": "8-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -188,7 +188,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (14 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -223,7 +223,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (2 sub-fields)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -247,7 +247,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (16 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -284,7 +284,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Numeric writable - user setpoint",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -300,14 +300,14 @@
   },
   {
     "id": "0x1025",
-    "name": "Door In Door Status",
+    "name": "Door In Door",
     "ha_domain": "sensor",
     "device_class": "enum",
     "unit_of_measurement": null,
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only with 3 values - labeled display",
+    "reasoning": "3-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -351,7 +351,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 3 values - dropdown",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -374,7 +374,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 3 values - dropdown",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -397,7 +397,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable - toggle control",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -420,7 +420,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable - toggle control",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -443,7 +443,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (20 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -481,7 +481,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 3 values - dropdown",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -497,14 +497,14 @@
   },
   {
     "id": "0x1030",
-    "name": "Ice Harvest Status",
+    "name": "Ice Harvest",
     "ha_domain": "sensor",
     "device_class": "enum",
     "unit_of_measurement": null,
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only with 3 values - labeled display",
+    "reasoning": "3-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -519,14 +519,14 @@
   },
   {
     "id": "0x1031",
-    "name": "Key Status",
+    "name": "Key",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (3 sub-fields)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -553,7 +553,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 3 values - dropdown",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -576,7 +576,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 3 values - dropdown",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -599,7 +599,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 3 values - dropdown",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -622,7 +622,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 4 values - dropdown",
+    "reasoning": "4-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -645,7 +645,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 4 values - dropdown",
+    "reasoning": "4-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -668,7 +668,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 4 values - dropdown",
+    "reasoning": "4-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -691,7 +691,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only with 12 values - labeled display",
+    "reasoning": "12-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -713,7 +713,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only with 12 values - labeled display",
+    "reasoning": "12-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -735,7 +735,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only with 12 values - labeled display",
+    "reasoning": "12-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -757,7 +757,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 3 values - dropdown",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -780,7 +780,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 3 values - dropdown",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -803,7 +803,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 3 values - dropdown",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -888,14 +888,14 @@
   },
   {
     "id": "0x1041",
-    "name": "Water Filter Reset Request",
+    "name": "Water Filter Reset",
     "ha_domain": "select",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 3 values - dropdown",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -918,7 +918,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 12 values - dropdown",
+    "reasoning": "12-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -941,7 +941,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 12 values - dropdown",
+    "reasoning": "12-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -964,7 +964,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 12 values - dropdown",
+    "reasoning": "12-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1053,7 +1053,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Numeric writable - user setpoint",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1076,7 +1076,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Numeric writable - user setpoint",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1099,7 +1099,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Numeric writable - user setpoint",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1122,7 +1122,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Numeric writable - user setpoint",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1145,7 +1145,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric measurement",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1167,7 +1167,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric measurement",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1189,7 +1189,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric measurement",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1211,7 +1211,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric measurement",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1233,7 +1233,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (15 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1274,7 +1274,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (15 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1315,7 +1315,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (15 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1356,7 +1356,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with descriptive labels (2 values) - dropdown",
+    "reasoning": "2-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1379,7 +1379,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only with 3 values - labeled display",
+    "reasoning": "3-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -1401,7 +1401,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only - on/off state",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1423,7 +1423,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only - on/off state",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1445,7 +1445,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (30 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1496,7 +1496,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric measurement",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1518,7 +1518,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Numeric writable - user setpoint",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1667,7 +1667,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric measurement",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1689,7 +1689,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only with 6 values - labeled display",
+    "reasoning": "6-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -1711,7 +1711,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 6 values - dropdown",
+    "reasoning": "6-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1734,7 +1734,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (8 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1763,7 +1763,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only with 6 values - labeled display",
+    "reasoning": "6-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -1785,7 +1785,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 6 values - dropdown",
+    "reasoning": "6-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1808,7 +1808,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (8 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1837,7 +1837,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only with 6 values - labeled display",
+    "reasoning": "6-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -1859,7 +1859,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable with 6 values - dropdown",
+    "reasoning": "6-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1882,7 +1882,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (8 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1904,14 +1904,14 @@
   },
   {
     "id": "0x1076",
-    "name": "Eco Mode Request",
+    "name": "Eco Mode",
     "ha_domain": "switch",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable - toggle control",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -1927,14 +1927,14 @@
   },
   {
     "id": "0x1077",
-    "name": "Eco Mode Status",
+    "name": "Eco Mode",
     "ha_domain": "binary_sensor",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only - on/off state",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1978,7 +1978,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (4 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2003,7 +2003,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (6 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2023,14 +2023,14 @@
   },
   {
     "id": "0x1102",
-    "name": "Dispenser Status",
+    "name": "Dispenser",
     "ha_domain": "sensor",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (7 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2124,7 +2124,7 @@
     "confidence": "low",
     "filtered": true,
     "filter_reason": "raw type",
-    "reasoning": "Raw bytes - filtered",
+    "reasoning": "raw -> filtered",
     "is_multi": false,
     "ops": [
       "read",
@@ -2146,7 +2146,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (4 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2171,7 +2171,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (2 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2345,7 +2345,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "4-byte version number",
+    "reasoning": "4-byte version -> sensor",
     "is_multi": true,
     "ops": [
       "read",
@@ -2370,7 +2370,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (9 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2400,7 +2400,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (3 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2424,7 +2424,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (3 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2448,7 +2448,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (3 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2472,7 +2472,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (3 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2496,7 +2496,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (3 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2520,7 +2520,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (3 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2544,7 +2544,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (3 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2568,7 +2568,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field ERD (3 sub-fields)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",

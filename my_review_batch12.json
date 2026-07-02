@@ -8,7 +8,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -30,7 +30,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -52,7 +52,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -67,14 +67,14 @@
   },
   {
     "id": "0x5900",
-    "name": "Gas Lockout Valve Status",
+    "name": "Gas Lockout Valve",
     "ha_domain": "sensor",
     "device_class": "enum",
     "unit_of_measurement": null,
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (5 vals)",
+    "reasoning": "5-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -89,14 +89,14 @@
   },
   {
     "id": "0x5901",
-    "name": "Lock Gas Valve Request",
+    "name": "Lock Gas Valve",
     "ha_domain": "select",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable descriptive (2 vals)",
+    "reasoning": "2-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -112,14 +112,14 @@
   },
   {
     "id": "0x5903",
-    "name": "Modular Cooktops (MCT) System Configuration Status",
+    "name": "Modular Cooktops (MCT) System Configuration",
     "ha_domain": "sensor",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (15)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -155,7 +155,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (7 vals)",
+    "reasoning": "7-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -177,7 +177,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -210,7 +210,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -243,7 +243,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -276,7 +276,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -309,7 +309,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -342,7 +342,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -375,7 +375,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -408,7 +408,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -441,7 +441,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -474,7 +474,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -507,7 +507,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -540,7 +540,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -573,7 +573,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -606,7 +606,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -639,7 +639,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -672,7 +672,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -705,7 +705,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -738,7 +738,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -771,7 +771,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -804,7 +804,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -837,7 +837,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -870,7 +870,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -903,7 +903,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -936,7 +936,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -969,7 +969,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1002,7 +1002,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1035,7 +1035,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1068,7 +1068,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1101,7 +1101,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1134,7 +1134,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1167,7 +1167,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1200,7 +1200,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1233,7 +1233,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1266,7 +1266,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1299,7 +1299,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1332,7 +1332,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1365,7 +1365,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1398,7 +1398,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1431,7 +1431,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1464,7 +1464,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1497,7 +1497,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1530,7 +1530,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (11)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1563,7 +1563,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1589,7 +1589,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1615,7 +1615,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1641,7 +1641,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1667,7 +1667,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1693,7 +1693,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1719,7 +1719,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1745,7 +1745,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1771,7 +1771,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1797,7 +1797,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1823,7 +1823,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1849,7 +1849,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1875,7 +1875,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1901,7 +1901,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1927,7 +1927,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1953,7 +1953,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1979,7 +1979,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2005,7 +2005,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2031,7 +2031,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2057,7 +2057,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2083,7 +2083,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2109,7 +2109,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2135,7 +2135,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2161,7 +2161,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2187,7 +2187,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2213,7 +2213,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2239,7 +2239,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2265,7 +2265,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2291,7 +2291,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2317,7 +2317,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2343,7 +2343,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2369,7 +2369,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2395,7 +2395,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2421,7 +2421,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2447,7 +2447,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2473,7 +2473,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2499,7 +2499,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2525,7 +2525,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2551,7 +2551,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2577,7 +2577,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2603,7 +2603,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2629,7 +2629,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2655,7 +2655,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (7)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2683,7 +2683,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (7)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2711,7 +2711,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (7)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2739,7 +2739,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (7)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2767,7 +2767,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (7)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2795,7 +2795,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (7)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2823,7 +2823,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2846,7 +2846,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2869,7 +2869,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",

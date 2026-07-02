@@ -123,14 +123,14 @@
   },
   {
     "id": "0x3260",
-    "name": "Rinse and Hold Request",
+    "name": "Rinse and Hold",
     "ha_domain": "switch",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -153,7 +153,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -175,7 +175,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (4 vals)",
+    "reasoning": "4-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -190,14 +190,14 @@
   },
   {
     "id": "0x3263",
-    "name": "Auto Open Door Request",
+    "name": "Auto Open Door",
     "ha_domain": "switch",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -215,12 +215,12 @@
     "id": "0x3264",
     "name": "Auto Open Door Option State",
     "ha_domain": "binary_sensor",
-    "device_class": null,
+    "device_class": "door",
     "unit_of_measurement": null,
-    "confidence": "medium",
+    "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -242,7 +242,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - turbidity",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -264,7 +264,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (18 vals)",
+    "reasoning": "18-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -286,7 +286,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - count",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -308,7 +308,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -330,7 +330,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - count",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -352,7 +352,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -374,7 +374,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -396,7 +396,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - speed",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -418,7 +418,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -440,7 +440,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -515,7 +515,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (4 vals)",
+    "reasoning": "4-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -928,7 +928,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -951,7 +951,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - count",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -974,7 +974,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (4 vals)",
+    "reasoning": "4-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -997,7 +997,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (3 vals)",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1020,7 +1020,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable descriptive (2 vals)",
+    "reasoning": "2-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1043,7 +1043,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (4 vals)",
+    "reasoning": "4-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -1065,7 +1065,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1087,7 +1087,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1109,7 +1109,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1131,7 +1131,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (5 vals)",
+    "reasoning": "5-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1154,7 +1154,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (5 vals)",
+    "reasoning": "5-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1246,7 +1246,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1269,7 +1269,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (3 vals)",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1317,7 +1317,7 @@
     "confidence": "low",
     "filtered": true,
     "filter_reason": "raw type",
-    "reasoning": "Raw bytes",
+    "reasoning": "raw -> filtered",
     "is_multi": false,
     "ops": [
       "read",
@@ -1366,7 +1366,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1482,7 +1482,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1505,7 +1505,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1857,7 +1857,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (4 vals)",
+    "reasoning": "4-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -1901,7 +1901,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -1923,7 +1923,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -1945,7 +1945,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -2077,7 +2077,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2099,7 +2099,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2121,7 +2121,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -2143,7 +2143,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -2165,7 +2165,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (4 vals)",
+    "reasoning": "4-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -2187,7 +2187,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -2209,7 +2209,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2231,7 +2231,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2253,7 +2253,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - count",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2275,7 +2275,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2297,7 +2297,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2341,7 +2341,7 @@
     "confidence": "low",
     "filtered": true,
     "filter_reason": "raw type",
-    "reasoning": "Raw bytes",
+    "reasoning": "raw -> filtered",
     "is_multi": false,
     "ops": [
       "read",
@@ -2363,7 +2363,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2386,7 +2386,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (4 vals)",
+    "reasoning": "4-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -2408,7 +2408,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2430,7 +2430,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -2453,7 +2453,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (4 vals)",
+    "reasoning": "4-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -2475,7 +2475,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "2-value enum writable",
+    "reasoning": "2-value enum writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -2498,7 +2498,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2520,7 +2520,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -2543,7 +2543,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",

@@ -8,7 +8,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -23,14 +23,14 @@
   },
   {
     "id": "0x20b2",
-    "name": "Delay Wash Option Request",
+    "name": "Delay Wash Option",
     "ha_domain": "switch",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "2-value enum writable",
+    "reasoning": "2-value enum writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -53,7 +53,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -68,14 +68,14 @@
   },
   {
     "id": "0x20b4",
-    "name": "Extra Rinse Option Request",
+    "name": "Extra Rinse Option",
     "ha_domain": "switch",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "2-value enum writable",
+    "reasoning": "2-value enum writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -98,7 +98,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -113,14 +113,14 @@
   },
   {
     "id": "0x20b6",
-    "name": "Fabric Softener Option Request",
+    "name": "Fabric Softener Option",
     "ha_domain": "switch",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "2-value enum writable",
+    "reasoning": "2-value enum writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -143,7 +143,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (19 vals)",
+    "reasoning": "19-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -158,14 +158,14 @@
   },
   {
     "id": "0x20b8",
-    "name": "Spin Level Option Request",
+    "name": "Spin Level Option",
     "ha_domain": "select",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (19 vals)",
+    "reasoning": "19-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -188,7 +188,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (3 vals)",
+    "reasoning": "3-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -203,14 +203,14 @@
   },
   {
     "id": "0x20ba",
-    "name": "Water On Demand Soap Dispense Option Request",
+    "name": "Water On Demand Soap Dispense Option",
     "ha_domain": "select",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (3 vals)",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -233,7 +233,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (16 vals)",
+    "reasoning": "16-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -248,14 +248,14 @@
   },
   {
     "id": "0x20bc",
-    "name": "Water Temperature Option Request",
+    "name": "Water Temperature Option",
     "ha_domain": "select",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (16 vals)",
+    "reasoning": "16-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -271,14 +271,14 @@
   },
   {
     "id": "0x20bd",
-    "name": "Warm Rinse Option Request",
+    "name": "Warm Rinse Option",
     "ha_domain": "switch",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "2-value enum writable",
+    "reasoning": "2-value enum writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -301,7 +301,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (7 vals)",
+    "reasoning": "7-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -316,14 +316,14 @@
   },
   {
     "id": "0x20bf",
-    "name": "Soil Level Option Request",
+    "name": "Soil Level Option",
     "ha_domain": "select",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (7 vals)",
+    "reasoning": "7-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -346,7 +346,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -361,14 +361,14 @@
   },
   {
     "id": "0x20c1",
-    "name": "Smart Dispense Adjustability Request",
+    "name": "Smart Dispense Adjustability",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (3)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -393,7 +393,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (3)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -417,7 +417,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (12)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -446,7 +446,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (10)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -474,7 +474,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (20)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -506,7 +506,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (24)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -540,7 +540,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -562,7 +562,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (44)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -600,14 +600,14 @@
   },
   {
     "id": "0x20ca",
-    "name": "Dry Time Option Request",
+    "name": "Dry Time Option",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -623,14 +623,14 @@
   },
   {
     "id": "0x20cd",
-    "name": "RJ45 Write Access Request",
+    "name": "RJ45 Write Access",
     "ha_domain": "select",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (3 vals)",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -653,7 +653,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -675,7 +675,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (7 vals)",
+    "reasoning": "7-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -690,14 +690,14 @@
   },
   {
     "id": "0x20d0",
-    "name": "Stain Removal Guide Option Request",
+    "name": "Stain Removal Guide Option",
     "ha_domain": "select",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (7 vals)",
+    "reasoning": "7-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -713,14 +713,14 @@
   },
   {
     "id": "0x20d1",
-    "name": "Downloaded Cycle Request",
+    "name": "Downloaded Cycle",
     "ha_domain": "select",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (127 vals)",
+    "reasoning": "127-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -905,7 +905,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (127 vals)",
+    "reasoning": "127-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -957,14 +957,14 @@
   },
   {
     "id": "0x20d5",
-    "name": "Flex Dispense Request",
+    "name": "Flex Dispense",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (2)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -988,7 +988,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1011,7 +1011,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1033,7 +1033,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1055,7 +1055,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1077,7 +1077,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1129,7 +1129,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (14)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1159,7 +1159,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (14)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1182,14 +1182,14 @@
   },
   {
     "id": "0x20de",
-    "name": "Cycle Function Request",
+    "name": "Cycle Function",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (14)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -1213,14 +1213,14 @@
   },
   {
     "id": "0x20df",
-    "name": "Remote Dryer MyCycle Request",
+    "name": "Remote Dryer MyCycle",
     "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "\u00b0F",
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (20)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -1277,7 +1277,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1333,7 +1333,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1389,7 +1389,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1445,7 +1445,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1501,7 +1501,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1557,7 +1557,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1613,7 +1613,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1669,7 +1669,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1725,7 +1725,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1781,7 +1781,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1837,7 +1837,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1893,7 +1893,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1949,7 +1949,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2005,7 +2005,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2061,7 +2061,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (18)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2117,7 +2117,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2139,7 +2139,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2161,7 +2161,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -2176,14 +2176,14 @@
   },
   {
     "id": "0x20f2",
-    "name": "Adaptive My Cycle Option Request",
+    "name": "Adaptive My Cycle Option",
     "ha_domain": "select",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (3 vals)",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -2206,7 +2206,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2231,7 +2231,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2253,7 +2253,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (6 vals)",
+    "reasoning": "6-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -2275,7 +2275,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2328,7 +2328,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2381,7 +2381,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2434,7 +2434,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2487,7 +2487,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2540,7 +2540,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2593,7 +2593,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2646,7 +2646,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2699,7 +2699,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2752,7 +2752,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2805,7 +2805,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2858,7 +2858,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2911,7 +2911,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2964,7 +2964,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (17)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -3010,14 +3010,14 @@
   },
   {
     "id": "0x2104",
-    "name": "Washer Remote My Cycle Request",
+    "name": "Washer Remote My Cycle",
     "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "\u00b0F",
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (19)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -3074,7 +3074,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (3)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -3099,7 +3099,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (8)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -3125,7 +3125,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (8)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -3144,14 +3144,14 @@
   },
   {
     "id": "0x2108",
-    "name": "Water Level Option Request",
+    "name": "Water Level Option",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (8)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -3178,7 +3178,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (6)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -3203,7 +3203,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (6)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -3221,14 +3221,14 @@
   },
   {
     "id": "0x210b",
-    "name": "Wash Progress Option Request",
+    "name": "Wash Progress Option",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (6)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -3254,7 +3254,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (26)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -3289,7 +3289,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (26)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -3317,14 +3317,14 @@
   },
   {
     "id": "0x210e",
-    "name": "Wrinkle Free Option Request",
+    "name": "Wrinkle Free Option",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (26)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -3360,7 +3360,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (8)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -3386,7 +3386,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (10)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -3407,14 +3407,14 @@
   },
   {
     "id": "0x2111",
-    "name": "Optimise Cycle Option Request",
+    "name": "Optimise Cycle Option",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (8)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -3441,7 +3441,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (10)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -3468,7 +3468,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (14)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -3491,14 +3491,14 @@
   },
   {
     "id": "0x2114",
-    "name": "Auto Dose Option Request",
+    "name": "Auto Dose Option",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (10)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -3526,7 +3526,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -3541,14 +3541,14 @@
   },
   {
     "id": "0x2116",
-    "name": "Active Intelligent Option Request",
+    "name": "Active Intelligent Option",
     "ha_domain": "select",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable descriptive (2 vals)",
+    "reasoning": "2-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -3571,7 +3571,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (4)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",

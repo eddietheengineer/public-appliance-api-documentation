@@ -1,7 +1,7 @@
 [
   {
     "id": "0x79a9",
-    "name": "Auto Mode Temperature Deadband Status",
+    "name": "Auto Mode Temperature Deadband",
     "ha_domain": "sensor",
     "device_class": "temperature",
     "unit_of_measurement": "\u00b0F",
@@ -23,7 +23,7 @@
   },
   {
     "id": "0x79aa",
-    "name": "Auto Mode Temperature Deadband Request",
+    "name": "Auto Mode Temperature Deadband",
     "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "\u00b0F",
@@ -46,14 +46,14 @@
   },
   {
     "id": "0x79ab",
-    "name": "Compressor Minimum Runtime Status",
+    "name": "Compressor Minimum Runtime",
     "ha_domain": "sensor",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -68,14 +68,14 @@
   },
   {
     "id": "0x79ac",
-    "name": "Compressor Minimum Runtime Request",
+    "name": "Compressor Minimum Runtime",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -91,14 +91,14 @@
   },
   {
     "id": "0x79ad",
-    "name": "Compressor Minimum Idle Time Status",
+    "name": "Compressor Minimum Idle Time",
     "ha_domain": "sensor",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -113,14 +113,14 @@
   },
   {
     "id": "0x79ae",
-    "name": "Compressor Minimum Idle Time Request",
+    "name": "Compressor Minimum Idle Time",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -136,14 +136,14 @@
   },
   {
     "id": "0x79af",
-    "name": "Compressor Maximum Stage1 Runtime Status",
+    "name": "Compressor Maximum Stage1 Runtime",
     "ha_domain": "sensor",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -158,14 +158,14 @@
   },
   {
     "id": "0x79b0",
-    "name": "Compressor Maximum Stage1 Runtime Request",
+    "name": "Compressor Maximum Stage1 Runtime",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -188,7 +188,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (3)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -212,7 +212,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (3)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -236,7 +236,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (3)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -260,7 +260,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (3)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -284,7 +284,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (3)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -308,7 +308,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -332,7 +332,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (3)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -356,7 +356,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (3)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -380,7 +380,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (3)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -404,7 +404,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (3)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -421,14 +421,14 @@
   },
   {
     "id": "0x79bd",
-    "name": "Fan Operating Mode Status",
+    "name": "Fan Operating Mode",
     "ha_domain": "sensor",
     "device_class": "enum",
     "unit_of_measurement": null,
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (4 vals)",
+    "reasoning": "4-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -443,14 +443,14 @@
   },
   {
     "id": "0x79be",
-    "name": "Fan Operating Mode Request",
+    "name": "Fan Operating Mode",
     "ha_domain": "select",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (4 vals)",
+    "reasoning": "4-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -491,14 +491,14 @@
   },
   {
     "id": "0x79c0",
-    "name": "Indoor Temperature Chassis/Install Adjustment Status",
+    "name": "Indoor Temperature Chassis/Install Adjustment",
     "ha_domain": "sensor",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (1)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -514,14 +514,14 @@
   },
   {
     "id": "0x79c1",
-    "name": "Indoor Temperature Chassis/Install Adjustment Request",
+    "name": "Indoor Temperature Chassis/Install Adjustment",
     "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "\u00b0F",
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (1)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -538,7 +538,7 @@
   },
   {
     "id": "0x79c2",
-    "name": "Ambient Temperature Sensor Status",
+    "name": "Ambient Temperature Sensor",
     "ha_domain": "sensor",
     "device_class": "temperature",
     "unit_of_measurement": "\u00b0F",
@@ -560,7 +560,7 @@
   },
   {
     "id": "0x79c3",
-    "name": "Compressor Minimum Stage2 Temperature Delta Status",
+    "name": "Compressor Minimum Stage2 Temperature Delta",
     "ha_domain": "sensor",
     "device_class": "temperature",
     "unit_of_measurement": "\u00b0F",
@@ -582,7 +582,7 @@
   },
   {
     "id": "0x79c4",
-    "name": "Compressor Minimum Stage2 Temperature Delta Request",
+    "name": "Compressor Minimum Stage2 Temperature Delta",
     "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "\u00b0F",
@@ -605,14 +605,14 @@
   },
   {
     "id": "0x79c5",
-    "name": "Blower Minimum Runtime Status",
+    "name": "Blower Minimum Runtime",
     "ha_domain": "sensor",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -627,14 +627,14 @@
   },
   {
     "id": "0x79c6",
-    "name": "Blower Minimum Runtime Request",
+    "name": "Blower Minimum Runtime",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -650,14 +650,14 @@
   },
   {
     "id": "0x79c7",
-    "name": "Indoor Fan Delay Status",
+    "name": "Indoor Fan Delay",
     "ha_domain": "sensor",
     "device_class": "door",
     "unit_of_measurement": null,
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - door",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -672,14 +672,14 @@
   },
   {
     "id": "0x79c8",
-    "name": "Indoor Fan Delay Request",
+    "name": "Indoor Fan Delay",
     "ha_domain": "number",
     "device_class": "door",
     "unit_of_measurement": null,
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - door",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -695,14 +695,14 @@
   },
   {
     "id": "0x79c9",
-    "name": "Minimum Heat Time Status",
+    "name": "Minimum Heat Time",
     "ha_domain": "sensor",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -717,14 +717,14 @@
   },
   {
     "id": "0x79ca",
-    "name": "Minimum Heat Time Request",
+    "name": "Minimum Heat Time",
     "ha_domain": "number",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -740,7 +740,7 @@
   },
   {
     "id": "0x79cb",
-    "name": "Auxiliary Heat Minimum Temperature Delta Status",
+    "name": "Auxiliary Heat Minimum Temperature Delta",
     "ha_domain": "sensor",
     "device_class": "temperature",
     "unit_of_measurement": "\u00b0F",
@@ -762,7 +762,7 @@
   },
   {
     "id": "0x79cc",
-    "name": "Auxiliary Heat Minimum Temperature Delta Request",
+    "name": "Auxiliary Heat Minimum Temperature Delta",
     "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "\u00b0F",
@@ -785,7 +785,7 @@
   },
   {
     "id": "0x79cd",
-    "name": "Indoor Ambient Temperature Sensor Calibration Status",
+    "name": "Indoor Ambient Temperature Sensor Calibration",
     "ha_domain": "sensor",
     "device_class": "temperature",
     "unit_of_measurement": "\u00b0F",
@@ -807,7 +807,7 @@
   },
   {
     "id": "0x79ce",
-    "name": "Indoor Ambient Temperature Sensor Calibration Request",
+    "name": "Indoor Ambient Temperature Sensor Calibration",
     "ha_domain": "number",
     "device_class": "temperature",
     "unit_of_measurement": "\u00b0F",
@@ -837,7 +837,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (5 vals)",
+    "reasoning": "5-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -860,7 +860,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (8 vals)",
+    "reasoning": "8-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -905,7 +905,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable descriptive (2 vals)",
+    "reasoning": "2-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -928,7 +928,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (3)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -952,7 +952,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -968,14 +968,14 @@
   },
   {
     "id": "0x7a10",
-    "name": "Compressor Error Status",
+    "name": "Compressor Error",
     "ha_domain": "sensor",
     "device_class": "enum",
     "unit_of_measurement": null,
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -1019,7 +1019,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -1145,7 +1145,7 @@
   },
   {
     "id": "0x7a24",
-    "name": "Matter Thermostat Cluster Occupied Cooling Setpoint Request",
+    "name": "Matter Thermostat Cluster Occupied Cooling Setpoint",
     "ha_domain": null,
     "device_class": null,
     "unit_of_measurement": null,
@@ -1212,7 +1212,7 @@
   },
   {
     "id": "0x7a27",
-    "name": "Matter Thermostat Cluster System Mode Request",
+    "name": "Matter Thermostat Cluster System Mode",
     "ha_domain": null,
     "device_class": null,
     "unit_of_measurement": null,
@@ -1257,7 +1257,7 @@
   },
   {
     "id": "0x7a40",
-    "name": "Matter Fan Control Cluster Fan Mode Request",
+    "name": "Matter Fan Control Cluster Fan Mode",
     "ha_domain": null,
     "device_class": null,
     "unit_of_measurement": null,
@@ -1324,7 +1324,7 @@
   },
   {
     "id": "0x7a43",
-    "name": "Matter Fan Control Cluster Percent Setting Request",
+    "name": "Matter Fan Control Cluster Percent Setting",
     "ha_domain": null,
     "device_class": null,
     "unit_of_measurement": null,
@@ -1427,7 +1427,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1473,7 +1473,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1496,7 +1496,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable descriptive (2 vals)",
+    "reasoning": "2-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1519,7 +1519,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1542,7 +1542,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -1565,7 +1565,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -1588,7 +1588,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1638,7 +1638,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable descriptive (2 vals)",
+    "reasoning": "2-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1654,14 +1654,14 @@
   },
   {
     "id": "0x7b0e",
-    "name": "Sleep Mode Request",
+    "name": "Sleep Mode",
     "ha_domain": "switch",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool writable",
+    "reasoning": "bool writable -> switch",
     "is_multi": false,
     "ops": [
       "read",
@@ -1677,14 +1677,14 @@
   },
   {
     "id": "0x7b0f",
-    "name": "Sleep Mode On/Off Status",
+    "name": "Sleep Mode On/Off",
     "ha_domain": "binary_sensor",
     "device_class": null,
     "unit_of_measurement": null,
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1706,7 +1706,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (11 vals)",
+    "reasoning": "11-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -1728,7 +1728,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1750,7 +1750,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (2 vals)",
+    "reasoning": "2-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -1772,7 +1772,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1816,7 +1816,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable descriptive (2 vals)",
+    "reasoning": "2-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1839,7 +1839,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (3 vals)",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1862,7 +1862,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum writable (3 vals)",
+    "reasoning": "3-value enum writable -> select",
     "is_multi": false,
     "ops": [
       "read",
@@ -1885,7 +1885,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Bool read-only",
+    "reasoning": "bool read-only -> binary_sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1929,7 +1929,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -1952,7 +1952,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1974,7 +1974,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -1996,7 +1996,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2018,7 +2018,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2040,7 +2040,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2063,7 +2063,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Enum read-only (6 vals)",
+    "reasoning": "6-value enum read-only -> sensor+device_class:enum",
     "is_multi": false,
     "ops": [
       "read",
@@ -2085,7 +2085,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (10)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2112,7 +2112,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
@@ -2134,7 +2134,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (3)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -2182,7 +2182,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2205,7 +2205,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2228,7 +2228,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field (2)",
+    "reasoning": "Multi-field ERD -> sensor (each field becomes separate entity)",
     "is_multi": true,
     "ops": [
       "read",
@@ -2251,7 +2251,7 @@
     "confidence": "high",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Multi-field writable (4)",
+    "reasoning": "Multi-field writable -> number",
     "is_multi": true,
     "ops": [
       "read",
@@ -2278,7 +2278,7 @@
     "confidence": "medium",
     "filtered": false,
     "filter_reason": "",
-    "reasoning": "Sensor - numeric",
+    "reasoning": "u8 read-only -> sensor",
     "is_multi": false,
     "ops": [
       "read",
