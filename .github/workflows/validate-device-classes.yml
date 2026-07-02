@@ -17,8 +17,21 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Validate JSON format
+        run: python3 scripts/validate_json_format.py
+
       - name: Validate ha_domain/device_class combinations
-        run: python3 validate_device_classes.py
+        run: python3 scripts/validate_device_classes.py
 
       - name: Validate ERD pairing symmetry
-        run: python3 validate_pairings.py
+        run: python3 scripts/validate_pairings.py
+
+      - name: Validate HA metadata completeness
+        run: python3 scripts/validate_ha_completeness.py
+
+      - name: Validate scaling factor consistency
+        run: python3 scripts/validate_scaling_consistency.py
+
+      - name: Validate HA domain-specific rules
+        run: python3 scripts/validate_ha_domain_rules.py
+
