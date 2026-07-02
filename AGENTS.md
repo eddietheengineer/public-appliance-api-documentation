@@ -45,7 +45,6 @@ This file uses a **non-standard compact JSON format**. Standard `json.dumps(inde
     "name": "Model Number",
     "id": "0x0001",
     ...
-    "confidence": "high"
   }, {
     "name": "Serial Number",
     ...
@@ -77,10 +76,6 @@ This file uses a **non-standard compact JSON format**. Standard `json.dumps(inde
 
 **Validation**: after any change, run `python3 -c "import json; json.load(open('appliance_api_erd_definitions.json'))"` to confirm valid JSON.
 
-### Workflow
-
-The CI workflow `.github/workflows/validate-device-classes.yml` runs `validate_device_classes.py` to check that `device_class` values are valid for each ERD's data types. Run this before committing.
-
 # Project Context
 
 ## What This Repo Is
@@ -91,9 +86,54 @@ The primary data file is `appliance_api_erd_definitions.json` — a single JSON 
 - `id`: hex identifier (e.g. `"0x0001"`)
 - `name`, `description`: human-readable metadata
 - `data`: array of fields with `type` (u8/u16/u32/i8/i16/i32/enum/string/bool), `offset`, `size`, and optional `values`/`bits`
-- `ha_domain`: the Home Assistant entity domain this ERD maps to (`sensor`, `binary_sensor`, `switch`, `select`, `number`, `button`)
-- `device_class`, `unit_of_measurement`, `scaling_factor`, `state_class`: HA entity metadata
-- `paired_erd`/`pair_role`: request/status pairing for controllable entities
+- `operations`: array of API operations (`read`, `write`, `publish`, `subscribe`)
+- `updateClass`: update class metadata
+
+**The source JSON contains NO Home Assistant metadata.** All HA domain, device_class, unit_of_measurement, and other metadata is assigned during the review process and stored in the flattened review file.
+
+## Review Workflow
+
+### Step 1: Generate Flattened Review File
+
+```bash
+python3 scripts/generate_flattened_review.py
+```
+
+This reads `appliance_api_erd_definitions.json` and `appliance_api.json`, producing `erd_flattened.json` with one entry per sub-field (~15,423 entries from ~2,200 ERDs). Each entry has:
+- Source fields: `erd_id`, `erd_name`, `erd_description`, `erd_operations`, `erd_updateClass`, `field_name`, `field_type`, `field_offset`, `field_size`, `field_values`, `field_bits`
+- Generated: `erd_features` (from `appliance_api.json` feature API mappings)
+- Empty `review` section for the agent to fill in
+
+### Step 2: Review Each Entry
+
+For each entry in `erd_flattened.json`, fill in the `review` section:
+
+```json
+"review": {
+  "ha_domain": "sensor",
+  "device_class": "temperature",
+  "unit_of_measurement": "°F",
+  "scaling_factor": null,
+  "state_class": "measurement",
+  "paired_erd": null,
+  "pair_role": null,
+  "filtered": false,
+  "filter_reason": null,
+  "reasoning": "read-only temperature sensor"
+}
+```
+
+Follow the Entity Generation Rules below to determine each field.
+
+### Step 3: Apply Review to Source JSON
+
+After review, a script merges the `review` data back into `appliance_api_erd_definitions.json`, adding `ha_domain`, `device_class`, `unit_of_measurement`, `scaling_factor`, `state_class`, `paired_erd`, `pair_role` to the appropriate ERD/field entries.
+
+### Step 4: Generate JSONL
+
+```bash
+python3 generate_ha_discovery.py --erd-definitions appliance_api_erd_definitions.json
+```
 
 ## Home Assistant MQTT Discovery Pipeline
 
@@ -109,27 +149,14 @@ python3 generate_ha_discovery.py --erd-definitions appliance_api_erd_definitions
 
 **What it does:**
 1. Reads `appliance_api_erd_definitions.json` (2,199 ERDs)
-2. Filters out 2,596 derived entities matching internal metadata patterns (diagnostics, commissioning, firmware hashes, service mode, etc.) via regex on entity names
+2. Filters out entities matching internal metadata patterns (diagnostics, commissioning, firmware hashes, service mode, etc.) via regex on entity names
 3. Classifies each ERD's data structure: `single`, `byte_offset`, `bitfield`, `mixed`, `version`, or `multi_board_version`
 4. Generates Jinja2 `value_template` and `command_template` strings for each HA entity
 5. Outputs category-specific JSONL files into `ha_discovery/`
 
 ### Output: `ha_discovery/*.jsonl`
 
-10 JSONL files, **7,577 entities total** (after filtering), organized by appliance category:
-
-| File | Entities | Category Range |
-|---|---|---|
-| `range.jsonl` | 2,619 | 0x5000–0x5FFF |
-| `laundry.jsonl` | 1,753 | 0x2000–0x2FFF |
-| `refrigeration.jsonl` | 1,863 | 0x1000–0x1FFF |
-| `smallappliance.jsonl` | 693 | 0x9000–0x9FFF |
-| `airconditioning.jsonl` | 282 | 0x7000–0x7FFF |
-| `dishwasher.jsonl` | 236 | 0x3000–0x3FFF |
-| `waterheater.jsonl` | 58 | 0x4000–0x4FFF |
-| `common.jsonl` | 28 | 0x0000–0x0FFF |
-| `energy.jsonl` | 37 | 0xD000–0xDFFF |
-| `waterfilter.jsonl` | 8 | 0x8000–0x8FFF |
+10 JSONL files organized by appliance category.
 
 ### JSONL Line Format (per entity)
 
@@ -161,46 +188,29 @@ Each line is a compact JSON object consumed by the ESPHome bridge's MQTT discove
 2. **Value decoding**: When the appliance publishes a hex payload on an ERD topic (e.g., `appliance/0001`), the bridge evaluates the `vt` Jinja2 template against the raw hex string to produce the HA display value.
 3. **Command encoding**: When HA sends a command to a `select`/`number`/`switch`, the bridge evaluates the `ct` template to convert the user value back to hex for the appliance protocol.
 4. **Multi-field ERDs**: Complex ERDs (version numbers with 4 sub-fields, bit-field sensors) are split into separate entities with `fi` field IDs. The `vt` template slices the correct hex range from the full payload.
-5. **Category routing**: Files are split by appliance category (0x0000–0x0FFF = common, etc.) so the bridge can selectively load only relevant entities for a given appliance type.
+5. **Category routing**: Files are split by appliance category (0x0000–0x0FFF = common, etc.) so the bridge can selectively load only relevant entities per appliance type.
 
 ## Scripts Directory (`scripts/`)
 
 Collection of Python utilities for maintaining and validating the ERD definitions:
 
-- **`ha_constants.py`** — Authoritative definitions of valid HA device classes, units, state classes, and their constraints. Used by all validators.
-- **`validate_device_classes.py`** — CI-gated: checks `device_class` values are valid for each ERD's data types. Run before committing.
-- **`validate_ha_domain_rules.py`** — Validates HA domain assignments against ERD data types.
-- **`validate_pairings.py`** — Validates request/status ERD pairings (bidirectional consistency).
-- **`validate_scaling_consistency.py`** — Checks scaling factor consistency across paired ERDs.
-- **`validate_ha_completeness.py`** — Ensures all controllable ERDs have HA metadata.
-- **`auto_assign_ha_metadata.py`** — Suggests `ha_domain`, `device_class`, `unit_of_measurement` based on ERD names and types.
-- **`auto_detect_pairings.py`** — Auto-detects request/status ERD pairings.
-- **`auto_detect_scaling.py`** — Auto-detects scaling factors from field names.
-- **`annotate_field_metadata.py`** — Adds metadata annotations to ERD fields.
-- **`generate_controllable_erds.py`** — Generates `doc/controllable_erds.md` (213 controllable ERDs with their HA domains).
-- **`generate_coverage_report.py`** — Coverage analysis of ERD metadata completeness.
-- **`sync_upstream.py`** — Syncs ERD definitions from upstream source.
-- **`apply_all_suggestions.py`** — Applies auto-detected metadata suggestions to the JSON.
-- **`review_field_changes.py`** — Reviews field-level changes between JSON versions.
-- **`clean_empty_device_class.py`** — Removes empty `device_class` fields.
-- **`format_json.py`** — Formats the ERD JSON file (preserving the non-standard compact format).
+- **`generate_flattened_review.py`** — Generates `erd_flattened.json` from source JSON for review.
+- **`ha_constants.py`** — Authoritative definitions of valid HA device classes, units, state classes, and their constraints.
 - **`validate_json_format.py`** — Validates the ERD JSON format rules.
-- **`validator_utils.py`** — Shared utilities for all validators.
-
-## Controllable ERDs
-
-`doc/controllable_erds.md` lists 213 ERDs that can be controlled (have write operations or paired request/status). These map to HA `switch`, `select`, `number`, `button`, and `binary_sensor` domains. Generated by `scripts/generate_controllable_erds.py`.
+- **`format_json.py`** — Formats the ERD JSON file (preserving the non-standard compact format).
+- **`validator_utils.py`** — Shared utilities for validators.
 
 ## Key Design Decisions
 
-- **Filtering is aggressive**: Most raw entity entries are filtered out because they represent internal diagnostics, firmware metadata, commissioning state, or service-mode data not useful to end users in Home Assistant. See `doc/erd_rules.md` for the complete list.
+- **Filtering is aggressive**: Most raw entity entries are filtered out because they represent internal diagnostics, firmware metadata, commissioning state, or service-mode data not useful to end users in Home Assistant.
 - **Jinja2 templates over Python**: The bridge uses Jinja2 for value/command templates rather than compiled Python, allowing the templates to be generated from data and evaluated at runtime.
 - **Hex protocol**: All appliance communication is hex-encoded. Templates handle two's-complement conversion, scaling, enum mapping, and ASCII decoding.
 - **Category-based routing**: ERDs are split into 10 category files matching their hex ID range, allowing the bridge to load only relevant entities per appliance type.
+- **Review-first workflow**: HA metadata is not in the source JSON. It is assigned during review via the flattened review file, then merged back into the source.
 
-## Entity Generation Rules (from ERD JSON analysis)
+## Entity Generation Rules
 
-These rules are derived from patterns in `appliance_api_erd_definitions.json`. They guide how ERD data maps to HA entity types in the JSONL output.
+These rules guide how ERD data maps to HA entity types in the JSONL output. They are applied during the review process to fill in the `review` section of each entry in `erd_flattened.json`.
 
 ### 1. Multi-field ERDs → one entity per sub-field
 
@@ -210,25 +220,26 @@ When an ERD has more than one data field, each non-reserved sub-field becomes it
 - **Version ERDs** (4 consecutive u8 fields: Critical Major, Critical Minor, Non-Critical Major, Non-Critical Minor): emit a single entity with a dotted-version value template (`1.0.2.3`), not 4 separate entities.
 - **Multi-board version ERDs** (version fields prefixed by board name like "UI", "MC"): emit one entity per board prefix, plus optional parametric version entities.
 - **Reserved/padding fields** (name contains "reserved", "padding"): skip entirely.
-- **Sub-field ha_domain**: When all sub-fields of a multi-field ERD have their own `ha_domain` defined, the top-level `ha_domain` is optional and can be omitted. The JSONL generator uses sub-field domains directly.
 
 ### 2. Data type → HA domain mapping
 
 | Data type | Preferred domain | Notes |
 |---|---|---|
-| `bool` | `binary_sensor`, `switch`, or `button` | Read-only on/off → `binary_sensor`. Writable toggle → `switch`. One-shot command → `button`. If the bool is part of a larger multi-field ERD, each bit gets its own `binary_sensor` entity. |
-| `enum` with 2 values (On/Off, Enable/Disable, etc.) | `switch` if writable, `binary_sensor` if read-only | If the enum values are descriptive labels (e.g. Fahrenheit/Celsius, 12-hour/24-hour) rather than on/off states → `select` (writable) or `sensor` with `device_class: "enum"` (read-only). If the enum has >2 values → `select` (writable) or `sensor` with `device_class: "enum"` (read-only). **Note**: "descriptive labels" means values that are not simple on/off states — e.g. "12 Hour Time"/"24 Hour Time"/"No Clock Display" or "Normal"/"Boost". If values are "On"/"Off", "Locked"/"Not Locked", "Enabled"/"Disabled" → treat as On/Off pair, use `switch`/`binary_sensor`. |
+| `bool` | `binary_sensor`, `switch`, or `button` | Read-only on/off → `binary_sensor`. Writable toggle → `switch`. One-shot command → `button`. |
+| `enum` with 2 values (On/Off, Enable/Disable, etc.) | `switch` if writable, `binary_sensor` if read-only | If the enum values are descriptive labels (e.g. Fahrenheit/Celsius, 12-hour/24-hour) rather than on/off states → `select` (writable) or `sensor` with `device_class: "enum"` (read-only). **Note**: "descriptive labels" means values that are not simple on/off states — e.g. "12 Hour Time"/"24 Hour Time"/"No Clock Display" or "Normal"/"Boost". If values are "On"/"Off", "Locked"/"Not Locked", "Enabled"/"Disabled" → treat as On/Off pair, use `switch`/`binary_sensor`. |
 | `enum` with >2 values | `select` if writable, `sensor` with `device_class: "enum"` if read-only | |
-| `u8`, `u16`, `u32`, `i8`, `i16`, `i32` | `sensor` (read-only), `number` (writable) | Apply `scaling_factor` if present. Signed types need two's-complement handling. |
+| `u8`, `u16`, `u32`, `i8`, `i16`, `i32` | `sensor` (read-only), `number` (writable) | Signed types need two's-complement handling. |
 | `string` | `sensor` | ASCII hex-decoded. Typically model/serial numbers. |
-| `raw` | Usually skip | Raw bytes with no semantic meaning. Often padding, hashes, or binary blobs. These should be filtered (see `doc/erd_rules.md`) but must still have valid `ha_domain`/`device_class` metadata in the JSON. |
+| `raw` | Usually skip | Raw bytes with no semantic meaning. These should be filtered. |
+
+**Determining writability**: Check `erd_operations`. If `"write"` is in the operations array, the field is writable. If only `"read"`, `"publish"`, `"subscribe"` — it is read-only.
 
 ### 3. Boolean-specific rules
 
-- A `bool`-typed field assigned to `switch` is correct when the field is writable (request/response pattern).
-- A `bool`-typed field assigned to `button` is correct when it's a one-shot command (write-and-forget).
-- **Clarification**: Writable bools should almost always be `switch`, not `binary_sensor`. If the ERD has a `paired_erd` (request/status pattern), it's writable → `switch`. If the ERD has no `paired_erd` and the bool is read-only → `binary_sensor`.
-- **One-shot commands**: Use `button` only for true one-shot commands that don't have a paired status ERD (e.g., "Restart", "Factory Reset"). If the ERD has a `paired_erd` or `values` map, it's a toggle → `switch`, not `button`.
+- Writable bools should almost always be `switch`, not `binary_sensor`.
+- Read-only bools → `binary_sensor`.
+- **One-shot commands**: Use `button` only for true one-shot commands (e.g., "Restart", "Factory Reset") that don't have a paired status ERD. If the ERD has a `values` map or paired status, it's a toggle → `switch`, not `button`.
+
 ### 4. Enum-specific rules
 
 - **2-value enums** (e.g. `{"0": "Off", "1": "On"}`):
@@ -240,28 +251,27 @@ When an ERD has more than one data field, each non-reserved sub-field becomes it
   - Writable → `select` (dropdown control)
   - Read-only → `sensor` with `device_class: "enum"` (labeled display)
 - Enum values of `255` labeled "Request Consumed" or "Request processed" are **write-only protocol markers** — they indicate the appliance has accepted the command. These should not appear as selectable options in HA.
+
 ### 5. Numeric type rules
 
-- `u8`/`u16`/`u32` (unsigned): map to `sensor` (read-only) or `number` (writable). Set `min`/`max`/`step` based on the type bounds and `scaling_factor`.
+- `u8`/`u16`/`u32` (unsigned): map to `sensor` (read-only) or `number` (writable).
 - `i8`/`i16`/`i32` (signed): same as above but value templates must handle two's-complement conversion (values ≥ 2^(n-1) are negative).
-- Fields with `scaling_factor` > 1: the displayed value is `raw_value / scaling_factor`. The `unit_of_measurement` should match the physical quantity (e.g., `°F`, `V`, `min`).
 - `u16`/`u32` in `select` domain with no `values` map is suspicious — these are likely numeric values (temperatures, times, IDs) that should be `sensor` or `number`, not `select`.
 
 ### 6. Paired ERD (request/status) merging
 
 Paired ERDs represent the same physical entity from two perspectives — command (request) and state (status). They should be **merged into a single JSONL entity**, not emitted as two separate entries.
 
-- The **controllable domain** (`switch`, `select`, `number`) is the canonical entity. It drives both the HA entity type and the value/command templates.
-- The **read-only domain** (`binary_sensor`, `sensor`) side is redundant and should be **dropped** when the pairing is bidirectional (request's `paired_erd` points to status, and status's `paired_erd` points back to request).
-- If the pairing is **asymmetric** (request doesn't point back to status), the status ERD carries independent information — keep it as a separate entity.
-- When the request side is `sensor` but the status side is `switch`/`select`/`number`, the **status side is the canonical entity** (it's the one that's actually controllable). Invert the merge: keep the status side, drop the request side.
-- The merged entity uses the controllable side's `ha_domain`, `device_class`, `unit_of_measurement`, `scaling_factor`, and data structure.
-- The merged entity's `value_template` should read from the status side's data (the actual current state), and the `command_template` should write to the request side's data (the command payload).
+- Paired ERDs are typically named with "Request" and "Status" suffixes, or have sequential IDs (e.g., `0x1004` and `0x1005`).
+- The **controllable domain** (`switch`, `select`, `number`) is the canonical entity.
+- The **read-only domain** (`binary_sensor`, `sensor`) side is redundant and should be **dropped** when the pairing is bidirectional.
+- When the request side is `sensor` but the status side is `switch`/`select`/`number`, the **status side is the canonical entity**.
+- Record the pairing in the `review.paired_erd` and `review.pair_role` fields.
 
 ### 7. String-type rules
 
 - `string` type → `sensor` domain. The value is hex-encoded ASCII. Templates must decode hex byte pairs to characters, skip null bytes, and strip trailing padding (`_`).
-- Common string ERDs: Model Number, Serial Number, Pairing Codes. These are read-only identifiers.
+- Common string ERDs: Model Number, Serial Number. These are read-only identifiers.
 
 ### 8. Bit-field rules
 
@@ -279,19 +289,6 @@ Paired ERDs represent the same physical entity from two perspectives — command
 - Version ERDs use `device_class: "timestamp"` or no device_class (they're identifiers, not measurements).
 
 ### 10. Filtered ERDs (hidden from JSONL output)
-
-See `doc/erd_rules.md` for the complete list of filtered ERDs with reasons and filter patterns.
-
-Rule: **Every ERD must have valid HA metadata regardless of whether it's filtered.** Even filtered ERDs must pass all validator checks (`validate_device_classes.py`, `validate_ha_domain_rules.py`, etc.). Filtering only controls JSONL output — the JSON itself must be correct.
-
-
-### 11. Entity naming
-
-- Strip "Request" and "Status" suffixes from paired ERD names for the entity name.
-- For multi-field ERDs, use the pattern: `{ERD name} - {leaf field name}`.
-- Leaf field names: for dot-qualified names like "Allowed Selections.Cyclic Supported", use the last segment ("Cyclic Supported"). Exception: "PM2.5" → keep as-is (the dot is part of the value, not a separator).
-
-### 12. Filtering / exclusion rules
 
 Skip entities whose names match these patterns (internal noise, not user-facing):
 - **Diagnostics**: "diagnostic", "fault", "reset reason", "program counter", "fault code", "linux diagnostics"
@@ -325,84 +322,55 @@ Skip entities whose names match these patterns (internal noise, not user-facing)
 - **Raw type**: ERDs with `raw` type data fields should be filtered entirely — raw bytes have no semantic meaning for Home Assistant. This includes padding, hashes, and binary blobs.
 
 **Gray area**: If an ERD name matches a filter pattern but you're unsure, **keep it**. It's better to have an extra entity in Home Assistant than to miss a user-facing feature.
-### 13. Device class assignment
+
+### 11. Entity naming
+
+- Strip "Request" and "Status" suffixes from paired ERD names for the entity name.
+- For multi-field ERDs, use the pattern: `{ERD name} - {leaf field name}`.
+- Leaf field names: for dot-qualified names like "Allowed Selections.Cyclic Supported", use the last segment ("Cyclic Supported"). Exception: "PM2.5" → keep as-is (the dot is part of the value, not a separator).
+
+### 12. Device class assignment
 
 - `enum` device_class: for any sensor whose data type is `enum` or whose values are labeled text (not numeric).
 - `temperature`: fields with "temperature" in the name and a numeric type. **Note**: `device_class: "temperature"` tells Home Assistant to group temperature sensors together on graphs, use temperature-appropriate UI formatting (1 decimal place for °F), and enables temperature-specific automation triggers. Without it, HA treats the sensor as a generic number.
-- `duration`: **ONLY for timestamp values** — i.e., sensors that report a point in time such as `sensor.last_triggered`, `sensor.last_seen`, `sensor.last_updated`. These are NOT user-input numeric values. **Do NOT use `device_class: "duration"` for timer settings, timeout values, delay minutes, cook times, runtime requests, or any other numeric input that represents a duration the user sets.** These should have `device_class: null` (or no device_class) with `unit_of_measurement` set appropriately (e.g., `"min"`, `"s"`).
+- `duration`: **ONLY for timestamp values** — i.e., sensors that report a point in time such as `sensor.last_triggered`, `sensor.last_seen`, `sensor.last_updated`. These are NOT user-input numeric values. **Do NOT use `device_class: "duration"` for timer settings, timeout values, delay minutes, cook times, runtime requests, or any other numeric input that represents a duration the user sets.** These should have `device_class: null` with `unit_of_measurement` set appropriately (e.g., `"min"`, `"s"`).
 - `restart`: for button-type reset commands.
 - `door`, `moisture`, `battery`, `battery_charging`, `plug`, `power`: infer from field names matching known appliance states.
 - `voltage`, `current`, `power`, `energy`: infer from electrical measurements with appropriate units.
 - `timestamp`: for version strings (though `enum` or no device_class may be more appropriate).
-### 13a. Number domain device_class rules
 
-The `number` domain represents **user-input numeric values** (writable setpoints, timers, levels). These are fundamentally different from `sensor` domain values which represent **read-only measurements**.
+### 13. Number domain device_class rules
+
+The `number` domain represents **user-input numeric values** (writable setpoints, timers, levels).
 
 - **`number` domain entities should almost NEVER have a `device_class`**. The `device_class` attribute is meaningful for `sensor` domain entities to tell Home Assistant how to interpret the measurement. For `number` domain, the `unit_of_measurement` and `min`/`max`/`step` fields are what matter.
-- **Exceptions**: `device_class: "temperature"` is valid on `number` domain when the user is setting a temperature (e.g., "Desired Temperature", "User Heating Setpoint Request"). This tells Home Assistant to use temperature-appropriate UI controls.
-- **Never use `device_class: "duration"` on `number` domain**. A `number` entity with `unit_of_measurement: "min"` that represents a timer setting (e.g., "Timer", "Delay Start Minutes", "Cook Time Adjustment") should have no `device_class`. The `unit_of_measurement: "min"` already conveys the meaning. Using `device_class: "duration"` would incorrectly signal to Home Assistant that this is a timestamp sensor, not a user-input number.
-- **Examples of correct `number` domain metadata**:
-  - `0x0050` (Timer): `ha_domain: "number"`, `device_class: null`, `unit_of_measurement: "min"` — NOT `device_class: "duration"`
-  - `0x1005` (Desired Temperature): `ha_domain: "number"`, `device_class: "temperature"`, `unit_of_measurement: "°F"` — temperature is a valid exception
-  - `0x5404` (Advantium Cook Time Adjustment): `ha_domain: "number"`, `device_class: null`, `unit_of_measurement: "s"` — NOT `device_class: "duration"`
-  - `0x79a0` (Filter Replacement Interval Reminder Request): `ha_domain: "number"`, `device_class: null`, `unit_of_measurement: null` — no device_class needed
+- **Exceptions**: `device_class: "temperature"` is valid on `number` domain when the user is setting a temperature (e.g., "Desired Temperature", "User Heating Setpoint Request").
+- **Never use `device_class: "duration"` on `number` domain**. A `number` entity with `unit_of_measurement: "min"` that represents a timer setting should have no `device_class`.
 
-### 13b. Sensor domain device_class rules
+### 14. Sensor domain device_class rules
 
 - **`device_class: "duration"` is valid on `sensor` domain ONLY when the sensor reports a timestamp** (e.g., `sensor.last_triggered`). It is NOT valid for sensors that report a duration value like "time remaining" or "cycle duration" — those should use `device_class: null` with `unit_of_measurement: "min"` or `"s"`.
-- Fields with "time", "minutes", "seconds" in the name and a numeric type should get `device_class: null` (not `duration`) unless they are actually timestamp sensors.
 
-### 13c. Percentage and speed sensors
+### 15. Percentage and speed sensors
 
 - Sensors reporting percentages (fan speed, pump speed, light level, brightness, current limiting, etc.) should have `unit_of_measurement: "%"`.
 - **Do NOT use `unit_of_measurement: "rpm"` for percentage-based fan speed controls**. If the ERD describes fan speed as a percentage (e.g., "0 = OFF to X = Max Speed"), use `unit_of_measurement: "%"`. Use `"rpm"` only when the sensor reports actual rotational speed from a physical RPM measurement.
-- **Examples**:
-  - `0x5b26` (Hood Requested Auto Fan Speed): `ha_domain: "sensor"`, `unit_of_measurement: "%"`, `device_class: null` — percentage-based speed control
-  - `0x303e` (Drain Pump Speed Percentage): `ha_domain: "sensor"`, `unit_of_measurement: "%"`, `device_class: null`
-  - `0x3449` (Tub 1 Fan 1 Speed Percentage): `ha_domain: "sensor"`, `unit_of_measurement: "%"`, `device_class: null`
 
-### 13d. Sensors with no standard HA device_class
+### 16. Sensors with no standard HA device_class
 
-Some sensor types don't map to any Home Assistant `device_class`. These are valid and should have `device_class: null` (or no device_class field).
+Some sensor types don't map to any Home Assistant `device_class`. These are valid and should have `device_class: null`:
+- **Turbidity sensors**: Raw NTU measurements.
+- **Light level sensors**: Raw light level readings (not lux meters).
+- **Protocol request/response markers**: ERDs with a single u8 field where value 255 means "request consumed".
+- **Internal notifications**: ERDs containing reserved bytes and expiry notifications.
+- **Heartbeat ticks**: Protocol-level heartbeat counters.
+- **Device indices/UIDs**: Identifiers used to index into other ERDs or sessions.
 
-- **Turbidity sensors**: Raw NTU (Nephelometric Turbidity Units) measurements have no HA device_class. Use `device_class: null` with no unit_of_measurement.
-  - `0x3036` (Average Turbidity): `ha_domain: "sensor"`, `device_class: null`
-  - `0x3236` (Average Turbidity Tub 1): `ha_domain: "sensor"`, `device_class: null`
-- **Light level sensors**: Raw light level readings (not lux meters) should have `device_class: null`. If the sensor reports actual illuminance in lux, use `device_class: "illuminance"` with `unit_of_measurement: "lx"`.
-  - `0x5b17` (Hood Actual Light Level): `ha_domain: "sensor"`, `device_class: null` — raw level, not a lux measurement
-- **Protocol request/response markers**: ERDs with a single u8 field where value 255 means "request consumed" or "request processed" are protocol markers, not measurements. Use `device_class: null`.
-  - `0x5b35` (Request Update of NOx Index): `ha_domain: "sensor"`, `device_class: null`
-  - `0x5b5d` (Request Update of PM 10 Index): `ha_domain: "sensor"`, `device_class: null`
-- **Internal notifications**: ERDs containing reserved bytes and expiry notifications for filters/elements. Use `device_class: null`.
-  - `0x5b0c` (Hood Notifications): `ha_domain: "sensor"`, `device_class: null`
-- **Heartbeat ticks**: Protocol-level heartbeat counters. Use `device_class: null`.
-  - `0x5071` (Heartbeat Tick From Client): `ha_domain: "sensor"`, `device_class: null`
-- **Device indices/UIDs**: Identifiers used to index into other ERDs or sessions. Use `device_class: null`.
-  - `0x540d` (Precision Cook Mode UID Cavity 1 Request): `ha_domain: "sensor"`, `device_class: null`
-  - `0x58b5` (Right Front Closed Loop Cooking Device Index): `ha_domain: "sensor"`, `device_class: null`
+### 17. Multi-field ERDs
 
-### 13e. Multi-field ERDs
+ERDs with multiple sub-fields should have **no `device_class` at the ERD level**. Metadata belongs on individual sub-fields.
 
-ERDs with multiple sub-fields should have **no `device_class` at the ERD level**. Metadata (`device_class`, `unit_of_measurement`, `state_class`) belongs on individual sub-fields, not the parent ERD.
-
-- **Each sub-field gets its own metadata** based on what it represents:
-  - `0x5933` (Device Position 0x7D Cooktop - Zone 5 Status): ERD-level `device_class: null`. Sub-fields:
-    - `Element Actual Temperature`: `device_class: "temperature"`
-    - `Probe Actual Temperature`: `device_class: "temperature"`
-    - `Timer Time Remaining`: `device_class: null`, `unit_of_measurement: "s"`
-    - `Actual Power Level`: `device_class: null` (u8 scale, not actual watts)
-    - `Padding`: `device_class: null` (skip)
-- **Counter sub-fields** should have `state_class: "total"`:
-  - `0x3009` (Cycle Counts): ERD-level `device_class: null`. Sub-fields:
-    - `Started Cycles Counter`: `state_class: "total"`
-    - `Completed Cycles Counter`: `state_class: "total"`
-    - `Power On Reset Counter`: `state_class: "total"`
-  - `0x3406` (Tub 1 Door Count): `device_class: null`, `state_class: "total"`
-
-The ERD-level `device_class` should almost always be omitted for multi-field ERDs. The sub-field metadata is what matters for Home Assistant entity generation.
-
-
-### 14. Unit of measurement
+### 18. Unit of measurement
 
 - `°F` / `°C` / `K`: temperature fields.
 - `V`: voltage.
@@ -414,101 +382,22 @@ The ERD-level `device_class` should almost always be omitted for multi-field ERD
 - `CFM`: airflow.
 - `steps`: step counts.
 
-### 15. State class
+### 19. State class
 
 - `total`: cumulative counters (energy, water, gas).
 - `total_increasing`: counters that only increase (cycle counts, runtime).
 - `measurement`: instantaneous values (temperature, voltage, current).
 
-### 16. JSON formatter behavior
+### 20. JSON formatter behavior
 
-**`format_erd_json()` preserves key and data field order exactly as they exist in the input dict.** It does NOT reorder anything. However, callers that modify dicts (adding/removing keys or data fields) will change insertion order, which `format_erd_json()` will faithfully output.
+**`format_erd_json()` preserves key and data field order exactly as they exist in the input dict.** It does NOT reorder anything.
 
-**Never modify data field order in the dict before calling `format_erd_json()`.** If you need to reorder data fields, do it before any modifications, not after. The `verify_data_field_order()` helper in `format_json.py` can be used to catch accidental reordering.
-
-**When modifying sub-field metadata** (adding `device_class`, `unit_of_measurement`, etc. to data fields), the new keys are appended to the end of the field's key order. This changes the JSON output key order but not the semantic content. The `format_erd_json` docstring warns about this.
-
-### 17. Confidence field rules
-
-The `confidence` field on each ERD indicates how certain the auto-detection was about the HA metadata:
-
-- **`high`**: ERD has both `ha_domain` and `device_class` set. The auto-detector was confident in both the domain and the device class.
-- **`medium`**: ERD has `ha_domain` but no `device_class`. The domain was detected but the device class is null (the default for most ERDs — only specific cases need a device_class).
-- **`low`**: ERD matches a filter pattern (diagnostics, firmware, commissioning, etc.) and will be filtered from JSONL output. These still need valid metadata for validation but won't appear in the bridge.
-
-**Confidence is derived from metadata completeness, not from the quality of the metadata itself.** A filtered ERD with `confidence: "low"` may still have perfectly valid `ha_domain` and `device_class` values.
-
-### 18. Domain distribution
-
-| Domain | Count | Notes |
-|---|---|---|
-| `sensor` | ~1,559 | Largest category. Most numeric and enum readings. |
-| `binary_sensor` | ~363 | Read-only on/off states. |
-| `number` | ~120 | Writable numeric setpoints (temperatures, timers, levels). |
-| `select` | ~82 | Writable enum selections (cycle modes, settings). |
-| `switch` | ~66 | Writable toggle controls. |
-| `button` | ~6 | One-shot commands (reset, restart). |
-
-### 19. ERDs without `ha_domain`
-
-A small number of ERDs intentionally have no `ha_domain`:
-
-- **`0x0038` Supported Image Types** — Firmware image support matrix. Matches filter pattern "supported image types".
-
-These are internal noise that gets filtered from JSONL output. They have no `ha_domain` because they don't map to meaningful Home Assistant entities.
-
-**Note**: `0x5411` (Precision Cooking Short Name Cavity 1 Status) and `0x5421` (Precision Cooking Short Name Cavity 2 Status) were previously without `ha_domain` but now have `ha_domain: sensor`. They are multi-field ERDs with a `string` sub-field (Short Name) that the generator converts to ASCII text, similar to Model Number (`0x0001`) and Serial Number (`0x0002`). Each produces 6 entities: Short Name (string), UID (u32), Status (enum), and 3 Padding fields.
-
-### 20. Paired ERD consistency
-
-All ERD pairings are **bidirectional** — if ERD A's `paired_erd` points to ERD B, then ERD B's `paired_erd` points back to ERD A. Zero asymmetric pairings exist in the dataset. The `validate_pairings.py` script checks this invariant.
+**Never modify data field order in the dict before calling `format_erd_json()`.** If you need to reorder data fields, do it before any modifications, not after.
 
 ### 21. `raw` type fields
 
-ERDs with `raw` type data fields contain unstructured bytes (padding, hashes, binary blobs). These are expected and should be filtered. There are ~80+ `raw` type fields across the file, all of which are padding or diagnostics. They are correct as-is.
+ERDs with `raw` type data fields contain unstructured bytes (padding, hashes, binary blobs). These are expected and should be filtered.
 
-### 22. Bool switches without explicit `values`
+### 22. String sub-fields in multi-field ERDs
 
-186 `switch`-domain ERDs with `bool` type fields lack explicit `values` in their data. Of these:
-- **74** have `paired_erd` — the pairing provides the value mapping (01/00).
-- **112** do not have `paired_erd` — these are multi-field bool switches (e.g., `0x3086` Enable Features, `0x7901` ODU Dip Switch Settings) where the bool payload is implicitly `01`/`00`.
-
-This is correct — bool switches don't need explicit `values` when the payload is binary on/off.
-### 23. String sub-fields in multi-field ERDs
-
-The generator (`generate_ha_discovery.py`) supports `string` type sub-fields within multi-field ERDs. When a multi-field ERD has a `string` type field, the `_byte_subfield_value_template()` function generates a Jinja2 template that:
-
-1. Slices the correct hex range from the full ERD payload based on the field's `offset` and `size`.
-2. Converts each hex byte pair to its ASCII character (0x20–0x7E printable range).
-3. Skips null bytes and non-printable characters.
-4. Strips trailing `_` padding characters.
-
-This produces the same result as single-field string ERDs like Model Number (`0x0001`) and Serial Number (`0x0002`). The template uses Jinja2's `chr()` function for character conversion.
-
-**Example**: `0x5411` (Precision Cooking Short Name Cavity 1 Status) has a 16-byte `Short Name` string field at offset 0. The generated template slices `value[0:32]` (16 bytes = 32 hex chars), converts to ASCII, and strips trailing `_`.
-
-**Limitation**: Only the first non-reserved, non-bitfield field in a `mixed` classification ERD gets the primary value template. String sub-fields in `mixed` ERDs are not automatically handled — they require `byte_offset` classification.
-
-### 24. `last_reviewed` field
-
-Each data field in an ERD may have a `last_reviewed` timestamp field (ISO 8601 UTC format, e.g. `"2026-07-01T20:22:20Z"`). This records when a human or subagent last reviewed the field's metadata (ha_domain, device_class, unit_of_measurement, etc.) against AGENTS.md specifications.
-
-- **Purpose**: Track review progress across the ~2,200 ERDs. Fields without `last_reviewed` are unreviewed.
-- **Placement**: `last_reviewed` is a data-field-level field (inside each object in the `data` array), not an ERD-level field.
-- **Update rule**: Every time you review an ERD's fields (even if no changes are needed), update `last_reviewed` on each reviewed field to the current time.
-- **Format**: ISO 8601 UTC timestamp with `Z` suffix. No milliseconds needed.
-
-**Example**:
-```json
-{
-  "name": "Desired Temperature",
-  "type": "u16",
-  "offset": 0,
-  "size": 2,
-  "device_class": "temperature",
-  "unit_of_measurement": "°F",
-  "last_reviewed": "2026-07-01T20:22:20Z"
-}
-```
-
-**Workflow**: When reviewing ERDs in batches, update `last_reviewed` on all reviewed fields at the end of the batch. This lets you quickly identify which ERDs still need review by checking for missing `last_reviewed` values.
+The generator (`generate_ha_discovery.py`) supports `string` type sub-fields within multi-field ERDs. When a multi-field ERD has a `string` type field, the `_byte_subfield_value_template()` function generates a Jinja2 template that slices the correct hex range, converts to ASCII, skips null bytes, and strips trailing `_` padding.
