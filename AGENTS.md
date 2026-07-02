@@ -217,7 +217,7 @@ When an ERD has more than one data field, each non-reserved sub-field becomes it
 | Data type | Preferred domain | Notes |
 |---|---|---|
 | `bool` | `binary_sensor`, `switch`, or `button` | Read-only on/off → `binary_sensor`. Writable toggle → `switch`. One-shot command → `button`. If the bool is part of a larger multi-field ERD, each bit gets its own `binary_sensor` entity. |
-| `enum` with 2 values (On/Off, Enable/Disable, etc.) | `switch` if writable, `binary_sensor` if read-only | If the enum values are descriptive labels (e.g. Fahrenheit/Celsius, 12-hour/24-hour) rather than on/off states → `select` (writable) or `sensor` with `device_class: "enum"` (read-only). If the enum has >2 values → `select` (writable) or `sensor` with `device_class: "enum"` (read-only). |
+| `enum` with 2 values (On/Off, Enable/Disable, etc.) | `switch` if writable, `binary_sensor` if read-only | If the enum values are descriptive labels (e.g. Fahrenheit/Celsius, 12-hour/24-hour) rather than on/off states → `select` (writable) or `sensor` with `device_class: "enum"` (read-only). If the enum has >2 values → `select` (writable) or `sensor` with `device_class: "enum"` (read-only). **Note**: "descriptive labels" means values that are not simple on/off states — e.g. "12 Hour Time"/"24 Hour Time"/"No Clock Display" or "Normal"/"Boost". If values are "On"/"Off", "Locked"/"Not Locked", "Enabled"/"Disabled" → treat as On/Off pair, use `switch`/`binary_sensor`. |
 | `enum` with >2 values | `select` if writable, `sensor` with `device_class: "enum"` if read-only | |
 | `u8`, `u16`, `u32`, `i8`, `i16`, `i32` | `sensor` (read-only), `number` (writable) | Apply `scaling_factor` if present. Signed types need two's-complement handling. |
 | `string` | `sensor` | ASCII hex-decoded. Typically model/serial numbers. |
@@ -227,12 +227,15 @@ When an ERD has more than one data field, each non-reserved sub-field becomes it
 
 - A `bool`-typed field assigned to `switch` is correct when the field is writable (request/response pattern).
 - A `bool`-typed field assigned to `button` is correct when it's a one-shot command (write-and-forget).
+- **Clarification**: Writable bools should almost always be `switch`, not `binary_sensor`. If the ERD has a `paired_erd` (request/status pattern), it's writable → `switch`. If the ERD has no `paired_erd` and the bool is read-only → `binary_sensor`.
+- **One-shot commands**: Use `button` only for true one-shot commands that don't have a paired status ERD (e.g., "Restart", "Factory Reset"). If the ERD has a `paired_erd` or `values` map, it's a toggle → `switch`, not `button`.
 ### 4. Enum-specific rules
 
 - **2-value enums** (e.g. `{"0": "Off", "1": "On"}`):
   - Writable → `switch` (toggle control)
   - Read-only → `binary_sensor` (state monitoring)
   - **Exception**: If the 2 values are descriptive labels (e.g. Fahrenheit/Celsius, 12-hour/24-hour) rather than on/off states → `select` (writable) or `sensor` with `device_class: "enum"` (read-only).
+  - **Clarification**: "descriptive labels" means values that are not simple on/off states — e.g. "12 Hour Time"/"24 Hour Time"/"No Clock Display" or "Normal"/"Boost". If values are "On"/"Off", "Locked"/"Not Locked", "Enabled"/"Disabled" → treat as On/Off pair, use `switch`/`binary_sensor`.
 - **Multi-value enums** (3+ values):
   - Writable → `select` (dropdown control)
   - Read-only → `sensor` with `device_class: "enum"` (labeled display)
@@ -311,19 +314,26 @@ Skip entities whose names match these patterns (internal noise, not user-facing)
 - **DIP switch**: "dip switch"
 - **Most recent cycle**: "most recent cycle"
 - **Unused/reserved**: "unused", "reserved"
-- **Service mode**: "service mode"
 - **Operational errors**: "issue", "fault", "failure", "diagnostic"
 
+**Ambiguous patterns — explicit examples**: The following patterns have caused disagreement in reviews. Use these examples to guide decisions:
+
+- **Matter**: Filter ERDs whose names start with "Matter" and describe commissioning/internal protocol (e.g., "Matter Device On-Off Request", "Matter Fabric Count"). **Do NOT filter** Matter thermostat cluster ERDs that represent user-facing setpoints (e.g., "Matter Thermostat Cluster Occupied Cooling Setpoint Request").
+- **Push notification**: Filter ERDs containing "push notification" (e.g., "Push Notification Count"). **Do NOT filter** ERDs that describe user-facing notification states.
+- **Available**: Filter ERDs where "available" describes availability of internal features (e.g., "Image Capture Currently Available"). **Do NOT filter** ERDs where "available" describes user-facing feature availability (e.g., "Modification Available" for firmware updates).
+- **Fault**: Filter ERDs where "fault" describes actual fault conditions (e.g., "Fault Code", "Fault Detected"). **Do NOT filter** ERDs where "fault" appears in a diagnostic context (e.g., "Fault Code History" is diagnostics, but "Fault Status" may be user-facing).
+- **Raw type**: ERDs with `raw` type data fields should be filtered entirely — raw bytes have no semantic meaning for Home Assistant. This includes padding, hashes, and binary blobs.
+
+**Gray area**: If an ERD name matches a filter pattern but you're unsure, **keep it**. It's better to have an extra entity in Home Assistant than to miss a user-facing feature.
 ### 13. Device class assignment
 
 - `enum` device_class: for any sensor whose data type is `enum` or whose values are labeled text (not numeric).
-- `temperature`: fields with "temperature" in the name and a numeric type.
+- `temperature`: fields with "temperature" in the name and a numeric type. **Note**: `device_class: "temperature"` tells Home Assistant to group temperature sensors together on graphs, use temperature-appropriate UI formatting (1 decimal place for °F), and enables temperature-specific automation triggers. Without it, HA treats the sensor as a generic number.
 - `duration`: **ONLY for timestamp values** — i.e., sensors that report a point in time such as `sensor.last_triggered`, `sensor.last_seen`, `sensor.last_updated`. These are NOT user-input numeric values. **Do NOT use `device_class: "duration"` for timer settings, timeout values, delay minutes, cook times, runtime requests, or any other numeric input that represents a duration the user sets.** These should have `device_class: null` (or no device_class) with `unit_of_measurement` set appropriately (e.g., `"min"`, `"s"`).
 - `restart`: for button-type reset commands.
 - `door`, `moisture`, `battery`, `battery_charging`, `plug`, `power`: infer from field names matching known appliance states.
 - `voltage`, `current`, `power`, `energy`: infer from electrical measurements with appropriate units.
 - `timestamp`: for version strings (though `enum` or no device_class may be more appropriate).
-
 ### 13a. Number domain device_class rules
 
 The `number` domain represents **user-input numeric values** (writable setpoints, timers, levels). These are fundamentally different from `sensor` domain values which represent **read-only measurements**.
